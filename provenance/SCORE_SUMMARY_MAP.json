@@ -1,0 +1,65 @@
+[
+  {
+    "benchmark": "imgedit_737",
+    "role": "base",
+    "original_path": "outputs/quick_eval/imgedit_full737_extract_only/scores/qwen_edit_2509_baseline_imgedit_summary.json",
+    "release_path": "reproducibility/evidence/summaries/qwen_edit_2509_baseline_imgedit_summary.json",
+    "sha256": "246452986bfb4518faf4b8dd357269590ee2c2f3b6394a50bdb98941fbf9cf98",
+    "release_sha256": "0e81a9ecb2587e2d7a02420f24e416a558c586c371a6052ea8ac33b94c3eb15e",
+    "path_redactions": 8
+  },
+  {
+    "benchmark": "imgedit_737",
+    "role": "paper_headline_extract_v1",
+    "original_path": "outputs/quick_eval/imgedit_full737_extract_only/scores/extract_only_full737_summary.json",
+    "release_path": "reproducibility/evidence/summaries/extract_only_full737_summary.json",
+    "sha256": "78eb6e323aec33a399942e8a8ad3f2c5c913b3d48c5c7ddd9f3c18e1d4bead0d",
+    "release_sha256": "d537bbbd3c2318f225359a291ba43f8186903edae2d49c57784899022fda8d88",
+    "path_redactions": 9
+  },
+  {
+    "benchmark": "imgedit_737",
+    "role": "extract_replay_fix",
+    "original_path": "outputs/quick_eval/imgedit_full737_extract_replay_fix/scores/extract_replay_fix_full737_summary.json",
+    "release_path": "reproducibility/evidence/summaries/extract_replay_fix_full737_summary.json",
+    "sha256": "071f75e03a3bfcddfda5f9baf03a181769d879171beb89bda9a7cc66afe8ff0c",
+    "release_sha256": "69ccfce951fe6c7dc044867eb8c6266527088a7ebf5924b8817d91ebc092d9cd",
+    "path_redactions": 10
+  },
+  {
+    "benchmark": "gedit_full_1212",
+    "role": "base",
+    "original_path": "outputs/scores/gedit/qwen_edit_2509_baseline_gedit_summary.json",
+    "release_path": "reproducibility/evidence/summaries/qwen_edit_2509_baseline_gedit_summary.json",
+    "sha256": "987ff75d0cea0fe0e8d667bed2319d280b98f28ab4b73b312c8932f1917c8bf1",
+    "release_sha256": "859b5022fe7667002676851687c34b4426e55648622f4e287a0b4988926a83ff",
+    "path_redactions": 6
+  },
+  {
+    "benchmark": "gedit_full_1212",
+    "role": "round_loop_candidate",
+    "original_path": "outputs/scores/gedit/final_rubric_cepr_v1_512_r04_gedit_summary.json",
+    "release_path": "reproducibility/evidence/summaries/final_rubric_cepr_v1_512_r04_gedit_summary.json",
+    "sha256": "73b602be1306ab4544e6e5a67fcb9b718461dc93f8dc9150b1e5a9d5cf48cba4",
+    "release_sha256": "8b4b359828c8bd51bae80bcf0831763f40adee5151a242e8f608cf2045cdd228",
+    "path_redactions": 6
+  },
+  {
+    "benchmark": "complex_edit_real_c4_531",
+    "role": "base",
+    "original_path": "outputs/scores/complex_edit/qwen_edit_2509_official_diffusers_complex_edit_summary.json",
+    "release_path": "reproducibility/evidence/summaries/qwen_edit_2509_official_diffusers_complex_edit_summary.json",
+    "sha256": "1879ae8540bc37bca2a801a757fa8011d387567da3751b53ad0834ca8cc3eb94",
+    "release_sha256": "6570a168541a4f11c2dabc980901902d819b06222b1427f6f3404244fef68117",
+    "path_redactions": 5
+  },
+  {
+    "benchmark": "complex_edit_real_c4_531",
+    "role": "paper_headline_extract_v1",
+    "original_path": "outputs/scores/complex_edit/extract_v1_complex_c4_complex_edit_summary.json",
+    "release_path": "reproducibility/evidence/summaries/extract_v1_complex_c4_complex_edit_summary.json",
+    "sha256": "c5657a998b6aae1de28d1a00902db59a71db77138ddc3a2a1c40bc86a2d94ff0",
+    "release_sha256": "9975eeff812d6573c57c029b0d4bef55e585dfe37b47cd10c6e4db147896b08a",
+    "path_redactions": 5
+  }
+]

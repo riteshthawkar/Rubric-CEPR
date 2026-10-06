@@ -1,0 +1,98 @@
+{
+  "timestamp_utc": "20260528T072610Z",
+  "hostname": "h3c-nvlh200-H3C-UniServer-R5300-G6",
+  "user": "ritesh_thawkar",
+  "cwd": "<LEGACY_WORKSPACE>",
+  "repo_root": "<LEGACY_WORKSPACE>",
+  "git": {
+    "available": true,
+    "commit": "7b09d6b3df92b8d723722665fd83d7d35f90082f",
+    "dirty": true
+  },
+  "benchmark": "gedit",
+  "config_path": "<LEGACY_WORKSPACE>/configs/eval/gedit.yaml",
+  "model_name": "qwen_edit_2509_baseline_gedit",
+  "score_dir": "<LEGACY_WORKSPACE>/outputs/scores/gedit",
+  "score_log": "<LEGACY_WORKSPACE>/outputs/logs/gedit_score_20260528T070609Z.log",
+  "stats_log": "<LEGACY_WORKSPACE>/outputs/logs/gedit_stats_20260528T070609Z.log",
+  "scoring": {
+    "backbone": "gpt4o",
+    "expected_openai_model": "gpt-4.1"
+  },
+  "metrics": {
+    "groups": {
+      "background_change": {
+        "semantics": 9.225,
+        "quality": 7.7125,
+        "overall": 8.311862987089238,
+        "count": 80
+      },
+      "color_alter": {
+        "semantics": 9.0625,
+        "quality": 7.775,
+        "overall": 8.109756369481456,
+        "count": 80
+      },
+      "material_alter": {
+        "semantics": 8.9625,
+        "quality": 6.825,
+        "overall": 7.595748370261498,
+        "count": 80
+      },
+      "motion_change": {
+        "semantics": 8.8375,
+        "quality": 8.6375,
+        "overall": 8.51994816502629,
+        "count": 80
+      },
+      "ps_human": {
+        "semantics": 7.9,
+        "quality": 8.007142857142858,
+        "overall": 7.536646820721426,
+        "count": 140
+      },
+      "style_change": {
+        "semantics": 8.158333333333333,
+        "quality": 6.533333333333333,
+        "overall": 7.116576019436297,
+        "count": 120
+      },
+      "subject-add": {
+        "semantics": 9.45,
+        "quality": 8.291666666666666,
+        "overall": 8.75269668909482,
+        "count": 120
+      },
+      "subject-remove": {
+        "semantics": 9.394736842105264,
+        "quality": 8.517543859649123,
+        "overall": 8.80013497446638,
+        "count": 114
+      },
+      "subject-replace": {
+        "semantics": 9.208333333333334,
+        "quality": 7.541666666666667,
+        "overall": 8.215629952637359,
+        "count": 120
+      },
+      "text_change": {
+        "semantics": 8.883838383838384,
+        "quality": 8.424242424242424,
+        "overall": 8.410934122077348,
+        "count": 198
+      },
+      "tone_transfer": {
+        "semantics": 7.925,
+        "quality": 8.45,
+        "overall": 7.864835443469033,
+        "count": 80
+      }
+    },
+    "backbone": "gpt4o",
+    "average": {
+      "semantics": 8.807755775577558,
+      "quality": 7.917491749174918,
+      "overall": 8.123821224692906
+    }
+  }
+}

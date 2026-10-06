@@ -1,0 +1,167 @@
+schema_version: 1
+name: paper_headline_extract_v1
+description: >-
+  Exact reconstruction contract for the surviving extraction-only checkpoint.
+  This contract intentionally describes the artifact that was actually trained;
+  it is not the broader Planner/CEPR/replay method described in the paper.
+
+model:
+  pretrained_model_name_or_path: Qwen/Qwen-Image-Edit-2509
+  revision: d3968ef930e841f4c73640fb8afa3b306a78167e
+  pipeline_class: QwenImageEditPlusPipeline
+  detector_model: IDEA-Research/grounding-dino-tiny
+  detector_revision: a2bb814dd30d776dcf7e30523b00659f4f141c71
+
+data:
+  manifest: reproducibility/manifests/paper_headline_extract_v1.json
+  sha256: 8f1b5d17c3c7ca197ed28e92917a979c427b9e4aef20b3d0cfa3b63bbd7ba664
+  artifact_manifest: reproducibility/manifests/paper_headline_extract_v1_artifacts.json
+  artifact_manifest_sha256: 7de62e8d70713c390de16e82635a63ff9b16ec92130abfdd41e9f14802bb0302
+  expected_artifact_references: 128
+  expected_unique_artifacts: 128
+  original_snapshot_sha256: 1a342c0eb50a02fc0ddf529573b963330bd503c84b7963270dd5ec32a9bcef22
+  original_snapshot_path: outputs/edit_pairs/extract_selfdistill/sft_train_manifest_merged.json
+  byte_difference_note: >-
+    The tracked copy has one final newline added by source control. Its decoded
+    JSON rows are identical to the original snapshot whose hash is recorded
+    above; training consumes decoded rows, so this is semantically identical.
+  expected_rows: 64
+  required_fields:
+    - prompt
+    - image
+    - edit_image
+    - sample_weight
+    - family
+    - record_key
+  unique_fields:
+    - record_key
+    - image
+    - edit_image
+  expected_family_counts:
+    extract: 64
+  expected_sample_weight:
+    minimum: 1.0
+    maximum: 1.0
+    mean: 1.0
+  snapshot_provenance:
+    first_shard_rows: 29
+    second_shard_prefix_rows: 35
+    note: >-
+      The merged file is the complete first shard followed by the first 35 rows
+      of the second shard. It was snapshotted while the second shard was still
+      being mined and must not be rebuilt from the second shard's final 80 rows.
+
+disjointness:
+  benchmark_json: data/processed/benchmark/imgedit/basic_edit.json
+  benchmark_image_root: data/processed/benchmark/imgedit/original_images
+  benchmark_image_field: id
+  require_zero_basename_overlap: true
+  require_zero_sha256_overlap: true
+
+training:
+  max_train_steps: 400
+  learning_rate: 1.0e-4
+  train_batch_size: 1
+  gradient_accumulation_steps: 1
+  resolution: 1024
+  condition_resolution: 384
+  max_pixels: 1048576
+  condition_pixels: 147456
+  preserve_aspect_ratio: true
+  max_sequence_length: 512
+  scheduler_shift: 3.0
+  weighting_scheme: none
+  logit_mean: 0.0
+  logit_std: 1.0
+  mode_scale: 1.29
+  optimizer: AdamW
+  adam_beta1: 0.9
+  adam_beta2: 0.999
+  adam_weight_decay: 1.0e-4
+  adam_epsilon: 1.0e-8
+  max_grad_norm: 1.0
+  mixed_precision: bf16
+  allow_tf32: true
+  seed: 123
+  world_size: 1
+  lora:
+    rank: 16
+    alpha: 16
+    dropout: 0.0
+    layers: to_q,to_k,to_v,to_out.0,add_q_proj,add_k_proj,add_v_proj,to_add_out
+    warm_start: null
+    reference_l2_weight: 0.0
+    reference_max_relative_delta: 0.0
+
+mining:
+  candidates_per_source: 4
+  num_inference_steps: 30
+  true_cfg_scale: 4.0
+  guidance_scale: 1.0
+  negative_prompt: " "
+  reward_gate: 0.15
+
+evaluation:
+  backend: official_diffusers
+  seed: 42
+  num_inference_steps: 40
+  true_cfg_scale: 4.0
+  guidance_scale: 1.0
+  negative_prompt: " "
+  preserve_input_resolution: false
+  expected_benchmark_rows: 737
+
+historic_artifact:
+  checkpoint: outputs/self_evolve/fix_experiments/extract_selfdistill_v1/training_output/pytorch_lora_weights.safetensors
+  sha256: 118ffe5d4a86d33a836eb07c4ce063fad7096988072067c48f86636380047942
+  expected_lora_tensors: 960
+
+environment:
+  python: 3.11.15
+  packages:
+    torch: 2.11.0
+    torchvision: 0.26.0
+    diffusers: 0.38.0
+    transformers: 5.8.1
+    accelerate: 1.13.0
+    peft: 0.19.1
+    safetensors: 0.8.0rc0
+    huggingface_hub: 1.15.0
+    openai: 2.38.0
+    numpy: 2.4.4
+    Pillow: 12.2.0
+
+implementation:
+  loader_compatibility:
+    entrypoint: src/qwen_edit_project/train/diffusers_qwen_edit_lora_reproduction_v1.py
+    frozen_trainer: src/qwen_edit_project/train/diffusers_qwen_edit_lora.py
+    scope: processor_folder_component_loading_only
+    rationale: >-
+      Transformers 5.8.1 cannot generically load the official processor folder
+      because that folder has no model config.json. The compatibility entrypoint
+      directly loads the Qwen2 tokenizer, image processor, and video processor
+      from the same pinned processor folder, constructs Qwen2VLProcessor, and
+      delegates all training behavior to the unchanged frozen trainer.
+    unchanged_semantics:
+      - training_data
+      - training_objective
+      - optimizer
+      - schedule
+      - random_seed
+      - model_revision
+      - lora_configuration
+  artifacts:
+    - path: src/qwen_edit_project/train/diffusers_qwen_edit_lora.py
+      sha256: 0d033ef25ec85d4b80fdd00f594badb4223ec7ff481d9cd32c1109d1f6783b84
+    - path: src/qwen_edit_project/train/diffusers_qwen_edit_lora_reproduction_v1.py
+      sha256: e60f1d81347d52841214ac27b81fae511847126b7387eba63526981d0497ac96
+    - path: src/qwen_edit_project/train/training_safety.py
+      sha256: 45497e00114022b0cf94090b2ac92e929cc763eaeb2b4bc2d0ff34cbe81f198e
+    - path: scripts/run_paper_headline_extract_v1.sh
+      sha256: 2ea496a3ec91c019c42f424e1ae015bd5bd1936e390755044bdb5c668055e44f
+    - path: scripts/validate_reproduction_contract.py
+      sha256: 7005e6de1d88206dc405e4afeee40e53fce25d9699d7524cf93521c52ac7d582
+    - path: scripts/validate_training_receipt.py
+      sha256: f783d5c3cf19237f974a39e84502c5bf505cbc4c072389b9330e17d510a24dcf
+    - path: scripts/lib/slurm_guard.sh
+      sha256: a8917bec4765f6a5f0ca6c0a643541c6352d2e3a5fec9f178563c0bd2bfc05f6

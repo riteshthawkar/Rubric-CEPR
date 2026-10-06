@@ -1,0 +1,87 @@
+name: qwen_edit_2509_lora_diffusers
+mode: lora
+runtime:
+  backend: diffusers
+  accelerate_executable: accelerate
+  working_dir: .
+  train_script: src/qwen_edit_project/train/diffusers_qwen_edit_lora_reproduction_v1.py
+  env_file: null
+  dry_run: false
+model:
+  pretrained_model_name_or_path: Qwen/Qwen-Image-Edit-2509
+  model_id_with_origin_paths: Qwen/Qwen-Image-Edit-2509:transformer/diffusion_pytorch_model*.safetensors,Qwen/Qwen-Image:text_encoder/model*.safetensors,Qwen/Qwen-Image:vae/diffusion_pytorch_model.safetensors
+  backend: official_diffusers
+  torch_dtype: auto
+  revision: d3968ef930e841f4c73640fb8afa3b306a78167e
+  variant: null
+  local_files_only: false
+dataset:
+  dataset_base_path: data/processed/train
+  dataset_metadata_path: data/manifests/train_metadata_qwen_edit.json
+  image_key: image
+  condition_image_key: edit_image
+  prompt_key: prompt
+  dataset_repeat: 1
+  dataset_num_workers: 0
+training:
+  learning_rate: 0.0001
+  num_epochs: 5
+  max_train_steps: null
+  train_batch_size: 1
+  gradient_accumulation_steps: 1
+  use_gradient_checkpointing: true
+  resolution: 1024
+  condition_resolution: 384
+  max_pixels: 1048576
+  condition_pixels: 147456
+  preserve_aspect_ratio: true
+  max_sequence_length: 512
+  scheduler_shift: 3.0
+  weighting_scheme: none
+  logit_mean: 0.0
+  logit_std: 1.0
+  mode_scale: 1.29
+  lr_scheduler: constant
+  lr_warmup_steps: 0
+  lr_num_cycles: 1
+  lr_power: 1.0
+  optimizer: AdamW
+  use_8bit_adam: false
+  adam_beta1: 0.9
+  adam_beta2: 0.999
+  adam_weight_decay: 0.0001
+  adam_epsilon: 1.0e-08
+  max_grad_norm: 1.0
+  checkpointing_steps: 100
+  checkpoints_total_limit: 5
+  resume_from_checkpoint: null
+  mixed_precision: bf16
+  allow_tf32: true
+  offload: true
+  report_to: tensorboard
+  seed: 123
+  upcast_before_saving: false
+output:
+  output_path: outputs/checkpoints/Qwen-Image-Edit-2509_lora_diffusers
+  command_file: outputs/logs/train_lora_diffusers_command.txt
+  log_dir: outputs/logs
+  logging_dir: logs
+  checkpoint_backend: official_diffusers
+lora:
+  lora_target_modules: to_q,to_k,to_v,add_q_proj,add_k_proj,add_v_proj,to_out.0,to_add_out,img_mlp.net.2,img_mod.1,txt_mlp.net.2,txt_mod.1
+  lora_rank: 32
+  lora_alpha: 32
+  lora_dropout: 0.0
+  lora_checkpoint: null
+resume:
+  enabled: false
+  extra_args: []
+extra_args: []
+validation:
+  prompt: Change the color of the dress in Figure 1 to the color shown in Figure 2.
+  edit_images: []
+  seed: 123
+  height: 1024
+  width: 1024
+  num_inference_steps: 40
+  negative_prompt: ' '

@@ -1,0 +1,719 @@
+diff --git a/GEdit-Bench/run_gedit_score.py b/GEdit-Bench/run_gedit_score.py
+index 2def4b5..64aa81a 100644
+--- a/GEdit-Bench/run_gedit_score.py
++++ b/GEdit-Bench/run_gedit_score.py
+@@ -3,24 +3,88 @@ import PIL
+ import os
+ import megfile
+ from PIL import Image
++from PIL import ImageOps
+ from tqdm import tqdm
+ from datasets import load_dataset, load_from_disk
+ import sys
+ import csv
++import hashlib
++import base64
++from io import BytesIO
++import json
+ import time
+ import argparse
+ import math
++import tempfile
+ from concurrent.futures import ThreadPoolExecutor, as_completed
+ import threading
+ from collections import defaultdict
+ 
++RAW_RESPONSE_SCHEMA = "gedit-viescore-item-response/v2"
++SOURCE_JUDGE_REPRESENTATION = "viescore-resized-jpeg-512-area-v1"
++
++
++def canonical_json_bytes(value):
++    return json.dumps(
++        value,
++        ensure_ascii=False,
++        allow_nan=False,
++        sort_keys=True,
++        separators=(",", ":"),
++    ).encode("utf-8")
++
++
++def publish_raw_response_exclusive(root, payload):
++    identity_raw = canonical_json_bytes(payload["identity"])
++    filename = hashlib.sha256(identity_raw).hexdigest() + ".json"
++    os.makedirs(root, mode=0o700, exist_ok=True)
++    final_path = os.path.join(root, filename)
++    raw = canonical_json_bytes(payload) + b"\n"
++    descriptor, temporary = tempfile.mkstemp(prefix=".raw-response-", dir=root)
++    try:
++        with os.fdopen(descriptor, "wb") as handle:
++            handle.write(raw)
++            handle.flush()
++            os.fsync(handle.fileno())
++        os.link(temporary, final_path)
++        directory_flags = os.O_RDONLY
++        if hasattr(os, "O_DIRECTORY"):
++            directory_flags |= os.O_DIRECTORY
++        directory_descriptor = os.open(root, directory_flags)
++        try:
++            os.fsync(directory_descriptor)
++        finally:
++            os.close(directory_descriptor)
++    except FileExistsError as exc:
++        raise RuntimeError(f"Raw response envelope already exists: {final_path}") from exc
++    finally:
++        try:
++            os.unlink(temporary)
++        except FileNotFoundError:
++            pass
++    return final_path
++
+ def calculate_dimensions(target_area, ratio):
+     width = math.sqrt(target_area * ratio)
+     height = width / ratio
+     new_area = width * height
+     return int(width), int(height), int(new_area)
+ 
+-def process_single_item(item, vie_score, max_retries=10000):
++
++def materialize_request_jpeg(image):
++    normalized = ImageOps.exif_transpose(image).convert("RGB")
++    buffer = BytesIO()
++    normalized.save(buffer, format="JPEG")
++    return buffer.getvalue(), normalized.size
++
++def process_single_item(
++    item,
++    vie_score,
++    max_retries=3,
++    retry_initial_backoff_seconds=2.0,
++    retry_max_backoff_seconds=30.0,
++    raw_response_root=None,
++):
+ 
+     instruction = item['instruction']
+     key = item['key']
+@@ -31,15 +95,70 @@ def process_single_item(item, vie_score, max_retries=10000):
+     for retry in range(max_retries):
+         try:
+             pil_image = item['input_image_raw'].convert("RGB")
++            source_width, source_height = pil_image.size
++            source_rgb = pil_image.tobytes("raw", "RGB")
++            source_image_evidence = {
++                "representation": "decoded_rgb8",
++                "width": source_width,
++                "height": source_height,
++                "bytes": len(source_rgb),
++                "sha256": hashlib.sha256(source_rgb).hexdigest(),
++            }
+             pil_image_edited = Image.open(megfile.smart_open(edit_image_path, 'rb')).convert("RGB")
+             source_img_width, source_img_height, source_img_area = calculate_dimensions(512 * 512, pil_image.width / pil_image.height)
+             edited_img_width, edited_img_height, edited_img_area = calculate_dimensions(512 * 512, pil_image_edited.width / pil_image_edited.height)
+             pil_image = pil_image.resize((int(source_img_width), int(source_img_height)))
+             pil_image_edited = pil_image_edited.resize((int(edited_img_width), int(edited_img_height)))
++            source_request_jpeg, source_request_size = materialize_request_jpeg(pil_image)
+             text_prompt = instruction
+-            score_list = vie_score.evaluate([pil_image, pil_image_edited], text_prompt)
++            score_list, provider_evidence = vie_score.evaluate(
++                [pil_image, pil_image_edited],
++                text_prompt,
++                return_evidence=True,
++            )
+             sementics_score, quality_score, overall_score = score_list
+ 
++            if raw_response_root is None:
++                raise RuntimeError("Raw response root is required for GEdit scoring")
++            identity = {
++                "task_type": str(item["task_type"]),
++                "instruction_language": str(instruction_language),
++                "key": str(key),
++                "instruction_sha256": hashlib.sha256(
++                    str(instruction).encode("utf-8")
++                ).hexdigest(),
++            }
++            with megfile.smart_open(edit_image_path, "rb") as image_handle:
++                edited_image_raw = image_handle.read()
++            publish_raw_response_exclusive(
++                raw_response_root,
++                {
++                    "schema": RAW_RESPONSE_SCHEMA,
++                    "identity": identity,
++                    "instruction": str(instruction),
++                    "source_image": source_image_evidence,
++                    "source_request_jpeg": {
++                        "representation": SOURCE_JUDGE_REPRESENTATION,
++                        "width": source_request_size[0],
++                        "height": source_request_size[1],
++                        "bytes": len(source_request_jpeg),
++                        "sha256": hashlib.sha256(source_request_jpeg).hexdigest(),
++                        "data_base64": base64.b64encode(source_request_jpeg).decode("ascii"),
++                    },
++                    "edited_image": {
++                        "path": str(edit_image_path),
++                        "bytes": len(edited_image_raw),
++                        "sha256": hashlib.sha256(edited_image_raw).hexdigest(),
++                    },
++                    "provider_transactions": provider_evidence,
++                    "derived_scores": {
++                        "semantics": sementics_score,
++                        "quality": quality_score,
++                        "overall": overall_score,
++                    },
++                },
++            )
++
+             print(f"sementics_score: {sementics_score}, quality_score: {quality_score}, overall_score: {overall_score}, instruction_language: {instruction_language}, instruction: {instruction}")
+             
+             return {
+@@ -53,12 +172,15 @@ def process_single_item(item, vie_score, max_retries=10000):
+             }
+         except Exception as e:
+             if retry < max_retries - 1:
+-                wait_time = (retry + 1) * 2  # 指数退避：2秒, 4秒, 6秒...
++                wait_time = min(
++                    retry_initial_backoff_seconds * (2 ** retry),
++                    retry_max_backoff_seconds,
++                )
+                 print(f"Error processing (attempt {retry + 1}/{max_retries}): {e}")
+                 print(f"Waiting {wait_time} seconds before retry...")
+                 time.sleep(wait_time)
+             else:
+-                print(f"Failed to process {save_path_item} after {max_retries} attempts: {e}")
++                print(f"Failed to process {key} after {max_retries} attempts: {e}")
+                 return
+ 
+ def find_files_with_given_basename(folder_path, basename):
+@@ -75,7 +197,27 @@ if __name__ == "__main__":
+     "ps_human", "style_change", "subject-add", "subject-remove", "subject-replace", "text_change", "tone_transfer"])
+     parser.add_argument("--save_dir", type=str, default="csv_results")
+     parser.add_argument("--backbone", type=str, default="gpt4o", choices=["gpt4o", "qwen25vl"])
++    parser.add_argument("--dataset_name", type=str, default="stepfun-ai/GEdit-Bench")
++    parser.add_argument("--dataset_revision", type=str, default=None)
++    parser.add_argument("--dataset_split", type=str, default="train")
++    parser.add_argument("--request_timeout_seconds", type=float, default=60.0)
++    parser.add_argument("--thread_workers", type=int, default=6)
++    parser.add_argument("--item_max_retries", type=int, default=3)
++    parser.add_argument("--retry_initial_backoff_seconds", type=float, default=2.0)
++    parser.add_argument("--retry_max_backoff_seconds", type=float, default=30.0)
+     args = parser.parse_args()
++    if args.request_timeout_seconds <= 0:
++        parser.error("--request_timeout_seconds must be positive")
++    if args.thread_workers <= 0:
++        parser.error("--thread_workers must be positive")
++    if args.item_max_retries <= 0:
++        parser.error("--item_max_retries must be positive")
++    if args.retry_initial_backoff_seconds < 0:
++        parser.error("--retry_initial_backoff_seconds must be non-negative")
++    if args.retry_max_backoff_seconds < args.retry_initial_backoff_seconds:
++        parser.error(
++            "--retry_max_backoff_seconds must be at least --retry_initial_backoff_seconds"
++        )
+     model_name = args.model_name
+     edited_images_dir = args.edited_images_dir
+     instruction_language = args.instruction_language
+@@ -88,10 +230,19 @@ if __name__ == "__main__":
+         groups = [args.task_type]
+ 
+     # Load GEdit-Bench dataset and group by task type
+-    vie_score = VIEScore(backbone=backbone, task="tie", key_path='secret.env')
+-    dataset = load_dataset("stepfun-ai/GEdit-Bench")
++    vie_score = VIEScore(
++        backbone=backbone,
++        task="tie",
++        key_path='secret.env',
++        request_timeout_seconds=args.request_timeout_seconds,
++    )
++    dataset = load_dataset(
++        args.dataset_name,
++        revision=args.dataset_revision,
++        split=args.dataset_split,
++    )
+     dataset_by_group = defaultdict(list)
+-    for i, item in tqdm(enumerate(dataset['train']), desc=f"Loading GEdit-Bench dataset..."):
++    for i, item in tqdm(enumerate(dataset), desc=f"Loading GEdit-Bench dataset..."):
+         if instruction_language == "all" or item['instruction_language'] == instruction_language:
+             dataset_by_group[item['task_type']].append(item)
+     for k, v in dataset_by_group.items():
+@@ -99,6 +250,7 @@ if __name__ == "__main__":
+     
+     # Evaluate each group
+     save_path_new = os.path.join(save_dir, model_name, backbone)
++    raw_response_root = os.path.join(save_path_new, "raw_responses")
+     for group_name in groups:
+         group_csv_list = []
+         group_dataset_list = dataset_by_group[group_name]
+@@ -113,7 +265,7 @@ if __name__ == "__main__":
+             continue
+         
+         if backbone == "gpt4o":
+-            with ThreadPoolExecutor(max_workers=6) as executor:
++            with ThreadPoolExecutor(max_workers=args.thread_workers) as executor:
+                 futures = []
+                 for item in group_dataset_list:
+                     key = item['key']
+@@ -126,7 +278,15 @@ if __name__ == "__main__":
+                         continue
+ 
+                     # Check if this sample has already been processed
+-                    future = executor.submit(process_single_item, item, vie_score)
++                    future = executor.submit(
++                        process_single_item,
++                        item,
++                        vie_score,
++                        args.item_max_retries,
++                        args.retry_initial_backoff_seconds,
++                        args.retry_max_backoff_seconds,
++                        raw_response_root,
++                    )
+                     futures.append(future)
+                 
+                 for future in tqdm(as_completed(futures), total=len(futures), desc=f"Processing {model_name} - {group_name}"):
+@@ -145,15 +305,36 @@ if __name__ == "__main__":
+                     print(key, "not found in", edited_images_path)
+                     continue
+ 
+-                result = process_single_item(item, vie_score)
++                result = process_single_item(
++                    item,
++                    vie_score,
++                    args.item_max_retries,
++                    args.retry_initial_backoff_seconds,
++                    args.retry_max_backoff_seconds,
++                    raw_response_root,
++                )
+                 if result:
+                     group_csv_list.append(result)
+ 
+-        # Save group-specific CSV
++        # Save group-specific CSV in a canonical order independent of thread completion.
++        group_csv_list.sort(
++            key=lambda row: (
++                str(row["instruction_language"]),
++                str(row["key"]),
++            )
++        )
++        identities = [
++            (str(row["instruction_language"]), str(row["key"]))
++            for row in group_csv_list
++        ]
++        if len(identities) != len(set(identities)):
++            raise RuntimeError(
++                f"Duplicate GEdit score identity before CSV publication: {group_name}"
++            )
+         with megfile.smart_open(group_csv_path, 'w', newline='') as f:
+             fieldnames = ["key", "edited_image", "instruction", "sementics_score", "quality_score", "intersection_exist", "instruction_language"]
+             writer = csv.DictWriter(f, fieldnames=fieldnames)
+             writer.writeheader()
+             for row in group_csv_list:  
+                 writer.writerow(row)
+-        print(f"Saved group CSV for {group_name}, length： {len(group_csv_list)}")
+\ No newline at end of file
++        print(f"Saved group CSV for {group_name}, length： {len(group_csv_list)}")
+diff --git a/GEdit-Bench/viescore/__init__.py b/GEdit-Bench/viescore/__init__.py
+index f2d9437..2705fa9 100644
+--- a/GEdit-Bench/viescore/__init__.py
++++ b/GEdit-Bench/viescore/__init__.py
+@@ -1,14 +1,18 @@
+ import sys
+ sys.path.insert(0, 'viescore')
+ 
+-from utils import (
+-    mllm_output_to_dict
+-)
++import json
+ import math
+ import vie_prompts
+ 
+ class VIEScore:
+-    def __init__(self, backbone="gpt4o", task="t2i", key_path=None) -> None:
++    def __init__(
++        self,
++        backbone="gpt4o",
++        task="t2i",
++        key_path=None,
++        request_timeout_seconds=60.0,
++    ) -> None:
+         self.task = task
+         self.backbone_name = backbone
+ 
+@@ -17,10 +21,17 @@ class VIEScore:
+ 
+         if self.backbone_name == "gpt4o":
+             from mllm_tools.openai import GPT4o
+-            self.model = GPT4o(key_path, model_name="gpt-4.1")
++            self.model = GPT4o(
++                key_path,
++                model_name="gpt-4.1",
++                request_timeout_seconds=request_timeout_seconds,
++            )
+         elif self.backbone_name == "gpt4v":
+             from mllm_tools.openai import GPT4v
+-            self.model = GPT4v(key_path)
++            self.model = GPT4v(
++                key_path,
++                request_timeout_seconds=request_timeout_seconds,
++            )
+         elif self.backbone_name == "gemini":
+             from mllm_tools.gemini import Gemini
+             self.model = Gemini()
+@@ -49,7 +60,48 @@ class VIEScore:
+             self.SC_prompt = "\n".join([self.context, vie_prompts._prompts_0shot_one_video_gen_rule, vie_prompts._prompts_0shot_t2v_rule_SC])
+             self.PQ_prompt = "\n".join([self.context, vie_prompts._prompts_0shot_t2v_rule_PQ])
+ 
+-    def evaluate(self, image_prompts, text_prompt, extract_overall_score_only=False, extract_all_score=True, echo_output=False):
++    @staticmethod
++    def _strict_score_payload(raw_value, label):
++        if not isinstance(raw_value, str):
++            raise ValueError(f"Strict VIEScore parser rejected non-text {label} output")
++        text = raw_value.strip()
++        if text.startswith("```") and text.endswith("```"):
++            lines = text.splitlines()
++            if len(lines) < 3 or lines[0].strip().lower() not in {"```", "```json"}:
++                raise ValueError(f"Strict VIEScore parser rejected {label} code fence")
++            text = "\n".join(lines[1:-1]).strip()
++        try:
++            value, end = json.JSONDecoder().raw_decode(text)
++        except (json.JSONDecodeError, TypeError) as exc:
++            raise ValueError(f"Strict VIEScore parser rejected malformed {label} JSON") from exc
++        if text[end:].strip():
++            raise ValueError(f"Strict VIEScore parser rejected trailing {label} output")
++        if not isinstance(value, dict) or set(value) != {"score", "reasoning"}:
++            raise ValueError(f"Strict VIEScore parser rejected {label} schema")
++        if not isinstance(value.get("reasoning"), str):
++            raise ValueError(f"Strict VIEScore parser rejected {label} reasoning")
++        scores = value.get("score")
++        if not isinstance(scores, list) or not scores:
++            raise ValueError(f"Strict VIEScore parser found no {label} scores")
++        for score in scores:
++            if (
++                isinstance(score, bool)
++                or not isinstance(score, (int, float))
++                or not math.isfinite(float(score))
++                or not 0 <= float(score) <= 10
++            ):
++                raise ValueError(f"Strict VIEScore parser rejected invalid {label} score")
++        return value
++
++    def evaluate(
++        self,
++        image_prompts,
++        text_prompt,
++        extract_overall_score_only=False,
++        extract_all_score=True,
++        echo_output=False,
++        return_evidence=False,
++    ):
+         if not isinstance(image_prompts, list):
+             image_prompts = [image_prompts]
+         if self.backbone_name in ['gpt4o', 'gpt4v']:
+@@ -67,32 +119,44 @@ class VIEScore:
+         else:
+             PQ_prompt_final = self.model.prepare_prompt(image_prompts, self.PQ_prompt)
+ 
+-        results_dict = {}
+-
+-        SC_dict = False
+-        PQ_dict = False
+-        tries = 0
+-        max_tries = 1
+-        while SC_dict is False or PQ_dict is False:
+-            tries += 1
+-            guess_if_cannot_parse = True if tries > max_tries else False
++        if return_evidence:
++            result_SC, evidence_SC = self.model.get_parsed_output(
++                SC_prompt_final,
++                return_evidence=True,
++            )
++        else:
+             result_SC = self.model.get_parsed_output(SC_prompt_final)
++            evidence_SC = None
++        SC_dict = self._strict_score_payload(
++            result_SC,
++            "semantic consistency",
++        )
++        if return_evidence:
++            result_PQ, evidence_PQ = self.model.get_parsed_output(
++                PQ_prompt_final,
++                return_evidence=True,
++            )
++        else:
+             result_PQ = self.model.get_parsed_output(PQ_prompt_final)
+-            SC_dict = mllm_output_to_dict(result_SC, give_up_parsing=guess_if_cannot_parse)
+-            PQ_dict = mllm_output_to_dict(result_PQ, give_up_parsing=guess_if_cannot_parse)
+-
+-        if SC_dict == "rate_limit_exceeded" or PQ_dict == "rate_limit_exceeded":
+-            print("rate_limit_exceeded") 
+-            raise ValueError("rate_limit_exceeded")
+-        results_dict['SC'] = SC_dict
+-        results_dict['PQ'] = PQ_dict
++            evidence_PQ = None
++        PQ_dict = self._strict_score_payload(
++            result_PQ,
++            "perceptual quality",
++        )
++        results_dict = {'SC': SC_dict, 'PQ': PQ_dict}
+         if echo_output:
+             print("results_dict", results_dict)
+         if extract_all_score:
+             SC_score = min(results_dict['SC']['score'])
+             PQ_score = min(results_dict['PQ']['score'])
+             O_score = math.sqrt(SC_score * PQ_score)
+-            return [SC_score, PQ_score, O_score]
++            scores = [SC_score, PQ_score, O_score]
++            if return_evidence:
++                return scores, {
++                    "semantic_consistency": evidence_SC,
++                    "perceptual_quality": evidence_PQ,
++                }
++            return scores
+         if extract_overall_score_only:
+             SC_scores = results_dict['SC']['score']
+             PQ_scores = results_dict['PQ']['score']
+@@ -112,4 +176,3 @@ if __name__ == "__main__":
+         prompt = dataset['prompt'][idx]
+         print(model.evaluate(left_image, prompt, extract_all_score=True))
+         print(model.evaluate(right_image, prompt, extract_all_score=True))
+-
+diff --git a/GEdit-Bench/viescore/mllm_tools/openai.py b/GEdit-Bench/viescore/mllm_tools/openai.py
+index 129f8fa..f9899b3 100644
+--- a/GEdit-Bench/viescore/mllm_tools/openai.py
++++ b/GEdit-Bench/viescore/mllm_tools/openai.py
+@@ -1,4 +1,6 @@
+ import base64
++import hashlib
++import json
+ import requests
+ from io import BytesIO, StringIO
+ from typing import Union, Optional, Tuple, List
+@@ -38,6 +40,58 @@ def encode_pil_image(pil_image):
+     return base64_image
+ 
+ 
++def _canonical_json_bytes(value):
++    return json.dumps(
++        value,
++        ensure_ascii=False,
++        allow_nan=False,
++        sort_keys=True,
++        separators=(",", ":"),
++    ).encode("utf-8")
++
++
++def _sanitized_request_evidence(payload, *, endpoint, timeout_seconds):
++    content = payload["messages"][0]["content"]
++    text_records = []
++    image_records = []
++    for index, item in enumerate(content):
++        if item.get("type") == "text":
++            raw = str(item.get("text", "")).encode("utf-8")
++            text_records.append(
++                {"index": index, "bytes": len(raw), "sha256": hashlib.sha256(raw).hexdigest()}
++            )
++        elif item.get("type") == "image_url":
++            url = str(item.get("image_url", {}).get("url", ""))
++            if url.startswith("data:") and ";base64," in url:
++                media_type, encoded = url.split(";base64,", 1)
++                raw = base64.b64decode(encoded, validate=True)
++                image_records.append(
++                    {
++                        "index": index,
++                        "media_type": media_type.removeprefix("data:"),
++                        "bytes": len(raw),
++                        "sha256": hashlib.sha256(raw).hexdigest(),
++                    }
++                )
++            else:
++                image_records.append(
++                    {
++                        "index": index,
++                        "url_sha256": hashlib.sha256(url.encode("utf-8")).hexdigest(),
++                    }
++                )
++    return {
++        "endpoint": endpoint,
++        "model": payload["model"],
++        "max_tokens": payload["max_tokens"],
++        "stream": payload["stream"],
++        "timeout_seconds": timeout_seconds,
++        "messages_sha256": hashlib.sha256(_canonical_json_bytes(payload["messages"])).hexdigest(),
++        "text_parts": text_records,
++        "image_parts": image_records,
++    }
++
++
+ def load_image(image: Union[str, Image.Image], format: str = "RGB", size: Optional[Tuple] = None) -> Image.Image:
+     """
+     Load an image from a given path or URL and convert it to a PIL Image.
+@@ -75,7 +129,13 @@ def load_image(image: Union[str, Image.Image], format: str = "RGB", size: Option
+     return image
+ 
+ class GPT4v():
+-    def __init__(self, api_key_path='keys/secret.env', are_images_encoded=False, model_name="gpt-4-vision-preview"):
++    def __init__(
++        self,
++        api_key_path='keys/secret.env',
++        are_images_encoded=False,
++        model_name="gpt-4-vision-preview",
++        request_timeout_seconds=60.0,
++    ):
+         """OpenAI GPT-4-vision model wrapper
+         Args:
+             api_key_path (str): Path to the API key file. Defaults to 'keys/secret.env'.
+@@ -99,6 +159,9 @@ class GPT4v():
+         self.url = "https://api.openai.com/v1/chat/completions"
+         self.model_name = model_name
+         self.use_encode = are_images_encoded
++        self.request_timeout_seconds = float(request_timeout_seconds)
++        if self.request_timeout_seconds <= 0:
++            raise ValueError("request_timeout_seconds must be positive")
+ 
+     def prepare_prompt(self, image_links: List = [], text_prompt: str = ""):
+         prompt_content = []
+@@ -125,7 +188,7 @@ class GPT4v():
+             prompt_content.append(visual_dict)
+         return prompt_content
+ 
+-    def get_parsed_output(self, prompt):
++    def get_parsed_output(self, prompt, return_evidence=False):
+         payload = {
+             "model": self.model_name,
+             "messages": [
+@@ -134,19 +197,54 @@ class GPT4v():
+                 "content": prompt
+             }
+             ],
+-            "max_tokens": 1400
++            "max_tokens": 1400,
++            "stream": False,
+         }
+         headers = {
+             "Content-Type": "application/json",
+             "Authorization": f"Bearer {self.api_key}"
+         }
+-        response = requests.post(self.url, json=payload, headers=headers)
+-        #return response.text
+-        return self.extract_response(response)
++        response = requests.post(
++            self.url,
++            json=payload,
++            headers=headers,
++            timeout=self.request_timeout_seconds,
++        )
++        response.raise_for_status()
++        response_payload = response.json()
++        content = self.extract_response(response_payload)
++        if not return_evidence:
++            return content
++        response_headers = {
++            str(key).lower(): str(value)
++            for key, value in sorted(response.headers.items(), key=lambda item: item[0].lower())
++        }
++        request_id = response_headers.get("x-request-id", "").strip()
++        if not request_id:
++            raise ValueError("OpenAI response did not include x-request-id")
++        if not isinstance(response_payload, dict):
++            raise ValueError("OpenAI response JSON is not an object")
++        returned_model = str(response_payload.get("model", "")).strip()
++        response_id = str(response_payload.get("id", "")).strip()
++        usage = response_payload.get("usage")
++        if not returned_model or not response_id or not isinstance(usage, dict):
++            raise ValueError("OpenAI response omitted model, id, or usage provenance")
++        return content, {
++            "schema": "gedit-openai-response-evidence/v1",
++            "request": _sanitized_request_evidence(
++                payload,
++                endpoint=self.url,
++                timeout_seconds=self.request_timeout_seconds,
++            ),
++            "response": {
++                "status_code": int(response.status_code),
++                "headers": response_headers,
++                "request_id": request_id,
++                "json": response_payload,
++            },
++        }
+     
+     def extract_response(self, response):
+-        response = response.json()
+-
+         try:
+             out = response['choices'][0]['message']['content']
+             return out
+@@ -173,12 +271,23 @@ class GPT4v():
+             self.api_key = key
+ 
+ class GPT4o(GPT4v):
+-    def __init__(self, api_key_path='keys/secret.env', are_images_encoded=False, model_name="gpt-4o-2024-05-13"):
+-        super().__init__(api_key_path, are_images_encoded, model_name)
++    def __init__(
++        self,
++        api_key_path='keys/secret.env',
++        are_images_encoded=False,
++        model_name="gpt-4o-2024-05-13",
++        request_timeout_seconds=60.0,
++    ):
++        super().__init__(
++            api_key_path,
++            are_images_encoded,
++            model_name,
++            request_timeout_seconds,
++        )
+ 
+ if __name__ == "__main__":
+     model = GPT4o('secret_t2.env', model_name="gpt-4.1")
+     prompt = model.prepare_prompt(['https://chromaica.github.io/Museum/ImagenHub_Text-Guided_IE/DiffEdit/sample_34_1.jpg', 'https://chromaica.github.io/Museum/ImagenHub_Text-Guided_IE/input/sample_34_1.jpg'], 'What is difference between two images?')
+     print("prompt : \n", prompt)
+     res = model.get_parsed_output(prompt)
+-    print("result : \n", res)
+\ No newline at end of file
++    print("result : \n", res)
+diff --git a/GEdit-Bench/viescore/utils.py b/GEdit-Bench/viescore/utils.py
+index 9ebb829..8ecf888 100644
+--- a/GEdit-Bench/viescore/utils.py
++++ b/GEdit-Bench/viescore/utils.py
+@@ -3,7 +3,6 @@ from typing import Union, List, Optional
+ import json
+ import regex as re
+ import ast
+-import random
+ 
+ def fix_json(input_str):
+     # Add double quotes around keys using regex
+@@ -184,13 +183,8 @@ def mllm_output_to_dict(input_string, give_up_parsing=False):
+             start_index = input_string.find('[')
+             end_index = input_string.rfind(']') + 1
+             if give_up_parsing: # if we want to give up parsing
+-                guessed_value = random.randint(0, 10)
+-                print(f"Failed to find the json content in the string. Guess a value : {guessed_value}.")
+-                json_content = {'score': [guessed_value], "reasoning": f"guess_if_cannot_parse | {input_string}"}
+-                json_str = json.dumps(json_content)
+-                input_string = json_str
+-                start_index = 0
+-                end_index = len(json_str)
++                print("Failed to find JSON content; score guessing is disabled.")
++                return False
+             elif re.match(r'^\[\d+, ?\d+\]$', input_string[start_index:end_index]):
+                 scores = json.loads(input_string[start_index:end_index])
+                 if not isinstance(scores, list):
+@@ -270,13 +264,8 @@ def write_entry_to_json_file(input_string, uid, prompt_input, vision_input, outp
+             start_index = input_string.find('[')
+             end_index = input_string.rfind(']') + 1
+             if give_up_parsing: # if we want to give up parsing
+-                guessed_value = random.randint(0, 10)
+-                print(f"Failed to find the json content in the string. Guess a value : {guessed_value}.")
+-                json_content = {'score': [guessed_value], "reasoning": f"guess_if_cannot_parse | {input_string}"}
+-                json_str = json.dumps(json_content)
+-                input_string = json_str
+-                start_index = 0
+-                end_index = len(json_str)
++                print("Failed to find JSON content; score guessing is disabled.")
++                return False
+             elif re.match(r'^\[\d+, ?\d+\]$', input_string[start_index:end_index]):
+                 scores = json.loads(input_string[start_index:end_index])
+                 json_content = {'score': scores, "reasoning": None}
+@@ -359,4 +348,4 @@ def check_key_in_json(file_path, key):
+         print(f"Error reading {file_path}: {e}")
+     except Exception as e:
+         print(f"An error occurred with {file_path}: {e}")
+-    return False
+\ No newline at end of file
++    return False

@@ -1,0 +1,14 @@
+# Environment observed for the surviving 2026-07-03 extraction checkpoint.
+# CUDA toolkit/driver and the H200 GPU must also be recorded in each run report.
+torch==2.11.0
+torchvision==0.26.0
+diffusers==0.38.0
+transformers==5.8.1
+accelerate==1.13.0
+peft==0.19.1
+safetensors==0.8.0rc0
+huggingface-hub==1.15.0
+openai==2.38.0
+numpy==2.4.4
+Pillow==12.2.0
+PyYAML==6.0.3

@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "note": "Pinned upstream commits plus local scorer changes; their original licenses apply.",
+  "repositories": [
+    {
+      "name": "imgedit",
+      "url": "https://github.com/PKU-YuanGroup/ImgEdit.git",
+      "revision": "b79848168744c8db8389086d01fe3def1758aa45",
+      "scope": [
+        "Benchmark/Basic"
+      ]
+    },
+    {
+      "name": "step1x-edit",
+      "url": "https://github.com/stepfun-ai/Step1X-Edit.git",
+      "revision": "4cca05dfcd6c32dc810d0b4db84c2bf0682a5aeb",
+      "scope": [
+        "GEdit-Bench"
+      ],
+      "patch": "patches/step1x-edit-scoring.patch",
+      "patch_sha256": "02ec7e698ffa4d8cc8963aed6d754b921acf9f463a2a1ec31da4f1191917aab4"
+    },
+    {
+      "name": "complex-edit",
+      "url": "https://github.com/UCSC-VLAA/Complex-Edit.git",
+      "revision": "3502eaa9e81bc99623bd995106df48c0f921af31",
+      "scope": [
+        "eval.py",
+        "complex_edit"
+      ],
+      "patch": "patches/complex-edit-scoring.patch",
+      "patch_sha256": "efd605d19a6b13d5dfc52c31e6f8af2034f3314762b9c5c03deb6d13879b9dd1"
+    }
+  ]
+}

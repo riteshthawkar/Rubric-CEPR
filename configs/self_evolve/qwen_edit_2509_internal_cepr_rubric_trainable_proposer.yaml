@@ -1,0 +1,217 @@
+# Framework reference only; not the historical headline recipe.
+name: self_evolve_qwen_edit_2509_internal_cepr_rubric_trainable_proposer
+runtime:
+  seed: 123
+  dry_run: false
+  memory_log_enabled: true
+  release_proposer_before_generation: false
+dataset:
+  source: jsonl
+  manifest_jsonl: data/unlabeled/manifest.jsonl
+  metadata_jsonl: null
+  limit: null
+proposer:
+  backend: trainable_qwen_image_edit
+  model_name_or_path: Qwen/Qwen-Image-Edit-2509
+  model_subfolder: text_encoder
+  processor_subfolder: processor
+  model_class: qwen2_5_vl
+  checkpoint_path: null
+  device: auto
+  torch_dtype: bfloat16
+  local_files_only: false
+  fallback_on_error: false
+  scripted_probability: 0.2
+  family_policy: metadata_preferred
+  focus_edit_types:
+  - object_removal
+  - object_replacement
+  - object_addition
+  avoid_edit_types:
+  - global_adjustment
+  - color_change
+  - style_transfer
+  - background_change
+  enforce_record_target_edit_type: true
+  strict_edit_type_filter: true
+  template_fallback_on_target_miss: true
+  max_generation_attempts: 2
+  generation:
+    max_new_tokens: 512
+    temperature: 0.7
+    top_p: 0.9
+    do_sample: true
+  training:
+    trigger: emit_only
+    train_script: src/qwen_edit_project/train/train_proposer_lora.py
+    accelerate_executable: accelerate
+    output_dir: null
+    command_file: null
+    log_dir: null
+    mixed_precision: bf16
+    learning_rate: 1.0e-05
+    num_train_epochs: 1
+    max_train_steps: null
+    train_batch_size: 1
+    gradient_accumulation_steps: 4
+    max_grad_norm: 1.0
+    weight_decay: 0.01
+    seed: 123
+    lora_rank: 16
+    lora_alpha: 32
+    lora_dropout: 0.05
+    lora_target_modules: q_proj,k_proj,v_proj,o_proj,gate_proj,up_proj,down_proj
+    gradient_checkpointing: true
+    checkpointing_steps: 100
+    checkpoints_total_limit: 5
+    resume_from_latest: true
+    logging_steps: 10
+    data:
+      reward_center: 0.5
+      reward_sigma: 0.25
+      min_reward: 0.35
+      min_quality: 0.3
+editor:
+  backend: qwen_edit
+  device: auto
+  drop_generation_modules_for_scoring: false
+  generation:
+    seed: 42
+    num_inference_steps: 40
+    true_cfg_scale: 4.0
+    guidance_scale: 1.0
+    negative_prompt: ' '
+    num_images_per_prompt: 1
+    preserve_input_resolution: false
+  model:
+    backend: official_diffusers
+    base_model: Qwen/Qwen-Image-Edit-2509
+    model_type: base
+    checkpoint_path: null
+    processor_model_id: Qwen/Qwen-Image-Edit
+    torch_dtype: bfloat16
+    local_files_only: false
+    model_id_with_origin_paths: Qwen/Qwen-Image-Edit-2509:transformer/diffusion_pytorch_model*.safetensors,Qwen/Qwen-Image:text_encoder/model*.safetensors,Qwen/Qwen-Image:vae/diffusion_pytorch_model.safetensors
+candidate_generation:
+  samples_per_proposal: 4
+  seed_stride: 7919
+evaluator:
+  backend: internal_cepr_rubric
+  top_m: 1
+  counterfactual_distractors: 4
+  edit_threshold: 0.4
+  preservation_threshold: 0.2
+  validity_threshold: 0.5
+  reward_threshold: 0.3
+  edit_temperature: 0.04
+  true_gain_temperature: 0.04
+  min_true_gain: 0.0
+  semantic_preservation_temperature: 0.08
+  latent_resolution: 512
+  latent_mask_std_scale: 0.75
+  latent_mask_min_delta: 0.03
+  latent_preservation_temperature: 0.3
+  max_total_latent_delta: 0.45
+  latent_drift_temperature: 0.15
+  taxonomy_enabled: true
+  taxonomy_required: true
+  taxonomy_threshold: 0.35
+  taxonomy_temperature: 0.06
+  taxonomy_source_drop_temperature: 0.06
+  taxonomy_distractor_temperature: 0.05
+  max_dynamic_distractors: 4
+  empty_cache_per_candidate: true
+  retry_cpu_on_oom: true
+  require_internal_components: true
+  rubric_source_threshold: 0.42
+  rubric_required_threshold: 0.45
+  rubric_forbidden_threshold: 0.42
+  rubric_preservation_threshold: 0.3
+  rubric_reward_threshold: 0.28
+  rubric_gain_temperature: 0.06
+  rubric_abs_temperature: 0.08
+  rubric_preservation_temperature: 0.2
+  rubric_support_center: 0.5
+  rubric_forbidden_absence_center: 0.52
+  max_rubric_items: 3
+  combine_cepr_semantics: true
+curriculum:
+  num_rounds: auto
+  record_schedule: sequential_shards
+  proposals_per_image: 1
+  initial_level: 2
+  min_level: 1
+  max_level: 3
+  promote_at: 0.65
+  demote_at: 0.25
+  max_records_per_round: 8
+training:
+  trigger: emit_only
+  base_train_config: configs/train/lora_2509_diffusers.yaml
+  current_checkpoint_path: null
+  continue_with_trained_checkpoint: true
+  trained_checkpoint_backend: official_diffusers
+  resume_from_latest: true
+  learning_rate: 1.0e-06
+  num_epochs: 1
+  max_train_steps: 16
+  gradient_accumulation_steps: 1
+  checkpointing_steps: 0
+  offload: false
+  train_config_overrides:
+    lora:
+      lora_rank: 16
+      lora_alpha: 16
+      lora_target_modules: to_q,to_k,to_v,to_out.0,add_q_proj,add_k_proj,add_v_proj,to_add_out
+      lora_reference_l2_weight: 0.01
+      lora_reference_max_relative_delta: 0.1
+  preference:
+    enabled: false
+    training_objective: pairwise_linear_sdpo
+    preference_beta: 2.0
+    preference_margin: 0.0
+    preference_sft_weight: 0.1
+    preference_reference_mode: none
+    preference_sdpo_epsilon: 1.0e-12
+    max_pairs_per_group: 3
+    min_pairs: 4
+    min_score_margin: 0.05
+    min_chosen_reward: 0.3
+    include_near_miss_pairs: true
+    near_miss_min_raw_reward: 0.52
+    near_miss_min_semantic_edit: 0.32
+    near_miss_min_preservation: 0.7
+    near_miss_min_validity: 0.9
+    near_miss_min_score_margin: 0.015
+    near_miss_weight_scale: 0.35
+    near_miss_preference_sft_weight: 0.0
+    accepted_preference_sft_weight: 0.1
+    base_weight: 1.0
+    margin_weight_scale: 0.5
+    margin_clip: 0.5
+    max_sample_weight: 1.5
+  weighted_sft:
+    enabled: true
+    include_rejected: false
+    accepted_weight: 1.0
+    min_rejected_weight: 0.05
+    max_rejected_weight: 0.35
+    min_raw_reward: 0.15
+    target_reward: 0.3
+    min_semantic_edit: 0.225
+    min_preservation: 0.2
+    min_validity: 0.5
+    min_taxonomy: 0.3
+    score_power: 1.0
+  reconstruction_replay_ratio: 0.0
+  reconstruction_replay_weight: 0.5
+  reconstruction_replay_prompt: Reconstruct the input image exactly. Preserve all
+    content, layout, colors, and text.
+output:
+  root_dir: outputs/framework_reference
+  save_all_candidates: true
+  use_cumulative_manifest: false
+  write_evaluator_training: true
+  resume:
+    enabled: true
+    progress_log_every: 10

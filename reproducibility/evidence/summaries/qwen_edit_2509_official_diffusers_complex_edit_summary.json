@@ -1,0 +1,40 @@
+{
+  "timestamp_utc": "20260705T165759Z",
+  "hostname": "h3c-nvlh200-H3C-UniServer-R5300-G6",
+  "user": "ritesh_thawkar",
+  "cwd": "<LEGACY_WORKSPACE>",
+  "repo_root": "<LEGACY_WORKSPACE>",
+  "git": {
+    "available": true,
+    "commit": "e34f5cdbf18746e7464e78b82cb2bbbf329ffc89",
+    "dirty": true
+  },
+  "benchmark": "complex_edit",
+  "config_path": "<LEGACY_WORKSPACE>/configs/eval/complex_edit.yaml",
+  "model_name": "qwen_edit_2509_official_diffusers",
+  "split": "real",
+  "image_type": "real",
+  "complexities": [
+    4
+  ],
+  "eval_model": "gpt-4.1",
+  "result_root": "<LEGACY_WORKSPACE>/outputs/benchmark_images/complex_edit/qwen_edit_2509_official_diffusers",
+  "per_complexity": {
+    "real_c4": {
+      "instruction_following": 9.685,
+      "identity_preservation": 9.0167,
+      "perceptual_quality": 7.6005,
+      "overall": 8.7674,
+      "num_scored": 531
+    }
+  },
+  "macro_over_complexity": {
+    "instruction_following": 9.685,
+    "identity_preservation": 9.0167,
+    "perceptual_quality": 7.6005,
+    "overall": 8.7674
+  },
+  "logs": [
+    "<LEGACY_WORKSPACE>/outputs/logs/complex_edit_score_20260705T164830Z_real_c4.log"
+  ]
+}

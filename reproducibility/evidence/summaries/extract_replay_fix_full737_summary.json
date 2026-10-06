@@ -1,0 +1,40 @@
+{
+  "timestamp_utc": "20260705T141341Z",
+  "hostname": "h3c-nvlh200-H3C-UniServer-R5300-G6",
+  "user": "ritesh_thawkar",
+  "cwd": "<LEGACY_WORKSPACE>",
+  "repo_root": "<LEGACY_WORKSPACE>",
+  "git": {
+    "available": true,
+    "commit": "e34f5cdbf18746e7464e78b82cb2bbbf329ffc89",
+    "dirty": true
+  },
+  "benchmark": "imgedit",
+  "config_path": "<LEGACY_WORKSPACE>/configs/eval/imgedit.yaml",
+  "model_name": "extract_replay_fix_full737",
+  "result_dir": "<LEGACY_WORKSPACE>/outputs/quick_eval/imgedit_full737_extract_replay_fix/images/extract_replay_fix_full737",
+  "average_score_json": "<LEGACY_WORKSPACE>/outputs/quick_eval/imgedit_full737_extract_replay_fix/scores/extract_replay_fix_full737_average_score.json",
+  "typescore_json": "<LEGACY_WORKSPACE>/outputs/quick_eval/imgedit_full737_extract_replay_fix/scores/extract_replay_fix_full737_typescore.json",
+  "logs": [
+    "<LEGACY_WORKSPACE>/outputs/logs/imgedit_score_20260705T140730Z_initial.log",
+    "<LEGACY_WORKSPACE>/outputs/logs/imgedit_score_20260705T140730Z_retry_01.log",
+    "<LEGACY_WORKSPACE>/outputs/logs/imgedit_avg_20260705T140730Z.log",
+    "<LEGACY_WORKSPACE>/outputs/logs/imgedit_types_20260705T140730Z.log"
+  ],
+  "unscored_keys": [],
+  "metrics": {
+    "count": 737,
+    "overall_average": 4.564084124830389,
+    "type_scores": {
+      "extract": 4.34,
+      "background": 4.48,
+      "adjust": 4.52,
+      "remove": 4.57,
+      "style": 4.82,
+      "replace": 4.71,
+      "add": 4.62,
+      "compose": 3.91,
+      "action": 4.78
+    }
+  }
+}

@@ -1,0 +1,162 @@
+# Release rerun protocol; not evidence for submitted scores.
+name: accv_v1_base_complex_edit
+benchmark: complex_edit
+runtime:
+  python_executable: python
+  generation_device: cuda
+  env_file: null
+  dry_run: false
+  log_dir: outputs/logs
+model:
+  backend: official_diffusers
+  model_type: base
+  base_model: Qwen/Qwen-Image-Edit-2509
+  revision: d3968ef930e841f4c73640fb8afa3b306a78167e
+  checkpoint_path: null
+  model_name: accv_v1_base_complex_edit
+  torch_dtype: bfloat16
+  local_files_only: false
+  model_id_with_origin_paths: Qwen/Qwen-Image-Edit-2509:transformer/diffusion_pytorch_model*.safetensors,Qwen/Qwen-Image:text_encoder/model*.safetensors,Qwen/Qwen-Image:vae/diffusion_pytorch_model.safetensors
+dataset:
+  source: huggingface
+  dataset_name: UCSC-VLAA/Complex-Edit
+  revision: b0b8a81d740ae413d52572281a23dc975c4b4b91
+  expected_manifest_sha256: 54409f861af493c7c4858d4f719af80c23f323a08a24ba91136975016b232849
+  expected_selection_sha256: 35330c722420527a22a2ea46bf7d84b601252d61e6c600d36c9ffbd7a50a5f42
+  expected_images_tree_sha256: b39f6b85add389a85edb6397c673012e77d208a8cb943f1b37bc50f50efafb63
+  split: real
+  manifest: data/processed/benchmark/complex_edit/real/instructions.jsonl
+  images_root: data/processed/benchmark/complex_edit/real/images
+  complexities:
+  - 4
+generation:
+  seed: 42
+  seed_strategy: constant_per_record
+  num_inference_steps: 40
+  true_cfg_scale: 4.0
+  guidance_scale: 1.0
+  negative_prompt: ' '
+  num_images_per_prompt: 1
+  preserve_input_resolution: false
+output:
+  edited_images_dir: outputs/benchmark_images/complex_edit
+  scores_dir: outputs/scores/complex_edit
+  summary_path: outputs/scores/complex_edit/summary.json
+  score_attempts_subdir: .score_attempts
+  score_log_filename: scorer.log
+  allow_resume_mismatch: false
+  progress_every: 25
+scoring:
+  backbone: openai_structured
+  scorer_repo: third_party/complex-edit
+  worker_module: qwen_edit_project.eval.complex_edit_c4_worker
+  image_type: real
+  n: 8
+  m: 5
+  num_processes: 16
+  resume: false
+  fresh_only: true
+  eval_model: gpt-4.1
+  openai_model: gpt-4.1
+  expected_openai_model: gpt-4.1
+  temperature: 1.0
+  request_timeout_seconds: 60.0
+  sdk_max_retries: 0
+  request_max_attempts: 3
+  retry_initial_backoff_seconds: 2.0
+  retry_max_backoff_seconds: 30.0
+  strict_response_parser: true
+  allow_custom_openai_base_url: false
+  implementation_artifacts:
+  - src/qwen_edit_project/eval/run_complex_edit_score.py
+  - src/qwen_edit_project/eval/complex_edit_c4_worker.py
+  - src/qwen_edit_project/eval/complex_edit_openai_capture.py
+  - src/qwen_edit_project/eval/complex_edit_contract.py
+  - src/qwen_edit_project/eval/complex_edit_score_attempts.py
+  - src/qwen_edit_project/eval/score_receipts.py
+  - src/qwen_edit_project/utils/commands.py
+  - src/qwen_edit_project/utils/runtime.py
+  - third_party/complex-edit/complex_edit/__init__.py
+  - third_party/complex-edit/complex_edit/eval/__init__.py
+  - third_party/complex-edit/complex_edit/eval/alignment.py
+  - third_party/complex-edit/complex_edit/eval/quality.py
+  - third_party/complex-edit/complex_edit/eval/prompt_alignment.py
+  - third_party/complex-edit/complex_edit/eval/prompt_quality.py
+  - third_party/complex-edit/complex_edit/utils/__init__.py
+  - third_party/complex-edit/complex_edit/utils/dict_op.py
+  - third_party/complex-edit/complex_edit/utils/file.py
+  - third_party/complex-edit/complex_edit/utils/logger.py
+  - third_party/complex-edit/complex_edit/utils/openai.py
+  score_run_id: accv-v1-release-complex_edit
+evaluation_contract:
+  enabled: true
+  output_id_length: 16
+  require_dataset_artifacts: true
+  require_judge_artifacts: true
+  require_implementation_artifacts: true
+  benchmark_protocol:
+    name: complex-edit-real-c4-531-bounded-retry-v2
+    split: real
+    complexity: 4
+    exact_count: 531
+    scoring_n: 8
+    scoring_m: 5
+    scoring_num_processes: 16
+    scoring_temperature: 1.0
+    request_timeout_seconds: 60.0
+    sdk_max_retries: 0
+    request_max_attempts: 3
+    retry_initial_backoff_seconds: 2.0
+    retry_max_backoff_seconds: 30.0
+    judge_endpoint: official_openai_default
+    scoring_resume: false
+    scoring_fresh_only: true
+    scorer_dataset_source: contracted_local_materialization
+    scorer_repo: third_party/complex-edit
+    score_worker_module: qwen_edit_project.eval.complex_edit_c4_worker
+    export_group_subdir: real_c4
+    score_attempts_subdir: .score_attempts
+    export_output_reuse: forbidden
+    score_output_reuse: forbidden
+  runtime_provenance:
+    require_accelerator: true
+    package_names:
+    - accelerate
+    - diffusers
+    - huggingface-hub
+    - loguru
+    - numpy
+    - openai
+    - Pillow
+    - pydantic
+    - safetensors
+    - tenacity
+    - torch
+    - transformers
+    required_packages:
+    - diffusers
+    - loguru
+    - numpy
+    - openai
+    - Pillow
+    - pydantic
+    - tenacity
+    - torch
+    - transformers
+  implementation_artifacts:
+  - src/qwen_edit_project/__init__.py
+  - src/qwen_edit_project/eval/__init__.py
+  - src/qwen_edit_project/eval/export_complex_edit.py
+  - src/qwen_edit_project/eval/complex_edit_contract.py
+  - src/qwen_edit_project/eval/evaluation_contract.py
+  - src/qwen_edit_project/eval/export_provenance.py
+  - src/qwen_edit_project/utils/config.py
+  - src/qwen_edit_project/utils/device.py
+  - src/qwen_edit_project/utils/paths.py
+  - src/qwen_edit_project/utils/qwen_pipeline.py
+  - src/qwen_edit_project/utils/prompting.py
+  - src/accv_v1/cli.py
+  - src/accv_v1/runtime.py
+  - src/qwen_edit_project/train/diffusers_qwen_edit_lora_reproduction_v1.py
+prompting:
+  use_prompt_polish: false
