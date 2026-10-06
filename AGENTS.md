@@ -1,18 +1,22 @@
-# ACCV v1 release copy
+# Contributor instructions
 
-This is a separate editable release candidate. Do not modify the parent legacy
-source, its archive, manifest, historical artifacts, or current research jobs.
-Keep the original trainer, safety helpers, historical contract and manifests
-byte-identical to the hashes in `provenance/IDENTITY.json`.
+Keep the trainer, safety helpers and training rows byte-identical to their pins
+in `reproducibility/artifacts.json`. Configuration or metadata changes must
+preserve scientific parameters and update the corresponding checksums.
 
-Use `scripts/accv_v1.py` for all model and scoring commands. In this workspace,
-read the parent `docs/AGENT_GPU_ALLOCATION_AND_EXPERIMENT_RULES.md` in full before
-any workload, and obey its tmux, owned RUNNING Slurm GPU step, qedit environment,
-HF_HOME and source-path requirements. User authorization to use sbatch takes
-precedence over the policy's preference for interactive allocation. CPU checks,
-artifact installation, source packaging and metadata reads need no GPU.
+Use `scripts/rubric_cepr.py` for model and scoring commands. Follow the hosting
+workspace's GPU allocation policy before any model workload. Model commands
+require an owned RUNNING Slurm GPU allocation with a numeric step, an inspected
+tmux session, the activated model environment and this checkout's source path.
+CPU checks, artifact installation and source packaging need no GPU.
 
-Do not use CodeRabbit. Do not publish or push this candidate without explicit
-user authorization. Keep historical extraction results separate from the
-reference framework and any new reruns. Never introduce external reward or
-benchmark judges into training while describing the method as internal-only.
+Do not use CodeRabbit. Keep checkpoint-specific results separate from results
+of the reference framework or newly trained adapters. External benchmark judges
+are evaluation-only. Describe pretrained external components explicitly when a
+pair miner uses them.
+
+Run CPU tests and `tools/verify_release.py` after changes. Regenerate
+`SHA256SUMS` with `tools/verify_release.py --write-checksums` when the source
+payload changes. Credentials, weights, datasets and generated outputs must not
+be committed. Do not modify neighboring projects or publish changes without
+user authorization.

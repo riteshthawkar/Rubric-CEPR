@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Submit from an inspected tmux session after CPU preflight has passed.
-#SBATCH --job-name=accv_v1_reproduce
+#SBATCH --job-name=rubric_cepr_reproduce
 #SBATCH --partition=gpu
 #SBATCH --gres=gpu:1
 #SBATCH --cpus-per-task=4
@@ -9,8 +9,8 @@
 
 set -euo pipefail
 : "${TMUX:?Submit from an inspected tmux session}"
-: "${ACCV_RELEASE_ROOT:?Set the absolute release checkout path}"
-: "${ACCV_ENV:?Set the conda environment prefix}"
-: "${ACCV_ACTIVATE_SCRIPT:?Set the absolute activation script path}"
+: "${RUBRIC_ROOT:?Set the absolute release checkout path}"
+: "${RUBRIC_ENV_PREFIX:?Set the conda environment prefix}"
+: "${RUBRIC_ACTIVATE_SCRIPT:?Set the absolute activation script path}"
 : "${HF_HOME:?Set the Hugging Face cache location}"
-srun --gres=gpu:1 --export=ALL bash "$ACCV_RELEASE_ROOT/scripts/slurm/worker.sh" "$@"
+srun --gres=gpu:1 --export=ALL bash "$RUBRIC_ROOT/scripts/slurm/worker.sh" "$@"

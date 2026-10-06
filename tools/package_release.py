@@ -22,7 +22,7 @@ def package(output: Path) -> str:
             for name in sorted(names):
                 path = ROOT / name
                 raw = path.read_bytes()
-                member = tarfile.TarInfo("accv-v1/" + name)
+                member = tarfile.TarInfo("Rubric-CEPR/" + name)
                 member.size = len(raw)
                 member.mtime = 0
                 member.uid = member.gid = 0

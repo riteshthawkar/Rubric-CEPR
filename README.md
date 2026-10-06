@@ -1,112 +1,176 @@
 # Rubric-CEPR
 
-Code and artifact records for **Rubric-CEPR: Self-Evolving Image Editing via
-Reward-Verified Self-Distillation**. Version: **1.0.0-rc1**.
+**Self-Evolving Image Editing via Reward-Verified Self-Distillation**
 
-Source repository: [riteshthawkar/Rubric-CEPR](https://github.com/riteshthawkar/Rubric-CEPR).
+Rubric-CEPR studies how an image editor can learn from edits generated on
+unlabeled images. A Planner specifies an edit, an Editor generates candidates,
+and a Critic checks the requested change and preservation of the source.
+Accepted candidates become training targets for the next editor update.
 
-This release exposes the surviving **64-pair, extraction-only rank-16 LoRA,
-400-step** recipe and the broader Planner–Editor–Critic implementation as
-separate entry points. The surviving checkpoint is not evidence that the full
-multi-round framework produced the submitted headline scores. See
-[results and evidence boundaries](docs/RESULTS.md) before comparing numbers.
+[Method](docs/METHOD.md) · [Training](docs/TRAINING.md) ·
+[Evaluation](docs/EVALUATION.md) · [Results](docs/RESULTS.md)
 
-## Start here
+## Overview
 
-Use this source checkout with Python 3.11. Keep the checkout available: configs
-and provenance are intentionally inspectable files beside the code. Install
-editable rather than installing only a wheel.
+| Component | Role | Implementation |
+|---|---|---|
+| Planner | Propose an instruction and a structured edit specification | `self_evolve/edit_schema.py`, `self_evolve/backends.py` |
+| Editor | Generate candidate edits and learn from accepted targets | `self_evolve/loop.py`, `train/` |
+| Critic | Check semantics, preservation, validity and edit-specific rubric items | `self_evolve/backends.py` |
+
+Implementation paths above are relative to `src/qwen_edit_project/`.
+The reference framework uses the editor's pretrained components for its internal
+critic. External benchmark judges are used only during evaluation.
+
+The included checkpoint recipe is an **extraction-specific self-distillation
+baseline**: 64 generated pairs, a rank-16 LoRA and 400 training steps. Its pair
+miner uses GroundingDINO for object naming and image heuristics for acceptance.
+The results below correspond to this recipe. The full Planner–Editor–Critic
+implementation is available as a separate `framework` command; its presence
+does not establish the same results for that configuration.
+
+## Results
+
+| Benchmark | Examples | Qwen-Image-Edit-2509 | Extraction adapter | Change |
+|---|---:|---:|---:|---:|
+| ImgEdit Basic | 737 | 4.4406 | 4.5551 | +0.1145 |
+| Complex-Edit real C4 | 531 | 8.7674 | 8.8064 | +0.0390 |
+
+These are recorded evaluations of the same extraction adapter. The ImgEdit
+extraction category improves from 3.51 to 4.26. These records predate the
+content-hashed evaluation contracts included here; no new evaluation is implied
+by the code packaging. [Detailed results](docs/RESULTS.md) retain the category
+scope, other evaluated variants and the negative GEdit control.
+
+## Repository layout
+
+```text
+src/
+  rubric_cepr/                 # Public CLI, artifact checks and GPU guard
+  qwen_edit_project/
+    self_evolve/                # Planner, Editor, Critic and round orchestration
+    train/                      # Editor and Planner LoRA training
+    eval/                       # Benchmark exports, scoring and result parsing
+    utils/                      # Model loading and configuration helpers
+configs/
+  self_evolve/                 # Reference framework configuration
+  train/                      # Extraction training command
+  reproduction/               # Model revision, recipe and environment
+  eval/                       # Matched benchmark protocols
+scripts/                      # CLI launcher, data preparation and Slurm example
+reproducibility/               # Training manifests, hashes and score records
+docs/                         # Method, training, evaluation and results
+tests/                        # CPU tests for inputs, commands and boundaries
+tools/                        # Benchmark setup, verification and packaging
+third_party/                  # Upstream repository and patch versions
+```
+
+## Setup
+
+Use a source checkout with Python 3.11. The CLI reads the configurations and
+manifests beside the source, so install it in editable mode:
 
 ```bash
+git clone https://github.com/riteshthawkar/Rubric-CEPR.git
+cd Rubric-CEPR
 python -m pip install -e '.[dev]'
-python scripts/accv_v1.py check
+rubric-cepr check
 python -m pytest -q
 ```
 
-For model execution, install the recorded environment in
-[requirements-model.txt](requirements-model.txt) and
-[requirements-eval.txt](requirements-eval.txt). Those versions describe the
-reconstruction environment; other environments are not certified for exact
-reproduction. Do not install packages into the shared experiment environment
-without checking it first. This release preparation does not change that
-environment.
+For model execution, use the versions in
+[requirements-model.txt](requirements-model.txt). Install PyTorch and torchvision
+for your CUDA platform first, then install the remaining requirements. Benchmark
+scoring additionally needs [requirements-eval.txt](requirements-eval.txt).
 
 ```bash
 python -m pip install -r requirements-model.txt -r requirements-eval.txt
-python scripts/accv_v1.py check --strict-environment
+rubric-cepr check --strict-environment
+hf download Qwen/Qwen-Image-Edit-2509 \
+  --revision d3968ef930e841f4c73640fb8afa3b306a78167e
 ```
 
-The base model and benchmark images are downloaded separately. Training needs
-a GPU with enough memory for Qwen-Image-Edit-2509; the recorded environment used
-an H200. CPU checks do not initialize CUDA, load a model, or call a judge.
+Training images, adapters and base weights are separate from this source
+repository. [Artifact hashes](reproducibility/artifacts.json) identify the
+training bundle and reference adapter. No public asset download is configured.
+Set cache paths and evaluation credentials using [.env.example](.env.example).
 
-## Commands
+Model execution uses an owned, running Slurm GPU allocation with a numeric
+`srun` step. See [Training](docs/TRAINING.md) for the environment and launcher.
+The `check`, `results`, installation and `--dry-run` commands run on CPU.
 
-| Command | Purpose | Runs a model or judge? |
-|---|---|---|
-| `check` | Verify code, data, checkpoint, environment and optional benchmark overlap | No |
-| `install-artifacts` | Safely install the exact 128 images from the historical bundle | No |
-| `train --dry-run` | Print the original training arguments with portable paths | No |
-| `train` | Reconstruct the surviving extraction-only adapter | Yes |
-| `infer` | Edit one image with the historical or explicitly labeled reconstructed adapter | Yes |
-| `export` / `score` | Run ImgEdit, GEdit or Complex-Edit under a recorded rerun protocol | Yes |
-| `framework --dry-run` | Print the broader framework launch command | No |
-| `framework` | Run the Planner–Editor–Critic reference configuration | Yes |
-| `results` | Display the preserved historical metrics | No |
+## Inference
 
-All model/judge commands require a verified owned Slurm GPU allocation, a
-numeric `srun` step, tmux context and this checkout's `PYTHONPATH`. They fail
-before model imports on the login node. The original low-level modules are
-implementation details; use these guarded release commands. Follow the parent
-workspace's GPU policy while this copy is hosted there.
-
-## Reconstruct or use the historical artifact
-
-The training-image bundle and 91 MB adapter are companion assets, separate
-from the source archive. Their hashes are in
-[provenance/IDENTITY.json](provenance/IDENTITY.json). There is no invented public
-download URL. The local prepared companion directory is `../accv-v1-assets/`.
-Data and base models retain their original distribution terms.
+Inside the configured GPU step, provide a source image, instruction and adapter:
 
 ```bash
-python scripts/accv_v1.py install-artifacts \
-  --bundle /path/to/paper_headline_extract_v1.tar.gz \
-  --data-root /path/to/new-v1-data
-python scripts/accv_v1.py check \
-  --data-root /path/to/new-v1-data \
-  --checkpoint /path/to/pytorch_lora_weights.safetensors
+rubric-cepr infer \
+  --image /path/to/source.jpg \
+  --prompt 'Extract the dog.' \
+  --checkpoint /path/to/pytorch_lora_weights.safetensors \
+  --output /path/to/edit.png
 ```
 
-[Reproduction instructions](docs/REPRODUCTION.md) cover the frozen model
-revision, full benchmark overlap check, allocation environment, exact training
-command, completion checks and inference. [Benchmark instructions](docs/BENCHMARKS.md)
-cover setup and matched Base/LoRA reruns. Benchmarks use external API judges
-**only for evaluation**; their scores are not training targets or acceptance
-feedback in the released recipe.
+The default verifies the reference adapter's hash. For a retrained adapter, add
+`--allow-reconstructed-checkpoint`. Add `--dry-run` to inspect the inference
+settings without loading a model. `python scripts/rubric_cepr.py` provides the
+same commands without installing the console entry point.
 
-## Code map
+## Training
 
-| Location | Role |
-|---|---|
-| `src/accv_v1/` | Portable launch commands, artifact checks and GPU guards |
-| `src/qwen_edit_project/train/` | Original hash-pinned trainer and processor compatibility shim |
-| `src/qwen_edit_project/self_evolve/` | Broader framework implementation and internal critic |
-| `src/qwen_edit_project/eval/` | Export, strict score parsing and provenance |
-| `configs/train/extraction_v1.json` | Exact command template derived from the frozen launcher |
-| `configs/reproduction/` | Unchanged historical training contract |
-| `configs/eval/` | Release-specific rerun protocols, not original score receipts |
-| `reproducibility/` | Exact manifest, image hashes and surviving score records |
-| `provenance/` | Source identities and original-vs-release file mapping |
-| `tools/` | Pinned benchmark setup, verification and source-only packaging |
+Install the verified input bundle into a new directory, then inspect the recipe:
 
-The historical extraction miner is retained in `scripts/build_extract_selfdistill.py`
-for inspection. It uses an external GroundingDINO detector to name source
-objects and a white-border/object-presence/sharpness heuristic to select editor
-outputs. It does not implement the full internal rubric. Re-mining is not exact
-reconstruction of the 64-row snapshot. See [method scope](docs/METHOD_SCOPE.md).
+```bash
+rubric-cepr install-artifacts \
+  --bundle /path/to/training-inputs.tar.gz --data-root /path/to/training-data
+rubric-cepr train --dry-run \
+  --data-root /path/to/training-data --output /path/to/training-output
+```
 
-This is a **source release candidate**. CPU preparation
-and artifact checks do not establish GPU reproducibility or certify every
-submitted score. [Release readiness](docs/RELEASE_READINESS.md) records those
-limits and the remaining license/citation metadata. Companion assets are not
-included in this source repository.
+Run without `--dry-run` inside the GPU step after the full ImgEdit source-overlap
+check and environment check pass. The fixed recipe uses 400 steps, learning rate
+1e-4, rank 16, batch size one and seed 123. Output directories must be new.
+[Training instructions](docs/TRAINING.md) cover input preparation, Slurm launch
+and completion checks.
+
+To inspect the broader self-evolution configuration:
+
+```bash
+rubric-cepr framework --dry-run
+```
+
+Prepare your own unlabeled source manifest using
+[examples/unlabeled_manifest.jsonl](examples/unlabeled_manifest.jsonl). The
+reference configuration generates candidates and emits training commands by
+default. See [Method](docs/METHOD.md) for the role of each component.
+
+## Evaluation
+
+The included protocols cover ImgEdit Basic, GEdit and Complex-Edit real C4.
+Create separate Base and adapter configurations with identical generation and
+judge settings, and distinct output directories:
+
+```bash
+python tools/bootstrap_benchmarks.py --dry-run
+rubric-cepr export --benchmark imgedit --config /path/to/base.yaml --dry-run
+rubric-cepr export --benchmark imgedit --config /path/to/adapter.yaml --dry-run
+```
+
+Run exports and `rubric-cepr score` inside the GPU step once data, scorer
+checkouts and private API credentials are prepared. [Evaluation instructions](docs/EVALUATION.md)
+give dataset versions, benchmark-specific settings and scoring commands.
+
+## Acknowledgements
+
+This implementation uses [Qwen-Image-Edit](https://github.com/QwenLM/Qwen-Image),
+[Diffusers](https://github.com/huggingface/diffusers) and
+[GroundingDINO](https://github.com/IDEA-Research/GroundingDINO). Evaluation builds
+on [ImgEdit](https://github.com/PKU-YuanGroup/ImgEdit),
+[Step1X-Edit / GEdit](https://github.com/stepfun-ai/Step1X-Edit) and
+[Complex-Edit](https://github.com/UCSC-VLAA/Complex-Edit). Exact scorer revisions
+and patches are recorded in [third_party/SOURCES.json](third_party/SOURCES.json).
+
+## License
+
+A repository-wide code license has not been specified. Models, datasets and
+third-party code retain their upstream terms; see [NOTICE.md](NOTICE.md).

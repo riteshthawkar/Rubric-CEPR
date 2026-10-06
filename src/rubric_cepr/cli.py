@@ -29,12 +29,12 @@ def training_command(data_root: Path, output: Path) -> list[str]:
 def install_artifacts(bundle: Path, data_root: Path) -> dict:
     check_code()
     if digest(bundle) != identity()["bundle_sha256"]:
-        raise ValueError("Recovery bundle hash differs from the frozen v1 bundle")
+        raise ValueError("Input bundle hash differs from the verified extraction bundle")
     if data_root.exists():
         raise FileExistsError("Use a new data root; artifact installation never overwrites a directory")
-    inventory = json.loads((ROOT / "reproducibility/manifests/paper_headline_extract_v1_artifacts.json").read_text())
+    inventory = json.loads((ROOT / "reproducibility/manifests/extraction_v1_artifacts.json").read_text())
     expected = {item["path"]: item for item in inventory["artifacts"]}
-    prefix = "paper_headline_extract_v1/repository/"
+    prefix = identity()["bundle_member_prefix"]
     # Validate the entire archive topology before creating a destination.
     with tarfile.open(bundle, "r:gz") as archive:
         members = archive.getmembers()
@@ -86,7 +86,7 @@ def patch_inference_processor() -> None:
 
 
 def main(argv: list[str] | None = None) -> None:
-    parser = argparse.ArgumentParser(description="ACCV v1 release candidate: historical extraction recipe and reference framework")
+    parser = argparse.ArgumentParser(description="Rubric-CEPR: image editing, self-distillation and benchmark evaluation")
     commands = parser.add_subparsers(dest="command", required=True)
     check = commands.add_parser("check", help="CPU-only code, data and provenance checks")
     check.add_argument("--data-root", type=Path)
@@ -99,13 +99,13 @@ def main(argv: list[str] | None = None) -> None:
     install = commands.add_parser("install-artifacts", help="Install the exact 128 images from the verified companion bundle")
     install.add_argument("--bundle", required=True, type=Path)
     install.add_argument("--data-root", required=True, type=Path)
-    train = commands.add_parser("train", help="Reconstruct the surviving 400-step rank-16 adapter")
+    train = commands.add_parser("train", help="Train the fixed 400-step rank-16 extraction recipe")
     train.add_argument("--data-root", required=True, type=Path)
     train.add_argument("--output", required=True, type=Path)
     train.add_argument("--benchmark-json", type=Path, default=ROOT / "data/processed/benchmark/imgedit/basic_edit.json")
     train.add_argument("--benchmark-images", type=Path, default=ROOT / "data/processed/benchmark/imgedit/original_images")
     train.add_argument("--dry-run", action="store_true", help="Print the exact command; does not check missing external data or load a model")
-    infer = commands.add_parser("infer", help="Edit one image with the historical adapter")
+    infer = commands.add_parser("infer", help="Edit one image with the reference or retrained adapter")
     infer.add_argument("--image", required=True, type=Path)
     infer.add_argument("--prompt", required=True)
     infer.add_argument("--checkpoint", required=True, type=Path)
@@ -118,11 +118,11 @@ def main(argv: list[str] | None = None) -> None:
         sub.add_argument("--config", required=True, type=Path)
         sub.add_argument("--set", action="append", default=[])
         sub.add_argument("--dry-run", action="store_true")
-    framework = commands.add_parser("framework", help="Planner/editor/internal-critic reference; not the headline recipe")
+    framework = commands.add_parser("framework", help="Run the Planner–Editor–Critic reference framework")
     framework.add_argument("--config", type=Path, default=ROOT / "configs/self_evolve/qwen_edit_2509_internal_cepr_rubric_trainable_proposer.yaml")
     framework.add_argument("--dry-run", action="store_true")
     framework.add_argument("--set", action="append", default=[])
-    commands.add_parser("results", help="Display surviving historical score evidence; no API calls")
+    commands.add_parser("results", help="Display recorded benchmark results; no API calls")
     args = parser.parse_args(argv)
     # Caller-relative paths must be resolved before moving into the checkout.
     for field, value in vars(args).items():
@@ -138,9 +138,9 @@ def main(argv: list[str] | None = None) -> None:
                 parser.error("Overlap validation needs --data-root, --benchmark-json and --benchmark-images")
             report.update(check_disjointness(args.data_root.resolve(), args.benchmark_json.resolve(), args.benchmark_images.resolve()))
         if args.checkpoint:
-            if digest(args.checkpoint) != identity()["historic_adapter_sha256"]:
-                raise ValueError("Historical checkpoint hash mismatch")
-            report["historical_checkpoint_verified"] = True
+            if digest(args.checkpoint) != identity()["checkpoint_sha256"]:
+                raise ValueError("Reference checkpoint hash mismatch")
+            report["reference_checkpoint_verified"] = True
         if args.training_output:
             report["training_output"] = check_completion(args.training_output)
         if args.environment or args.strict_environment:
@@ -151,7 +151,7 @@ def main(argv: list[str] | None = None) -> None:
         print(json.dumps(install_artifacts(args.bundle.resolve(), args.data_root.resolve()), indent=2))
         return
     if args.command == "results":
-        print((ROOT / "reproducibility/evidence/recovered_results_v1.json").read_text())
+        print((ROOT / "reproducibility/results/results.json").read_text())
         return
     if args.command == "train":
         command = training_command(args.data_root, args.output)
@@ -176,8 +176,8 @@ def main(argv: list[str] | None = None) -> None:
         if args.dry_run:
             print(json.dumps({"model": "Qwen/Qwen-Image-Edit-2509", "revision": "d3968ef930e841f4c73640fb8afa3b306a78167e", "steps": 40, "seed": 42, "true_cfg_scale": 4.0, "checkpoint": str(args.checkpoint), "output": str(args.output)}, indent=2))
             return
-        if not args.allow_reconstructed_checkpoint and digest(args.checkpoint) != identity()["historic_adapter_sha256"]:
-            raise ValueError("Expected historical checkpoint; explicitly label a reconstructed checkpoint with --allow-reconstructed-checkpoint")
+        if not args.allow_reconstructed_checkpoint and digest(args.checkpoint) != identity()["checkpoint_sha256"]:
+            raise ValueError("Expected reference checkpoint; use --allow-reconstructed-checkpoint for retrained weights")
         if args.output.exists() or not args.image.is_file():
             raise ValueError("The input image must exist and the output must be a new file")
         require_gpu_step()

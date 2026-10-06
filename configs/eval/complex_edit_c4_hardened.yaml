@@ -1,5 +1,5 @@
-# Release rerun protocol; not evidence for submitted scores.
-name: accv_v1_base_complex_edit
+# Matched benchmark protocol; recorded evaluations have separate receipts.
+name: rubric_cepr_base_complex_edit
 benchmark: complex_edit
 runtime:
   python_executable: python
@@ -13,7 +13,7 @@ model:
   base_model: Qwen/Qwen-Image-Edit-2509
   revision: d3968ef930e841f4c73640fb8afa3b306a78167e
   checkpoint_path: null
-  model_name: accv_v1_base_complex_edit
+  model_name: rubric_cepr_base_complex_edit
   torch_dtype: bfloat16
   local_files_only: false
   model_id_with_origin_paths: Qwen/Qwen-Image-Edit-2509:transformer/diffusion_pytorch_model*.safetensors,Qwen/Qwen-Image:text_encoder/model*.safetensors,Qwen/Qwen-Image:vae/diffusion_pytorch_model.safetensors
@@ -87,7 +87,7 @@ scoring:
   - third_party/complex-edit/complex_edit/utils/file.py
   - third_party/complex-edit/complex_edit/utils/logger.py
   - third_party/complex-edit/complex_edit/utils/openai.py
-  score_run_id: accv-v1-release-complex_edit
+  score_run_id: rubric-cepr-complex_edit
 evaluation_contract:
   enabled: true
   output_id_length: 16
@@ -155,8 +155,8 @@ evaluation_contract:
   - src/qwen_edit_project/utils/paths.py
   - src/qwen_edit_project/utils/qwen_pipeline.py
   - src/qwen_edit_project/utils/prompting.py
-  - src/accv_v1/cli.py
-  - src/accv_v1/runtime.py
+  - src/rubric_cepr/cli.py
+  - src/rubric_cepr/runtime.py
   - src/qwen_edit_project/train/diffusers_qwen_edit_lora_reproduction_v1.py
 prompting:
   use_prompt_polish: false

@@ -898,6 +898,6 @@
     }
   ],
   "schema_version": 1,
-  "training_manifest": "reproducibility/manifests/paper_headline_extract_v1.json",
+  "training_manifest": "reproducibility/manifests/extraction_v1.json",
   "training_manifest_sha256": "8f1b5d17c3c7ca197ed28e92917a979c427b9e4aef20b3d0cfa3b63bbd7ba664"
 }

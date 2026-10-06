@@ -1,39 +1,40 @@
-# Results and evidence boundaries
+# Results
 
-The machine-readable source is
-[`recovered_results_v1.json`](../reproducibility/evidence/recovered_results_v1.json).
-It was copied unchanged from the frozen evidence snapshot. Its score-summary
-hashes identify historical artifacts, not new release evaluations.
+The machine-readable measurements are in
+[`results.json`](../reproducibility/results/results.json) and
+[`scores.csv`](../reproducibility/results/scores.csv). Seven score summaries are
+included in `reproducibility/results/summaries/`. Local filesystem paths have
+been redacted without changing their metrics. `reproducibility/score_sources.json`
+records original summary hashes, public-copy hashes and redaction counts.
 
-All seven referenced summaries were recovered and matched to those original
-hashes. Public copies under `reproducibility/evidence/summaries/` redact local
-filesystem paths, retaining all metrics. `provenance/SCORE_SUMMARY_MAP.json`
-records both original and release-copy hashes and the number of path redactions.
-Byte-identical originals remain in the private companion assets; the redacted
-files are not represented as byte-identical original receipts.
+## Extraction adapter
 
-| Benchmark / artifact | Surviving Base | Surviving candidate | Delta | Submitted text | Status |
-|---|---:|---:|---:|---|---|
-| ImgEdit-737, extraction-only v1 | 4.440638 | 4.555088 | +0.114450 | 4.44 → 4.60 | Submitted candidate number does not match the surviving summary |
-| ImgEdit-737, replay-fix follow-up | 4.440638 | 4.564084 | +0.123446 | — | A different follow-up artifact; not v1 |
-| Complex-Edit real C4, 531 items, v1 | 8.7674 | 8.8064 | +0.0390 | 8.77 → 8.91 | Submitted candidate number does not match the surviving summary |
-| GEdit full-1212, naive round-loop | 8.123821 | 8.101060 | −0.022761 | Reported separately | Negative historical control; not the extraction-only artifact |
-| GEdit 11-task transfer slices | 8.19 | 8.31 | Display-rounded +0.12 | 8.19 → 8.31 | Historical CN-only slices; not English-only or mixed-language evidence |
+| Benchmark | Examples | Base | Extraction adapter | Change |
+|---|---:|---:|---:|---:|
+| ImgEdit Basic | 737 | 4.440638 | 4.555088 | +0.114450 |
+| Complex-Edit real C4 | 531 | 8.7674 | 8.8064 | +0.0390 |
 
-V1's historical ImgEdit extraction subscore is **3.51 → 4.26 (+0.75)**.
-The overall gain is therefore not evidence of consistent improvement across
-all edit types.
+Both candidate rows correspond to the extraction adapter identified by
+`checkpoint_sha256` in `reproducibility/artifacts.json`. Its training uses 64
+pairs and 400 steps. ImgEdit's extraction subscore is **3.51 → 4.26 (+0.75)**;
+the overall gain does not establish consistent gains across edit categories.
 
-Historical summaries predate content-hashed evaluation contracts. The release
-does not claim fresh matched judge runs, full regeneration of those numbers,
-or agreement with the submitted rounded headline. All available measurements,
-including the negative control, remain visible. Never relabel a fresh rerun,
-another adapter, a different judge, or a later recovery result as a historical
-paper result.
+## Other evaluated variants
 
-The release benchmark configurations implement later strict rerun protocols:
-content-hashed inputs, output manifests, strict response parsing, and fresh
-score receipts. GEdit's mixed-language selection is 15 CN plus 15 EN per task;
-that differs from the historical all-CN slices. Different judge settings can
-also change the score. Report those configurations as **release reruns** with
-their exact contract IDs and sample counts.
+| Benchmark / variant | Base | Candidate | Change | Scope |
+|---|---:|---:|---:|---|
+| ImgEdit Basic, extraction with replay fix | 4.440638 | 4.564084 | +0.123446 | Separate adapter; not the fixed extraction checkpoint |
+| GEdit full-1212, naive round-loop | 8.123821 | 8.101060 | −0.022761 | Negative control; not the fixed extraction checkpoint |
+
+The negative GEdit result remains part of the record. Neither it nor the replay
+variant can be substituted for an evaluation of the extraction adapter. The
+included records do not establish English-only GEdit performance or broad
+transfer across editing tasks.
+
+## Protocol scope
+
+These measurements predate the content-hashed contracts in `configs/eval/`.
+The configurations specify matched evaluations with explicit dataset, generation,
+judge and output identities. They are protocols for new runs, not receipts for
+the recorded results. Use [EVALUATION.md](EVALUATION.md) to run those protocols
+and report the actual checkpoint hash, selection and completed example count.

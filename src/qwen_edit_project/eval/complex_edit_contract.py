@@ -195,7 +195,7 @@ def require_hardened_experiment_runtime(
     """Fail closed unless a hardened run is in qedit and an owned GPU srun step."""
 
     if environment is None:
-        from accv_v1.runtime import require_gpu_step
+        from rubric_cepr.runtime import require_gpu_step
         require_gpu_step()
     environment = os.environ if environment is None else environment
     executable = sys.executable if executable is None else str(executable)
@@ -256,7 +256,7 @@ def validate_hardened_config(config: Mapping[str, Any]) -> None:
         errors.append(f"model.base_model must equal {HARDENED_BASE_MODEL}")
     if model.get("revision") != HARDENED_BASE_MODEL_REVISION:
         errors.append(
-            f"model.revision must equal the recovered paper snapshot {HARDENED_BASE_MODEL_REVISION}"
+            f"model.revision must equal the pinned model snapshot {HARDENED_BASE_MODEL_REVISION}"
         )
     if model.get("model_type") not in {"base", "lora"}:
         errors.append("model.model_type must equal base or lora")
@@ -381,7 +381,7 @@ def validate_hardened_config(config: Mapping[str, Any]) -> None:
     if not isinstance(generation, Mapping) or canonical_json_bytes(dict(generation)) != (
         canonical_json_bytes(HARDENED_GENERATION)
     ):
-        errors.append("generation must exactly match the recovered paper protocol")
+        errors.append("generation must exactly match the fixed generation protocol")
     if prompting != {"use_prompt_polish": False}:
         errors.append("prompting must exactly disable prompt polishing")
     if runtime.get("generation_device") != "cuda":

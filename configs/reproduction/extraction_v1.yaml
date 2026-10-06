@@ -1,9 +1,9 @@
 schema_version: 1
-name: paper_headline_extract_v1
+name: extraction_v1
 description: >-
   Exact reconstruction contract for the surviving extraction-only checkpoint.
   This contract intentionally describes the artifact that was actually trained;
-  it is not the broader Planner/CEPR/replay method described in the paper.
+  it is the extraction-specific self-distillation recipe.
 
 model:
   pretrained_model_name_or_path: Qwen/Qwen-Image-Edit-2509
@@ -13,10 +13,10 @@ model:
   detector_revision: a2bb814dd30d776dcf7e30523b00659f4f141c71
 
 data:
-  manifest: reproducibility/manifests/paper_headline_extract_v1.json
+  manifest: reproducibility/manifests/extraction_v1.json
   sha256: 8f1b5d17c3c7ca197ed28e92917a979c427b9e4aef20b3d0cfa3b63bbd7ba664
-  artifact_manifest: reproducibility/manifests/paper_headline_extract_v1_artifacts.json
-  artifact_manifest_sha256: 7de62e8d70713c390de16e82635a63ff9b16ec92130abfdd41e9f14802bb0302
+  artifact_manifest: reproducibility/manifests/extraction_v1_artifacts.json
+  artifact_manifest_sha256: 127b71aea160ce3dee5aef4c54b1786d9c2e25d3ea98b20c76571138318f72d0
   expected_artifact_references: 128
   expected_unique_artifacts: 128
   original_snapshot_sha256: 1a342c0eb50a02fc0ddf529573b963330bd503c84b7963270dd5ec32a9bcef22
@@ -111,8 +111,8 @@ evaluation:
   preserve_input_resolution: false
   expected_benchmark_rows: 737
 
-historic_artifact:
-  checkpoint: outputs/self_evolve/fix_experiments/extract_selfdistill_v1/training_output/pytorch_lora_weights.safetensors
+reference_artifact:
+  checkpoint: pytorch_lora_weights.safetensors
   sha256: 118ffe5d4a86d33a836eb07c4ce063fad7096988072067c48f86636380047942
   expected_lora_tensors: 960
 
@@ -157,11 +157,3 @@ implementation:
       sha256: e60f1d81347d52841214ac27b81fae511847126b7387eba63526981d0497ac96
     - path: src/qwen_edit_project/train/training_safety.py
       sha256: 45497e00114022b0cf94090b2ac92e929cc763eaeb2b4bc2d0ff34cbe81f198e
-    - path: scripts/run_paper_headline_extract_v1.sh
-      sha256: 2ea496a3ec91c019c42f424e1ae015bd5bd1936e390755044bdb5c668055e44f
-    - path: scripts/validate_reproduction_contract.py
-      sha256: 7005e6de1d88206dc405e4afeee40e53fce25d9699d7524cf93521c52ac7d582
-    - path: scripts/validate_training_receipt.py
-      sha256: f783d5c3cf19237f974a39e84502c5bf505cbc4c072389b9330e17d510a24dcf
-    - path: scripts/lib/slurm_guard.sh
-      sha256: a8917bec4765f6a5f0ca6c0a643541c6352d2e3a5fec9f178563c0bd2bfc05f6

@@ -20,7 +20,7 @@ def digest(path: Path) -> str:
 
 
 def identity() -> dict:
-    return json.loads((ROOT / "provenance/IDENTITY.json").read_text())
+    return json.loads((ROOT / "reproducibility/artifacts.json").read_text())
 
 
 def check_code() -> dict:
@@ -28,7 +28,7 @@ def check_code() -> dict:
     for name, expected in cfg["pinned_files"].items():
         if digest(ROOT / name) != expected:
             raise ValueError(f"Pinned v1 file differs: {name}")
-    rows = json.loads((ROOT / "reproducibility/manifests/paper_headline_extract_v1.json").read_text())
+    rows = json.loads((ROOT / "reproducibility/manifests/extraction_v1.json").read_text())
     if len(rows) != 64:
         raise ValueError("The historical manifest must have exactly 64 rows")
     for field in ("record_key", "image", "edit_image"):
@@ -62,7 +62,7 @@ def safe_relative_path(root: Path, name: str) -> Path:
 
 def check_data(data_root: Path) -> dict:
     check_code()
-    inventory = json.loads((ROOT / "reproducibility/manifests/paper_headline_extract_v1_artifacts.json").read_text())
+    inventory = json.loads((ROOT / "reproducibility/manifests/extraction_v1_artifacts.json").read_text())
     artifacts = inventory["artifacts"]
     rows = json.loads((ROOT / inventory["training_manifest"]).read_text())
     refs = {(str(row["record_key"]), field): row[field] for row in rows for field in ("image", "edit_image")}
@@ -83,7 +83,7 @@ def check_data(data_root: Path) -> dict:
 
 
 def check_disjointness(data_root: Path, benchmark_json: Path, image_root: Path) -> dict:
-    rows = json.loads((ROOT / "reproducibility/manifests/paper_headline_extract_v1.json").read_text())
+    rows = json.loads((ROOT / "reproducibility/manifests/extraction_v1.json").read_text())
     def no_duplicate_keys(items):
         result = {}
         for key, value in items:
@@ -107,7 +107,7 @@ def check_disjointness(data_root: Path, benchmark_json: Path, image_root: Path) 
 
 def environment_report(strict: bool = False) -> dict:
     import yaml
-    contract = yaml.safe_load((ROOT / "configs/reproduction/paper_headline_extract_v1.yaml").read_text())
+    contract = yaml.safe_load((ROOT / "configs/reproduction/extraction_v1.yaml").read_text())
     expected = contract["environment"]
     found = {}
     mismatches = []

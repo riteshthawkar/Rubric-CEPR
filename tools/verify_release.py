@@ -74,8 +74,22 @@ def verify(root: Path = ROOT) -> dict:
     return report
 
 
+def write_checksums(root: Path = ROOT) -> dict:
+    """Audit the payload before sealing its current file list and byte identities."""
+    audit(root)
+    lines = [
+        f"{hashlib.sha256(path.read_bytes()).hexdigest()}  {path.relative_to(root).as_posix()}\n"
+        for path in payload_paths(root) if path.name != "SHA256SUMS"
+    ]
+    (root / "SHA256SUMS").write_text("".join(lines))
+    return verify(root)
+
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--audit-only", action="store_true")
+    mode = parser.add_mutually_exclusive_group()
+    mode.add_argument("--audit-only", action="store_true")
+    mode.add_argument("--write-checksums", action="store_true")
     args = parser.parse_args()
-    print(json.dumps(audit() if args.audit_only else verify(), indent=2))
+    report = write_checksums() if args.write_checksums else (audit() if args.audit_only else verify())
+    print(json.dumps(report, indent=2))

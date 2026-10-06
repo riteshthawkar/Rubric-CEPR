@@ -13,7 +13,7 @@ from pathlib import Path
 import pytest
 import yaml
 
-from accv_v1 import checks, cli, runtime
+from rubric_cepr import checks, cli, runtime
 
 
 def test_original_trainer_and_manifest_are_pinned():
@@ -32,7 +32,7 @@ def test_portable_command_uses_exact_scientific_arguments(tmp_path):
     assert flag("--seed") == "123"
     assert flag("--training_objective") == "sft"
     assert flag("--dataset_base_path") == str((tmp_path / "inputs").resolve())
-    assert flag("--dataset_metadata_path").endswith("paper_headline_extract_v1.json")
+    assert flag("--dataset_metadata_path").endswith("extraction_v1.json")
     assert "--local_files_only" in command
     assert "--resume_from_checkpoint" not in command
     assert flag("--lora_reference_l2_weight") == flag("--lora_reference_max_relative_delta") == "0.0"
@@ -60,7 +60,7 @@ def test_content_overlap_is_rejected_even_after_source_rename(tmp_path, monkeypa
     images.mkdir()
     (data / "source.jpg").write_bytes(b"same image content")
     (images / "renamed.jpg").write_bytes(b"same image content")
-    (manifest_dir / "paper_headline_extract_v1.json").write_text(json.dumps([{"edit_image": "source.jpg"}]))
+    (manifest_dir / "extraction_v1.json").write_text(json.dumps([{"edit_image": "source.jpg"}]))
     records = {str(i): {"id": "renamed.jpg"} for i in range(737)}
     benchmark = tmp_path / "benchmark.json"
     benchmark.write_text(json.dumps(records))
@@ -79,7 +79,7 @@ def test_source_basename_overlap_is_rejected(tmp_path, monkeypatch):
     images.mkdir()
     (data / "source.jpg").write_bytes(b"training image")
     (images / "source.jpg").write_bytes(b"different bytes")
-    (manifest_dir / "paper_headline_extract_v1.json").write_text(json.dumps([{"edit_image": "source.jpg"}]))
+    (manifest_dir / "extraction_v1.json").write_text(json.dumps([{"edit_image": "source.jpg"}]))
     benchmark = tmp_path / "benchmark.json"
     benchmark.write_text(json.dumps({str(i): {"id": "source.jpg"} for i in range(737)}))
     monkeypatch.setattr(checks, "ROOT", root)
@@ -99,11 +99,11 @@ def test_corrupted_bundle_is_rejected_before_destination_exists(tmp_path):
 def test_archive_link_is_rejected_even_with_matching_container_hash(tmp_path, monkeypatch):
     archive = tmp_path / "linked.tar.gz"
     with tarfile.open(archive, "w:gz") as handle:
-        member = tarfile.TarInfo("paper_headline_extract_v1/repository/file")
+        member = tarfile.TarInfo("extraction_v1/repository/file")
         member.type = tarfile.SYMTYPE
         member.linkname = "/tmp/outside"
         handle.addfile(member)
-    monkeypatch.setattr(cli, "identity", lambda: {"bundle_sha256": checks.digest(archive)})
+    monkeypatch.setattr(cli, "identity", lambda: {**checks.identity(), "bundle_sha256": checks.digest(archive)})
     with pytest.raises(ValueError, match="non-file"):
         cli.install_artifacts(archive, tmp_path / "new-data")
     assert not (tmp_path / "new-data").exists()
@@ -116,7 +116,7 @@ def test_duplicate_archive_entries_are_rejected(tmp_path, monkeypatch):
             member = tarfile.TarInfo("duplicate")
             member.size = 1
             handle.addfile(member, io.BytesIO(b"x"))
-    monkeypatch.setattr(cli, "identity", lambda: {"bundle_sha256": checks.digest(archive)})
+    monkeypatch.setattr(cli, "identity", lambda: {**checks.identity(), "bundle_sha256": checks.digest(archive)})
     with pytest.raises(ValueError, match="duplicate"):
         cli.install_artifacts(archive, tmp_path / "new-data")
 
@@ -163,12 +163,12 @@ def test_dry_runs_do_not_import_models_or_call_scheduler(tmp_path, monkeypatch, 
     assert "Qwen/Qwen-Image-Edit-2509" in capsys.readouterr().out
 
 
-def test_history_preserves_score_mismatch_and_negative_result():
-    evidence = json.loads((checks.ROOT / "reproducibility/evidence/recovered_results_v1.json").read_text())
-    assert evidence["imgedit_737"]["submitted_value"]["matches_surviving_summary"] is False
-    assert evidence["complex_edit_real_c4_531"]["submitted_value"]["matches_surviving_summary"] is False
+def test_results_preserve_measured_scores_and_negative_control():
+    evidence = json.loads((checks.ROOT / "reproducibility/results/results.json").read_text())
+    assert evidence["imgedit_737"]["extraction_v1"]["overall"] == 4.5550881953866975
+    assert evidence["complex_edit_real_c4_531"]["extraction_v1"]["overall"] == 8.8064
     assert evidence["gedit_full_1212"]["round_loop_candidate"]["overall_delta"] < 0
-    for item in json.loads((checks.ROOT / "provenance/SCORE_SUMMARY_MAP.json").read_text()):
+    for item in json.loads((checks.ROOT / "reproducibility/score_sources.json").read_text()):
         assert checks.digest(checks.ROOT / item["release_path"]) == item["release_sha256"]
 
 
@@ -186,7 +186,7 @@ def test_cli_resolves_caller_relative_paths_before_chdir(tmp_path, monkeypatch):
     monkeypatch.chdir(tmp_path)
     checkpoint = tmp_path / "adapter.bin"
     checkpoint.write_bytes(b"test-adapter")
-    monkeypatch.setattr(cli, "identity", lambda: {"historic_adapter_sha256": checks.digest(checkpoint)})
+    monkeypatch.setattr(cli, "identity", lambda: {"checkpoint_sha256": checks.digest(checkpoint)})
     cli.main(["check", "--checkpoint", "adapter.bin"])
 
 

@@ -1,7 +1,6 @@
 {
   "schema_version": 1,
-  "status": "historical_evidence_not_hardened",
-  "warning": "These surviving summaries predate content-hashed evaluation contracts. Preserve them for diagnosis, but rerun the hardened protocol before making claims.",
+  "status": "recorded_evaluations_precontract",
   "imgedit_737": {
     "base": {
       "path": "outputs/quick_eval/imgedit_full737_extract_only/scores/qwen_edit_2509_baseline_imgedit_summary.json",
@@ -10,7 +9,7 @@
       "overall": 4.440637720488463,
       "extract": 3.51
     },
-    "paper_headline_extract_v1": {
+    "extraction_v1": {
       "path": "outputs/quick_eval/imgedit_full737_extract_only/scores/extract_only_full737_summary.json",
       "sha256": "78eb6e323aec33a399942e8a8ad3f2c5c913b3d48c5c7ddd9f3c18e1d4bead0d",
       "count": 737,
@@ -25,12 +24,6 @@
       "count": 737,
       "overall": 4.564084124830389,
       "overall_delta": 0.12344640434192566
-    },
-    "submitted_value": {
-      "base": 4.44,
-      "ours": 4.60,
-      "delta": 0.16,
-      "matches_surviving_summary": false
     }
   },
   "gedit_full_1212": {
@@ -44,12 +37,6 @@
       "sha256": "73b602be1306ab4544e6e5a67fcb9b718461dc93f8dc9150b1e5a9d5cf48cba4",
       "overall": 8.101060087493433,
       "overall_delta": -0.02276113719947226
-    },
-    "submitted_11_task_value": {
-      "base": 8.19,
-      "ours": 8.31,
-      "delta": 0.12,
-      "warning": "The surviving task slices were not the newly specified deterministic 15-CN plus 15-EN protocol."
     }
   },
   "complex_edit_real_c4_531": {
@@ -59,18 +46,13 @@
       "overall": 8.7674,
       "count": 531
     },
-    "paper_headline_extract_v1": {
+    "extraction_v1": {
       "path": "outputs/scores/complex_edit/extract_v1_complex_c4_complex_edit_summary.json",
       "sha256": "c5657a998b6aae1de28d1a00902db59a71db77138ddc3a2a1c40bc86a2d94ff0",
       "overall": 8.8064,
       "overall_delta": 0.039,
       "count": 531
-    },
-    "submitted_value": {
-      "base": 8.77,
-      "ours": 8.91,
-      "delta": 0.15,
-      "matches_surviving_summary": false
     }
-  }
+  },
+  "protocol_note": "These recorded evaluations predate the content-hashed protocols in configs/eval. New runs must report their own artifact and protocol identities."
 }

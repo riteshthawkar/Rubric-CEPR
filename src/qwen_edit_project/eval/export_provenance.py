@@ -114,7 +114,7 @@ def validate_resume_provenance(
         )
         raise RuntimeError(
             f"{benchmark} output directory already contains {existing_count} generated file(s) from "
-            "different or unknown settings. Refusing to silently mix paper-matched outputs with older "
+            "different or unknown settings. Refusing to silently mix protocol-matched outputs with older "
             f"images. Inspect {summary_path.with_name(summary_path.stem + '_provenance_mismatch.json')}, "
             "then use a new model.model_name, delete the old output directory, or pass --no-resume."
         )

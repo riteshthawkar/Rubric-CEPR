@@ -1,0 +1,347 @@
+{
+  "schema_version": 1,
+  "files": [
+    {
+      "path": "src/qwen_edit_project/eval/complex_edit_c4_worker.py",
+      "source_sha256": "91156f6a78e988a50519eeeef59819b7039e463d9cf7a872a8dc64acbe6cf654",
+      "sha256": "91156f6a78e988a50519eeeef59819b7039e463d9cf7a872a8dc64acbe6cf654",
+      "byte_identical_to_source": true
+    },
+    {
+      "path": "src/qwen_edit_project/eval/complex_edit_contract.py",
+      "source_sha256": "d7f4ed0e25636dd9b5938ab156f4d042c89946617718d5c5299e1006dbdf4e6f",
+      "sha256": "82d012b17d2d274fc6875b896728f88a8090e7ca47bd1fdc7fc33ad2bcb3a599",
+      "byte_identical_to_source": false
+    },
+    {
+      "path": "src/qwen_edit_project/eval/complex_edit_openai_capture.py",
+      "source_sha256": "0e374f3c2bd5d364ecff7ab082457cfaf6765cc2bfa5566c680016a586bc846c",
+      "sha256": "0e374f3c2bd5d364ecff7ab082457cfaf6765cc2bfa5566c680016a586bc846c",
+      "byte_identical_to_source": true
+    },
+    {
+      "path": "src/qwen_edit_project/eval/complex_edit_score_attempts.py",
+      "source_sha256": "e7781bd862edc275639a7c8b94cfc7e12dfd6411bbc966cef747e260617736fa",
+      "sha256": "e7781bd862edc275639a7c8b94cfc7e12dfd6411bbc966cef747e260617736fa",
+      "byte_identical_to_source": true
+    },
+    {
+      "path": "src/qwen_edit_project/eval/evaluation_contract.py",
+      "source_sha256": "1671309bb95cbff8f4a3a3ebdef3c100071040ee9dbffa804920e9c5b798b575",
+      "sha256": "1671309bb95cbff8f4a3a3ebdef3c100071040ee9dbffa804920e9c5b798b575",
+      "byte_identical_to_source": true
+    },
+    {
+      "path": "src/qwen_edit_project/eval/export_complex_edit.py",
+      "source_sha256": "b43fa00c619d8533758f357809efc53a2064f8cb4a9b3d4299f3350e1d053dc0",
+      "sha256": "b43fa00c619d8533758f357809efc53a2064f8cb4a9b3d4299f3350e1d053dc0",
+      "byte_identical_to_source": true
+    },
+    {
+      "path": "src/qwen_edit_project/eval/export_gedit.py",
+      "source_sha256": "42fd8237099ab8a176dabe837c7fc62ce6a0db28092399e2dc54ee77f97fa439",
+      "sha256": "42fd8237099ab8a176dabe837c7fc62ce6a0db28092399e2dc54ee77f97fa439",
+      "byte_identical_to_source": true
+    },
+    {
+      "path": "src/qwen_edit_project/eval/export_imgedit.py",
+      "source_sha256": "0613c601fb30036f2aaa0e17c73acb409c949afed911b6ed846e2b1e6700b114",
+      "sha256": "0613c601fb30036f2aaa0e17c73acb409c949afed911b6ed846e2b1e6700b114",
+      "byte_identical_to_source": true
+    },
+    {
+      "path": "src/qwen_edit_project/eval/export_provenance.py",
+      "source_sha256": "56373ebc3c27cceabffbd78e02286a3db6586b38a6bd177d3ac206f1e722dac7",
+      "sha256": "c41fe3cb91e6e3569b1b9080147386e5d7754306eaf1738b8144c1677a4d73e0",
+      "byte_identical_to_source": false
+    },
+    {
+      "path": "src/qwen_edit_project/eval/gedit_selection.py",
+      "source_sha256": "3cde9b91e458a994ce20d296d52cf3f7018825b639fa8622d49b306b5860cb7b",
+      "sha256": "3cde9b91e458a994ce20d296d52cf3f7018825b639fa8622d49b306b5860cb7b",
+      "byte_identical_to_source": true
+    },
+    {
+      "path": "src/qwen_edit_project/eval/imgedit_basic_bench.py",
+      "source_sha256": "7828bb19b76b5ccc578543ed12af67eb2d91a85ac5670f0e47951e1b7734d83d",
+      "sha256": "7828bb19b76b5ccc578543ed12af67eb2d91a85ac5670f0e47951e1b7734d83d",
+      "byte_identical_to_source": true
+    },
+    {
+      "path": "src/qwen_edit_project/eval/imgedit_scores.py",
+      "source_sha256": "eeeff2c44da083d085ad28ec7d4d5e8e2d023deebbd2a8003d519c86a1980948",
+      "sha256": "eeeff2c44da083d085ad28ec7d4d5e8e2d023deebbd2a8003d519c86a1980948",
+      "byte_identical_to_source": true
+    },
+    {
+      "path": "src/qwen_edit_project/eval/run_complex_edit_score.py",
+      "source_sha256": "f72cb0054d8b69e6ad2faad3821da2b91d3d942915766fb5fa2b40fb45d63a4e",
+      "sha256": "f72cb0054d8b69e6ad2faad3821da2b91d3d942915766fb5fa2b40fb45d63a4e",
+      "byte_identical_to_source": true
+    },
+    {
+      "path": "src/qwen_edit_project/eval/run_gedit_score.py",
+      "source_sha256": "489349d8a17988425cd702c44e7ef658a29c5cd10227bd1560f411a01494c4c5",
+      "sha256": "489349d8a17988425cd702c44e7ef658a29c5cd10227bd1560f411a01494c4c5",
+      "byte_identical_to_source": true
+    },
+    {
+      "path": "src/qwen_edit_project/eval/run_imgedit_score.py",
+      "source_sha256": "e0962d67a182a4af74ec05ab3bdb3449256429fb31e62b88435fd78cb971dde9",
+      "sha256": "e0962d67a182a4af74ec05ab3bdb3449256429fb31e62b88435fd78cb971dde9",
+      "byte_identical_to_source": true
+    },
+    {
+      "path": "src/qwen_edit_project/eval/score_receipts.py",
+      "source_sha256": "8f65625176f3a46ca4c453c3b906991fe3208e56e6d790211c1468d5ebb748b3",
+      "sha256": "2dc5ff1a890a6daa1e4c16c452e32bd38b4edf2eced27768313c42be8539ad2e",
+      "byte_identical_to_source": false
+    },
+    {
+      "path": "src/qwen_edit_project/eval/summarize_scores.py",
+      "source_sha256": "d659931c69e3ae60e3804132d532c88a866466c5560224155d4c70c33d0377a1",
+      "sha256": "d659931c69e3ae60e3804132d532c88a866466c5560224155d4c70c33d0377a1",
+      "byte_identical_to_source": true
+    },
+    {
+      "path": "src/qwen_edit_project/self_evolve/backends.py",
+      "source_sha256": "b54c50aeb16b5f35839097347b550e2e3d6f5518f27ced5ab0c8e1e5114e8b87",
+      "sha256": "b54c50aeb16b5f35839097347b550e2e3d6f5518f27ced5ab0c8e1e5114e8b87",
+      "byte_identical_to_source": true
+    },
+    {
+      "path": "src/qwen_edit_project/self_evolve/data.py",
+      "source_sha256": "5a6dee0587268cba244545ebad07c782249911bf2e7ff2d607ee822d312e0002",
+      "sha256": "5a6dee0587268cba244545ebad07c782249911bf2e7ff2d607ee822d312e0002",
+      "byte_identical_to_source": true
+    },
+    {
+      "path": "src/qwen_edit_project/self_evolve/edit_schema.py",
+      "source_sha256": "cc19be78ffd4b76f7065f480bab824703a15a7d464f5066334907e9005b0eaa8",
+      "sha256": "cc19be78ffd4b76f7065f480bab824703a15a7d464f5066334907e9005b0eaa8",
+      "byte_identical_to_source": true
+    },
+    {
+      "path": "src/qwen_edit_project/self_evolve/image_metrics.py",
+      "source_sha256": "8c8b4b328ef4aa2c254e25147072d672a95c9ce06ea5f5cac30c2fe09ea33f32",
+      "sha256": "8c8b4b328ef4aa2c254e25147072d672a95c9ce06ea5f5cac30c2fe09ea33f32",
+      "byte_identical_to_source": true
+    },
+    {
+      "path": "src/qwen_edit_project/self_evolve/loop.py",
+      "source_sha256": "adc5afec5db7aaf319db7dd0a57ddbd3af1095d66d792a84a83039de529b8b2e",
+      "sha256": "adc5afec5db7aaf319db7dd0a57ddbd3af1095d66d792a84a83039de529b8b2e",
+      "byte_identical_to_source": true
+    },
+    {
+      "path": "src/qwen_edit_project/self_evolve/proposal_bank.py",
+      "source_sha256": "22b04fbac79ca046e31ab4db03c52de77dd8ff4a17763d8f1336a7530513d54f",
+      "sha256": "22b04fbac79ca046e31ab4db03c52de77dd8ff4a17763d8f1336a7530513d54f",
+      "byte_identical_to_source": true
+    },
+    {
+      "path": "src/qwen_edit_project/self_evolve/proposer_training.py",
+      "source_sha256": "8caa11e7450693ec4e871eaa48980b9071da46e0946ee3478c75da77638d98c6",
+      "sha256": "8caa11e7450693ec4e871eaa48980b9071da46e0946ee3478c75da77638d98c6",
+      "byte_identical_to_source": true
+    },
+    {
+      "path": "src/qwen_edit_project/self_evolve/run_loop.py",
+      "source_sha256": "104eb5888cdfd9f3ae26cafb17abbc353e9d8817790249751eb766b8c5969ec2",
+      "sha256": "104eb5888cdfd9f3ae26cafb17abbc353e9d8817790249751eb766b8c5969ec2",
+      "byte_identical_to_source": true
+    },
+    {
+      "path": "src/qwen_edit_project/self_evolve/types.py",
+      "source_sha256": "ffe923620ab02b7ff24e12b323c4b56468c998e3172590494ed062cc9b377d95",
+      "sha256": "ffe923620ab02b7ff24e12b323c4b56468c998e3172590494ed062cc9b377d95",
+      "byte_identical_to_source": true
+    },
+    {
+      "path": "src/qwen_edit_project/train/diffusers_qwen_edit_lora_reproduction_v1.py",
+      "source_sha256": "e60f1d81347d52841214ac27b81fae511847126b7387eba63526981d0497ac96",
+      "sha256": "e60f1d81347d52841214ac27b81fae511847126b7387eba63526981d0497ac96",
+      "byte_identical_to_source": true
+    },
+    {
+      "path": "src/qwen_edit_project/train/launch_train.py",
+      "source_sha256": "f24050feee9809e1128e437a580f2c601184b3f01fed8f21d3757d0f8cf45d11",
+      "sha256": "f24050feee9809e1128e437a580f2c601184b3f01fed8f21d3757d0f8cf45d11",
+      "byte_identical_to_source": true
+    },
+    {
+      "path": "src/qwen_edit_project/train/train_proposer_lora.py",
+      "source_sha256": "517c8a9431d50c5d6b0882e4a23fc82b720138a3212c639bc1905bfc9e614013",
+      "sha256": "517c8a9431d50c5d6b0882e4a23fc82b720138a3212c639bc1905bfc9e614013",
+      "byte_identical_to_source": true
+    },
+    {
+      "path": "src/qwen_edit_project/train/training_safety.py",
+      "source_sha256": "45497e00114022b0cf94090b2ac92e929cc763eaeb2b4bc2d0ff34cbe81f198e",
+      "sha256": "45497e00114022b0cf94090b2ac92e929cc763eaeb2b4bc2d0ff34cbe81f198e",
+      "byte_identical_to_source": true
+    },
+    {
+      "path": "src/qwen_edit_project/utils/commands.py",
+      "source_sha256": "fb4f7193b76a64bed96d9a8371aa21854c0dfb53deac5122eaab22722d0d3dbd",
+      "sha256": "fb4f7193b76a64bed96d9a8371aa21854c0dfb53deac5122eaab22722d0d3dbd",
+      "byte_identical_to_source": true
+    },
+    {
+      "path": "src/qwen_edit_project/utils/config.py",
+      "source_sha256": "e3728a1b4fed4a9b1429f97874fd8e0d25aa64399ee0cc76fbd7910f95bbf1bc",
+      "sha256": "e3728a1b4fed4a9b1429f97874fd8e0d25aa64399ee0cc76fbd7910f95bbf1bc",
+      "byte_identical_to_source": true
+    },
+    {
+      "path": "src/qwen_edit_project/utils/device.py",
+      "source_sha256": "c2e0bda452de5a42bca98ea5bf4ebf25814f9cd7403e9671f9d391fcf8ada50f",
+      "sha256": "c2e0bda452de5a42bca98ea5bf4ebf25814f9cd7403e9671f9d391fcf8ada50f",
+      "byte_identical_to_source": true
+    },
+    {
+      "path": "src/qwen_edit_project/utils/paths.py",
+      "source_sha256": "d03b97b78dcc44e2358784ecc1932117cefb9457352ef15d8601a5e288f58486",
+      "sha256": "d03b97b78dcc44e2358784ecc1932117cefb9457352ef15d8601a5e288f58486",
+      "byte_identical_to_source": true
+    },
+    {
+      "path": "src/qwen_edit_project/utils/prompting.py",
+      "source_sha256": "b0d1239ae90940243a8bfac11cfa09d8df87690b23d2ed814f8041118622452b",
+      "sha256": "b0d1239ae90940243a8bfac11cfa09d8df87690b23d2ed814f8041118622452b",
+      "byte_identical_to_source": true
+    },
+    {
+      "path": "src/qwen_edit_project/utils/qwen_pipeline.py",
+      "source_sha256": "3c00d74c7feab1b97587a3b459c085857f38eec9aa210b075faaeaecee869a21",
+      "sha256": "3c00d74c7feab1b97587a3b459c085857f38eec9aa210b075faaeaecee869a21",
+      "byte_identical_to_source": true
+    },
+    {
+      "path": "src/qwen_edit_project/utils/run_metadata.py",
+      "source_sha256": "006656cfcf9c59e188d955e1b061ad48d6db2de0e322c2c3fdbc912164d43851",
+      "sha256": "006656cfcf9c59e188d955e1b061ad48d6db2de0e322c2c3fdbc912164d43851",
+      "byte_identical_to_source": true
+    },
+    {
+      "path": "src/qwen_edit_project/utils/runtime.py",
+      "source_sha256": "bdc36535365568a45dbda857b3c2d6e11b83dabe68e7604d1edc41ebf43c4bfd",
+      "sha256": "bdc36535365568a45dbda857b3c2d6e11b83dabe68e7604d1edc41ebf43c4bfd",
+      "byte_identical_to_source": true
+    },
+    {
+      "path": "src/qwen_edit_project/__init__.py",
+      "source_sha256": "030efbcbf7a914ab827e32a39385e9027ca01ead0ce5a3014c7abc0c93c65f47",
+      "sha256": "030efbcbf7a914ab827e32a39385e9027ca01ead0ce5a3014c7abc0c93c65f47",
+      "byte_identical_to_source": true
+    },
+    {
+      "path": "src/qwen_edit_project/eval/__init__.py",
+      "source_sha256": "fc3ba583351c5c839cb0478f25c440e0b7191a9e841606fd51d5a7b97a8549b4",
+      "sha256": "fc3ba583351c5c839cb0478f25c440e0b7191a9e841606fd51d5a7b97a8549b4",
+      "byte_identical_to_source": true
+    },
+    {
+      "path": "src/qwen_edit_project/self_evolve/__init__.py",
+      "source_sha256": "229afcbfce131218963a2af156e2935478e7cba2ff7fb1f2f825e594e3ed0d93",
+      "sha256": "229afcbfce131218963a2af156e2935478e7cba2ff7fb1f2f825e594e3ed0d93",
+      "byte_identical_to_source": true
+    },
+    {
+      "path": "src/qwen_edit_project/train/__init__.py",
+      "source_sha256": "2dcbd5387e7c4494346b531403b2101229ff9e837f30b5e8e68dd5479f904578",
+      "sha256": "2dcbd5387e7c4494346b531403b2101229ff9e837f30b5e8e68dd5479f904578",
+      "byte_identical_to_source": true
+    },
+    {
+      "path": "src/qwen_edit_project/utils/__init__.py",
+      "source_sha256": "d440b067320ec4d2abf10515ed28751867ebb6954ce534b302095952a3be1f3a",
+      "sha256": "d440b067320ec4d2abf10515ed28751867ebb6954ce534b302095952a3be1f3a",
+      "byte_identical_to_source": true
+    },
+    {
+      "path": "src/qwen_edit_project/train/diffusers_qwen_edit_lora.py",
+      "source_sha256": "0d033ef25ec85d4b80fdd00f594badb4223ec7ff481d9cd32c1109d1f6783b84",
+      "sha256": "0d033ef25ec85d4b80fdd00f594badb4223ec7ff481d9cd32c1109d1f6783b84",
+      "byte_identical_to_source": true
+    },
+    {
+      "path": "reproducibility/manifests/extraction_v1.json",
+      "source_sha256": "8f1b5d17c3c7ca197ed28e92917a979c427b9e4aef20b3d0cfa3b63bbd7ba664",
+      "sha256": "8f1b5d17c3c7ca197ed28e92917a979c427b9e4aef20b3d0cfa3b63bbd7ba664",
+      "byte_identical_to_source": true
+    },
+    {
+      "path": "reproducibility/manifests/extraction_v1_artifacts.json",
+      "source_sha256": "7de62e8d70713c390de16e82635a63ff9b16ec92130abfdd41e9f14802bb0302",
+      "sha256": "127b71aea160ce3dee5aef4c54b1786d9c2e25d3ea98b20c76571138318f72d0",
+      "byte_identical_to_source": false
+    },
+    {
+      "path": "reproducibility/results/results.json",
+      "source_sha256": "305d9acd9dabaafdb34259a1f90e9dce78c8ac7459f591a9380f8256d1c8e772",
+      "sha256": "c73ffaf4c1d41fe252318d31be5726ccda3ccf06dd6c31ab79f6dac214a06617",
+      "byte_identical_to_source": false
+    },
+    {
+      "path": "reproducibility/environments/extraction_v1.txt",
+      "source_sha256": "d7b74186ceea6e73f4077c5d937ba5eb42d5b11d25fda9ec3a0724ae5cc01307",
+      "sha256": "d7b74186ceea6e73f4077c5d937ba5eb42d5b11d25fda9ec3a0724ae5cc01307",
+      "byte_identical_to_source": true
+    },
+    {
+      "path": "configs/reproduction/extraction_v1.yaml",
+      "source_sha256": "699c7f2e9ec741997735d1e40fa0a0b468d63b1456c74a1021e646663d5dfecc",
+      "sha256": "9f76968636f8a20c5842d6c573938dad53d57b5d3469da36d3dd8702f5ef2bc3",
+      "byte_identical_to_source": false
+    },
+    {
+      "path": "scripts/build_extract_selfdistill.py",
+      "source_sha256": "2bbaa2ac817602aa0b5dfa960d65fec83cf67db5227276648f2645474ac0e32c",
+      "sha256": "2bbaa2ac817602aa0b5dfa960d65fec83cf67db5227276648f2645474ac0e32c",
+      "byte_identical_to_source": true
+    },
+    {
+      "path": "scripts/prepare_complex_edit_data.py",
+      "source_sha256": "722eb906f9ee3518a316f47195d34168f23f65c49b7dee960ef37a842e8899ff",
+      "sha256": "c4d9282ac5d7c7e682295afd3d2e857e721f3b8cf8e4cc7783298ce0312a6f2c",
+      "byte_identical_to_source": false
+    },
+    {
+      "path": "scripts/build_imgedit_source_snapshot.py",
+      "source_sha256": "1dd1824c1e78b97b8d4d9bceeff592c99aa0a89f73a0936bf34c038731f62305",
+      "sha256": "1dd1824c1e78b97b8d4d9bceeff592c99aa0a89f73a0936bf34c038731f62305",
+      "byte_identical_to_source": true
+    },
+    {
+      "path": "configs/eval/imgedit_hardened.yaml",
+      "source_sha256": "26ca93e386ff643f0710a62e0a1864df11f0e1c38816f27b4f1c60a7a29cda1e",
+      "sha256": "11cbdf6cfe8cbac51b2c92efa51bc15b0d79a3340b7a9b59f685c3986a9e835b",
+      "byte_identical_to_source": false
+    },
+    {
+      "path": "configs/eval/gedit_hardened.yaml",
+      "source_sha256": "8eedbe6d849203116d269b62b990fb7608be7a99669ae8e81397297af294ff24",
+      "sha256": "76bdc8de15c7c872f279ce720849fd385f2ff9bca0c9d3f885e4c90e3e9a9f8f",
+      "byte_identical_to_source": false
+    },
+    {
+      "path": "configs/eval/complex_edit_c4_hardened.yaml",
+      "source_sha256": "0d5675276e1073f99455aef1a1dc0928c6c1a076845d7a0784b1ef32d7ec3651",
+      "sha256": "bdbc8befc3b18271dfe2f8e2ddc21508fe765b30b968df6f0af0c310036632df",
+      "byte_identical_to_source": false
+    },
+    {
+      "path": "configs/self_evolve/qwen_edit_2509_internal_cepr_rubric_trainable_proposer.yaml",
+      "source_sha256": "1d87ecf94e5f853a7bd60de2d972f69d6a5ab67b4493cc3dead89c9685cb7f68",
+      "sha256": "4eeba4569bc7b3f728930d7fa3994aeef0e0050b4273b1d708319a247e63098a",
+      "byte_identical_to_source": false
+    },
+    {
+      "path": "configs/train/lora_2509_diffusers.yaml",
+      "source_sha256": "d51cd468546e9061ac45965479949a53600bd765ad0880795ce857875317dacf",
+      "sha256": "03a423a5ce682cd664f604ed7970e608d3e2588c06bfb3abe36c2c75a5a6cc9b",
+      "byte_identical_to_source": false
+    }
+  ]
+}

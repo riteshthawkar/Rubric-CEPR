@@ -41,12 +41,21 @@ def require_gpu_step() -> None:
         raise RuntimeError("The current host is outside the allocated node list")
     if not os.environ.get("TMUX"):
         raise RuntimeError("Submit from a newly inspected tmux session and export TMUX into the Slurm worker")
-    if str(ROOT).startswith("/share_6/users/ritesh_thawkar/"):
-        expected = Path("/share_6/users/ritesh_thawkar/condaenvs/qedit/bin/python")
-        if actual_user != "ritesh_thawkar" or Path(sys.executable).resolve() != expected.resolve():
-            raise RuntimeError("This workspace requires ritesh_thawkar and the activated qedit Python")
-        if os.environ.get("HF_HOME") != "/share_6/users/ritesh_thawkar/.cache/huggingface":
-            raise RuntimeError("Set the workspace policy HF_HOME before model execution")
+    # Honor the hosting workspace's policy without embedding private host paths.
+    for parent in ROOT.parents:
+        if (parent / "docs/AGENT_GPU_ALLOCATION_AND_EXPERIMENT_RULES.md").is_file():
+            owner_root = parent.parent
+            expected = owner_root / "condaenvs/qedit/bin/python"
+            if actual_user != owner_root.name or Path(sys.executable).resolve() != expected.resolve():
+                raise RuntimeError("The hosting workspace requires its owner and activated qedit Python")
+            if os.environ.get("HF_HOME") != str(owner_root / ".cache/huggingface"):
+                raise RuntimeError("Set the hosting workspace's HF_HOME before model execution")
+            break
+    environment_prefix = os.environ.get("RUBRIC_ENV_PREFIX")
+    if environment_prefix and Path(sys.executable).resolve() != (Path(environment_prefix) / "bin/python").resolve():
+        raise RuntimeError("Activate the environment specified by RUBRIC_ENV_PREFIX")
+    if not os.environ.get("HF_HOME"):
+        raise RuntimeError("Set HF_HOME before model execution")
     if str(ROOT / "src") not in os.environ.get("PYTHONPATH", "").split(os.pathsep):
         raise RuntimeError("Set PYTHONPATH to this release's src directory")
 

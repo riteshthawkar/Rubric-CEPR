@@ -657,7 +657,7 @@ def _require_sha256_value(value: object, *, label: str) -> str:
 
 
 def _gedit_encoded_edited_image_bytes(image_raw: bytes) -> bytes:
-    """Reproduce the exact resized JPEG bytes submitted by the pinned GEdit runner."""
+    """Reproduce the exact resized JPEG bytes sent by the pinned GEdit runner."""
 
     try:
         from PIL import Image, ImageOps

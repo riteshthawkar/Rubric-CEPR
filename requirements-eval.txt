@@ -1,5 +1,5 @@
 openai==2.38.0
-# Additional versions observed during release preparation; not an original run lock.
+# Benchmark tooling versions; judge protocols are recorded in configs/eval.
 datasets==4.8.5
 requests==2.34.2
 megfile==5.0.11

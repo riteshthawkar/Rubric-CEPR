@@ -20,7 +20,7 @@
     "--dataset_base_path",
     "{data_root}",
     "--dataset_metadata_path",
-    "{root}/reproducibility/manifests/paper_headline_extract_v1.json",
+    "{root}/reproducibility/manifests/extraction_v1.json",
     "--image_key",
     "image",
     "--condition_image_key",

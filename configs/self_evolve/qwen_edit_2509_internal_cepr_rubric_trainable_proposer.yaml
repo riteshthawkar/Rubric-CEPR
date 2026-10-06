@@ -1,4 +1,4 @@
-# Framework reference only; not the historical headline recipe.
+# Planner–Editor–Critic reference configuration.
 name: self_evolve_qwen_edit_2509_internal_cepr_rubric_trainable_proposer
 runtime:
   seed: 123

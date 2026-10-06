@@ -3,9 +3,9 @@ requires = ["setuptools>=68", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "accv-self-evolving-image-editing"
-version = "1.0.0rc1"
-description = "Artifact-backed ACCV extraction recipe and self-evolving editing reference implementation"
+name = "rubric-cepr"
+version = "1.0.0rc2"
+description = "Self-evolving image editing via reward-verified self-distillation"
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = ["PyYAML>=6.0", "Pillow>=10", "numpy>=1.24"]
@@ -16,7 +16,10 @@ eval = ["datasets", "openai", "requests", "megfile", "loguru", "opencv-python", 
 dev = ["pytest>=8"]
 
 [project.scripts]
-accv-v1 = "accv_v1.cli:main"
+rubric-cepr = "rubric_cepr.cli:main"
+
+[project.urls]
+Repository = "https://github.com/riteshthawkar/Rubric-CEPR"
 
 [tool.setuptools]
 package-dir = {"" = "src"}

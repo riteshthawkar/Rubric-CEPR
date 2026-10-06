@@ -3,4 +3,4 @@
 set -euo pipefail
 CONDA_COMMAND="${CONDA_EXE:-conda}"
 eval "$("$CONDA_COMMAND" shell.bash hook)"
-conda activate "${ACCV_ENV:?Set your conda environment prefix}"
+conda activate "${RUBRIC_ENV_PREFIX:?Set your conda environment prefix}"
