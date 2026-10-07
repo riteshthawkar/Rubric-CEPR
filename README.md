@@ -1,6 +1,4 @@
-# Rubric-CEPR
-
-**Self-Evolving Image Editing via Reward-Verified Self-Distillation**
+# Rubric-CEPR: Self-Evolving Image Editing via Reward-Verified Self-Distillation
 
 Rubric-CEPR studies how an image editor can learn from edits generated on
 unlabeled images. A Planner specifies an edit, an Editor generates candidates,
@@ -9,6 +7,15 @@ Accepted candidates become training targets for the next editor update.
 
 [Method](docs/METHOD.md) · [Training](docs/TRAINING.md) ·
 [Evaluation](docs/EVALUATION.md) · [Results](docs/RESULTS.md)
+
+## Architecture
+
+![Rubric-CEPR architecture: the frozen Qwen-Image-Edit backbone, Planner, Editor, internal rubric Critic and best-of-N self-evolution loop](assets/architecture.png)
+
+The framework figure from the paper. A frozen Qwen-Image-Edit backbone provides
+understanding features and VAE latents for the internal Critic. The Planner
+specifies edits, the Editor samples candidates, and gate-passing candidates are
+selected for Planner and Editor updates across rounds.
 
 ## Overview
 
@@ -61,8 +68,7 @@ scripts/                      # CLI launcher, data preparation and Slurm example
 reproducibility/               # Training manifests, hashes and score records
 docs/                         # Method, training, evaluation and results
 tests/                        # CPU tests for inputs, commands and boundaries
-tools/                        # Benchmark setup, verification and packaging
-third_party/                  # Upstream repository and patch versions
+assets/                       # Framework figure from the paper
 ```
 
 ## Setup
@@ -151,7 +157,7 @@ Create separate Base and adapter configurations with identical generation and
 judge settings, and distinct output directories:
 
 ```bash
-python tools/bootstrap_benchmarks.py --dry-run
+python scripts/setup_benchmarks.py --dry-run
 rubric-cepr export --benchmark imgedit --config /path/to/base.yaml --dry-run
 rubric-cepr export --benchmark imgedit --config /path/to/adapter.yaml --dry-run
 ```
@@ -168,9 +174,4 @@ This implementation uses [Qwen-Image-Edit](https://github.com/QwenLM/Qwen-Image)
 on [ImgEdit](https://github.com/PKU-YuanGroup/ImgEdit),
 [Step1X-Edit / GEdit](https://github.com/stepfun-ai/Step1X-Edit) and
 [Complex-Edit](https://github.com/UCSC-VLAA/Complex-Edit). Exact scorer revisions
-and patches are recorded in [third_party/SOURCES.json](third_party/SOURCES.json).
-
-## License
-
-A repository-wide code license has not been specified. Models, datasets and
-third-party code retain their upstream terms; see [NOTICE.md](NOTICE.md).
+and patches are recorded in [configs/eval/scorers.json](configs/eval/scorers.json).

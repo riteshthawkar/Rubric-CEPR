@@ -6,15 +6,16 @@ The configs below are matched-run protocols; recorded score summaries use their 
 
 ## Scorer sources
 
-Run `python tools/bootstrap_benchmarks.py --dry-run` to inspect the exact
-repositories and commit IDs in `third_party/SOURCES.json`. Running without
+Run `python scripts/setup_benchmarks.py --dry-run` to inspect the exact
+repositories and commit IDs in `configs/eval/scorers.json`. Running without
 `--dry-run` creates fresh checkouts and applies hash-pinned scorer patches.
-Existing checkouts are never updated or cleaned. No credentials, `.git`
+Scorer checkouts are generated under `data/benchmark_tools/`, which is ignored
+by Git. Existing checkouts are never updated or cleaned. No credentials, `.git`
 histories or third-party datasets are bundled in the source repository.
 
 | Benchmark | Upstream source | Required data |
 |---|---|---|
-| ImgEdit Basic | PKU-YuanGroup/ImgEdit, pinned in `SOURCES.json` | Full 737-entry `basic_edit.json`, original images and Basic `prompts.json` |
+| ImgEdit Basic | PKU-YuanGroup/ImgEdit, pinned in `scorers.json` | Full 737-entry `basic_edit.json`, original images and Basic `prompts.json` |
 | GEdit | stepfun-ai/Step1X-Edit, pinned scorer patch | Hugging Face `stepfun-ai/GEdit-Bench`, revision `50766778e2a737474c7e9bdf84cdce82c3ea3f4f` |
 | Complex-Edit | UCSC-VLAA/Complex-Edit, pinned scorer patch | Hugging Face `UCSC-VLAA/Complex-Edit`, revision `b0b8a81d740ae413d52572281a23dc975c4b4b91`, real split |
 

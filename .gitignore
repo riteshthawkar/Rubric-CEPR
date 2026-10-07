@@ -13,5 +13,3 @@ keys/
 data/
 outputs/
 *.safetensors
-third_party/*/
-!third_party/SOURCES.json

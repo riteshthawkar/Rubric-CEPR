@@ -48,7 +48,7 @@ output:
   progress_every: 25
 scoring:
   backbone: openai_structured
-  scorer_repo: third_party/complex-edit
+  scorer_repo: data/benchmark_tools/complex-edit
   worker_module: qwen_edit_project.eval.complex_edit_c4_worker
   image_type: real
   n: 8
@@ -76,17 +76,17 @@ scoring:
   - src/qwen_edit_project/eval/score_receipts.py
   - src/qwen_edit_project/utils/commands.py
   - src/qwen_edit_project/utils/runtime.py
-  - third_party/complex-edit/complex_edit/__init__.py
-  - third_party/complex-edit/complex_edit/eval/__init__.py
-  - third_party/complex-edit/complex_edit/eval/alignment.py
-  - third_party/complex-edit/complex_edit/eval/quality.py
-  - third_party/complex-edit/complex_edit/eval/prompt_alignment.py
-  - third_party/complex-edit/complex_edit/eval/prompt_quality.py
-  - third_party/complex-edit/complex_edit/utils/__init__.py
-  - third_party/complex-edit/complex_edit/utils/dict_op.py
-  - third_party/complex-edit/complex_edit/utils/file.py
-  - third_party/complex-edit/complex_edit/utils/logger.py
-  - third_party/complex-edit/complex_edit/utils/openai.py
+  - data/benchmark_tools/complex-edit/complex_edit/__init__.py
+  - data/benchmark_tools/complex-edit/complex_edit/eval/__init__.py
+  - data/benchmark_tools/complex-edit/complex_edit/eval/alignment.py
+  - data/benchmark_tools/complex-edit/complex_edit/eval/quality.py
+  - data/benchmark_tools/complex-edit/complex_edit/eval/prompt_alignment.py
+  - data/benchmark_tools/complex-edit/complex_edit/eval/prompt_quality.py
+  - data/benchmark_tools/complex-edit/complex_edit/utils/__init__.py
+  - data/benchmark_tools/complex-edit/complex_edit/utils/dict_op.py
+  - data/benchmark_tools/complex-edit/complex_edit/utils/file.py
+  - data/benchmark_tools/complex-edit/complex_edit/utils/logger.py
+  - data/benchmark_tools/complex-edit/complex_edit/utils/openai.py
   score_run_id: rubric-cepr-complex_edit
 evaluation_contract:
   enabled: true
@@ -112,7 +112,7 @@ evaluation_contract:
     scoring_resume: false
     scoring_fresh_only: true
     scorer_dataset_source: contracted_local_materialization
-    scorer_repo: third_party/complex-edit
+    scorer_repo: data/benchmark_tools/complex-edit
     score_worker_module: qwen_edit_project.eval.complex_edit_c4_worker
     export_group_subdir: real_c4
     score_attempts_subdir: .score_attempts

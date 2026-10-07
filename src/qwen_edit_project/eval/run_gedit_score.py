@@ -69,9 +69,9 @@ def validate_expected_openai_model(config: dict, gedit_root: Path) -> None:
     expected_fragment = f'model_name="{expected_model}"'
     if expected_fragment not in source and f"model_name='{expected_model}'" not in source:
         raise RuntimeError(
-            "GEdit scorer is not paper-matched: config expects backbone=gpt4o to instantiate "
+            "GEdit scorer does not match the configured judge: config expects backbone=gpt4o to instantiate "
             f"{expected_model}, but {viescore_init} does not contain {expected_fragment}. "
-            "Update third_party/step1x-edit or override scoring.expected_openai_model only for non-paper runs."
+            "Update data/benchmark_tools/step1x-edit or override scoring.expected_openai_model only for separately reported protocols."
         )
 
 
@@ -585,9 +585,9 @@ def main() -> None:
     cache_reused = False
 
     repo_root = resolve_path(".")
-    gedit_root = resolve_path("third_party/step1x-edit/GEdit-Bench")
+    gedit_root = resolve_path("data/benchmark_tools/step1x-edit/GEdit-Bench")
     if gedit_root is None or not gedit_root.exists():
-        raise FileNotFoundError("GEdit scorer repo is missing. Run scripts/bootstrap.sh first.")
+        raise FileNotFoundError("GEdit scorer repo is missing. Run python scripts/setup_benchmarks.py first.")
     validate_expected_openai_model(config, gedit_root)
     if hardening_enabled:
         actual_protocol = validate_gedit_judge_protocol(config, gedit_root)

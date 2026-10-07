@@ -14,9 +14,9 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--dry-run", action="store_true")
     args = parser.parse_args()
-    lock = json.loads((ROOT / "third_party/SOURCES.json").read_text())
+    lock = json.loads((ROOT / "configs/eval/scorers.json").read_text())
     for item in lock["repositories"]:
-        target = ROOT / "third_party" / item["name"]
+        target = ROOT / "data/benchmark_tools" / item["name"]
         if target.exists():
             raise FileExistsError(f"Refusing to change an existing scorer checkout: {target}")
         if item.get("patch"):
@@ -26,6 +26,7 @@ def main():
         if args.dry_run:
             print(f"{item['name']}: {item['url']} @ {item['revision']}")
             continue
+        target.parent.mkdir(parents=True, exist_ok=True)
         subprocess.run(["git", "clone", "--no-checkout", item["url"], str(target)], check=True)
         subprocess.run(["git", "-C", str(target), "checkout", "--detach", item["revision"]], check=True)
         if item.get("patch"):

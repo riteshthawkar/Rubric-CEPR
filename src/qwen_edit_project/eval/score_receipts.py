@@ -689,7 +689,7 @@ def _gedit_encoded_image_record(payload: bytes, *, index: int) -> dict[str, Any]
 def _gedit_prompt_templates() -> tuple[str, str, str, str]:
     prompt_path = (
         Path(__file__).resolve().parents[3]
-        / "third_party/step1x-edit/GEdit-Bench/viescore/vie_prompts.py"
+        / "data/benchmark_tools/step1x-edit/GEdit-Bench/viescore/vie_prompts.py"
     )
     if prompt_path.is_symlink() or not prompt_path.is_file():
         raise ScoreBundleError("Pinned GEdit VIEScore prompts are missing or unsafe")

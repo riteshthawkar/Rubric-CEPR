@@ -68,12 +68,12 @@ scoring:
   - src/qwen_edit_project/eval/run_gedit_score.py
   - src/qwen_edit_project/eval/score_receipts.py
   - src/qwen_edit_project/eval/summarize_scores.py
-  - third_party/step1x-edit/GEdit-Bench/run_gedit_score.py
-  - third_party/step1x-edit/GEdit-Bench/calculate_statistics.py
-  - third_party/step1x-edit/GEdit-Bench/viescore/__init__.py
-  - third_party/step1x-edit/GEdit-Bench/viescore/utils.py
-  - third_party/step1x-edit/GEdit-Bench/viescore/vie_prompts.py
-  - third_party/step1x-edit/GEdit-Bench/viescore/mllm_tools/openai.py
+  - data/benchmark_tools/step1x-edit/GEdit-Bench/run_gedit_score.py
+  - data/benchmark_tools/step1x-edit/GEdit-Bench/calculate_statistics.py
+  - data/benchmark_tools/step1x-edit/GEdit-Bench/viescore/__init__.py
+  - data/benchmark_tools/step1x-edit/GEdit-Bench/viescore/utils.py
+  - data/benchmark_tools/step1x-edit/GEdit-Bench/viescore/vie_prompts.py
+  - data/benchmark_tools/step1x-edit/GEdit-Bench/viescore/mllm_tools/openai.py
 evaluation_contract:
   enabled: true
   canonical_protocol: gedit-openai-fresh-score/v1

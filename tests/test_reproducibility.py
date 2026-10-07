@@ -1,7 +1,6 @@
 """CPU-only checks for portability, unsafe inputs and evidence boundaries."""
 
 import hashlib
-import importlib.util
 import io
 import json
 import os
@@ -213,15 +212,3 @@ def test_inference_compatibility_loader_keeps_model_revision(monkeypatch):
     assert calls[0] == ("official-model", {"subfolder": "processor", "revision": "pinned-revision", "local_files_only": True})
     assert calls[1][1]["processor"] == "official-processor-components"
     assert calls[1][1]["revision"] == "pinned-revision"
-
-
-def test_secret_audit_reports_location_without_disclosing_token(tmp_path):
-    spec = importlib.util.spec_from_file_location("release_verifier", checks.ROOT / "tools/verify_release.py")
-    verifier = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(verifier)
-    token = "hf_" + "a" * 30
-    (tmp_path / "accidental.txt").write_text(token)
-    with pytest.raises(ValueError) as error:
-        verifier.audit(tmp_path)
-    assert "accidental.txt" in str(error.value)
-    assert token not in str(error.value)

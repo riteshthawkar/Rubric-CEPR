@@ -366,10 +366,10 @@ def main() -> None:
         raise ValueError("output.edited_images_dir must resolve")
     result_root = edited_images_dir / model_name
 
-    scorer_repo = resolve_path(str(scoring_cfg.get("scorer_repo", "third_party/complex-edit")))
+    scorer_repo = resolve_path(str(scoring_cfg.get("scorer_repo", "data/benchmark_tools/complex-edit")))
     if scorer_repo is None or not (scorer_repo / "eval.py").exists():
         raise FileNotFoundError(
-            "Vendored Complex-Edit scorer not found. Run scripts/bootstrap.sh (clones third_party/complex-edit)."
+            "Complex-Edit scorer not found. Run python scripts/setup_benchmarks.py first."
         )
     python_executable = get_python_executable(config)
     if hardening_enabled:

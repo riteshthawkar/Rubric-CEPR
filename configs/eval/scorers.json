@@ -17,7 +17,7 @@
       "scope": [
         "GEdit-Bench"
       ],
-      "patch": "patches/step1x-edit-scoring.patch",
+      "patch": "scripts/benchmark_patches/step1x-edit-scoring.patch",
       "patch_sha256": "02ec7e698ffa4d8cc8963aed6d754b921acf9f463a2a1ec31da4f1191917aab4"
     },
     {
@@ -28,7 +28,7 @@
         "eval.py",
         "complex_edit"
       ],
-      "patch": "patches/complex-edit-scoring.patch",
+      "patch": "scripts/benchmark_patches/complex-edit-scoring.patch",
       "patch_sha256": "efd605d19a6b13d5dfc52c31e6f8af2034f3314762b9c5c03deb6d13879b9dd1"
     }
   ]

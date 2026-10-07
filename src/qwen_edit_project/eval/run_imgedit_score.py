@@ -443,7 +443,7 @@ def main() -> None:
         avg_log = resolve_path(f"outputs/logs/imgedit_avg_{timestamp}.log")
         command = [
             python_executable,
-            str(resolve_path("third_party/imgedit/Benchmark/Basic/step1_get_avgscore.py")),
+            str(resolve_path("data/benchmark_tools/imgedit/Benchmark/Basic/step1_get_avgscore.py")),
             "--result_json",
             str(result_dir / "result.json"),
             "--average_score_json",
@@ -457,7 +457,7 @@ def main() -> None:
         type_log = resolve_path(f"outputs/logs/imgedit_types_{timestamp}.log")
         command = [
             python_executable,
-            str(resolve_path("third_party/imgedit/Benchmark/Basic/step2_typescore.py")),
+            str(resolve_path("data/benchmark_tools/imgedit/Benchmark/Basic/step2_typescore.py")),
             "--average_score_json",
             str(average_score_json),
             "--typescore_json",

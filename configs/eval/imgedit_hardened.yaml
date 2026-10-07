@@ -21,7 +21,7 @@ model:
 dataset:
   edit_json: data/processed/benchmark/imgedit/basic_edit.json
   origin_img_root: data/processed/benchmark/imgedit/original_images
-  prompts_json: third_party/imgedit/Benchmark/Basic/prompts.json
+  prompts_json: data/benchmark_tools/imgedit/Benchmark/Basic/prompts.json
 generation:
   seed: 42
   seed_strategy: constant_per_record

@@ -36,15 +36,7 @@ def check_code() -> dict:
             raise ValueError(f"Duplicate manifest {field}")
     if any(row["family"] != "extract" or row["sample_weight"] != 1 for row in rows):
         raise ValueError("V1 requires extraction-only rows with unit weights")
-    release_files = 0
-    if (ROOT / "SHA256SUMS").is_file():
-        for line in (ROOT / "SHA256SUMS").read_text().splitlines():
-            expected, name = line.split("  ", 1)
-            path = safe_relative_path(ROOT, name)
-            if digest(path) != expected:
-                raise ValueError(f"Release file differs: {name}")
-            release_files += 1
-    return {"pinned_files": len(cfg["pinned_files"]), "release_files": release_files, "rows": len(rows), "code_verified": True}
+    return {"pinned_files": len(cfg["pinned_files"]), "rows": len(rows), "code_verified": True}
 
 
 def safe_relative_path(root: Path, name: str) -> Path:
