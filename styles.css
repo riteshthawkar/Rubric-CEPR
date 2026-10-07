@@ -1167,3 +1167,26 @@ table.compact td .up {
   margin-left: 0;
   font-size: 0.72rem;
 }
+
+/* ---------- Disabled release button (e.g. Paper before the arXiv link exists) ---------- */
+.button.is-disabled,
+.button.is-disabled:hover {
+  cursor: not-allowed;
+  opacity: 0.62;
+  transform: none;
+  box-shadow: none;
+  border-style: dashed;
+  background: transparent;
+  color: var(--muted, var(--ink));
+}
+
+.button .soon {
+  padding: 0.12rem 0.5rem;
+  border-radius: 999px;
+  background: var(--bg-alt);
+  color: var(--faint);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}

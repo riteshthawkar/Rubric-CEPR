@@ -14,7 +14,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
-    <link rel="stylesheet" href="styles.css?v=4">
+    <link rel="stylesheet" href="styles.css?v=5">
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -38,8 +38,14 @@
           </div>
 
           <div class="action-row" aria-label="Release links">
-            <!-- Add the Paper button here once the arXiv link is available:
-            <a class="button" href="ARXIV_URL"><img src="assets/icons/arxiv.svg" alt="" aria-hidden="true"><span>Paper</span></a> -->
+            <!-- Paper button is disabled until the arXiv link is available.
+                 To enable it, replace the <span> below with:
+                 <a class="button" href="ARXIV_URL"><img src="assets/icons/arxiv.svg" alt="" aria-hidden="true"><span>Paper</span></a> -->
+            <span class="button is-disabled" aria-disabled="true" title="Coming soon">
+              <img src="assets/icons/arxiv.svg" alt="" aria-hidden="true">
+              <span>Paper</span>
+              <span class="soon">Soon</span>
+            </span>
             <a class="button" href="https://github.com/riteshthawkar/Rubric-CEPR">
               <img src="assets/icons/github.png" alt="" aria-hidden="true">
               <span>Code</span>

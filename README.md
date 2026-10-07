@@ -6,4 +6,4 @@ Built from the Ask-Solve-Generate project-page template (same `styles.css` and `
 
 - `index.html` holds the content; scores and figures are taken from the paper.
 - `assets/figures/` holds PNG exports of the paper figures.
-- The Paper button is omitted until the arXiv link exists: add it in the hero `action-row` (a commented-out button shows where) and update the BibTeX entry.
+- The Paper button is shown disabled (greyed out, "Soon") until the arXiv link exists: add it in the hero `action-row` (a commented-out button shows where) and update the BibTeX entry.
