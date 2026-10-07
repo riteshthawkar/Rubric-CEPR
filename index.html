@@ -14,7 +14,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
-    <link rel="stylesheet" href="styles.css?v=5">
+    <link rel="stylesheet" href="styles.css?v=7">
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -22,7 +22,6 @@
     <main id="main">
       <section class="hero" id="top">
         <div class="hero-content">
-          <div class="project-label">Self-evolving image editing</div>
           <h1>Rubric-CEPR</h1>
           <p class="hero-subtitle">Self-Evolving Image Editing via Reward-Verified Self-Distillation</p>
 
@@ -60,7 +59,7 @@
       </section>
 
       <nav class="section-nav" aria-label="Section shortcuts">
-        <a href="#tldr">TL;DR</a>
+        <a href="#overview">Overview</a>
         <a href="#challenges">Challenges</a>
         <a href="#framework">Framework</a>
         <a href="#ingredients">Key ideas</a>
@@ -70,9 +69,9 @@
         <a href="#citation">Cite</a>
       </nav>
 
-      <section class="section tldr" id="tldr">
+      <section class="section tldr" id="overview">
         <div class="section-head centered">
-          <p class="kicker">TL;DR</p>
+          <p class="kicker">Overview</p>
           <h2>Can an image editor improve itself by verifying its <em>own</em> edits?</h2>
           <p>Improving instruction-guided editors usually needs human-edited training pairs or an external reward model, and a single scalar score can reward plausible failures such as an unchanged image or a lost background. Rubric-CEPR checks each candidate edit with the editor's own features, rejects any candidate that fails a check, and distills only the verified ones into a lightweight adapter.</p>
         </div>
