@@ -316,7 +316,8 @@ h1 {
 
 /* ---------- Hero figure ---------- */
 .hero-figure {
-  width: 70vw;
+  width: 50vw;
+  min-width: min(640px, calc(100% - 40px));
   margin: 1rem auto 0;
 }
 
