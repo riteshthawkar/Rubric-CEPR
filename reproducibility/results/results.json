@@ -3,10 +3,12 @@
   "method": "internal_cepr",
   "reproduction_verified": false,
   "paper_reference": "docs/RESULTS.md",
-  "availability": "Internal workflow implementation; matching paper checkpoint and raw score bundles are not included.",
+  "availability": "Internal workflow implementation. Paper-score attribution remains unverified; recovered historical code and measurements are on the detector-assisted branch.",
   "detector_assisted_baseline": {
     "branch": "groundingdino-extraction",
     "url": "https://github.com/riteshthawkar/Rubric-CEPR/tree/groundingdino-extraction",
-    "scope": "64-pair extraction recipe and its historical measured results"
-  }
+    "scope": "64-pair extraction recipe, recovered 149-pair verifier-bank analysis and their separate historical records"
+  },
+  "provenance_report": "reproducibility/paper_provenance.json",
+  "provenance_document": "docs/PAPER_PROVENANCE.md"
 }

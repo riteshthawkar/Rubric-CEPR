@@ -1,0 +1,139 @@
+{
+  "schema_version": 1,
+  "audited_at_utc": "2026-10-07T15:50:34.941211+00:00",
+  "scope": "Headline benchmark claims and multi-family analysis; not a certification of every manuscript plot or ablation.",
+  "main_readme_sha256": "064776c744b707bbebca9e7ef261bc151e8ba91a5f3b29509b9f3321f3f96f92",
+  "historical_evidence_branch": "groundingdino-extraction",
+  "paper_reproduction_verified": false,
+  "measurements": [
+    {
+      "id": "imgedit_historical_extraction",
+      "status": "recorded_precontract_not_paper_reproduction",
+      "pipeline": "detector_assisted_extraction",
+      "base": 4.440637720488463,
+      "candidate": 4.5550881953866975,
+      "count": 737,
+      "checkpoint_sha256": "118ffe5d4a86d33a836eb07c4ce063fad7096988072067c48f86636380047942",
+      "record": "reproducibility/results/summaries/extract_only_full737_summary.json",
+      "claims": {
+        "frozen_manuscript": {
+          "base": 4.44,
+          "candidate": 4.6
+        },
+        "current_readme": {
+          "base": 4.36,
+          "candidate": 4.6
+        }
+      },
+      "paper_values_verified": false,
+      "delta": 0.11445047489823423,
+      "mining_records": "reproducibility/provenance/extraction_64_mining_records.json"
+    },
+    {
+      "id": "imgedit_strict_three_seed",
+      "status": "separate_reproduction_control",
+      "pipeline": "recovered_extraction_recipe",
+      "base": 4.545002261420172,
+      "candidate": 4.593245891753354,
+      "count": 737,
+      "candidate_seed_scores": {
+        "123": 4.5843509724106735,
+        "124": 4.608774310266847,
+        "125": 4.586612392582542
+      },
+      "checkpoint_sha256_by_seed": {
+        "123": "0bac21ae89ce7195d60e864a8164c1ca865ea9314b6dbbb679ef397934e0a788",
+        "124": "1193b8a1de2e70ca5e48b195eb1f6196c0c18da21cef02d0848aa23b5b385335",
+        "125": "124651b35e2bf28e7af66758c255ba67b56e1933a6293c931fad9eff4355b448"
+      },
+      "record": "reproducibility/provenance/strict_three_seed_comparison.json",
+      "paper_values_verified": false,
+      "delta": 0.04824363033318235
+    },
+    {
+      "id": "imgedit_four_family_bank",
+      "status": "recorded_precontract_not_paper_reproduction",
+      "pipeline": "detector_assisted_multifamily",
+      "base": 4.440637720488463,
+      "candidate": 4.536987788331068,
+      "count": 737,
+      "checkpoint_sha256": "0c8a38eb5ae634d9c2624826f83e647eaea5e12432b536bc8ea6c787da2c5864",
+      "record": "reproducibility/verifier_bank/results/summary.json",
+      "claims": {
+        "frozen_manuscript_delta": 0.15
+      },
+      "paper_values_verified": false,
+      "delta": 0.09635006784260458
+    },
+    {
+      "id": "complex_edit_c4",
+      "status": "recorded_precontract_not_paper_reproduction",
+      "pipeline": "detector_assisted_extraction",
+      "base": 8.7674,
+      "candidate": 8.8064,
+      "count": 531,
+      "checkpoint_sha256": "118ffe5d4a86d33a836eb07c4ce063fad7096988072067c48f86636380047942",
+      "record": "reproducibility/results/summaries/extract_v1_complex_c4_complex_edit_summary.json",
+      "claims": {
+        "frozen_manuscript_candidate": 8.91,
+        "current_readme_candidate": 8.97
+      },
+      "paper_values_verified": false,
+      "delta": 0.0389999999999997
+    },
+    {
+      "id": "gedit_eleven_task_cn",
+      "status": "historical_subset_with_unverified_generation_binding",
+      "pipeline": "historically_labeled_extraction",
+      "base": 8.192449453316776,
+      "candidate": 8.312768024358801,
+      "count": 330,
+      "language_counts": {
+        "cn": 330,
+        "en": 0
+      },
+      "checkpoint_sha256": null,
+      "record": "reproducibility/provenance/gedit_cn11_scope.json",
+      "claims": {
+        "frozen_manuscript": {
+          "base": 8.19,
+          "candidate": 8.31
+        },
+        "current_readme": {
+          "base": 7.39,
+          "candidate": 8.31
+        }
+      },
+      "rounded_historical_subset_values_match": true,
+      "full_benchmark_claim_verified": false,
+      "paper_values_verified": false,
+      "delta": 0.12031857104202537
+    },
+    {
+      "id": "step1x_broad_transfer",
+      "status": "broad_claim_unverified_narrow_control_available",
+      "pipeline": "separate_step1x_removal_control",
+      "record": "reproducibility/provenance/step1x_removal_three_seed_comparison.json",
+      "claims": {
+        "current_readme_gedit": {
+          "base": 6.69,
+          "candidate": 7.24
+        },
+        "current_readme_imgedit": {
+          "base": 3.86,
+          "candidate": 4.16
+        }
+      },
+      "paper_values_verified": false
+    },
+    {
+      "id": "internal_cepr_primary",
+      "status": "implementation_available_result_attribution_unverified",
+      "pipeline": "internal_planner_editor_critic",
+      "implementation_branch": "main",
+      "checkpoint_sha256": null,
+      "paper_values_verified": false
+    }
+  ],
+  "claim_boundary": "Code recovery and CPU verification do not establish that the internal primary method produced the paper's exact numbers."
+}
