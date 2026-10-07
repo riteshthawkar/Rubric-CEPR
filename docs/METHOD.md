@@ -1,4 +1,7 @@
-# Method and checkpoint scope
+# GroundingDINO extraction baseline and checkpoint scope
+
+This branch preserves the detector-assisted baseline and its original artifacts.
+The internal Rubric-CEPR workflow is maintained on `main`.
 
 ## Self-evolution framework
 
