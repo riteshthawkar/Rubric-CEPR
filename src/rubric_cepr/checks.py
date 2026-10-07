@@ -1,5 +1,4 @@
-"""Filesystem-only validation. Never imports a model or initializes CUDA."""
-
+"""CPU-only validation for the internal Planner–Editor–Critic workflow."""
 from __future__ import annotations
 
 import hashlib
@@ -9,142 +8,138 @@ import platform
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
+DEFAULT_CONFIG = ROOT / 'configs/self_evolve/qwen_edit_2509_internal_cepr_rubric_trainable_proposer.yaml'
+BASELINE_BRANCH = 'groundingdino-extraction'
 
 
 def digest(path: Path) -> str:
     value = hashlib.sha256()
-    with path.open("rb") as handle:
-        for block in iter(lambda: handle.read(1024 * 1024), b""):
+    with path.open('rb') as handle:
+        for block in iter(lambda: handle.read(1024 * 1024), b''):
             value.update(block)
     return value.hexdigest()
 
 
-def identity() -> dict:
-    return json.loads((ROOT / "reproducibility/artifacts.json").read_text())
+def validate_internal_config(config: dict) -> dict:
+    evaluator = config.get('evaluator', config.get('solver', {}))
+    if evaluator.get('backend') not in {'internal_cepr', 'contrastive_edit_preservation', 'internal_cepr_rubric', 'rubric_cepr', 'internal_rubric_cepr'}:
+        raise ValueError('Main requires an internal CEPR evaluator')
+    if evaluator.get('counterfactual_backend', 'internal') != 'internal':
+        raise ValueError('CEPR counterfactual scoring must use internal features')
+    if evaluator.get('require_internal_components', True) is not True:
+        raise ValueError('Main requires internal scoring components; proxy fallback is disabled')
+    if evaluator.get('object_grounder', 'qwen_vl_internal') != 'qwen_vl_internal':
+        raise ValueError(f'External detector methods belong on {BASELINE_BRANCH}')
+    proposer = config.get('proposer', {})
+    if proposer.get('backend') not in {'trainable_qwen_image_edit', 'qwen_image_edit_lora', 'trainable_qwen_vl', 'qwen_vl_lora', 'internal_qwen'}:
+        raise ValueError('Main requires an editor-side Qwen Planner')
+    editor = config.get('editor', {})
+    if editor.get('backend') != 'qwen_edit':
+        raise ValueError('Main requires the Qwen editor')
+    model_id = editor.get('model', {}).get('base_model')
+    planner_id = proposer.get('model_name_or_path', model_id)
+    if model_id != 'Qwen/Qwen-Image-Edit-2509' or planner_id != model_id:
+        raise ValueError('Planner and Editor must use the same Qwen-Image-Edit backbone')
+    return {'method': 'internal_cepr', 'external_training_models': False}
 
 
 def check_code() -> dict:
-    cfg = identity()
-    for name, expected in cfg["pinned_files"].items():
+    import yaml
+    identity = json.loads((ROOT / 'reproducibility/framework.json').read_text())
+    for name, expected in identity['pinned_files'].items():
         if digest(ROOT / name) != expected:
-            raise ValueError(f"Pinned v1 file differs: {name}")
-    rows = json.loads((ROOT / "reproducibility/manifests/extraction_v1.json").read_text())
-    if len(rows) != 64:
-        raise ValueError("The historical manifest must have exactly 64 rows")
-    for field in ("record_key", "image", "edit_image"):
-        if len({row[field] for row in rows}) != 64:
-            raise ValueError(f"Duplicate manifest {field}")
-    if any(row["family"] != "extract" or row["sample_weight"] != 1 for row in rows):
-        raise ValueError("V1 requires extraction-only rows with unit weights")
-    return {"pinned_files": len(cfg["pinned_files"]), "rows": len(rows), "code_verified": True}
+            raise ValueError(f'Pinned framework file differs: {name}')
+    report = validate_internal_config(yaml.safe_load(DEFAULT_CONFIG.read_text()))
+    return {**report, 'pinned_files': len(identity['pinned_files']), 'code_verified': True}
 
 
-def safe_relative_path(root: Path, name: str) -> Path:
-    relative = Path(name)
-    if relative.is_absolute() or ".." in relative.parts:
-        raise ValueError(f"Unsafe artifact path: {name}")
-    candidate = root / relative
-    # Refuse even an ancestor symlink; no writes through external aliases.
-    if any(p.is_symlink() for p in [candidate, *candidate.parents] if p != root.parent):
-        raise ValueError(f"Artifact path has a symlink: {name}")
-    if not candidate.resolve().is_relative_to(root.resolve()):
-        raise ValueError(f"Artifact escapes data root: {name}")
-    return candidate
+def source_paths(manifest: Path) -> list[Path]:
+    rows = [json.loads(line) for line in manifest.read_text().splitlines() if line.strip()]
+    if not rows:
+        raise ValueError('The unlabeled source manifest is empty')
+    keys, paths = set(), []
+    for row in rows:
+        if not isinstance(row, dict) or not row.get('key') or not row.get('image'):
+            raise ValueError('Each source needs key and image fields')
+        if row['key'] in keys:
+            raise ValueError(f"Duplicate source key: {row['key']}")
+        if row.get('caption') or any(row.get(field) for field in ('target', 'edit_image', 'chosen_image', 'rejected_image')):
+            raise ValueError('Main takes unlabeled source images, not external training pairs or captions')
+        keys.add(row['key'])
+        path = Path(row['image']).expanduser()
+        path = path if path.is_absolute() else ROOT / path
+        if not path.is_file():
+            raise FileNotFoundError(f'Missing source image: {path}')
+        paths.append(path.resolve())
+    if len(set(paths)) != len(paths):
+        raise ValueError('Duplicate source image paths')
+    if len({digest(path) for path in paths}) != len(paths):
+        raise ValueError('Duplicate source image bytes')
+    return paths
 
 
-def check_data(data_root: Path) -> dict:
-    check_code()
-    inventory = json.loads((ROOT / "reproducibility/manifests/extraction_v1_artifacts.json").read_text())
-    artifacts = inventory["artifacts"]
-    rows = json.loads((ROOT / inventory["training_manifest"]).read_text())
-    refs = {(str(row["record_key"]), field): row[field] for row in rows for field in ("image", "edit_image")}
-    seen = set()
-    paths = set()
-    for item in artifacts:
-        ref = (str(item["record_key"]), item["field"])
-        if ref in seen or refs.get(ref) != item["path"]:
-            raise ValueError(f"Unexpected or duplicate training reference: {ref}")
-        seen.add(ref)
-        paths.add(item["path"])
-        path = safe_relative_path(data_root, item["path"])
-        if not path.is_file() or path.stat().st_size != item["bytes"] or digest(path) != item["sha256"]:
-            raise ValueError(f"Missing or changed training artifact: {item['path']}")
-    if len(seen) != 128 or len(paths) != 128 or seen != refs.keys():
-        raise ValueError("Expected all 128 unique source/target references")
-    return {"artifact_references": 128, "data_verified": True}
+def check_data(manifest: Path) -> dict:
+    paths = source_paths(manifest)
+    return {'source_rows': len(paths), 'manifest_sha256': digest(manifest), 'data_verified': True}
 
 
-def check_disjointness(data_root: Path, benchmark_json: Path, image_root: Path) -> dict:
-    rows = json.loads((ROOT / "reproducibility/manifests/extraction_v1.json").read_text())
+def check_disjointness(manifest: Path, benchmark_json: Path, image_root: Path) -> dict:
     def no_duplicate_keys(items):
         result = {}
         for key, value in items:
             if key in result:
-                raise ValueError(f"Duplicate benchmark JSON key: {key}")
+                raise ValueError(f'Duplicate benchmark JSON key: {key}')
             result[key] = value
         return result
     records = json.loads(benchmark_json.read_text(), object_pairs_hook=no_duplicate_keys)
     if len(records) != 737:
-        raise ValueError(f"Expected complete 737-row ImgEdit benchmark, found {len(records)}")
-    sources = [safe_relative_path(data_root, row["edit_image"]) for row in rows]
-    images = [safe_relative_path(image_root, row["id"]) for row in records.values()]
-    if not all(path.is_file() for path in images):
-        raise ValueError("Missing ImgEdit source images")
+        raise ValueError(f'Expected complete 737-row ImgEdit benchmark, found {len(records)}')
+    sources = source_paths(manifest)
+    images = []
+    for row in records.values():
+        relative = Path(row['id'])
+        if relative.is_absolute() or '..' in relative.parts:
+            raise ValueError('Unsafe benchmark image path')
+        path = (image_root / relative).resolve()
+        if not path.is_relative_to(image_root.resolve()) or not path.is_file():
+            raise ValueError('Missing or out-of-root ImgEdit source image')
+        images.append(path)
     if {path.name for path in sources} & {path.name for path in images}:
-        raise ValueError("Training and benchmark source basenames overlap")
+        raise ValueError('Training and benchmark source basenames overlap')
     if {digest(path) for path in sources} & {digest(path) for path in images}:
-        raise ValueError("Training and benchmark source content overlaps")
-    return {"benchmark_rows": len(records), "basename_overlap": 0, "content_overlap": 0}
+        raise ValueError('Training and benchmark source content overlaps')
+    return {'benchmark_rows': len(records), 'basename_overlap': 0, 'content_overlap': 0}
 
 
 def environment_report(strict: bool = False) -> dict:
-    import yaml
-    contract = yaml.safe_load((ROOT / "configs/reproduction/extraction_v1.yaml").read_text())
-    expected = contract["environment"]
-    found = {}
-    mismatches = []
-    for name, target in expected["packages"].items():
+    found, mismatches = {}, []
+    for line in (ROOT / 'requirements-model.txt').read_text().splitlines():
+        line = line.strip()
+        if not line or line.startswith('#'):
+            continue
+        name, _, target = line.partition('==')
         try:
             actual = importlib.metadata.version(name)
         except importlib.metadata.PackageNotFoundError:
             actual = None
         found[name] = actual
-        if actual is None or actual.split("+")[0] != str(target):
+        if actual is None or (target and actual.split('+')[0] != target):
             mismatches.append(name)
-    if platform.python_version() != expected["python"]:
-        mismatches.append("python")
-    report = {"python": platform.python_version(), "packages": found, "historical_environment_mismatches": mismatches}
+    if platform.python_version_tuple()[:2] != ('3', '11'):
+        mismatches.append('python')
+    report = {'python': platform.python_version(), 'packages': found, 'environment_mismatches': mismatches}
     if strict and mismatches:
-        raise ValueError(f"Historical environment mismatch: {', '.join(mismatches)}")
+        raise ValueError(f"Model environment mismatch: {', '.join(mismatches)}")
     return report
 
 
 def check_completion(output: Path) -> dict:
-    """Verify completion and adapter structure without loading the base model."""
-    receipt = json.loads((output / "training_completion.json").read_text())
-    if receipt.get("status") != "complete" or any(
-        receipt.get(field) != 400 for field in ("global_step", "max_train_steps", "requested_max_train_steps")
-    ):
-        raise ValueError("V1 did not complete exactly 400 optimizer steps")
-    if receipt.get("world_size") != 1 or receipt.get("seed") != 123:
-        raise ValueError("Unexpected v1 training world size or seed")
-    if receipt.get("resume_from_checkpoint") is not None or receipt.get("lora_tensor_count") != 960:
-        raise ValueError("V1 must be a fresh complete adapter with 960 tensors")
-    weights = output / "pytorch_lora_weights.safetensors"
-    # Read the safetensors header, not tensor data. Validate offsets and finite file bounds.
-    with weights.open("rb") as handle:
-        length = int.from_bytes(handle.read(8), "little")
-        if length <= 0 or length > 16 * 1024 * 1024:
-            raise ValueError("Invalid adapter header length")
-        header = json.loads(handle.read(length))
-    tensors = {name: value for name, value in header.items() if name != "__metadata__"}
-    if len(tensors) != 960:
-        raise ValueError(f"Expected 960 adapter tensors, found {len(tensors)}")
-    size = weights.stat().st_size - 8 - length
-    for name, tensor in tensors.items():
-        start, end = tensor["data_offsets"]
-        if not 0 <= start < end <= size or not any(marker in name for marker in ("lora_A", "lora_B")):
-            raise ValueError(f"Invalid adapter tensor: {name}")
-        if tensor["dtype"] not in {"BF16", "F32"} or 16 not in tensor["shape"]:
-            raise ValueError(f"Unexpected v1 rank or dtype: {name}")
-    return {"complete": True, "optimizer_steps": 400, "adapter_tensors": len(tensors), "sha256": digest(weights)}
+    receipt = json.loads((output / 'training_completion.json').read_text())
+    steps = receipt.get('global_step')
+    requested = receipt.get('requested_max_train_steps') or receipt.get('max_train_steps')
+    if receipt.get('status') != 'complete' or not isinstance(steps, int) or steps <= 0 or steps != requested:
+        raise ValueError('Training did not complete its requested optimizer steps')
+    weights = output / 'pytorch_lora_weights.safetensors'
+    if not weights.is_file():
+        raise ValueError('Completed training is missing its adapter')
+    return {'complete': True, 'optimizer_steps': steps, 'sha256': digest(weights)}

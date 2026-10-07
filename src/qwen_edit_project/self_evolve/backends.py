@@ -4229,9 +4229,6 @@ class InternalRubricCEPREvaluator(InternalContrastiveEditPreservationEvaluator):
         self.object_detector_edit_types = self._string_set(
             config.get("object_detector_edit_types", ["object_removal", "object_replacement"])
         )
-        self.object_detector_model_id = str(config.get("object_detector_model_id", "IDEA-Research/grounding-dino-tiny"))
-        self.object_detector_device = str(config.get("object_detector_device", "auto"))
-        self.object_detector_torch_dtype = str(config.get("object_detector_torch_dtype", "auto"))
         self.object_detector_box_threshold = float(config.get("object_detector_box_threshold", 0.25))
         self.object_detector_text_threshold = float(config.get("object_detector_text_threshold", 0.20))
         self.object_detector_original_min_score = float(config.get("object_detector_original_min_score", 0.20))
@@ -4270,16 +4267,18 @@ class InternalRubricCEPREvaluator(InternalContrastiveEditPreservationEvaluator):
                 ],
             )
         )
-        self.object_grounder = str(config.get("object_grounder", "grounding_dino")).strip().lower()
+        self.object_grounder = str(config.get("object_grounder", "qwen_vl_internal")).strip().lower()
+        if self.object_grounder != "qwen_vl_internal":
+            raise ValueError(
+                "Main supports only editor-side Qwen grounding. "
+                "External detector variants are on the groundingdino-extraction branch."
+            )
         self.internal_grounder_image_resolution = int(
             config.get("internal_grounder_image_resolution", 768)
         )
         self.internal_grounder_max_new_tokens = int(
             config.get("internal_grounder_max_new_tokens", 96)
         )
-        self._object_detector_model = None
-        self._object_detector_processor = None
-        self._object_detector_device_resolved = None
         self.conservative_region_reward_enabled = bool(
             config.get("conservative_region_reward_enabled", False)
         )
@@ -6556,44 +6555,8 @@ class InternalRubricCEPREvaluator(InternalContrastiveEditPreservationEvaluator):
             if was_feasible or not current_reason or current_reason.startswith("accepted"):
                 signals["rubric_reject_reason"] = failure_reasons[0]
 
-    def _resolve_object_detector_device(self):
-        import torch
 
-        if self.object_detector_device == "auto":
-            return torch.device("cuda" if torch.cuda.is_available() else "cpu")
-        return torch.device(self.object_detector_device)
 
-    def _resolve_object_detector_dtype(self, device: Any):
-        import torch
-
-        if device.type == "cpu":
-            return torch.float32
-        dtype_name = self.object_detector_torch_dtype
-        if dtype_name == "auto":
-            return torch.float32
-        return getattr(torch, dtype_name, torch.float16)
-
-    def _ensure_object_detector(self):
-        if self._object_detector_model is not None and self._object_detector_processor is not None:
-            return (
-                self._object_detector_model,
-                self._object_detector_processor,
-                self._object_detector_device_resolved,
-            )
-
-        from transformers import AutoProcessor, GroundingDinoForObjectDetection
-
-        device = self._resolve_object_detector_device()
-        dtype = self._resolve_object_detector_dtype(device)
-        self._object_detector_processor = AutoProcessor.from_pretrained(self.object_detector_model_id)
-        self._object_detector_model = GroundingDinoForObjectDetection.from_pretrained(
-            self.object_detector_model_id,
-            torch_dtype=dtype,
-        )
-        self._object_detector_model.to(device)
-        self._object_detector_model.eval()
-        self._object_detector_device_resolved = device
-        return self._object_detector_model, self._object_detector_processor, device
 
     @staticmethod
     def _object_detector_phrase(text: Any) -> str:
@@ -6687,73 +6650,7 @@ class InternalRubricCEPREvaluator(InternalContrastiveEditPreservationEvaluator):
         phrase = self._object_detector_phrase(phrase)
         if not phrase:
             return []
-        if self.object_grounder == "qwen_vl_internal":
-            return self._internal_grounding_boxes(pipe, image, phrase, cache)
-        cache_key = ("object_detector_boxes", f"{id(image)}:{image.size[0]}x{image.size[1]}:{phrase}")
-        if cache is not None and cache_key in cache:
-            return list(cache[cache_key])
-        model, processor, device = self._ensure_object_detector()
-        prompt = phrase if phrase.endswith(".") else f"{phrase}."
-
-        import torch
-
-        inputs = processor(images=image.convert("RGB"), text=prompt, return_tensors="pt")
-        model_dtype = next(model.parameters()).dtype
-        converted_inputs = {}
-        for key, value in inputs.items():
-            if hasattr(value, "to"):
-                if torch.is_floating_point(value):
-                    converted_inputs[key] = value.to(device=device, dtype=model_dtype)
-                else:
-                    converted_inputs[key] = value.to(device)
-            else:
-                converted_inputs[key] = value
-        inputs = converted_inputs
-        with torch.no_grad():
-            outputs = model(**inputs)
-        target_sizes = [(image.height, image.width)]
-        results = processor.post_process_grounded_object_detection(
-            outputs,
-            input_ids=inputs.get("input_ids"),
-            threshold=self.object_detector_box_threshold,
-            text_threshold=self.object_detector_text_threshold,
-            target_sizes=target_sizes,
-        )
-        if not results:
-            if cache is not None:
-                cache[cache_key] = []
-            return []
-        result = results[0]
-        scores = result.get("scores")
-        boxes = result.get("boxes")
-        if scores is None or boxes is None or len(scores) == 0 or len(boxes) == 0:
-            if cache is not None:
-                cache[cache_key] = []
-            return []
-        labels = result.get("labels") or []
-        detected: list[dict[str, Any]] = []
-        for index in range(min(len(scores), len(boxes))):
-            raw_score = scores[index]
-            raw_box = boxes[index]
-            score = float(raw_score.detach().float().cpu().item() if hasattr(raw_score, "detach") else raw_score)
-            box_values = (
-                raw_box.detach().float().cpu().tolist()
-                if hasattr(raw_box, "detach")
-                else list(raw_box)
-            )
-            if len(box_values) != 4:
-                continue
-            detected.append(
-                {
-                    "score": score,
-                    "box": tuple(float(value) for value in box_values),
-                    "label": str(labels[index]) if index < len(labels) else phrase,
-                }
-            )
-        detected.sort(key=lambda item: float(item.get("score", 0.0)), reverse=True)
-        if cache is not None:
-            cache[cache_key] = list(detected)
-        return detected
+        return self._internal_grounding_boxes(pipe, image, phrase, cache)
 
     def _detect_object_score(
         self,
@@ -6762,21 +6659,15 @@ class InternalRubricCEPREvaluator(InternalContrastiveEditPreservationEvaluator):
         cache: dict[tuple[str, str], Any] | None = None,
         pipe: Any = None,
     ) -> float:
-        if self.object_grounder == "qwen_vl_internal":
-            return self._internal_grounding_presence(
-                pipe, image, self._object_detector_phrase(phrase), cache
-            )
-        boxes = self._detect_object_boxes(image, phrase, cache=cache)
-        if not boxes:
-            return 0.0
-        return max(float(item.get("score", 0.0)) for item in boxes)
+        return self._internal_grounding_presence(
+            pipe, image, self._object_detector_phrase(phrase), cache
+        )
 
     # ------------------------------------------------------------------
     # Internal Qwen-VL grounding. When object_grounder == "qwen_vl_internal"
     # the object presence/absence and target-region localization used by the
     # conservative-editing gates are produced by the already-loaded editor
-    # text_encoder (Qwen2.5-VL) + processor, instead of the external
-    # GroundingDINO detector. No extra weights are loaded, so the reward path
+    # text_encoder (Qwen2.5-VL) + processor. No extra weights are loaded; the reward path
     # stays fully internal to Qwen-Image-Edit.
     # ------------------------------------------------------------------
     def _internal_grounder_resize(self, image: Image.Image) -> Image.Image:

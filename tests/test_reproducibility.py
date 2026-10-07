@@ -1,124 +1,12 @@
-"""CPU-only checks for portability, unsafe inputs and evidence boundaries."""
-
-import hashlib
-import io
+"""CPU regression checks for branch boundaries, inputs and model launch guards."""
 import json
-import os
-import subprocess
 import sys
-import tarfile
 from pathlib import Path
 
 import pytest
 import yaml
 
 from rubric_cepr import checks, cli, runtime
-
-
-def test_original_trainer_and_manifest_are_pinned():
-    assert checks.check_code()["rows"] == 64
-    assert checks.digest(checks.ROOT / "src/qwen_edit_project/train/diffusers_qwen_edit_lora.py") == "0d033ef25ec85d4b80fdd00f594badb4223ec7ff481d9cd32c1109d1f6783b84"
-
-
-def test_portable_command_uses_exact_scientific_arguments(tmp_path):
-    command = cli.training_command(tmp_path / "inputs", tmp_path / "output")
-    # Argument boundaries matter more than shell spelling or site-local paths.
-    def flag(name):
-        return command[command.index(name) + 1]
-    assert flag("--max_train_steps") == "400"
-    assert flag("--learning_rate") == "1.0e-4"
-    assert flag("--rank") == flag("--lora_alpha") == "16"
-    assert flag("--seed") == "123"
-    assert flag("--training_objective") == "sft"
-    assert flag("--dataset_base_path") == str((tmp_path / "inputs").resolve())
-    assert flag("--dataset_metadata_path").endswith("extraction_v1.json")
-    assert "--local_files_only" in command
-    assert "--resume_from_checkpoint" not in command
-    assert flag("--lora_reference_l2_weight") == flag("--lora_reference_max_relative_delta") == "0.0"
-
-
-@pytest.mark.parametrize("name", ["../outside", "/tmp/outside", "a/../../outside"])
-def test_artifact_path_cannot_escape(tmp_path, name):
-    with pytest.raises(ValueError, match="Unsafe"):
-        checks.safe_relative_path(tmp_path, name)
-
-
-def test_artifact_ancestor_symlink_is_rejected(tmp_path):
-    (tmp_path / "alias").symlink_to(tmp_path, target_is_directory=True)
-    with pytest.raises(ValueError, match="symlink"):
-        checks.safe_relative_path(tmp_path, "alias/file")
-
-
-def test_content_overlap_is_rejected_even_after_source_rename(tmp_path, monkeypatch):
-    root = tmp_path / "release"
-    manifest_dir = root / "reproducibility/manifests"
-    manifest_dir.mkdir(parents=True)
-    data = tmp_path / "training"
-    images = tmp_path / "benchmark"
-    data.mkdir()
-    images.mkdir()
-    (data / "source.jpg").write_bytes(b"same image content")
-    (images / "renamed.jpg").write_bytes(b"same image content")
-    (manifest_dir / "extraction_v1.json").write_text(json.dumps([{"edit_image": "source.jpg"}]))
-    records = {str(i): {"id": "renamed.jpg"} for i in range(737)}
-    benchmark = tmp_path / "benchmark.json"
-    benchmark.write_text(json.dumps(records))
-    monkeypatch.setattr(checks, "ROOT", root)
-    with pytest.raises(ValueError, match="content overlaps"):
-        checks.check_disjointness(data, benchmark, images)
-
-
-def test_source_basename_overlap_is_rejected(tmp_path, monkeypatch):
-    root = tmp_path / "release"
-    manifest_dir = root / "reproducibility/manifests"
-    manifest_dir.mkdir(parents=True)
-    data = tmp_path / "training"
-    images = tmp_path / "benchmark"
-    data.mkdir()
-    images.mkdir()
-    (data / "source.jpg").write_bytes(b"training image")
-    (images / "source.jpg").write_bytes(b"different bytes")
-    (manifest_dir / "extraction_v1.json").write_text(json.dumps([{"edit_image": "source.jpg"}]))
-    benchmark = tmp_path / "benchmark.json"
-    benchmark.write_text(json.dumps({str(i): {"id": "source.jpg"} for i in range(737)}))
-    monkeypatch.setattr(checks, "ROOT", root)
-    with pytest.raises(ValueError, match="basenames overlap"):
-        checks.check_disjointness(data, benchmark, images)
-
-
-def test_corrupted_bundle_is_rejected_before_destination_exists(tmp_path):
-    bundle = tmp_path / "corrupt.tar.gz"
-    bundle.write_bytes(b"not the historical bundle")
-    destination = tmp_path / "data"
-    with pytest.raises(ValueError, match="hash"):
-        cli.install_artifacts(bundle, destination)
-    assert not destination.exists()
-
-
-def test_archive_link_is_rejected_even_with_matching_container_hash(tmp_path, monkeypatch):
-    archive = tmp_path / "linked.tar.gz"
-    with tarfile.open(archive, "w:gz") as handle:
-        member = tarfile.TarInfo("extraction_v1/repository/file")
-        member.type = tarfile.SYMTYPE
-        member.linkname = "/tmp/outside"
-        handle.addfile(member)
-    monkeypatch.setattr(cli, "identity", lambda: {**checks.identity(), "bundle_sha256": checks.digest(archive)})
-    with pytest.raises(ValueError, match="non-file"):
-        cli.install_artifacts(archive, tmp_path / "new-data")
-    assert not (tmp_path / "new-data").exists()
-
-
-def test_duplicate_archive_entries_are_rejected(tmp_path, monkeypatch):
-    archive = tmp_path / "duplicate.tar.gz"
-    with tarfile.open(archive, "w:gz") as handle:
-        for _ in range(2):
-            member = tarfile.TarInfo("duplicate")
-            member.size = 1
-            handle.addfile(member, io.BytesIO(b"x"))
-    monkeypatch.setattr(cli, "identity", lambda: {**checks.identity(), "bundle_sha256": checks.digest(archive)})
-    with pytest.raises(ValueError, match="duplicate"):
-        cli.install_artifacts(archive, tmp_path / "new-data")
-
 
 @pytest.mark.parametrize("step", ["", "batch", "extern"])
 def test_login_or_batch_context_is_rejected_before_scheduler_query(monkeypatch, step):
@@ -127,6 +15,7 @@ def test_login_or_batch_context_is_rejected_before_scheduler_query(monkeypatch, 
     monkeypatch.setattr(runtime.subprocess, "check_output", lambda *a, **kw: pytest.fail("Scheduler should not be queried for an invalid step"))
     with pytest.raises(RuntimeError, match="numeric"):
         runtime.require_gpu_step()
+
 
 
 @pytest.mark.parametrize("record", [
@@ -145,31 +34,6 @@ def test_unowned_pending_or_cpu_only_jobs_are_rejected(monkeypatch, record):
         runtime.require_gpu_step()
 
 
-@pytest.mark.parametrize("steps", [0, 399, 401])
-def test_incomplete_or_excess_training_is_rejected(tmp_path, steps):
-    (tmp_path / "training_completion.json").write_text(json.dumps({"status": "complete", "global_step": steps}))
-    with pytest.raises(ValueError, match="400"):
-        checks.check_completion(tmp_path)
-
-
-def test_dry_runs_do_not_import_models_or_call_scheduler(tmp_path, monkeypatch, capsys):
-    monkeypatch.setattr(cli, "require_gpu_step", lambda: pytest.fail("GPU guard called in CPU-only dry run"))
-    monkeypatch.setattr(cli, "delegate", lambda *args: pytest.fail("Low-level runtime imported during dry run"))
-    cli.main(["train", "--data-root", str(tmp_path / "missing"), "--output", str(tmp_path / "unused"), "--dry-run"])
-    cli.main(["framework", "--dry-run"])
-    cli.main(["export", "--benchmark", "imgedit", "--config", str(checks.ROOT / "configs/eval/imgedit_hardened.yaml"), "--dry-run"])
-    assert not (tmp_path / "unused").exists()
-    assert "Qwen/Qwen-Image-Edit-2509" in capsys.readouterr().out
-
-
-def test_results_preserve_measured_scores_and_negative_control():
-    evidence = json.loads((checks.ROOT / "reproducibility/results/results.json").read_text())
-    assert evidence["imgedit_737"]["extraction_v1"]["overall"] == 4.5550881953866975
-    assert evidence["complex_edit_real_c4_531"]["extraction_v1"]["overall"] == 8.8064
-    assert evidence["gedit_full_1212"]["round_loop_candidate"]["overall_delta"] < 0
-    for item in json.loads((checks.ROOT / "reproducibility/score_sources.json").read_text()):
-        assert checks.digest(checks.ROOT / item["release_path"]) == item["release_sha256"]
-
 
 def test_complex_edit_config_keeps_strict_dataset_and_judge():
     from qwen_edit_project.eval.complex_edit_contract import ComplexEditContractError, validate_hardened_config
@@ -180,13 +44,6 @@ def test_complex_edit_config_keeps_strict_dataset_and_judge():
     with pytest.raises(ComplexEditContractError):
         validate_hardened_config(config)
 
-
-def test_cli_resolves_caller_relative_paths_before_chdir(tmp_path, monkeypatch):
-    monkeypatch.chdir(tmp_path)
-    checkpoint = tmp_path / "adapter.bin"
-    checkpoint.write_bytes(b"test-adapter")
-    monkeypatch.setattr(cli, "identity", lambda: {"checkpoint_sha256": checks.digest(checkpoint)})
-    cli.main(["check", "--checkpoint", "adapter.bin"])
 
 
 def test_inference_compatibility_loader_keeps_model_revision(monkeypatch):
@@ -203,7 +60,7 @@ def test_inference_compatibility_loader_keeps_model_revision(monkeypatch):
         def from_pretrained(cls, model, **kwargs):
             calls.append((model, kwargs))
             return "pipeline"
-    name = "qwen_edit_project.train.diffusers_qwen_edit_lora_reproduction_v1"
+    name = "qwen_edit_project.train.diffusers_qwen_edit_lora_compat"
     monkeypatch.setitem(sys.modules, name, SimpleNamespace(ProcessorFolderCompatibilityLoader=Loader))
     monkeypatch.setattr(qwen_pipeline, "_from_pretrained_with_dtype", qwen_pipeline._from_pretrained_with_dtype)
     cli.patch_inference_processor()
@@ -212,3 +69,142 @@ def test_inference_compatibility_loader_keeps_model_revision(monkeypatch):
     assert calls[0] == ("official-model", {"subfolder": "processor", "revision": "pinned-revision", "local_files_only": True})
     assert calls[1][1]["processor"] == "official-processor-components"
     assert calls[1][1]["revision"] == "pinned-revision"
+
+
+
+def config():
+    return yaml.safe_load(checks.DEFAULT_CONFIG.read_text())
+
+
+def test_main_pins_internal_framework_without_legacy_pairs():
+    report = checks.check_code()
+    assert report['method'] == 'internal_cepr'
+    assert report['external_training_models'] is False
+    assert not (checks.ROOT / 'scripts/build_extract_selfdistill.py').exists()
+    assert not (checks.ROOT / 'reproducibility/manifests/extraction_v1.json').exists()
+    source = (checks.ROOT / 'src/qwen_edit_project/self_evolve/backends.py').read_text()
+    assert 'GroundingDinoForObjectDetection' not in source
+    assert 'grounding-dino-tiny' not in source
+
+
+@pytest.mark.parametrize('override', [
+    'evaluator.object_grounder=grounding_dino',
+    'evaluator.counterfactual_backend=proxy',
+    'evaluator.backend=hybrid',
+    'evaluator.require_internal_components=false',
+    'proposer.model_name_or_path=external-model',
+])
+def test_external_scoring_overrides_fail_before_model_execution(override, monkeypatch):
+    monkeypatch.setattr(cli, 'require_gpu_step', lambda: pytest.fail('Scheduler should not be called'))
+    monkeypatch.setattr(cli, 'delegate', lambda *args: pytest.fail('A model should not be imported'))
+    with pytest.raises(ValueError):
+        cli.main(['framework', '--set', override, '--dry-run'])
+
+
+def test_direct_evaluator_cannot_enable_external_grounding():
+    from qwen_edit_project.self_evolve.backends import InternalRubricCEPREvaluator
+    with pytest.raises(ValueError, match='External detector variants'):
+        InternalRubricCEPREvaluator({'object_grounder': 'grounding_dino'})
+
+
+def test_source_caption_or_edited_target_is_rejected(tmp_path):
+    image = tmp_path / 'source.jpg'
+    image.write_bytes(b'source bytes')
+    manifest = tmp_path / 'sources.jsonl'
+    for extra in ({'caption': 'external caption'}, {'target': 'target.png'}, {'chosen_image': 'chosen.png'}):
+        manifest.write_text(json.dumps({'key': 'one', 'image': str(image), **extra}) + '\n')
+        with pytest.raises(ValueError, match='unlabeled'):
+            checks.check_data(manifest)
+
+
+def test_duplicate_source_bytes_are_rejected(tmp_path):
+    first, second = tmp_path / 'a.jpg', tmp_path / 'b.jpg'
+    first.write_bytes(b'same bytes')
+    second.write_bytes(b'same bytes')
+    manifest = tmp_path / 'sources.jsonl'
+    manifest.write_text('\n'.join(json.dumps({'key': str(i), 'image': str(path)}) for i, path in enumerate([first, second])))
+    with pytest.raises(ValueError, match='Duplicate source image bytes'):
+        checks.check_data(manifest)
+
+
+def test_renamed_source_content_overlap_is_rejected(tmp_path):
+    image = tmp_path / 'source.jpg'
+    image.write_bytes(b'same bytes')
+    manifest = tmp_path / 'sources.jsonl'
+    manifest.write_text(json.dumps({'key': 'one', 'image': str(image)}) + '\n')
+    image_root = tmp_path / 'benchmark'
+    image_root.mkdir()
+    (image_root / 'renamed.jpg').write_bytes(b'same bytes')
+    benchmark = tmp_path / 'benchmark.json'
+    benchmark.write_text(json.dumps({str(i): {'id': 'renamed.jpg'} for i in range(737)}))
+    with pytest.raises(ValueError, match='content overlaps'):
+        checks.check_disjointness(manifest, benchmark, image_root)
+
+
+def test_partial_benchmark_cannot_disable_overlap_guard(tmp_path):
+    benchmark = tmp_path / 'partial.json'
+    benchmark.write_text('{}')
+    with pytest.raises(ValueError, match='complete 737-row'):
+        checks.check_disjointness(tmp_path / 'missing.jsonl', benchmark, tmp_path)
+
+
+def test_dry_runs_use_internal_loop_without_models(tmp_path, monkeypatch, capsys):
+    monkeypatch.setattr(cli, 'require_gpu_step', lambda: pytest.fail('GPU guard called in dry run'))
+    monkeypatch.setattr(cli, 'delegate', lambda *args: pytest.fail('Model code imported in dry run'))
+    cli.main(['train', '--manifest', str(tmp_path / 'sources.jsonl'), '--output', str(tmp_path / 'unused'), '--dry-run'])
+    train = capsys.readouterr().out
+    assert 'self_evolve.run_loop' in train
+    assert 'training.trigger=launch' in train
+    assert 'proposer.training.trigger=launch' in train
+    assert 'extraction_v1' not in train
+    cli.main(['framework', '--dry-run'])
+    assert 'training.trigger=launch' not in capsys.readouterr().out
+    cli.main(['export', '--benchmark', 'imgedit', '--config', str(checks.ROOT / 'configs/eval/imgedit_hardened.yaml'), '--dry-run'])
+    assert 'eval.export_imgedit' in capsys.readouterr().out
+    assert not (tmp_path / 'unused').exists()
+
+
+def test_legacy_bundle_commands_direct_users_to_baseline_branch(tmp_path, capsys):
+    with pytest.raises(SystemExit) as exc:
+        cli.main(['train', '--data-root', str(tmp_path), '--dry-run'])
+    assert exc.value.code == 2
+    assert 'groundingdino-extraction' in capsys.readouterr().err
+
+
+def test_gpu_guard_precedes_model_delegate(monkeypatch):
+    monkeypatch.setattr(cli, 'check_data', lambda *args: {})
+    monkeypatch.setattr(cli, 'check_disjointness', lambda *args: {})
+    monkeypatch.setattr(cli, 'environment_report', lambda **kwargs: {})
+    def refuse():
+        raise RuntimeError('no numeric GPU step')
+    monkeypatch.setattr(cli, 'require_gpu_step', refuse)
+    monkeypatch.setattr(cli, 'patch_inference_processor', lambda: pytest.fail('Model module imported'))
+    monkeypatch.setattr(cli, 'delegate', lambda *args: pytest.fail('Model module imported'))
+    with pytest.raises(RuntimeError, match='numeric GPU step'):
+        cli.main(['framework'])
+
+
+@pytest.mark.parametrize('steps', [0, 15, 17])
+def test_completion_requires_the_actual_requested_steps(tmp_path, steps):
+    (tmp_path / 'training_completion.json').write_text(json.dumps({
+        'status': 'complete', 'global_step': steps, 'requested_max_train_steps': 16,
+    }))
+    with pytest.raises(ValueError, match='requested optimizer steps'):
+        checks.check_completion(tmp_path)
+
+
+def test_results_do_not_assign_baseline_scores_to_main():
+    report = json.loads((checks.ROOT / 'reproducibility/results/results.json').read_text())
+    assert report['method'] == 'internal_cepr'
+    assert report['reproduction_verified'] is False
+    assert report['detector_assisted_baseline']['branch'] == 'groundingdino-extraction'
+    assert 'imgedit_737' not in report
+
+
+def test_cli_resolves_caller_relative_checkpoint(tmp_path, monkeypatch, capsys):
+    monkeypatch.chdir(tmp_path)
+    checkpoint = tmp_path / 'adapter.bin'
+    checkpoint.write_bytes(b'test-adapter')
+    cli.main(['check', '--checkpoint', 'adapter.bin'])
+    report = json.loads(capsys.readouterr().out)
+    assert report['checkpoint_sha256'] == checks.digest(checkpoint)

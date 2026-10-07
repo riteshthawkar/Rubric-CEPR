@@ -4,7 +4,7 @@ runtime:
   backend: diffusers
   accelerate_executable: accelerate
   working_dir: .
-  train_script: src/qwen_edit_project/train/diffusers_qwen_edit_lora_reproduction_v1.py
+  train_script: src/qwen_edit_project/train/diffusers_qwen_edit_lora_compat.py
   env_file: null
   dry_run: false
 model:

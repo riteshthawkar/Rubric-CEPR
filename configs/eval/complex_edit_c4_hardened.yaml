@@ -157,6 +157,6 @@ evaluation_contract:
   - src/qwen_edit_project/utils/prompting.py
   - src/rubric_cepr/cli.py
   - src/rubric_cepr/runtime.py
-  - src/qwen_edit_project/train/diffusers_qwen_edit_lora_reproduction_v1.py
+  - src/qwen_edit_project/train/diffusers_qwen_edit_lora_compat.py
 prompting:
   use_prompt_polish: false

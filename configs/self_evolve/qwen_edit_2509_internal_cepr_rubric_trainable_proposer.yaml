@@ -97,6 +97,9 @@ candidate_generation:
   seed_stride: 7919
 evaluator:
   backend: internal_cepr_rubric
+  counterfactual_backend: internal
+  object_detector_enabled: false
+  object_grounder: qwen_vl_internal
   top_m: 1
   counterfactual_distractors: 4
   edit_threshold: 0.4

@@ -1,16 +1,7 @@
 {
   "schema_version": 1,
-  "version": "1.0.0-rc2",
-  "bundle_sha256": "3acc4fef4fdc00c3a431d0039673e13589cee2b2d73d8e28235d2895e8ecb0c7",
-  "pinned_files": {
-    "src/qwen_edit_project/train/diffusers_qwen_edit_lora.py": "0d033ef25ec85d4b80fdd00f594badb4223ec7ff481d9cd32c1109d1f6783b84",
-    "src/qwen_edit_project/train/training_safety.py": "45497e00114022b0cf94090b2ac92e929cc763eaeb2b4bc2d0ff34cbe81f198e",
-    "src/qwen_edit_project/train/diffusers_qwen_edit_lora_reproduction_v1.py": "e60f1d81347d52841214ac27b81fae511847126b7387eba63526981d0497ac96",
-    "reproducibility/manifests/extraction_v1.json": "8f1b5d17c3c7ca197ed28e92917a979c427b9e4aef20b3d0cfa3b63bbd7ba664",
-    "reproducibility/manifests/extraction_v1_artifacts.json": "127b71aea160ce3dee5aef4c54b1786d9c2e25d3ea98b20c76571138318f72d0",
-    "configs/reproduction/extraction_v1.yaml": "9f76968636f8a20c5842d6c573938dad53d57b5d3469da36d3dd8702f5ef2bc3",
-    "configs/train/extraction_v1.json": "1265e3212b933d9f0444c5f0e1c614aac96e92f58260fc30f72774264c815b57"
-  },
-  "checkpoint_sha256": "118ffe5d4a86d33a836eb07c4ce063fad7096988072067c48f86636380047942",
-  "bundle_member_prefix": "paper_headline_extract_v1/repository/"
+  "method": "internal_cepr",
+  "paper_checkpoint_bundle": null,
+  "framework_identity": "reproducibility/framework.json",
+  "legacy_extraction_artifacts_url": "https://github.com/riteshthawkar/Rubric-CEPR/blob/groundingdino-extraction/reproducibility/artifacts.json"
 }

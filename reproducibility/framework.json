@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "method": "internal_cepr",
+  "baseline_branch": "groundingdino-extraction",
+  "pinned_files": {
+    "src/qwen_edit_project/self_evolve/backends.py": "82caa2deefba9b08f4d2709bf59e7bdcc8654db379092ead2961e75feab67483",
+    "src/qwen_edit_project/train/diffusers_qwen_edit_lora.py": "0d033ef25ec85d4b80fdd00f594badb4223ec7ff481d9cd32c1109d1f6783b84",
+    "src/qwen_edit_project/train/training_safety.py": "45497e00114022b0cf94090b2ac92e929cc763eaeb2b4bc2d0ff34cbe81f198e",
+    "src/qwen_edit_project/train/diffusers_qwen_edit_lora_compat.py": "cb99b4b4a55fe7076b82f1ccc215b2f61bf673b12c2f2e1bcb04933a4ca696a4",
+    "configs/self_evolve/qwen_edit_2509_internal_cepr_rubric_trainable_proposer.yaml": "112a6b7b21313e0ec388c91d33fe5fb0f6b3a8647b07487e2314383a614f488a",
+    "configs/train/lora_2509_diffusers.yaml": "508aadf71a9541b80ff8961f7b1347877c8d0649cf70f7fd81c8b50b5091fffb"
+  }
+}

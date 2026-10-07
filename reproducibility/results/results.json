@@ -1,58 +1,12 @@
 {
   "schema_version": 1,
-  "status": "recorded_evaluations_precontract",
-  "imgedit_737": {
-    "base": {
-      "path": "outputs/quick_eval/imgedit_full737_extract_only/scores/qwen_edit_2509_baseline_imgedit_summary.json",
-      "sha256": "246452986bfb4518faf4b8dd357269590ee2c2f3b6394a50bdb98941fbf9cf98",
-      "count": 737,
-      "overall": 4.440637720488463,
-      "extract": 3.51
-    },
-    "extraction_v1": {
-      "path": "outputs/quick_eval/imgedit_full737_extract_only/scores/extract_only_full737_summary.json",
-      "sha256": "78eb6e323aec33a399942e8a8ad3f2c5c913b3d48c5c7ddd9f3c18e1d4bead0d",
-      "count": 737,
-      "overall": 4.5550881953866975,
-      "overall_delta": 0.11445047489823423,
-      "extract": 4.26,
-      "extract_delta": 0.75
-    },
-    "extract_replay_fix": {
-      "path": "outputs/quick_eval/imgedit_full737_extract_replay_fix/scores/extract_replay_fix_full737_summary.json",
-      "sha256": "071f75e03a3bfcddfda5f9baf03a181769d879171beb89bda9a7cc66afe8ff0c",
-      "count": 737,
-      "overall": 4.564084124830389,
-      "overall_delta": 0.12344640434192566
-    }
-  },
-  "gedit_full_1212": {
-    "base": {
-      "path": "outputs/scores/gedit/qwen_edit_2509_baseline_gedit_summary.json",
-      "sha256": "987ff75d0cea0fe0e8d667bed2319d280b98f28ab4b73b312c8932f1917c8bf1",
-      "overall": 8.123821224692906
-    },
-    "round_loop_candidate": {
-      "path": "outputs/scores/gedit/final_rubric_cepr_v1_512_r04_gedit_summary.json",
-      "sha256": "73b602be1306ab4544e6e5a67fcb9b718461dc93f8dc9150b1e5a9d5cf48cba4",
-      "overall": 8.101060087493433,
-      "overall_delta": -0.02276113719947226
-    }
-  },
-  "complex_edit_real_c4_531": {
-    "base": {
-      "path": "outputs/scores/complex_edit/qwen_edit_2509_official_diffusers_complex_edit_summary.json",
-      "sha256": "1879ae8540bc37bca2a801a757fa8011d387567da3751b53ad0834ca8cc3eb94",
-      "overall": 8.7674,
-      "count": 531
-    },
-    "extraction_v1": {
-      "path": "outputs/scores/complex_edit/extract_v1_complex_c4_complex_edit_summary.json",
-      "sha256": "c5657a998b6aae1de28d1a00902db59a71db77138ddc3a2a1c40bc86a2d94ff0",
-      "overall": 8.8064,
-      "overall_delta": 0.039,
-      "count": 531
-    }
-  },
-  "protocol_note": "These recorded evaluations predate the content-hashed protocols in configs/eval. New runs must report their own artifact and protocol identities."
+  "method": "internal_cepr",
+  "reproduction_verified": false,
+  "paper_reference": "docs/RESULTS.md",
+  "availability": "Internal workflow implementation; matching paper checkpoint and raw score bundles are not included.",
+  "detector_assisted_baseline": {
+    "branch": "groundingdino-extraction",
+    "url": "https://github.com/riteshthawkar/Rubric-CEPR/tree/groundingdino-extraction",
+    "scope": "64-pair extraction recipe and its historical measured results"
+  }
 }

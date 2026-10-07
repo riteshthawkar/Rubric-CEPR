@@ -1,11 +1,11 @@
-"""Paper-v1 loader compatibility entry point for the frozen LoRA trainer.
+"""Processor compatibility entry point for the Qwen LoRA trainer.
 
 The Qwen-Image-Edit-2509 snapshot stores its Qwen2-VL tokenizer, image
 processor, and video processor together in ``processor/`` without a model
 ``config.json``.  Transformers 5.8.1's generic ``ProcessorMixin`` loader asks
 ``AutoTokenizer`` for that absent model config.  Load the three declared
 components directly instead, construct the same concrete processor, and then
-delegate all training behavior to the hash-pinned trainer.
+delegate all training behavior to the LoRA trainer.
 """
 
 from __future__ import annotations
@@ -19,7 +19,7 @@ from transformers import (
     Qwen2VLVideoProcessor,
 )
 
-from qwen_edit_project.train import diffusers_qwen_edit_lora as frozen_trainer
+from qwen_edit_project.train import diffusers_qwen_edit_lora as trainer
 
 
 class ProcessorFolderCompatibilityLoader:
@@ -37,7 +37,7 @@ class ProcessorFolderCompatibilityLoader:
     ) -> Qwen2VLProcessor:
         if subfolder != "processor":
             raise ValueError(
-                "The paper-v1 compatibility loader is restricted to subfolder='processor'"
+                "The processor compatibility loader is restricted to subfolder='processor'"
             )
         component_kwargs = {
             "subfolder": subfolder,
@@ -66,10 +66,10 @@ class ProcessorFolderCompatibilityLoader:
 
 
 def main() -> None:
-    """Apply the loader-only compatibility shim and run the frozen trainer."""
+    """Apply the loader-only compatibility shim and run the LoRA trainer."""
 
-    frozen_trainer.Qwen2VLProcessor = ProcessorFolderCompatibilityLoader
-    frozen_trainer.main()
+    trainer.Qwen2VLProcessor = ProcessorFolderCompatibilityLoader
+    trainer.main()
 
 
 if __name__ == "__main__":

@@ -1,8 +1,11 @@
-# Results
+# Results and artifact availability
 
-This page separates two kinds of evidence: the scores reported in the paper, and
-the earlier recorded evaluations of the extraction adapter shipped in this
-repository.
+This branch contains the internal Rubric-CEPR implementation. The following
+values are reported in the paper and retained as reference values. This branch
+does not include matching checkpoint bundles, training receipts or raw benchmark
+records establishing their reproduction. Code availability and CPU checks do
+not validate those scores. New runs must record the actual checkpoint hash and
+matched evaluation receipts before being attributed to these values.
 
 ## Paper results
 
@@ -44,41 +47,17 @@ is the mean of its three metrics.
 The overall gains are +0.55 ± 0.05 SD over three training seeds (GEdit-Bench) and
 +0.30 ± 0.06 s.e. (ImgEdit).
 
-## Earlier recorded evaluations of the extraction adapter
+## Detector-assisted baseline
 
-The rows below, and the files under `reproducibility/results/`, record an earlier
-evaluation of the fixed extraction adapter. They use their own base score (ImgEdit
-4.4406) and a single adapter, so they are not the paper's numbers above. The
-records are kept unchanged because their hashes and the repository tests refer to
-them.
+The earlier 64-pair extraction adapter, its hash-pinned records, replay variant
+and negative GEdit control are preserved on
+[groundingdino-extraction](https://github.com/riteshthawkar/Rubric-CEPR/tree/groundingdino-extraction/docs/RESULTS.md).
+They are separate evidence and are not substituted for the internal-method
+results above. The original numbers and provenance remain unchanged on that branch.
 
+## New evaluation runs
 
-| Benchmark | Examples | Base | Extraction adapter | Change |
-|---|---:|---:|---:|---:|
-| ImgEdit Basic | 737 | 4.440638 | 4.555088 | +0.114450 |
-| Complex-Edit real C4 | 531 | 8.7674 | 8.8064 | +0.0390 |
-
-Both candidate rows correspond to the extraction adapter identified by
-`checkpoint_sha256` in `reproducibility/artifacts.json`. Its training uses 64
-pairs and 400 steps. ImgEdit's extraction subscore is **3.51 → 4.26 (+0.75)**;
-the overall gain does not establish consistent gains across edit categories.
-
-## Other evaluated variants
-
-| Benchmark / variant | Base | Candidate | Change | Scope |
-|---|---:|---:|---:|---|
-| ImgEdit Basic, extraction with replay fix | 4.440638 | 4.564084 | +0.123446 | Separate adapter; not the fixed extraction checkpoint |
-| GEdit full-1212, naive round-loop | 8.123821 | 8.101060 | −0.022761 | Negative control; not the fixed extraction checkpoint |
-
-The negative GEdit result remains part of the record. Neither it nor the replay
-variant can be substituted for an evaluation of the extraction adapter. The
-included records do not establish English-only GEdit performance or broad
-transfer across editing tasks.
-
-## Protocol scope
-
-These measurements predate the content-hashed contracts in `configs/eval/`.
-The configurations specify matched evaluations with explicit dataset, generation,
-judge and output identities. They are protocols for new runs, not receipts for
-the recorded results. Use [EVALUATION.md](EVALUATION.md) to run those protocols
-and report the actual checkpoint hash, selection and completed example count.
+Use the matched protocols in [EVALUATION.md](EVALUATION.md), recording the source
+selection, model and adapter hashes, generation settings, judge configuration and
+completed example counts. The configs are prospective protocols, not completion
+receipts for the reported values.

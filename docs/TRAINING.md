@@ -1,113 +1,97 @@
-# Training and inference
+# Internal CEPR training and inference
 
-## Prepare inputs
+This page describes `main`. The fixed detector-assisted 64-pair recipe,
+`install-artifacts` command and reference extraction checkpoint belong to
+[groundingdino-extraction](https://github.com/riteshthawkar/Rubric-CEPR/tree/groundingdino-extraction).
+The top-level README is preserved unchanged; use the commands below for main.
 
-The extraction recipe uses:
+## Prepare sources
 
-- `Qwen/Qwen-Image-Edit-2509`, revision
-  `d3968ef930e841f4c73640fb8afa3b306a78167e`.
-- The exact 64-row manifest in `reproducibility/manifests/extraction_v1.json`.
-- All 128 source and target images listed in
-  `reproducibility/manifests/extraction_v1_artifacts.json`.
-- The recorded environment in `configs/reproduction/extraction_v1.yaml`.
-
-Cache the pinned base model and install the separate input bundle before
-allocating a GPU. Training uses `--local_files_only`. The installer verifies the
-bundle hash and extracts only the listed images, rejecting duplicate entries,
-links and unsafe paths. Its destination must be new.
+Install the model environment from `requirements-model.txt` and cache the Qwen
+model before requesting a GPU. Use `examples/unlabeled_manifest.jsonl` to create
+your own source manifest. Paths in each row are absolute or relative to this
+checkout. The Planner generates instructions from these unlabeled images.
 
 ```bash
 hf download Qwen/Qwen-Image-Edit-2509 \
   --revision d3968ef930e841f4c73640fb8afa3b306a78167e
-rubric-cepr install-artifacts \
-  --bundle /path/to/training-inputs.tar.gz --data-root /path/to/training-data
+rubric-cepr check --strict-environment
 rubric-cepr check \
-  --data-root /path/to/training-data \
+  --manifest /path/to/sources.jsonl \
   --benchmark-json data/processed/benchmark/imgedit/basic_edit.json \
-  --benchmark-images data/processed/benchmark/imgedit/original_images \
-  --strict-environment
+  --benchmark-images data/processed/benchmark/imgedit/original_images
 ```
 
 The overlap check requires all 737 ImgEdit records and their source images. It
-rejects shared source basenames or image bytes. Missing inputs do not disable it.
+rejects shared source basenames or image bytes. It does not decode images or
+claim a perceptual-duplicate audit. Keep all other evaluation sets out of training
+and record their disjointness separately.
+
+## Inspect the workflow on CPU
+
+```bash
+rubric-cepr framework --dry-run --manifest /path/to/sources.jsonl
+rubric-cepr train --dry-run \
+  --manifest /path/to/sources.jsonl --output /path/to/new-run
+```
+
+`framework` uses the configuration's training triggers, which default to
+`emit_only`. `train` sets both Editor and Planner triggers to `launch`, so accepted
+candidates and qualifying Planner traces lead to adapter updates. `--set` can
+adjust the round and training budget. Configuration validation also applies to
+overrides. External detector configurations are rejected on main.
+
+The reference YAML contains small demonstration budgets: four candidates per
+proposal, eight sources per round and 16 Editor updates per round. These are
+configuration examples, not a validated recipe for reproducing the paper scores.
+Increasing them constitutes a new run that needs its own recorded evaluation.
 
 ## Slurm execution
 
-Follow your cluster's allocation policy. The CLI checks an owned RUNNING GPU
-allocation, a numeric `srun` step, assigned GPU IDs, CUDA visibility, the compute
-host, tmux context and `PYTHONPATH`. Keep Slurm's GPU visibility variables.
-Activate the model environment inside the allocation and set `HF_HOME` before
-running a model command. Prepare data and environments before reserving a GPU.
-
-`scripts/slurm/train_v1.sbatch` is a single-GPU example with 4 CPUs, 96 GiB of
-host memory and a 24-hour limit. Adjust scheduler resources to your cluster's
-rules. From an inspected tmux session, set:
+Use your cluster's allocation policy and submit a batch job from an inspected
+tmux session. The worker requires an owned RUNNING GPU allocation with a numeric
+`srun` step, activates the environment inside that step, and sets `PYTHONPATH`.
 
 ```bash
 export RUBRIC_ROOT=/absolute/path/to/Rubric-CEPR
 export RUBRIC_ENV_PREFIX=/absolute/path/to/model-environment
 export RUBRIC_ACTIVATE_SCRIPT="$RUBRIC_ROOT/scripts/slurm/activate.example.sh"
 export HF_HOME=/absolute/path/to/huggingface-cache
+sbatch --export=ALL scripts/slurm/train_cepr.sbatch \
+  --manifest /path/to/sources.jsonl --output /path/to/new-run
 ```
 
-`RUBRIC_ENV_PREFIX` is a conda environment prefix; `CONDA_EXE` can select the
-conda executable. The worker activates the environment inside a numeric step
-and sets `PYTHONPATH` to the checkout's `src` directory.
+The example requests one GPU, four CPUs, 96 GiB of host memory and 24 hours.
+Adjust these values to your cluster. The job ends when the workload exits.
+Preflight validates the source manifest, complete ImgEdit disjointness and model
+environment before loading models. The internal loop records proposal, reward,
+gate, target and training artifacts per round. Existing runs may be resumed by
+the loop's explicit resume configuration; use a fresh output root for a new study.
 
-Inspect the exact training command on CPU:
+## Completion and evaluation
+
+Keep the effective configuration, round training commands, completion receipts,
+source manifest, gate traces and adapter together. To inspect a completed round:
 
 ```bash
-rubric-cepr train --dry-run \
-  --data-root /path/to/training-data --output /path/to/new-training-output
+rubric-cepr check --training-output /path/to/new-run/round-directory/training_output
+rubric-cepr check --checkpoint /path/to/pytorch_lora_weights.safetensors
 ```
 
-After preflight passes, submit the example job:
-
-```bash
-sbatch --export=ALL scripts/slurm/train_v1.sbatch \
-  --data-root /path/to/training-data --output /path/to/new-training-output
-```
-
-The launcher fixes the extraction recipe's scientific parameters and refuses
-an existing output directory. The allocation ends when the workload exits.
-
-## Completion checks
-
-The launcher validates exactly 400 requested and completed optimizer steps,
-world size one, seed 123, no resumed checkpoint and a final 960-tensor rank-16
-adapter. It reads adapter headers without loading the base model. Keep the
-training command, preflight, completion receipt and final adapter together.
-
-```bash
-rubric-cepr check --training-output /path/to/new-training-output
-```
-
-A retrained adapter may differ numerically from the reference adapter. Record
-its actual hash and evaluate that artifact separately.
+The check verifies the requested step count and reports the supplied adapter's
+hash. It does not identify that adapter as a released paper checkpoint.
+Evaluate the exact artifact with matched protocols in [EVALUATION.md](EVALUATION.md).
 
 ## Inference
 
 ```bash
 rubric-cepr infer \
-  --image /path/to/source.jpg --prompt 'Extract the dog.' \
+  --image /path/to/source.jpg --prompt 'Make the car red.' \
   --checkpoint /path/to/pytorch_lora_weights.safetensors \
   --output /path/to/new-edit.png
 ```
 
-Inference uses the pinned model revision, seed 42, 40 steps, true CFG 4, guidance
-scale one and a space negative prompt. The default checks the reference adapter
-hash in `reproducibility/artifacts.json`. Add `--allow-reconstructed-checkpoint`
-for retrained weights, or `--dry-run` to inspect settings on CPU.
-
-## Reference framework
-
-Prepare a source manifest as described in [METHOD.md](METHOD.md), then inspect
-its launch command:
-
-```bash
-rubric-cepr framework --dry-run
-```
-
-Running without `--dry-run` requires the GPU step. The supplied reference config
-uses its own proposal and verification settings and emits training commands by
-default; it is separate from the fixed 64-pair extraction training recipe.
+Inference uses the pinned Qwen revision, seed 42, 40 steps, true CFG 4, guidance
+scale one and a space negative prompt. It loads the supplied adapter without a
+detector. `--expected-checkpoint-sha256` optionally binds the weights to a recorded
+hash; `--dry-run` prints settings without loading a model.
