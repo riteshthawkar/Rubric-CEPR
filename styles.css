@@ -1197,3 +1197,8 @@ table.compact td .up {
   letter-spacing: 0.06em;
   text-transform: uppercase;
 }
+
+/* Row that starts a new block without a heading (e.g. our backbone after prior methods). */
+tr.sep-row td {
+  border-top: 2px solid var(--line-strong);
+}
