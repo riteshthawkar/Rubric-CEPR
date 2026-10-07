@@ -1,0 +1,161 @@
+# ==============================================================================
+# Self-Evolving BLIP3-o .gitignore
+# ==============================================================================
+
+# ==============================================================================
+# Python
+# ==============================================================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# ==============================================================================
+# Virtual Environments
+# ==============================================================================
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# ==============================================================================
+# Jupyter Notebooks
+# ==============================================================================
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# ==============================================================================
+# Model Checkpoints & Weights (keep folders, ignore files)
+# ==============================================================================
+# Checkpoint directories - keep structure via .gitkeep
+runs/
+checkpoints/
+outputs/
+*.pt
+*.pth
+*.bin
+*.safetensors
+*.ckpt
+*.h5
+*.onnx
+
+# Specific checkpoint patterns
+step_*/
+checkpoint-*/
+adapter_model.bin
+adapter_model.safetensors
+pytorch_model.bin
+model.safetensors
+
+# ==============================================================================
+# Logs & Tracking
+# ==============================================================================
+logs/
+*.log
+wandb/
+mlruns/
+tensorboard/
+events.out.tfevents.*
+iter_log.jsonl
+trainer_state.pt
+
+# ==============================================================================
+# Cache Files
+# ==============================================================================
+.cache/
+*.cache
+hub/
+~/.cache/
+transformers_cache/
+huggingface/
+
+# ==============================================================================
+# Data Files (keep folders, ignore large files)
+# ==============================================================================
+*.jpg
+*.jpeg
+*.png
+*.webp
+*.bmp
+*.tiff
+*.gif
+*.mp4
+*.avi
+*.mov
+*.pdf
+
+# Keep specific documentation PDFs if needed
+!blip30.pdf
+!evolmm.pdf
+
+# ==============================================================================
+# Temporary Files
+# ==============================================================================
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# ==============================================================================
+# IDE & Editor
+# ==============================================================================
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+.spyderproject
+.spyproject
+
+# ==============================================================================
+# Testing & Coverage
+# ==============================================================================
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+
+# ==============================================================================
+# Git LFS (if using)
+# ==============================================================================
+*.lfs
+
+# ==============================================================================
+# Keep folder structure with .gitkeep files
+# ==============================================================================
+# Add .gitkeep to empty directories you want to preserve:
+# touch runs/.gitkeep
+# touch checkpoints/.gitkeep
+# etc.
+!.gitkeep
+
+# Project page branch assets.
+!assets/
+!assets/**
+
+
+run_eval.sh
+data/
+data.tar

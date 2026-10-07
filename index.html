@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Rubric-CEPR | Self-Evolving Image Editing</title>
+    <meta name="description" content="Rubric-CEPR: Self-Evolving Image Editing via Reward-Verified Self-Distillation.">
+    <meta name="keywords" content="image editing, self-distillation, reward verification, Qwen-Image-Edit, Step1X-Edit, ImgEdit, GEdit-Bench, Complex-Edit, LoRA">
+    <meta property="og:title" content="Rubric-CEPR">
+    <meta property="og:description" content="An image editor that improves from its own verified edits, with no human-edited targets and no external reward model during training.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="assets/figures/intro.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
+    <link rel="stylesheet" href="styles.css?v=2">
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <main id="main">
+      <section class="hero" id="top">
+        <div class="hero-content">
+          <div class="project-label">Self-evolving image editing</div>
+          <h1>Rubric-CEPR</h1>
+          <p class="hero-subtitle">Self-Evolving Image Editing via Reward-Verified Self-Distillation</p>
+
+          <div class="authors" aria-label="Authors">
+            <span>Ritesh Thawkar<sup>1</sup></span>
+            <span>Shubham Patle<sup>1</sup></span>
+            <span>Shravan Venkatraman<sup>1</sup></span>
+            <span>Rao Muhammad Anwer<sup>1,2</sup></span>
+          </div>
+          <div class="affiliations" aria-label="Affiliations">
+            <span><sup>1</sup>Mohamed Bin Zayed University of Artificial Intelligence</span>
+            <span><sup>2</sup>Aalto University</span>
+          </div>
+
+          <div class="action-row" aria-label="Release links">
+            <!-- Add the Paper button here once the arXiv link is available:
+            <a class="button" href="ARXIV_URL"><img src="assets/icons/arxiv.svg" alt="" aria-hidden="true"><span>Paper</span></a> -->
+            <a class="button" href="https://github.com/riteshthawkar/Rubric-CEPR">
+              <img src="assets/icons/github.png" alt="" aria-hidden="true">
+              <span>Code</span>
+            </a>
+          </div>
+        </div>
+
+        <figure class="hero-figure reveal">
+          <img src="assets/figures/intro.png" alt="Overview of Rubric-CEPR: a Planner proposes edits, an Editor samples candidates, a frozen Critic verifies them, and the best verified candidate is distilled into the Editor and Planner." decoding="async">
+          <figcaption>A Planner proposes structured edits on unlabeled images, the Editor samples K candidates, and a frozen internal Critic keeps only the best gate-passing candidate as a training target.</figcaption>
+        </figure>
+      </section>
+
+      <nav class="section-nav" aria-label="Section shortcuts">
+        <a href="#tldr">TL;DR</a>
+        <a href="#challenges">Challenges</a>
+        <a href="#framework">Framework</a>
+        <a href="#ingredients">Key ideas</a>
+        <a href="#results">Results</a>
+        <a href="#analysis">Analysis</a>
+        <a href="#qualitative">Qualitative</a>
+        <a href="#limitations">Limitations</a>
+        <a href="#citation">Cite</a>
+      </nav>
+
+      <section class="section tldr" id="tldr">
+        <div class="section-head centered">
+          <p class="kicker">TL;DR</p>
+          <h2>Can an image editor improve itself by verifying its <em>own</em> edits?</h2>
+          <p>Improving instruction-guided editors usually needs human-edited training pairs or an external reward model, and a single scalar score can reward plausible failures such as an unchanged image or a lost background. Rubric-CEPR checks each candidate edit with the editor's own features, rejects any candidate that fails a check, and distills only the verified ones into a lightweight adapter.</p>
+        </div>
+
+        <div class="overview-grid reveal">
+          <article>
+            <h3>No human-edited targets</h3>
+            <p>Training uses unlabeled source images. Every target is one of the editor's own samples that passed verification.</p>
+          </article>
+          <article>
+            <h3>No external reward model in training</h3>
+            <p>The Critic reuses features already exposed by the editor. External judges are used only to evaluate on benchmarks.</p>
+          </article>
+          <article>
+            <h3>Single-shot at test time</h3>
+            <p>The adapted editor is evaluated with one generation per instruction: ImgEdit 4.36 &rarr; 4.60 on Qwen-Image-Edit, and a gain on Step1X-Edit too.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section challenges" id="challenges">
+        <div class="section-head centered">
+          <p class="kicker">Why it is hard</p>
+          <h2>Plausible failures look like successes.</h2>
+          <p>Self-training an editor is risky because an output that passes a lenient score becomes supervision for the next model.</p>
+        </div>
+
+        <div class="overview-grid reveal">
+          <article>
+            <span class="role-index">01</span>
+            <h3>Scalar scores are not enough</h3>
+            <p>On a fixed 210-pair probe, a scalar reward still assigns 0.39&ndash;0.60 to no-op, corrupted and wrong-edit candidates. <b>Our fix:</b> separate checks for edit realization, removal of the old state and preservation, combined with non-compensatory gates.</p>
+          </article>
+          <article>
+            <span class="role-index">02</span>
+            <h3>Naive self-training gains less</h3>
+            <p>Training on the editor's own candidates without gates improves ImgEdit by only +2.0%, versus +5.5% for Rubric-CEPR, because rejected candidates outnumber usable targets. <b>Our fix:</b> distill only gate-passing, best-scoring candidates.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section framework" id="framework">
+        <div class="section-head centered">
+          <p class="kicker">Framework</p>
+          <h2>Propose, edit, verify, distill.</h2>
+          <p>A frozen Qwen-Image-Edit backbone provides understanding features and VAE latents. Lightweight Planner and Editor adapters are updated; the Critic stays fixed.</p>
+        </div>
+
+        <figure class="framed-figure reveal">
+          <img src="assets/figures/framework.png" alt="Rubric-CEPR framework: frozen Qwen-Image-Edit backbone, Planner, Editor, internal rubric Critic and the self-evolution loop." loading="lazy" decoding="async">
+        </figure>
+
+        <div class="role-grid reveal" aria-label="Framework roles">
+          <article class="role-card">
+            <span class="role-index">01</span>
+            <h3><span class="role-action">Propose</span> Planner</h3>
+            <p>Emits an edit instruction and a structured specification: edit type, entities, target region, required and forbidden after-states, and content to preserve.</p>
+          </article>
+          <article class="role-card">
+            <span class="role-index">02</span>
+            <h3><span class="role-action">Edit</span> Editor</h3>
+            <p>Samples K candidate edits for each proposal and is the model that is finally improved, through a LoRA adapter trained on verified targets.</p>
+          </article>
+          <article class="role-card emphasized">
+            <span class="role-index">03</span>
+            <h3><span class="role-action">Verify</span> Critic</h3>
+            <p>A fixed internal Critic scores each candidate with the Contrastive Edit-Preservation Reward and rubric checks. Any failed gate makes a candidate ineligible.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section ingredients" id="ingredients">
+        <div class="section-head centered">
+          <p class="kicker">Key ideas</p>
+          <h2>What makes verified self-distillation work.</h2>
+        </div>
+
+        <div class="timeline reveal">
+          <article>
+            <span>1</span>
+            <h3>Contrastive Edit-Preservation Reward (CEPR)</h3>
+            <p>CEPR contrasts support for the requested edit with incorrect alternative instructions, and rewards preservation of unrelated content. The rubric adds explicit checks for required states, removal of forbidden old states, and preservation constraints.</p>
+          </article>
+          <article>
+            <span>2</span>
+            <h3>Non-compensatory gates</h3>
+            <p>The reward is <code>R = G &middot; &radic;(Edit &times; Preserve)</code>. A candidate that fails any applicable check gets zero reward, so a high score on one term cannot hide a failed edit or lost content.</p>
+          </article>
+          <article>
+            <span>3</span>
+            <h3>Distill the verified best-of-K</h3>
+            <p>Best-of-K sampling already finds better edits than the base editor produces in one shot. Distilling the best gate-passing candidate into an adapter turns that headroom into a single-shot checkpoint.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section results" id="results">
+        <div class="section-head centered">
+          <p class="kicker">Results</p>
+          <h2>Matched base-versus-ours gains.</h2>
+          <p>Every adapted editor is compared with its own base under the same protocol, with one generation per instruction. The ImgEdit overall score is the mean over three training seeds (4.58, 4.60, 4.62; 4.60 &plusmn; 0.02 SD).</p>
+        </div>
+
+        <div class="result-panels reveal">
+          <article class="table-panel">
+            <div class="panel-title">
+              <h3>ImgEdit &middot; Qwen-Image-Edit-2509</h3>
+              <span>Nine edit families &middot; scores 0&ndash;5 &middot; relative gain over base</span>
+            </div>
+            <div class="table-wrap">
+              <table class="compact">
+                <thead><tr><th>Model</th><th>Add</th><th>Remove</th><th>Replace</th><th>Adjust</th><th>Action</th><th>Style</th><th>Bg.</th><th>Extract</th><th>Compose</th><th>Overall</th></tr></thead><tbody><tr class="group-row"><td colspan="11">Published image editors (their own judges)</td></tr>
+                  <tr><td>GPT-4o-Image</td><td>4.65</td><td>3.81</td><td>4.49</td><td>4.26</td><td>4.76</td><td>4.75</td><td>4.62</td><td>2.96</td><td>4.54</td><td>4.32</td></tr>
+                  <tr><td>Step1X-Edit</td><td>3.90</td><td>2.61</td><td>3.45</td><td>3.13</td><td>3.43</td><td>4.44</td><td>3.19</td><td>1.87</td><td>2.52</td><td>3.17</td></tr>
+                  <tr><td>ImgEdit-E1</td><td>3.82</td><td>2.40</td><td>2.80</td><td>4.04</td><td>3.21</td><td>4.38</td><td>3.38</td><td>2.55</td><td>2.87</td><td>3.27</td></tr>
+                  <tr><td>UltraEdit</td><td>3.63</td><td>1.71</td><td>3.13</td><td>3.01</td><td>3.57</td><td>3.69</td><td>3.31</td><td>2.02</td><td>2.33</td><td>2.93</td></tr>
+                  <tr><td>InstructPix2Pix</td><td>2.29</td><td>1.49</td><td>1.93</td><td>1.79</td><td>1.51</td><td>3.54</td><td>1.67</td><td>1.33</td><td>1.48</td><td>1.89</td></tr>
+                  <tr class="group-row"><td colspan="11">Post-training with an external reward (as reported)</td></tr>
+                  <tr><td>Qwen-Image-Edit-2509 (UniWorld paper)</td><td>&ndash;</td><td>&ndash;</td><td>&ndash;</td><td>&ndash;</td><td>&ndash;</td><td>&ndash;</td><td>&ndash;</td><td>&ndash;</td><td>&ndash;</td><td>4.35</td></tr>
+                  <tr><td>UniWorld-Qwen-Edit</td><td>&ndash;</td><td>&ndash;</td><td>&ndash;</td><td>&ndash;</td><td>&ndash;</td><td>&ndash;</td><td>&ndash;</td><td>&ndash;</td><td>&ndash;</td><td>4.48</td></tr>
+                  <tr><td>UniWorld-V2</td><td>&ndash;</td><td>&ndash;</td><td>&ndash;</td><td>&ndash;</td><td>&ndash;</td><td>&ndash;</td><td>&ndash;</td><td>&ndash;</td><td>&ndash;</td><td>4.49</td></tr>
+                  <tr class="group-row"><td colspan="11">Self-distillation with internal rewards</td></tr>
+                  <tr><td>Qwen-Image-Edit-2509</td><td>4.51</td><td>4.36</td><td>4.72</td><td>4.40</td><td>4.69</td><td>4.70</td><td>4.40</td><td>3.41</td><td>4.05</td><td>4.36</td></tr>
+                  <tr class="is-ours"><td>Rubric-CEPR (Ours)</td><td>4.65<span class="up">+3.1%</span></td><td>4.50<span class="up">+3.2%</span></td><td>4.86<span class="up">+3.0%</span></td><td>4.54<span class="up">+3.2%</span></td><td>4.82<span class="up">+2.8%</span></td><td>4.83<span class="up">+2.8%</span></td><td>4.59<span class="up">+4.3%</span></td><td>4.26<span class="up">+24.9%</span></td><td>4.39<span class="up">+8.4%</span></td><td>4.60<span class="up">+5.5%</span></td></tr></tbody>
+              </table>
+            </div>
+            <figcaption>The largest gain is on extraction (3.41 &rarr; 4.26), the base editor's weakest family; every family improves. Published rows use their own judges and are not directly comparable.</figcaption>
+          </article>
+
+          <article class="table-panel">
+            <div class="panel-title">
+              <h3>GEdit-Bench and Complex-Edit</h3>
+              <span>Scores 0&ndash;10 &middot; relative gain over base</span>
+            </div>
+            <div class="table-wrap">
+              <table class="compact">
+                <thead><tr><th>Model</th><th>GEdit SC</th><th>GEdit PQ</th><th>GEdit O</th><th>CE IF</th><th>CE ID</th><th>CE PQ</th><th>CE O</th></tr></thead><tbody><tr class="group-row"><td colspan="8">Qwen-Image-Edit-2509 (base &rarr; ours)</td></tr>
+                  <tr><td>Qwen-Image-Edit-2509</td><td>8.11</td><td>7.10</td><td>7.39</td><td>9.69</td><td>9.02</td><td>7.60</td><td>8.77</td></tr>
+                  <tr class="is-ours"><td>Rubric-CEPR (Ours)</td><td>9.05<span class="up">+11.6%</span></td><td>7.92<span class="up">+11.5%</span></td><td>8.31<span class="up">+12.4%</span></td><td>9.75<span class="up">+0.7%</span></td><td>9.18<span class="up">+1.8%</span></td><td>7.97<span class="up">+4.9%</span></td><td>8.97<span class="up">+2.3%</span></td></tr>
+                  <tr class="group-row"><td colspan="8">Step1X-Edit (base &rarr; ours)</td></tr>
+                  <tr><td>Step1X-Edit</td><td>7.07</td><td>7.58</td><td>6.69</td><td>&ndash;</td><td>&ndash;</td><td>&ndash;</td><td>&ndash;</td></tr>
+                  <tr class="is-ours"><td>Rubric-CEPR (Ours)</td><td>7.84<span class="up">+10.9%</span></td><td>8.05<span class="up">+6.2%</span></td><td>7.24<span class="up">+8.2%</span></td><td>&ndash;</td><td>&ndash;</td><td>&ndash;</td><td>&ndash;</td></tr></tbody>
+              </table>
+            </div>
+            <figcaption>SC: Semantic Consistency, PQ: Perceptual Quality, O: Overall; CE: Complex-Edit, IF: Instruction Following, ID: Identity Preservation. The same procedure on Step1X-Edit, with its own VLM and VAE, also improves its overall GEdit-Bench (+8.2%) and ImgEdit (3.86 &rarr; 4.16, +7.8%) scores.</figcaption>
+          </article>
+        </div>
+      </section>
+
+      <section class="section analysis" id="analysis">
+        <div class="section-head centered">
+          <p class="kicker">Mechanism evidence</p>
+          <h2>Why verification, headroom and base quality matter.</h2>
+        </div>
+
+        <figure class="analysis-figure reveal">
+          <img src="assets/figures/results-chart.png" alt="Three panels: gate validation against a scalar reward, best-of-K headroom on the extraction family, and the share of headroom closed per ImgEdit family." loading="lazy" decoding="async">
+          <figcaption><b>(a) Gate validation.</b> A scalar reward scores invalid candidates 0.39&ndash;0.60, while the feasibility gates accept 51% of valid edits and none of the invalid ones. <b>(b) Best-of-K headroom.</b> On extraction, reward-best selection rises from 3.41 (K=1) to 4.45 (K=8), and the single-shot distilled checkpoint reaches 4.26, on par with best-of-4. <b>(c) Headroom closed.</b> The share of the gap to the 5.0 judge ceiling that Rubric-CEPR closes is 22&ndash;54% on every family, so the large extraction gain largely reflects its large headroom.</figcaption>
+        </figure>
+      </section>
+
+      <section class="section qualitative" id="qualitative">
+        <div class="section-head centered">
+          <p class="kicker">Qualitative results</p>
+          <h2>Completing edits while preserving the rest.</h2>
+          <p>The baseline often returns a realistic image that leaves the requested change undone. The adapted editor completes the edit and keeps the content the instruction leaves unchanged.</p>
+        </div>
+        <figure class="wide-figure reveal">
+          <img src="assets/figures/qualitative.png" alt="Qualitative comparison between Qwen-Image-Edit and Rubric-CEPR on ImgEdit." loading="lazy" decoding="async">
+          <figcaption><b>ImgEdit.</b> Input, baseline and adapted outputs for extraction, removal, background, replacement and action edits.</figcaption>
+        </figure>
+        <figure class="wide-figure reveal">
+          <img src="assets/figures/qual-high-gain.png" alt="Additional high-headroom qualitative results." loading="lazy" decoding="async">
+          <figcaption><b>High-headroom edits.</b> Object extraction, removal and background edits where the baseline fails to realize the operation.</figcaption>
+        </figure>
+        <figure class="wide-figure reveal">
+          <img src="assets/figures/qual-breadth.png" alt="Qualitative results on other edit families." loading="lazy" decoding="async">
+          <figcaption><b>Other edit families.</b> Replacement, addition, adjustment, action and style edits, where the baseline is often already strong.</figcaption>
+        </figure>
+        <figure class="wide-figure reveal">
+          <img src="assets/figures/qual-nonextract.png" alt="Additional preservation-sensitive qualitative results." loading="lazy" decoding="async">
+          <figcaption><b>Preservation-sensitive edits.</b> Addition, removal, background replacement, object replacement, action editing and composition.</figcaption>
+        </figure>
+      </section>
+
+      <section class="section comparison" id="limitations">
+        <div class="section-head centered">
+          <p class="kicker">Limitations</p>
+          <h2>What this does and does not show.</h2>
+        </div>
+
+        <div class="overview-grid reveal compare-points">
+          <article>
+            <h3>Needs nonzero support</h3>
+            <p>The method amplifies behavior that already has nonzero probability in the editor's sampling distribution; more samples cannot recover an edit the editor never produces.</p>
+          </article>
+          <article>
+            <h3>Checkable success criteria</h3>
+            <p>Gains concentrate where success is internally checkable. On adjustment edits, the tested internal signals recover at most 30% of the oracle headroom.</p>
+          </article>
+          <article>
+            <h3>Scope of evidence</h3>
+            <p>We report one successful adaptation pass on two editors, scored by automatic judges. Human assessment, matched learned-reward controls and multi-round learning curves would strengthen the claims.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section citation" id="citation">
+        <div class="section-head centered">
+          <p class="kicker">Citation</p>
+          <h2>Cite this work.</h2>
+          <p>Copy the BibTeX entry below. Update it with the arXiv identifier once available.</p>
+        </div>
+        <div class="copy-row">
+          <button class="copy-button" type="button" data-copy-target="bibtex">Copy BibTeX</button>
+        </div>
+        <pre class="bibtex" id="bibtex"><code>@misc{thawkar2026rubriccepr,
+  title={Rubric-CEPR: Self-Evolving Image Editing via Reward-Verified Self-Distillation},
+  author={Thawkar, Ritesh and Patle, Shubham and Venkatraman, Shravan and Anwer, Rao Muhammad},
+  year={2026},
+  note={Preprint}
+}</code></pre>
+      </section>
+
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        <p>Rubric-CEPR &middot; Self-Evolving Image Editing &copy; 2026</p>
+        <div class="footer-links">
+          <a href="https://github.com/riteshthawkar/Rubric-CEPR">Code</a>
+          <a href="#top">Back to top</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
