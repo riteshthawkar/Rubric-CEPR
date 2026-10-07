@@ -16,6 +16,11 @@ Qwen and its adapter; they do not call the detector.
 [Method](docs/METHOD.md) · [Training](docs/TRAINING.md) ·
 [Evaluation](docs/EVALUATION.md) · [Results](docs/RESULTS.md)
 
+The separately recovered [multi-family verifier bank](docs/VERIFIER_BANK.md)
+includes its miner, yes/no-token validation code, 149-pair manifest and recorded
+scores. [Paper provenance](docs/PAPER_PROVENANCE.md) identifies which reported
+claims remain unverified.
+
 ## Recorded results
 
 | Benchmark | Examples | Base | Extraction adapter | Change |

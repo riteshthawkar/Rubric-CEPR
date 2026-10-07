@@ -1,5 +1,9 @@
 # Training and inference
 
+This page describes the fixed extraction recipe. The separate recovered
+149-pair analysis recipe and guarded commands are in
+[VERIFIER_BANK.md](VERIFIER_BANK.md).
+
 ## Prepare inputs
 
 The extraction recipe uses:

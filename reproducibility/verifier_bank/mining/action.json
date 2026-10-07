@@ -1,0 +1,597 @@
+[
+  {
+    "key": "action_00003",
+    "source": "data/unlabeled/raw/coco2017/526521_908c92f65d.jpg",
+    "prompt": "Make the elephant appear to be sitting down.",
+    "target": "outputs/edit_pairs/action_selfdistill/targets/00003.png",
+    "best_reward": 0.8871,
+    "meta": {
+      "vlm": 0.951,
+      "bg_pres": 0.865
+    },
+    "all_rewards": [
+      0.8605,
+      0.8871,
+      0.8224,
+      0.874
+    ]
+  },
+  {
+    "key": "action_00024",
+    "source": "data/unlabeled/raw/coco2017/185719_c16aa9a7ca.jpg",
+    "prompt": "Make the giraffe appear to be opening its mouth wide.",
+    "target": "outputs/edit_pairs/action_selfdistill/targets/00024.png",
+    "best_reward": 0.9041,
+    "meta": {
+      "vlm": 0.962,
+      "bg_pres": 0.88
+    },
+    "all_rewards": [
+      0.861,
+      0.9041,
+      0.8151,
+      0.8921
+    ]
+  },
+  {
+    "key": "action_00025",
+    "source": "data/unlabeled/raw/coco2017/480409_3f4c2a8ad7.jpg",
+    "prompt": "Make the elephant appear to be lying down.",
+    "target": "outputs/edit_pairs/action_selfdistill/targets/00025.png",
+    "best_reward": 0.8305,
+    "meta": {
+      "vlm": 0.906,
+      "bg_pres": 0.833
+    },
+    "all_rewards": [
+      0.8103,
+      0.8305,
+      0.8171,
+      0.7827
+    ]
+  },
+  {
+    "key": "action_00026",
+    "source": "data/unlabeled/raw/coco2017/223450_a496337695.jpg",
+    "prompt": "Make the giraffe appear to be turning to look to the side.",
+    "target": "outputs/edit_pairs/action_selfdistill/targets/00026.png",
+    "best_reward": 0.5902,
+    "meta": {
+      "vlm": 0.637,
+      "bg_pres": 0.854
+    },
+    "all_rewards": [
+      0.4009,
+      0.4455,
+      0.5902,
+      0.4868
+    ]
+  },
+  {
+    "key": "action_00033",
+    "source": "data/unlabeled/raw/coco2017/412355_019ed85618.jpg",
+    "prompt": "Make the bird appear to be sitting down.",
+    "target": "outputs/edit_pairs/action_selfdistill/targets/00033.png",
+    "best_reward": 0.6291,
+    "meta": {
+      "vlm": 0.65,
+      "bg_pres": 0.935
+    },
+    "all_rewards": [
+      0.6291,
+      0.4558,
+      0.5609,
+      0.0
+    ]
+  },
+  {
+    "key": "action_00038",
+    "source": "data/unlabeled/raw/coco2017/191667_f2e2494eb5.jpg",
+    "prompt": "Make the cat appear to be raising one arm.",
+    "target": "outputs/edit_pairs/action_selfdistill/targets/00038.png",
+    "best_reward": 0.9314,
+    "meta": {
+      "vlm": 0.967,
+      "bg_pres": 0.927
+    },
+    "all_rewards": [
+      0.9314,
+      0.921,
+      0.8009,
+      0.9201
+    ]
+  },
+  {
+    "key": "action_00048",
+    "source": "data/unlabeled/raw/coco2017/119730_249ea9c43d.jpg",
+    "prompt": "Make the person appear to be jumping in the air.",
+    "target": "outputs/edit_pairs/action_selfdistill/targets/00048.png",
+    "best_reward": 0.8801,
+    "meta": {
+      "vlm": 0.976,
+      "bg_pres": 0.803
+    },
+    "all_rewards": [
+      0.8652,
+      0.8801,
+      0.8665,
+      0.8736
+    ]
+  },
+  {
+    "key": "action_00056",
+    "source": "data/unlabeled/raw/coco2017/400048_36d39154e5.jpg",
+    "prompt": "Make the person appear to be turning to look to the side.",
+    "target": "outputs/edit_pairs/action_selfdistill/targets/00056.png",
+    "best_reward": 0.7177,
+    "meta": {
+      "vlm": 0.768,
+      "bg_pres": 0.869
+    },
+    "all_rewards": [
+      0.7177,
+      0.0,
+      0.52,
+      0.637
+    ]
+  },
+  {
+    "key": "action_00074",
+    "source": "data/unlabeled/raw/coco2017/240301_878f10be3a.jpg",
+    "prompt": "Make the cow appear to be sitting down.",
+    "target": "outputs/edit_pairs/action_selfdistill/targets/00074.png",
+    "best_reward": 0.5164,
+    "meta": {
+      "vlm": 0.531,
+      "bg_pres": 0.944
+    },
+    "all_rewards": [
+      0.5164,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "key": "action_00081",
+    "source": "data/unlabeled/raw/coco2017/14686_02dacd6a93.jpg",
+    "prompt": "Make the giraffe appear to be sitting down.",
+    "target": "outputs/edit_pairs/action_selfdistill/targets/00081.png",
+    "best_reward": 0.902,
+    "meta": {
+      "vlm": 0.947,
+      "bg_pres": 0.906
+    },
+    "all_rewards": [
+      0.8397,
+      0.902,
+      0.8565,
+      0.8422
+    ]
+  },
+  {
+    "key": "action_00082",
+    "source": "data/unlabeled/raw/coco2017/527193_00b453abed.jpg",
+    "prompt": "Make the elephant appear to be lying down.",
+    "target": "outputs/edit_pairs/action_selfdistill/targets/00082.png",
+    "best_reward": 0.9298,
+    "meta": {
+      "vlm": 0.973,
+      "bg_pres": 0.912
+    },
+    "all_rewards": [
+      0.9294,
+      0.8896,
+      0.8541,
+      0.9298
+    ]
+  },
+  {
+    "key": "action_00083",
+    "source": "data/unlabeled/raw/coco2017/92145_288baca3f2.jpg",
+    "prompt": "Make the cow appear to be raising one arm.",
+    "target": "outputs/edit_pairs/action_selfdistill/targets/00083.png",
+    "best_reward": 0.6815,
+    "meta": {
+      "vlm": 0.704,
+      "bg_pres": 0.937
+    },
+    "all_rewards": [
+      0.0,
+      0.0,
+      0.6815,
+      0.6329
+    ]
+  },
+  {
+    "key": "action_00084",
+    "source": "data/unlabeled/raw/coco2017/157771_50715bc0fc.jpg",
+    "prompt": "Make the person appear to be stretching.",
+    "target": "outputs/edit_pairs/action_selfdistill/targets/00084.png",
+    "best_reward": 0.924,
+    "meta": {
+      "vlm": 0.957,
+      "bg_pres": 0.931
+    },
+    "all_rewards": [
+      0.8242,
+      0.8932,
+      0.924,
+      0.9125
+    ]
+  },
+  {
+    "key": "action_00085",
+    "source": "data/unlabeled/raw/coco2017/490352_0fdc3b7e74.jpg",
+    "prompt": "Make the person appear to be stretching.",
+    "target": "outputs/edit_pairs/action_selfdistill/targets/00085.png",
+    "best_reward": 0.909,
+    "meta": {
+      "vlm": 0.944,
+      "bg_pres": 0.925
+    },
+    "all_rewards": [
+      0.9062,
+      0.883,
+      0.9,
+      0.909
+    ]
+  },
+  {
+    "key": "action_00096",
+    "source": "data/unlabeled/raw/coco2017/309241_69c57f9578.jpg",
+    "prompt": "Make the giraffe appear to be stretching.",
+    "target": "outputs/edit_pairs/action_selfdistill/targets/00096.png",
+    "best_reward": 0.7571,
+    "meta": {
+      "vlm": 0.796,
+      "bg_pres": 0.902
+    },
+    "all_rewards": [
+      0.6582,
+      0.6505,
+      0.6474,
+      0.7571
+    ]
+  },
+  {
+    "key": "action_00103",
+    "source": "data/unlabeled/raw/coco2017/477647_f404f9a7c8.jpg",
+    "prompt": "Make the cat appear to be lying down.",
+    "target": "outputs/edit_pairs/action_selfdistill/targets/00103.png",
+    "best_reward": 0.975,
+    "meta": {
+      "vlm": 0.988,
+      "bg_pres": 0.974
+    },
+    "all_rewards": [
+      0.9662,
+      0.956,
+      0.967,
+      0.975
+    ]
+  },
+  {
+    "key": "action_00120",
+    "source": "data/unlabeled/raw/coco2017/71281_35a03ad754.jpg",
+    "prompt": "Make the sheep appear to be sitting down.",
+    "target": "outputs/edit_pairs/action_selfdistill/targets/00120.png",
+    "best_reward": 0.8696,
+    "meta": {
+      "vlm": 0.914,
+      "bg_pres": 0.904
+    },
+    "all_rewards": [
+      0.8287,
+      0.8696,
+      0.8205,
+      0.8412
+    ]
+  },
+  {
+    "key": "action_00121",
+    "source": "data/unlabeled/raw/coco2017/462984_6763dd0b36.jpg",
+    "prompt": "Make the bear appear to be lying down.",
+    "target": "outputs/edit_pairs/action_selfdistill/targets/00121.png",
+    "best_reward": 0.7773,
+    "meta": {
+      "vlm": 0.825,
+      "bg_pres": 0.885
+    },
+    "all_rewards": [
+      0.7389,
+      0.7773,
+      0.6557,
+      0.7744
+    ]
+  },
+  {
+    "key": "action_00135",
+    "source": "data/unlabeled/raw/coco2017/27478_8b1f5a7164.jpg",
+    "prompt": "Make the elephant appear to be jumping in the air.",
+    "target": "outputs/edit_pairs/action_selfdistill/targets/00135.png",
+    "best_reward": 0.838,
+    "meta": {
+      "vlm": 0.882,
+      "bg_pres": 0.899
+    },
+    "all_rewards": [
+      0.6359,
+      0.8279,
+      0.838,
+      0.7728
+    ]
+  },
+  {
+    "key": "action_00149",
+    "source": "data/unlabeled/raw/coco2017/34691_33378adc9a.jpg",
+    "prompt": "Make the dog appear to be stretching.",
+    "target": "outputs/edit_pairs/action_selfdistill/targets/00149.png",
+    "best_reward": 0.6643,
+    "meta": {
+      "vlm": 0.701,
+      "bg_pres": 0.895
+    },
+    "all_rewards": [
+      0.6643,
+      0.6237,
+      0.5692,
+      0.6467
+    ]
+  },
+  {
+    "key": "action_00160",
+    "source": "data/unlabeled/raw/coco2017/516410_b9efdbf3af.jpg",
+    "prompt": "Make the sheep appear to be sitting down.",
+    "target": "outputs/edit_pairs/action_selfdistill/targets/00160.png",
+    "best_reward": 0.6638,
+    "meta": {
+      "vlm": 0.705,
+      "bg_pres": 0.883
+    },
+    "all_rewards": [
+      0.452,
+      0.5618,
+      0.5745,
+      0.6638
+    ]
+  },
+  {
+    "key": "action_00162",
+    "source": "data/unlabeled/raw/coco2017/388203_96634fdd2e.jpg",
+    "prompt": "Make the dog appear to be raising one arm.",
+    "target": "outputs/edit_pairs/action_selfdistill/targets/00162.png",
+    "best_reward": 0.8455,
+    "meta": {
+      "vlm": 0.859,
+      "bg_pres": 0.969
+    },
+    "all_rewards": [
+      0.7635,
+      0.5338,
+      0.8455,
+      0.808
+    ]
+  },
+  {
+    "key": "action_00168",
+    "source": "data/unlabeled/raw/coco2017/535171_f87e69c214.jpg",
+    "prompt": "Make the bird appear to be running forward.",
+    "target": "outputs/edit_pairs/action_selfdistill/targets/00168.png",
+    "best_reward": 0.8395,
+    "meta": {
+      "vlm": 0.869,
+      "bg_pres": 0.932
+    },
+    "all_rewards": [
+      0.7811,
+      0.621,
+      0.8395,
+      0.678
+    ]
+  },
+  {
+    "key": "action_00171",
+    "source": "data/unlabeled/raw/coco2017/8549_ffef065ad7.jpg",
+    "prompt": "Make the elephant appear to be lying down.",
+    "target": "outputs/edit_pairs/action_selfdistill/targets/00171.png",
+    "best_reward": 0.8649,
+    "meta": {
+      "vlm": 0.942,
+      "bg_pres": 0.836
+    },
+    "all_rewards": [
+      0.7521,
+      0.7986,
+      0.8649,
+      0.8032
+    ]
+  },
+  {
+    "key": "action_00176",
+    "source": "data/unlabeled/raw/coco2017/6005_a98a484bd9.jpg",
+    "prompt": "Make the giraffe appear to be stretching.",
+    "target": "outputs/edit_pairs/action_selfdistill/targets/00176.png",
+    "best_reward": 0.7847,
+    "meta": {
+      "vlm": 0.825,
+      "bg_pres": 0.903
+    },
+    "all_rewards": [
+      0.659,
+      0.7847,
+      0.0,
+      0.76
+    ]
+  },
+  {
+    "key": "action_00182",
+    "source": "data/unlabeled/raw/coco2017/549422_ba3b358fe2.jpg",
+    "prompt": "Make the elephant appear to be lying down.",
+    "target": "outputs/edit_pairs/action_selfdistill/targets/00182.png",
+    "best_reward": 0.8712,
+    "meta": {
+      "vlm": 0.973,
+      "bg_pres": 0.791
+    },
+    "all_rewards": [
+      0.8655,
+      0.8673,
+      0.6502,
+      0.8712
+    ]
+  },
+  {
+    "key": "action_00185",
+    "source": "data/unlabeled/raw/coco2017/149551_5b46503d6f.jpg",
+    "prompt": "Make the elephant appear to be jumping in the air.",
+    "target": "outputs/edit_pairs/action_selfdistill/targets/00185.png",
+    "best_reward": 0.794,
+    "meta": {
+      "vlm": 0.898,
+      "bg_pres": 0.768
+    },
+    "all_rewards": [
+      0.794,
+      0.723,
+      0.7692,
+      0.6428
+    ]
+  },
+  {
+    "key": "action_00190",
+    "source": "data/unlabeled/raw/coco2017/82475_2f5b69dab3.jpg",
+    "prompt": "Make the dog appear to be running forward.",
+    "target": "outputs/edit_pairs/action_selfdistill/targets/00190.png",
+    "best_reward": 0.8387,
+    "meta": {
+      "vlm": 0.879,
+      "bg_pres": 0.909
+    },
+    "all_rewards": [
+      0.7861,
+      0.8387,
+      0.7955,
+      0.7178
+    ]
+  },
+  {
+    "key": "action_00197",
+    "source": "data/unlabeled/raw/coco2017/26538_39020dfd94.jpg",
+    "prompt": "Make the giraffe appear to be jumping in the air.",
+    "target": "outputs/edit_pairs/action_selfdistill/targets/00197.png",
+    "best_reward": 0.9006,
+    "meta": {
+      "vlm": 0.949,
+      "bg_pres": 0.898
+    },
+    "all_rewards": [
+      0.7745,
+      0.7922,
+      0.9006,
+      0.895
+    ]
+  },
+  {
+    "key": "action_00215",
+    "source": "data/unlabeled/raw/coco2017/507440_b5d418b66f.jpg",
+    "prompt": "Make the giraffe appear to be jumping in the air.",
+    "target": "outputs/edit_pairs/action_selfdistill/targets/00215.png",
+    "best_reward": 0.9369,
+    "meta": {
+      "vlm": 0.948,
+      "bg_pres": 0.977
+    },
+    "all_rewards": [
+      0.9148,
+      0.9238,
+      0.9369,
+      0.8625
+    ]
+  },
+  {
+    "key": "action_00217",
+    "source": "data/unlabeled/raw/coco2017/167193_cf65c82e9c.jpg",
+    "prompt": "Make the cow appear to be lying down.",
+    "target": "outputs/edit_pairs/action_selfdistill/targets/00217.png",
+    "best_reward": 0.9038,
+    "meta": {
+      "vlm": 0.951,
+      "bg_pres": 0.9
+    },
+    "all_rewards": [
+      0.8682,
+      0.8846,
+      0.9038,
+      0.8815
+    ]
+  },
+  {
+    "key": "action_00222",
+    "source": "data/unlabeled/raw/coco2017/194411_80da3f923f.jpg",
+    "prompt": "Make the elephant appear to be lying down.",
+    "target": "outputs/edit_pairs/action_selfdistill/targets/00222.png",
+    "best_reward": 0.9327,
+    "meta": {
+      "vlm": 0.971,
+      "bg_pres": 0.921
+    },
+    "all_rewards": [
+      0.9231,
+      0.8582,
+      0.9313,
+      0.9327
+    ]
+  },
+  {
+    "key": "action_00226",
+    "source": "data/unlabeled/raw/coco2017/33055_7837a2f8ef.jpg",
+    "prompt": "Make the person appear to be jumping in the air.",
+    "target": "outputs/edit_pairs/action_selfdistill/targets/00226.png",
+    "best_reward": 0.9415,
+    "meta": {
+      "vlm": 0.966,
+      "bg_pres": 0.949
+    },
+    "all_rewards": [
+      0.9405,
+      0.9192,
+      0.9415,
+      0.91
+    ]
+  },
+  {
+    "key": "action_00252",
+    "source": "data/unlabeled/raw/coco2017/279386_fc219c664b.jpg",
+    "prompt": "Make the cat appear to be raising one arm.",
+    "target": "outputs/edit_pairs/action_selfdistill/targets/00252.png",
+    "best_reward": 0.9228,
+    "meta": {
+      "vlm": 0.937,
+      "bg_pres": 0.97
+    },
+    "all_rewards": [
+      0.6209,
+      0.8778,
+      0.9228,
+      0.7867
+    ]
+  },
+  {
+    "key": "action_00264",
+    "source": "data/unlabeled/raw/coco2017/67906_d67fbbd9e9.jpg",
+    "prompt": "Make the cat appear to be opening its mouth wide.",
+    "target": "outputs/edit_pairs/action_selfdistill/targets/00264.png",
+    "best_reward": 0.9515,
+    "meta": {
+      "vlm": 0.984,
+      "bg_pres": 0.934
+    },
+    "all_rewards": [
+      0.93,
+      0.9515,
+      0.9385,
+      0.9176
+    ]
+  }
+]

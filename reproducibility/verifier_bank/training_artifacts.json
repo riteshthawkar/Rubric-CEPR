@@ -1,0 +1,2391 @@
+{
+  "training_manifest": "reproducibility/verifier_bank/training_manifest.json",
+  "artifacts": [
+    {
+      "family": "extract",
+      "record_key": "00001",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/81593_f790a282da.jpg",
+      "bytes": 92694,
+      "sha256": "c7bdd411e049bb49deefdb7bd152a4b51133827adaa1913251db014450843aea"
+    },
+    {
+      "family": "extract",
+      "record_key": "00001",
+      "field": "image",
+      "path": "outputs/edit_pairs/extract_selfdistill/targets/00001.png",
+      "bytes": 417112,
+      "sha256": "05a930f353ca047c29bc5c61cae7a43d65f174b3009a9fb9bd6267ce0415cb43"
+    },
+    {
+      "family": "extract",
+      "record_key": "00003",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/526521_908c92f65d.jpg",
+      "bytes": 145073,
+      "sha256": "2e496679f4fa1f9bbc7b1423e4805a226cfba429a8df47d75df342bdbfca15ce"
+    },
+    {
+      "family": "extract",
+      "record_key": "00003",
+      "field": "image",
+      "path": "outputs/edit_pairs/extract_selfdistill/targets/00003.png",
+      "bytes": 727980,
+      "sha256": "9c61a4cd5886599e4da3b92b7ca92ed3ee73327bbacf7c582d585f3794df8ae2"
+    },
+    {
+      "family": "extract",
+      "record_key": "00006",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/100209_913cb54d54.jpg",
+      "bytes": 68672,
+      "sha256": "7dc10b501a3518ec0e4741849a3617ae657e52b267d9a61242bc4ee4b172e130"
+    },
+    {
+      "family": "extract",
+      "record_key": "00006",
+      "field": "image",
+      "path": "outputs/edit_pairs/extract_selfdistill/targets/00006.png",
+      "bytes": 595024,
+      "sha256": "6aacbdb55f42e56f3e72a2e02ea10b24f477be21140320e1535c12e6f1a39963"
+    },
+    {
+      "family": "extract",
+      "record_key": "00009",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/134344_8a764fee44.jpg",
+      "bytes": 122466,
+      "sha256": "06059c5157269079915c95fd99635dfc4da860751f48ac3e7b7fe64e02e0f862"
+    },
+    {
+      "family": "extract",
+      "record_key": "00009",
+      "field": "image",
+      "path": "outputs/edit_pairs/extract_selfdistill/targets/00009.png",
+      "bytes": 489182,
+      "sha256": "246601794b2ae70e8c138a863488b6eea01e921414e7a8654910f2d5cc790bd2"
+    },
+    {
+      "family": "extract",
+      "record_key": "00011",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/412910_371daac874.jpg",
+      "bytes": 98654,
+      "sha256": "f4e4a4c49527eb8d778cd6b46df18fdfcf4c8a28dd8154d83df80773a18a447d"
+    },
+    {
+      "family": "extract",
+      "record_key": "00011",
+      "field": "image",
+      "path": "outputs/edit_pairs/extract_selfdistill/targets/00011.png",
+      "bytes": 573242,
+      "sha256": "0a43e0def49972eafa4362cb41aee5061025f38d1dba28e1c04be4e0415da646"
+    },
+    {
+      "family": "extract",
+      "record_key": "00012",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/193042_f11da7ea0d.jpg",
+      "bytes": 108978,
+      "sha256": "899c5ac993881f6797ea3876db62a77c2b5f887b08f55d5f7be14b54c121f495"
+    },
+    {
+      "family": "extract",
+      "record_key": "00012",
+      "field": "image",
+      "path": "outputs/edit_pairs/extract_selfdistill/targets/00012.png",
+      "bytes": 528855,
+      "sha256": "16438ce69a7fc56cd582f5dafa1646ae2fcfacfd4c77e77e7ee3f401110227f9"
+    },
+    {
+      "family": "extract",
+      "record_key": "00013",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/451121_5325f38537.jpg",
+      "bytes": 73980,
+      "sha256": "088a8715bff479cda4c1a9e25249771db2f376ac71a567ea663992da105f5846"
+    },
+    {
+      "family": "extract",
+      "record_key": "00013",
+      "field": "image",
+      "path": "outputs/edit_pairs/extract_selfdistill/targets/00013.png",
+      "bytes": 802509,
+      "sha256": "f4de2b43fe223cb3a04175738461c0e347293aefc4f7ddb9e096730a8b7ed521"
+    },
+    {
+      "family": "extract",
+      "record_key": "00014",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/245145_a3d56c9afa.jpg",
+      "bytes": 146001,
+      "sha256": "d5b2ea9568e6a9e44cad3a91a8dcbbadc263e96b962833dfa2c70b8fdd372fd4"
+    },
+    {
+      "family": "extract",
+      "record_key": "00014",
+      "field": "image",
+      "path": "outputs/edit_pairs/extract_selfdistill/targets/00014.png",
+      "bytes": 337205,
+      "sha256": "a6e092ce4e3b6bb61db4a94e485fcd83793dba3fb6da685d6aadedb96f375157"
+    },
+    {
+      "family": "extract",
+      "record_key": "00015",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/292662_0eea7d3242.jpg",
+      "bytes": 91409,
+      "sha256": "b09812faa6393f08bc0874f6e63d8090c13153df41816c32b57375881a5aa234"
+    },
+    {
+      "family": "extract",
+      "record_key": "00015",
+      "field": "image",
+      "path": "outputs/edit_pairs/extract_selfdistill/targets/00015.png",
+      "bytes": 402864,
+      "sha256": "d3c23e74a2292fb38b849abc226f1dce12323e4b81477624232d849dcf891590"
+    },
+    {
+      "family": "extract",
+      "record_key": "00016",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/247866_551fece9c9.jpg",
+      "bytes": 82183,
+      "sha256": "f5216d771522e7918503c45ae57dfe6326ecc56a853abe7acf1d6c01200c251d"
+    },
+    {
+      "family": "extract",
+      "record_key": "00016",
+      "field": "image",
+      "path": "outputs/edit_pairs/extract_selfdistill/targets/00016.png",
+      "bytes": 518694,
+      "sha256": "0dbc3549a33e84bef467a1b41072ce686213eba0435e5d3f46fad648dab461ec"
+    },
+    {
+      "family": "extract",
+      "record_key": "00017",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/16082_3e19a7c2eb.jpg",
+      "bytes": 98369,
+      "sha256": "96f57596cf225235fd568bb271671eb7b1bc00bcf3ea651847358575554bc1ac"
+    },
+    {
+      "family": "extract",
+      "record_key": "00017",
+      "field": "image",
+      "path": "outputs/edit_pairs/extract_selfdistill/targets/00017.png",
+      "bytes": 467772,
+      "sha256": "cf6977085b7ced6cbf9b9b37bad45f4c94189c432228e939b62fd943b4dfd8ca"
+    },
+    {
+      "family": "extract",
+      "record_key": "00018",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/581513_8cfc9b5236.jpg",
+      "bytes": 85215,
+      "sha256": "842ca42c6b1aff13620d46e78a72fb422c199d5b0d303a7b15e97a311fea16d0"
+    },
+    {
+      "family": "extract",
+      "record_key": "00018",
+      "field": "image",
+      "path": "outputs/edit_pairs/extract_selfdistill/targets/00018.png",
+      "bytes": 140501,
+      "sha256": "cb0ac02e4acb5afb0b306e15805d05560746186e8b2f92aaf1a70b43bdb011e6"
+    },
+    {
+      "family": "extract",
+      "record_key": "00019",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/47928_b21c759b5c.jpg",
+      "bytes": 99627,
+      "sha256": "5c1f8a5aa2bb1877bc1d0178eeec23c4407ca063bad477cea075b00e09adaa57"
+    },
+    {
+      "family": "extract",
+      "record_key": "00019",
+      "field": "image",
+      "path": "outputs/edit_pairs/extract_selfdistill/targets/00019.png",
+      "bytes": 238186,
+      "sha256": "9861854089560522534928b751bb06a8cec825524c6f113631c28b49181e98b7"
+    },
+    {
+      "family": "extract",
+      "record_key": "00020",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/480582_39f6003f4b.jpg",
+      "bytes": 128549,
+      "sha256": "55babcde9364eee534b851c3df9e5ca89d1eedb346aa2ad7b81d01d66670a9a5"
+    },
+    {
+      "family": "extract",
+      "record_key": "00020",
+      "field": "image",
+      "path": "outputs/edit_pairs/extract_selfdistill/targets/00020.png",
+      "bytes": 444450,
+      "sha256": "b079c5d88a9938de3488eef0a9dced516ca0dd42591059f9626225be54ee3f83"
+    },
+    {
+      "family": "extract",
+      "record_key": "00021",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/512346_68a18338be.jpg",
+      "bytes": 157249,
+      "sha256": "46ecd094069e09a854391e576dbb4a9fbcdedcabed0be9714d71a56fd99b8b07"
+    },
+    {
+      "family": "extract",
+      "record_key": "00021",
+      "field": "image",
+      "path": "outputs/edit_pairs/extract_selfdistill/targets/00021.png",
+      "bytes": 259244,
+      "sha256": "7c8e07cd3057edd32df99d6cc9c3d0b6e3682ca3443f5425b770a710918d86fc"
+    },
+    {
+      "family": "extract",
+      "record_key": "00022",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/310663_498f7047bb.jpg",
+      "bytes": 103336,
+      "sha256": "7df8fd792321d6cbde436e537d37d6b1701ee3656cfc70e36cd6c292e4db5bf4"
+    },
+    {
+      "family": "extract",
+      "record_key": "00022",
+      "field": "image",
+      "path": "outputs/edit_pairs/extract_selfdistill/targets/00022.png",
+      "bytes": 346973,
+      "sha256": "ce8b55ff07b4f158d15fdf7117ed34e8377582d9548f1c5dc115597c159c4a5b"
+    },
+    {
+      "family": "extract",
+      "record_key": "00025",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/480409_3f4c2a8ad7.jpg",
+      "bytes": 111622,
+      "sha256": "66a4f4f8205e230f44cf938a0ca27767cf02d21d500fc5557e80a14fe327769a"
+    },
+    {
+      "family": "extract",
+      "record_key": "00025",
+      "field": "image",
+      "path": "outputs/edit_pairs/extract_selfdistill/targets/00025.png",
+      "bytes": 825614,
+      "sha256": "57ee7858320acc2ddfe9886104ecbeb7a8a8f9404f85d4e6f04ae9ddb768743a"
+    },
+    {
+      "family": "extract",
+      "record_key": "00026",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/223450_a496337695.jpg",
+      "bytes": 159135,
+      "sha256": "a2a872bcbfd030363c28b57b36308331a7b178702a0ced24287a6cabbeae2fd3"
+    },
+    {
+      "family": "extract",
+      "record_key": "00026",
+      "field": "image",
+      "path": "outputs/edit_pairs/extract_selfdistill/targets/00026.png",
+      "bytes": 311800,
+      "sha256": "7dd18bf9357037789df78d12ac66f19d926901089ec55a503c4875a723da3c45"
+    },
+    {
+      "family": "extract",
+      "record_key": "00028",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/259172_8827715307.jpg",
+      "bytes": 88249,
+      "sha256": "5a04dfdc39ce3368c875320c1dd3f64f706ff729cbd143ef0351ce7716ab0719"
+    },
+    {
+      "family": "extract",
+      "record_key": "00028",
+      "field": "image",
+      "path": "outputs/edit_pairs/extract_selfdistill/targets/00028.png",
+      "bytes": 287895,
+      "sha256": "8babef066505a5c03926d7f17b70a8d6ae71cbbb68e8a86347b70b569fada7d3"
+    },
+    {
+      "family": "extract",
+      "record_key": "00035",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/498971_3b0264f1ff.jpg",
+      "bytes": 58672,
+      "sha256": "4e5b31fbcc49e30ae69b494984e1f1197c18e6f79619e7fd812fd19f7d26c247"
+    },
+    {
+      "family": "extract",
+      "record_key": "00035",
+      "field": "image",
+      "path": "outputs/edit_pairs/extract_selfdistill/targets/00035.png",
+      "bytes": 221655,
+      "sha256": "bb41a12751963c9465b160cb1324242ec70a98e819499d04858a76a3bdaa8da5"
+    },
+    {
+      "family": "extract",
+      "record_key": "00037",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/527183_2b5a0ed855.jpg",
+      "bytes": 141785,
+      "sha256": "e8070b13e18d8db4d0aa3198711f796d2ff739f16eee75fc3d3c6917f2107341"
+    },
+    {
+      "family": "extract",
+      "record_key": "00037",
+      "field": "image",
+      "path": "outputs/edit_pairs/extract_selfdistill/targets/00037.png",
+      "bytes": 620650,
+      "sha256": "4d8210f96ba430a8070c71acbddce604aba74511f01bc886fbd5251fa7cd404d"
+    },
+    {
+      "family": "extract",
+      "record_key": "00038",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/191667_f2e2494eb5.jpg",
+      "bytes": 101005,
+      "sha256": "cde5cde2e75dce5be4cc673280260d0fe857d2085906687311923c29d9f3fd78"
+    },
+    {
+      "family": "extract",
+      "record_key": "00038",
+      "field": "image",
+      "path": "outputs/edit_pairs/extract_selfdistill/targets/00038.png",
+      "bytes": 543945,
+      "sha256": "06c9c187477a4e3414ab0206c41bbe1c609ba0065e36424e789acbfee6b004ed"
+    },
+    {
+      "family": "extract",
+      "record_key": "00039",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/366948_8d1a6cfa1f.jpg",
+      "bytes": 87437,
+      "sha256": "ee508662e8a5a31f9c9b0a1b4126cf72d62257d6aa2b4b1bd4420449231ab3a0"
+    },
+    {
+      "family": "extract",
+      "record_key": "00039",
+      "field": "image",
+      "path": "outputs/edit_pairs/extract_selfdistill/targets/00039.png",
+      "bytes": 422002,
+      "sha256": "35c3b54461ab303ae35b27e812cfc7284f5ccd2e989a4f2cba211f89d44d7cc9"
+    },
+    {
+      "family": "extract",
+      "record_key": "00040",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/518932_64b1d0a447.jpg",
+      "bytes": 94951,
+      "sha256": "1bcb377b769ef513bf4f900c9faeba65cc967ad7c4308ae57716f647a90427ce"
+    },
+    {
+      "family": "extract",
+      "record_key": "00040",
+      "field": "image",
+      "path": "outputs/edit_pairs/extract_selfdistill/targets/00040.png",
+      "bytes": 485621,
+      "sha256": "90843abdae5f73f8a7312121fe96843911616202ddb626f7e2cdc86e7f8ea07e"
+    },
+    {
+      "family": "extract",
+      "record_key": "00043",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/447376_9be385fc5a.jpg",
+      "bytes": 126530,
+      "sha256": "d426416913e6045edb7b015f8edb835f2f070b96e87fbcba2fd53097eddb1e3d"
+    },
+    {
+      "family": "extract",
+      "record_key": "00043",
+      "field": "image",
+      "path": "outputs/edit_pairs/extract_selfdistill/targets/00043.png",
+      "bytes": 537005,
+      "sha256": "a82462d7726652593f5dfe26120d4abc4fd74fe55d2d02f3940b8d3d1fa27500"
+    },
+    {
+      "family": "extract",
+      "record_key": "00047",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/139817_9d2a7faea1.jpg",
+      "bytes": 81251,
+      "sha256": "d1c4cb1b91b91413f10a178fa46d464a1db3bc92b06766468d607a15766073a2"
+    },
+    {
+      "family": "extract",
+      "record_key": "00047",
+      "field": "image",
+      "path": "outputs/edit_pairs/extract_selfdistill/targets/00047.png",
+      "bytes": 272236,
+      "sha256": "efeb3069f49c497cca02c8a56433313ee38cdd06b31b28750f212b9d898a95e7"
+    },
+    {
+      "family": "extract",
+      "record_key": "00048",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/119730_249ea9c43d.jpg",
+      "bytes": 128449,
+      "sha256": "7fb248851d55cb591e8e91a64600490b5b363087a27343642444169780b68d4a"
+    },
+    {
+      "family": "extract",
+      "record_key": "00048",
+      "field": "image",
+      "path": "outputs/edit_pairs/extract_selfdistill/targets/00048.png",
+      "bytes": 643852,
+      "sha256": "1d825613a7012cafe1e8ab7d0ab2b9d0ee2ec619a07c11cd10c2ff6d3107ec2e"
+    },
+    {
+      "family": "extract",
+      "record_key": "00049",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/556518_76944342e7.jpg",
+      "bytes": 86137,
+      "sha256": "872c5b00b1a2951fcdbd57de6486102289f67b9d081d8f4ea938b7aee493268b"
+    },
+    {
+      "family": "extract",
+      "record_key": "00049",
+      "field": "image",
+      "path": "outputs/edit_pairs/extract_selfdistill/targets/00049.png",
+      "bytes": 533757,
+      "sha256": "417d6a965ca3a6d82e2009dd09591c4f5e8206086b50be1072ea586235070f32"
+    },
+    {
+      "family": "extract",
+      "record_key": "00051",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/264392_8dba15abea.jpg",
+      "bytes": 66574,
+      "sha256": "fe5d751beb83052f87bfa1080f66a7cd3789dfaa46d594fef79930f18709c7f8"
+    },
+    {
+      "family": "extract",
+      "record_key": "00051",
+      "field": "image",
+      "path": "outputs/edit_pairs/extract_selfdistill/targets/00051.png",
+      "bytes": 398653,
+      "sha256": "42dd4dd4bd40cfa9d5129255ec7d31bbf4d3a904c6102ae3e0df7410299d429d"
+    },
+    {
+      "family": "remove",
+      "record_key": "remove_00001",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/81593_f790a282da.jpg",
+      "bytes": 92694,
+      "sha256": "c7bdd411e049bb49deefdb7bd152a4b51133827adaa1913251db014450843aea"
+    },
+    {
+      "family": "remove",
+      "record_key": "remove_00001",
+      "field": "image",
+      "path": "outputs/edit_pairs/remove_selfdistill/targets/00001.png",
+      "bytes": 1466898,
+      "sha256": "6adc024d3e4e13f5c6dd37159e8eb55a8e3b7e80d567cc31414e0d13b636e253"
+    },
+    {
+      "family": "remove",
+      "record_key": "remove_00003",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/526521_908c92f65d.jpg",
+      "bytes": 145073,
+      "sha256": "2e496679f4fa1f9bbc7b1423e4805a226cfba429a8df47d75df342bdbfca15ce"
+    },
+    {
+      "family": "remove",
+      "record_key": "remove_00003",
+      "field": "image",
+      "path": "outputs/edit_pairs/remove_selfdistill/targets/00003.png",
+      "bytes": 1771638,
+      "sha256": "7d263e915b9a10e9d595462fb7be4d01d3901d085ad608b1a5f027e86b1331bd"
+    },
+    {
+      "family": "remove",
+      "record_key": "remove_00005",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/314565_3d48a5c15f.jpg",
+      "bytes": 79318,
+      "sha256": "b6f87c4dd6f11ada724f910c00bfb55a4ac04cf8b3d36fd725512c17efabc48c"
+    },
+    {
+      "family": "remove",
+      "record_key": "remove_00005",
+      "field": "image",
+      "path": "outputs/edit_pairs/remove_selfdistill/targets/00005.png",
+      "bytes": 1162948,
+      "sha256": "69d54f76ea0f3aec26a04640036fc370dd47b7fd5f7a3a3e32c606bd19dd8f9f"
+    },
+    {
+      "family": "remove",
+      "record_key": "remove_00006",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/100209_913cb54d54.jpg",
+      "bytes": 68672,
+      "sha256": "7dc10b501a3518ec0e4741849a3617ae657e52b267d9a61242bc4ee4b172e130"
+    },
+    {
+      "family": "remove",
+      "record_key": "remove_00006",
+      "field": "image",
+      "path": "outputs/edit_pairs/remove_selfdistill/targets/00006.png",
+      "bytes": 1090652,
+      "sha256": "8451a5bba8774d255d4f37c5d6c3fede2dcbd2587a95eee7752fa79268b3ca17"
+    },
+    {
+      "family": "remove",
+      "record_key": "remove_00008",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/44616_5c171b4e59.jpg",
+      "bytes": 105822,
+      "sha256": "9f20cdf723ed1f65910f9a4ab7ab4aa4420173cb24a12d8ce9a9cb8eac516461"
+    },
+    {
+      "family": "remove",
+      "record_key": "remove_00008",
+      "field": "image",
+      "path": "outputs/edit_pairs/remove_selfdistill/targets/00008.png",
+      "bytes": 1246372,
+      "sha256": "21752e2c996619916e846ed2ea08ee8c1572cd09bc264a9a1ab6889b11f63a5a"
+    },
+    {
+      "family": "remove",
+      "record_key": "remove_00010",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/29472_720babe05d.jpg",
+      "bytes": 63862,
+      "sha256": "0f2ad7c55fbbb9b900cfb38af4d6ba963fe97b15cb207622ea1d770f048522fb"
+    },
+    {
+      "family": "remove",
+      "record_key": "remove_00010",
+      "field": "image",
+      "path": "outputs/edit_pairs/remove_selfdistill/targets/00010.png",
+      "bytes": 1199762,
+      "sha256": "e5923892d86ed1ca0d37b06f9fc82af00833476674e9b9f9db0fe73e5d49f3a8"
+    },
+    {
+      "family": "remove",
+      "record_key": "remove_00011",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/412910_371daac874.jpg",
+      "bytes": 98654,
+      "sha256": "f4e4a4c49527eb8d778cd6b46df18fdfcf4c8a28dd8154d83df80773a18a447d"
+    },
+    {
+      "family": "remove",
+      "record_key": "remove_00011",
+      "field": "image",
+      "path": "outputs/edit_pairs/remove_selfdistill/targets/00011.png",
+      "bytes": 1305663,
+      "sha256": "4bcedfe9c80f88285f0bdc2a523509478b3cc60bc427db6872f213b322905054"
+    },
+    {
+      "family": "remove",
+      "record_key": "remove_00012",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/193042_f11da7ea0d.jpg",
+      "bytes": 108978,
+      "sha256": "899c5ac993881f6797ea3876db62a77c2b5f887b08f55d5f7be14b54c121f495"
+    },
+    {
+      "family": "remove",
+      "record_key": "remove_00012",
+      "field": "image",
+      "path": "outputs/edit_pairs/remove_selfdistill/targets/00012.png",
+      "bytes": 1396303,
+      "sha256": "90931c746fa6911f9e5e28306c31db96002d96a682fb3749003ebaf3beb267cf"
+    },
+    {
+      "family": "remove",
+      "record_key": "remove_00013",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/451121_5325f38537.jpg",
+      "bytes": 73980,
+      "sha256": "088a8715bff479cda4c1a9e25249771db2f376ac71a567ea663992da105f5846"
+    },
+    {
+      "family": "remove",
+      "record_key": "remove_00013",
+      "field": "image",
+      "path": "outputs/edit_pairs/remove_selfdistill/targets/00013.png",
+      "bytes": 1045010,
+      "sha256": "3078c78f318b763155a309909555a995adc9d6cd5a9d61ab7209e7afae8fb26a"
+    },
+    {
+      "family": "remove",
+      "record_key": "remove_00014",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/245145_a3d56c9afa.jpg",
+      "bytes": 146001,
+      "sha256": "d5b2ea9568e6a9e44cad3a91a8dcbbadc263e96b962833dfa2c70b8fdd372fd4"
+    },
+    {
+      "family": "remove",
+      "record_key": "remove_00014",
+      "field": "image",
+      "path": "outputs/edit_pairs/remove_selfdistill/targets/00014.png",
+      "bytes": 1707744,
+      "sha256": "64ee8bf6d10ebe554160057acc6238efe90f7a9c0030de44ad4f340d596de9e6"
+    },
+    {
+      "family": "remove",
+      "record_key": "remove_00015",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/292662_0eea7d3242.jpg",
+      "bytes": 91409,
+      "sha256": "b09812faa6393f08bc0874f6e63d8090c13153df41816c32b57375881a5aa234"
+    },
+    {
+      "family": "remove",
+      "record_key": "remove_00015",
+      "field": "image",
+      "path": "outputs/edit_pairs/remove_selfdistill/targets/00015.png",
+      "bytes": 1133728,
+      "sha256": "43a383bf99a65f043acc39ce66cf9b982507c2c23e06443d5348ff530022ad24"
+    },
+    {
+      "family": "remove",
+      "record_key": "remove_00017",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/16082_3e19a7c2eb.jpg",
+      "bytes": 98369,
+      "sha256": "96f57596cf225235fd568bb271671eb7b1bc00bcf3ea651847358575554bc1ac"
+    },
+    {
+      "family": "remove",
+      "record_key": "remove_00017",
+      "field": "image",
+      "path": "outputs/edit_pairs/remove_selfdistill/targets/00017.png",
+      "bytes": 1154488,
+      "sha256": "67b69f196548a2eda9b14c5a3557d43df75d4fdce5f53f7041a3cb7390787926"
+    },
+    {
+      "family": "remove",
+      "record_key": "remove_00018",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/581513_8cfc9b5236.jpg",
+      "bytes": 85215,
+      "sha256": "842ca42c6b1aff13620d46e78a72fb422c199d5b0d303a7b15e97a311fea16d0"
+    },
+    {
+      "family": "remove",
+      "record_key": "remove_00018",
+      "field": "image",
+      "path": "outputs/edit_pairs/remove_selfdistill/targets/00018.png",
+      "bytes": 1261595,
+      "sha256": "d01b18b007c9471727fcccb199bd8ae4c5bdba3211444c1fc0344174229093d7"
+    },
+    {
+      "family": "remove",
+      "record_key": "remove_00020",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/480582_39f6003f4b.jpg",
+      "bytes": 128549,
+      "sha256": "55babcde9364eee534b851c3df9e5ca89d1eedb346aa2ad7b81d01d66670a9a5"
+    },
+    {
+      "family": "remove",
+      "record_key": "remove_00020",
+      "field": "image",
+      "path": "outputs/edit_pairs/remove_selfdistill/targets/00020.png",
+      "bytes": 1665601,
+      "sha256": "1450cbc89285462b6940a839c8ec64edf4f2721ed3ac885f85923b6df1175dde"
+    },
+    {
+      "family": "remove",
+      "record_key": "remove_00021",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/512346_68a18338be.jpg",
+      "bytes": 157249,
+      "sha256": "46ecd094069e09a854391e576dbb4a9fbcdedcabed0be9714d71a56fd99b8b07"
+    },
+    {
+      "family": "remove",
+      "record_key": "remove_00021",
+      "field": "image",
+      "path": "outputs/edit_pairs/remove_selfdistill/targets/00021.png",
+      "bytes": 2070659,
+      "sha256": "4e83287e7cb5040db7ec84e9d32dd187241d57239d7b2e4343c723f4da0c3b46"
+    },
+    {
+      "family": "remove",
+      "record_key": "remove_00022",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/310663_498f7047bb.jpg",
+      "bytes": 103336,
+      "sha256": "7df8fd792321d6cbde436e537d37d6b1701ee3656cfc70e36cd6c292e4db5bf4"
+    },
+    {
+      "family": "remove",
+      "record_key": "remove_00022",
+      "field": "image",
+      "path": "outputs/edit_pairs/remove_selfdistill/targets/00022.png",
+      "bytes": 1536587,
+      "sha256": "9622071cc71a2bf964bfa0e027dcd8c8883ae9fda30ab143e92716e44c2093be"
+    },
+    {
+      "family": "remove",
+      "record_key": "remove_00023",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/289344_116becb86f.jpg",
+      "bytes": 129907,
+      "sha256": "4ee27473e90650d8675809e2df1e3e34a748f77520376a275409625e7b12842e"
+    },
+    {
+      "family": "remove",
+      "record_key": "remove_00023",
+      "field": "image",
+      "path": "outputs/edit_pairs/remove_selfdistill/targets/00023.png",
+      "bytes": 1754554,
+      "sha256": "52c59e2f7efa083694f08a275472a2894f59b5c12b349b536854b6dc4b05a7e8"
+    },
+    {
+      "family": "remove",
+      "record_key": "remove_00024",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/185719_c16aa9a7ca.jpg",
+      "bytes": 192397,
+      "sha256": "c01a8776c6220c2bf9170756f33f89a676e98238e0f87e555b89165497477f37"
+    },
+    {
+      "family": "remove",
+      "record_key": "remove_00024",
+      "field": "image",
+      "path": "outputs/edit_pairs/remove_selfdistill/targets/00024.png",
+      "bytes": 2092925,
+      "sha256": "c52e195a5e0831ca529efece8e6d24c259386b27d3b6061536d63ab027089b3d"
+    },
+    {
+      "family": "remove",
+      "record_key": "remove_00025",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/480409_3f4c2a8ad7.jpg",
+      "bytes": 111622,
+      "sha256": "66a4f4f8205e230f44cf938a0ca27767cf02d21d500fc5557e80a14fe327769a"
+    },
+    {
+      "family": "remove",
+      "record_key": "remove_00025",
+      "field": "image",
+      "path": "outputs/edit_pairs/remove_selfdistill/targets/00025.png",
+      "bytes": 1384800,
+      "sha256": "8f47449cd3746fe0910cfe1eaab336bdb46f4151d2de1e3b0aec821ecf139571"
+    },
+    {
+      "family": "remove",
+      "record_key": "remove_00026",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/223450_a496337695.jpg",
+      "bytes": 159135,
+      "sha256": "a2a872bcbfd030363c28b57b36308331a7b178702a0ced24287a6cabbeae2fd3"
+    },
+    {
+      "family": "remove",
+      "record_key": "remove_00026",
+      "field": "image",
+      "path": "outputs/edit_pairs/remove_selfdistill/targets/00026.png",
+      "bytes": 2116286,
+      "sha256": "4fe9adccf337661580289de0d1d16dc5a48d023b7d7eeccf10cf3f40be1623db"
+    },
+    {
+      "family": "remove",
+      "record_key": "remove_00028",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/259172_8827715307.jpg",
+      "bytes": 88249,
+      "sha256": "5a04dfdc39ce3368c875320c1dd3f64f706ff729cbd143ef0351ce7716ab0719"
+    },
+    {
+      "family": "remove",
+      "record_key": "remove_00028",
+      "field": "image",
+      "path": "outputs/edit_pairs/remove_selfdistill/targets/00028.png",
+      "bytes": 1420865,
+      "sha256": "30b4eb69f997335eb93499937a4df315f412211b429cb34abcd52f3d7636b814"
+    },
+    {
+      "family": "remove",
+      "record_key": "remove_00030",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/21782_7efd9b3db5.jpg",
+      "bytes": 121673,
+      "sha256": "ccbb0cb7e5a71990459792b00f2ce3b12543023b187216d94c2dd5ca92d5967c"
+    },
+    {
+      "family": "remove",
+      "record_key": "remove_00030",
+      "field": "image",
+      "path": "outputs/edit_pairs/remove_selfdistill/targets/00030.png",
+      "bytes": 1741068,
+      "sha256": "3671486d3a1159905f3f90ec2cf9d3999d3152dbfad32a502ab6e356b723fcf4"
+    },
+    {
+      "family": "remove",
+      "record_key": "remove_00032",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/144178_f2cb84b1c1.jpg",
+      "bytes": 167976,
+      "sha256": "d4624285cfe8c9ff1b653a395eeb6ac85cac6fa9924f605ad76c52677ebcfec2"
+    },
+    {
+      "family": "remove",
+      "record_key": "remove_00032",
+      "field": "image",
+      "path": "outputs/edit_pairs/remove_selfdistill/targets/00032.png",
+      "bytes": 2059746,
+      "sha256": "88960f1228aada08b6a8a9d9dfa2b46016a269f3ab31290a2f8da936f713ac14"
+    },
+    {
+      "family": "remove",
+      "record_key": "remove_00034",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/516540_987dc52f3e.jpg",
+      "bytes": 78826,
+      "sha256": "b848a2822bc1c0e86aeb141c6ad30f57179e254b90d966d5c5c1e277620a02a3"
+    },
+    {
+      "family": "remove",
+      "record_key": "remove_00034",
+      "field": "image",
+      "path": "outputs/edit_pairs/remove_selfdistill/targets/00034.png",
+      "bytes": 1128196,
+      "sha256": "e6ae8521d728a4a543625f7c7217baf08cce081eb7c02c06909cb2a2eabe53c1"
+    },
+    {
+      "family": "remove",
+      "record_key": "remove_00037",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/527183_2b5a0ed855.jpg",
+      "bytes": 141785,
+      "sha256": "e8070b13e18d8db4d0aa3198711f796d2ff739f16eee75fc3d3c6917f2107341"
+    },
+    {
+      "family": "remove",
+      "record_key": "remove_00037",
+      "field": "image",
+      "path": "outputs/edit_pairs/remove_selfdistill/targets/00037.png",
+      "bytes": 1777274,
+      "sha256": "0bfb0c955abdbc3f675239b400b45f28fcc0d2c2fb1d791c5c5c131d897db3d6"
+    },
+    {
+      "family": "remove",
+      "record_key": "remove_00038",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/191667_f2e2494eb5.jpg",
+      "bytes": 101005,
+      "sha256": "cde5cde2e75dce5be4cc673280260d0fe857d2085906687311923c29d9f3fd78"
+    },
+    {
+      "family": "remove",
+      "record_key": "remove_00038",
+      "field": "image",
+      "path": "outputs/edit_pairs/remove_selfdistill/targets/00038.png",
+      "bytes": 1260031,
+      "sha256": "12c000e60547c95b69dafb091c3d71d1d2f99ef647ec3fa22765037fc76347db"
+    },
+    {
+      "family": "remove",
+      "record_key": "remove_00040",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/518932_64b1d0a447.jpg",
+      "bytes": 94951,
+      "sha256": "1bcb377b769ef513bf4f900c9faeba65cc967ad7c4308ae57716f647a90427ce"
+    },
+    {
+      "family": "remove",
+      "record_key": "remove_00040",
+      "field": "image",
+      "path": "outputs/edit_pairs/remove_selfdistill/targets/00040.png",
+      "bytes": 1328464,
+      "sha256": "2ad65f6f09dcce9c9db9ffb177ac6543564d5d1fa24b31af02fcfa28d8127b83"
+    },
+    {
+      "family": "remove",
+      "record_key": "remove_00043",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/447376_9be385fc5a.jpg",
+      "bytes": 126530,
+      "sha256": "d426416913e6045edb7b015f8edb835f2f070b96e87fbcba2fd53097eddb1e3d"
+    },
+    {
+      "family": "remove",
+      "record_key": "remove_00043",
+      "field": "image",
+      "path": "outputs/edit_pairs/remove_selfdistill/targets/00043.png",
+      "bytes": 1499123,
+      "sha256": "3b7e5e2964e7661036b22ae72454875d699022e7ec15a135d006629a890d32ef"
+    },
+    {
+      "family": "remove",
+      "record_key": "remove_00045",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/580057_f130e4adbf.jpg",
+      "bytes": 103684,
+      "sha256": "ab01584554a15682ff2726c388204640860eb3764b0db1ac7b7c6080e92134bc"
+    },
+    {
+      "family": "remove",
+      "record_key": "remove_00045",
+      "field": "image",
+      "path": "outputs/edit_pairs/remove_selfdistill/targets/00045.png",
+      "bytes": 1494898,
+      "sha256": "981a64f973f75a718130834611a70cab1f5667dcc1b432a534ae7ed21b91d570"
+    },
+    {
+      "family": "remove",
+      "record_key": "remove_00047",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/139817_9d2a7faea1.jpg",
+      "bytes": 81251,
+      "sha256": "d1c4cb1b91b91413f10a178fa46d464a1db3bc92b06766468d607a15766073a2"
+    },
+    {
+      "family": "remove",
+      "record_key": "remove_00047",
+      "field": "image",
+      "path": "outputs/edit_pairs/remove_selfdistill/targets/00047.png",
+      "bytes": 1210833,
+      "sha256": "a7a19d55f94891d9f1e4a03bb9e33346b029d0e4ff1b773e0bcafc0279d9e125"
+    },
+    {
+      "family": "remove",
+      "record_key": "remove_00049",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/556518_76944342e7.jpg",
+      "bytes": 86137,
+      "sha256": "872c5b00b1a2951fcdbd57de6486102289f67b9d081d8f4ea938b7aee493268b"
+    },
+    {
+      "family": "remove",
+      "record_key": "remove_00049",
+      "field": "image",
+      "path": "outputs/edit_pairs/remove_selfdistill/targets/00049.png",
+      "bytes": 1151207,
+      "sha256": "d14b5e24c81e0ee488f0fe85ac6c25f1044982408b62fd641bf2b9b266509eea"
+    },
+    {
+      "family": "remove",
+      "record_key": "remove_00050",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/463454_8976e6e2b9.jpg",
+      "bytes": 73976,
+      "sha256": "3c8a7884bbc57910c86c5ab5245134904ddc1ad3e091608f23ca13c7299075ab"
+    },
+    {
+      "family": "remove",
+      "record_key": "remove_00050",
+      "field": "image",
+      "path": "outputs/edit_pairs/remove_selfdistill/targets/00050.png",
+      "bytes": 1219170,
+      "sha256": "bb7d1dd03491299d10254c3568cf9caa32e8d7471945e3e5a294647a76bb0399"
+    },
+    {
+      "family": "remove",
+      "record_key": "remove_00051",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/264392_8dba15abea.jpg",
+      "bytes": 66574,
+      "sha256": "fe5d751beb83052f87bfa1080f66a7cd3789dfaa46d594fef79930f18709c7f8"
+    },
+    {
+      "family": "remove",
+      "record_key": "remove_00051",
+      "field": "image",
+      "path": "outputs/edit_pairs/remove_selfdistill/targets/00051.png",
+      "bytes": 1037278,
+      "sha256": "22476b433f3627b4e183b1f89f7ec4ef6f36ee905c48f3debc676bed33af5579"
+    },
+    {
+      "family": "remove",
+      "record_key": "remove_00052",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/494415_c449a3782a.jpg",
+      "bytes": 119802,
+      "sha256": "ff8fbcd72a9550e1ce1d9498d49a5b1d17ded1caa59f367b1245849f35816b36"
+    },
+    {
+      "family": "remove",
+      "record_key": "remove_00052",
+      "field": "image",
+      "path": "outputs/edit_pairs/remove_selfdistill/targets/00052.png",
+      "bytes": 1534617,
+      "sha256": "e48569a0290af0f5648415126c7f653de767fcede499c4b195b89c4a1d92f5fb"
+    },
+    {
+      "family": "remove",
+      "record_key": "remove_00054",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/93655_f037a50870.jpg",
+      "bytes": 113954,
+      "sha256": "f332677e8169a2731b60cd4820f918d74265ba6175aa65fff907efc031881dee"
+    },
+    {
+      "family": "remove",
+      "record_key": "remove_00054",
+      "field": "image",
+      "path": "outputs/edit_pairs/remove_selfdistill/targets/00054.png",
+      "bytes": 1536705,
+      "sha256": "b7c59562ae1a60f07a7ef1c730ab881d170217610c6bc1748a37d3c7755132ae"
+    },
+    {
+      "family": "remove",
+      "record_key": "remove_00055",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/423951_bc31ad441c.jpg",
+      "bytes": 144269,
+      "sha256": "7f8257416a3a755f968ae9375ea753919601925799a7485bd30dcfcc09c0876c"
+    },
+    {
+      "family": "remove",
+      "record_key": "remove_00055",
+      "field": "image",
+      "path": "outputs/edit_pairs/remove_selfdistill/targets/00055.png",
+      "bytes": 1782741,
+      "sha256": "dec65129b3f7afcefdae278134ef33c5d0545ef9be7cf9e4af49141464774e1a"
+    },
+    {
+      "family": "remove",
+      "record_key": "remove_00057",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/311395_cb51269572.jpg",
+      "bytes": 83177,
+      "sha256": "d1802b015e2bfded49ee7b8eefa686404d8ac250923d09a2fed95d6b12819f2d"
+    },
+    {
+      "family": "remove",
+      "record_key": "remove_00057",
+      "field": "image",
+      "path": "outputs/edit_pairs/remove_selfdistill/targets/00057.png",
+      "bytes": 1262983,
+      "sha256": "457ab676636f9d43b690083d24ef493c3d8f8daf3e3dd318a470e163658ef9a0"
+    },
+    {
+      "family": "remove",
+      "record_key": "remove_00059",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/18457_c1509edeb4.jpg",
+      "bytes": 109774,
+      "sha256": "ca52a517aede3d6dea21ace0747002fa617ba436b7c8e3a818e62e33c51bb0ac"
+    },
+    {
+      "family": "remove",
+      "record_key": "remove_00059",
+      "field": "image",
+      "path": "outputs/edit_pairs/remove_selfdistill/targets/00059.png",
+      "bytes": 1591656,
+      "sha256": "761c69af91dc6131d977355300665032c134762f1681b5983a2b41eedf171271"
+    },
+    {
+      "family": "remove",
+      "record_key": "remove_00060",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/3084_bafcffc53a.jpg",
+      "bytes": 129843,
+      "sha256": "0aa3e7f03bf8d7ac6130bca24bd32a2b32032df3551ad009724619e2370b3b24"
+    },
+    {
+      "family": "remove",
+      "record_key": "remove_00060",
+      "field": "image",
+      "path": "outputs/edit_pairs/remove_selfdistill/targets/00060.png",
+      "bytes": 1556291,
+      "sha256": "15a05870cc6d5acc92247e219a5ddf48c1838faaa8491a0e04f7ef87bfed7741"
+    },
+    {
+      "family": "remove",
+      "record_key": "remove_00061",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/419052_1fe12e749c.jpg",
+      "bytes": 90194,
+      "sha256": "0c69f714b18564f82d5747de8827798d02447789dde88fa24e309a69289dd87a"
+    },
+    {
+      "family": "remove",
+      "record_key": "remove_00061",
+      "field": "image",
+      "path": "outputs/edit_pairs/remove_selfdistill/targets/00061.png",
+      "bytes": 1167387,
+      "sha256": "cb073b29bbec1b52e5c136744a2f81cbcea7d1a1f960e65606f6e8f1bf774bdf"
+    },
+    {
+      "family": "remove",
+      "record_key": "remove_00062",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/550944_dcc8112f5b.jpg",
+      "bytes": 122929,
+      "sha256": "11bf4841e97634e4f70b75585910a474e970026473edf7985c74e50118f36ff3"
+    },
+    {
+      "family": "remove",
+      "record_key": "remove_00062",
+      "field": "image",
+      "path": "outputs/edit_pairs/remove_selfdistill/targets/00062.png",
+      "bytes": 1570309,
+      "sha256": "e2b5e1530b88919f8da9be6356d9c88e5e371b94fe9d096f72e73d3b804cfb3f"
+    },
+    {
+      "family": "remove",
+      "record_key": "remove_00063",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/70932_159b0bbfde.jpg",
+      "bytes": 108805,
+      "sha256": "bb6e22973e3285d3caadcf1e6e2b036e5b50b94b460941a3a5ece38fbfe7b0a4"
+    },
+    {
+      "family": "remove",
+      "record_key": "remove_00063",
+      "field": "image",
+      "path": "outputs/edit_pairs/remove_selfdistill/targets/00063.png",
+      "bytes": 1434740,
+      "sha256": "d022ad301cff64e44e138bf2dbe5e117ab35ca6cb2d4d9af3ba65330295d7630"
+    },
+    {
+      "family": "remove",
+      "record_key": "remove_00064",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/20207_2347c23ba6.jpg",
+      "bytes": 99382,
+      "sha256": "8358d5a12d44a9906c11adbf945939343071e9b49c6d8e88e056b96db589473f"
+    },
+    {
+      "family": "remove",
+      "record_key": "remove_00064",
+      "field": "image",
+      "path": "outputs/edit_pairs/remove_selfdistill/targets/00064.png",
+      "bytes": 1262331,
+      "sha256": "f8ea812f37c451c9aa81efc4102c289b4eab378ce495ac697fd2d05392dfbe06"
+    },
+    {
+      "family": "remove",
+      "record_key": "remove_00066",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/225345_1121e6eff3.jpg",
+      "bytes": 196016,
+      "sha256": "5033857cb96f5a89516d6c211db7d85b3608f8a64fca30bbbda282a2b2f3178d"
+    },
+    {
+      "family": "remove",
+      "record_key": "remove_00066",
+      "field": "image",
+      "path": "outputs/edit_pairs/remove_selfdistill/targets/00066.png",
+      "bytes": 2263330,
+      "sha256": "08d829aebe5b1d1a9704f5a3973dce78d6e5ec7a4875a3691ce8bf9c19157477"
+    },
+    {
+      "family": "remove",
+      "record_key": "remove_00067",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/149588_a5cce9e530.jpg",
+      "bytes": 85202,
+      "sha256": "924622bbb89ad210d93fbaef5447bcb19d96550486cf792ec08e3c0e6775c7a5"
+    },
+    {
+      "family": "remove",
+      "record_key": "remove_00067",
+      "field": "image",
+      "path": "outputs/edit_pairs/remove_selfdistill/targets/00067.png",
+      "bytes": 1318389,
+      "sha256": "3a2f1fc58b31c95b10c10c97d24a95bbf21a6a10f503bd12eb60998c23d7a0d4"
+    },
+    {
+      "family": "remove",
+      "record_key": "remove_00068",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/298347_e5d35a1681.jpg",
+      "bytes": 107588,
+      "sha256": "5f3c477a0346aaefaff469f71fb30e41b0a966ff670c828e6eb259481856c0f6"
+    },
+    {
+      "family": "remove",
+      "record_key": "remove_00068",
+      "field": "image",
+      "path": "outputs/edit_pairs/remove_selfdistill/targets/00068.png",
+      "bytes": 1329858,
+      "sha256": "055441bcb5ecfe7d23b69e57c4a291c9c09b571448c52600c3eaedd6e483b8ae"
+    },
+    {
+      "family": "remove",
+      "record_key": "remove_00069",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/563525_54646a0ee6.jpg",
+      "bytes": 82532,
+      "sha256": "8d7768000cbb94d38c9f8e8f465bbf3879a4ee2053466d2eb3ee37cc60d726dc"
+    },
+    {
+      "family": "remove",
+      "record_key": "remove_00069",
+      "field": "image",
+      "path": "outputs/edit_pairs/remove_selfdistill/targets/00069.png",
+      "bytes": 1239841,
+      "sha256": "b5a8f61403b4255d8eb8bdbbd7b773bf111d3c807cb14d39f6a162b89ed33244"
+    },
+    {
+      "family": "remove",
+      "record_key": "remove_00070",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/493293_0b783da24a.jpg",
+      "bytes": 77673,
+      "sha256": "b2a060d898eb21d5d604dfdc6b1bb16b3e31a6d3f60c72cb815fc9d73ac5e08c"
+    },
+    {
+      "family": "remove",
+      "record_key": "remove_00070",
+      "field": "image",
+      "path": "outputs/edit_pairs/remove_selfdistill/targets/00070.png",
+      "bytes": 1083876,
+      "sha256": "b27bec96d40cef7fc6db1f3083e6769d25b6156f8faad9d9faf0c749a8f8ff10"
+    },
+    {
+      "family": "remove",
+      "record_key": "remove_00071",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/250629_8452cae604.jpg",
+      "bytes": 95805,
+      "sha256": "12e59b6844992a357da149cf076fecff68802695971609389e21263bc12865a2"
+    },
+    {
+      "family": "remove",
+      "record_key": "remove_00071",
+      "field": "image",
+      "path": "outputs/edit_pairs/remove_selfdistill/targets/00071.png",
+      "bytes": 1468284,
+      "sha256": "a08297b13299ecd35297425ce8127410bb048171fa0316d23f6a7089cd673ce0"
+    },
+    {
+      "family": "remove",
+      "record_key": "remove_00072",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/552549_a08febfc46.jpg",
+      "bytes": 84253,
+      "sha256": "6b3cc022c02351d41e8d80acabaea91cd14e2676840e174adfe23c4106c07516"
+    },
+    {
+      "family": "remove",
+      "record_key": "remove_00072",
+      "field": "image",
+      "path": "outputs/edit_pairs/remove_selfdistill/targets/00072.png",
+      "bytes": 1253578,
+      "sha256": "e052047c2234183a079b77fe0ffb8cc0634958e672cb751fef5c668e2814f466"
+    },
+    {
+      "family": "replace",
+      "record_key": "replace_00001",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/81593_f790a282da.jpg",
+      "bytes": 92694,
+      "sha256": "c7bdd411e049bb49deefdb7bd152a4b51133827adaa1913251db014450843aea"
+    },
+    {
+      "family": "replace",
+      "record_key": "replace_00001",
+      "field": "image",
+      "path": "outputs/edit_pairs/replace_selfdistill/targets/00001.png",
+      "bytes": 1355387,
+      "sha256": "368a9049b53ae3290bf1c0c54d0ed0e2a339c4e7d86e439c948588eceecb8068"
+    },
+    {
+      "family": "replace",
+      "record_key": "replace_00003",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/526521_908c92f65d.jpg",
+      "bytes": 145073,
+      "sha256": "2e496679f4fa1f9bbc7b1423e4805a226cfba429a8df47d75df342bdbfca15ce"
+    },
+    {
+      "family": "replace",
+      "record_key": "replace_00003",
+      "field": "image",
+      "path": "outputs/edit_pairs/replace_selfdistill/targets/00003.png",
+      "bytes": 1892241,
+      "sha256": "9cb9f2484a1b278d9f79ae6232cf0ca1a84fb47c44125708e285565397c63856"
+    },
+    {
+      "family": "replace",
+      "record_key": "replace_00005",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/314565_3d48a5c15f.jpg",
+      "bytes": 79318,
+      "sha256": "b6f87c4dd6f11ada724f910c00bfb55a4ac04cf8b3d36fd725512c17efabc48c"
+    },
+    {
+      "family": "replace",
+      "record_key": "replace_00005",
+      "field": "image",
+      "path": "outputs/edit_pairs/replace_selfdistill/targets/00005.png",
+      "bytes": 1288217,
+      "sha256": "0244400fda44da0c091527f5065708d4ece8488462084e684bd8e3250f15dd93"
+    },
+    {
+      "family": "replace",
+      "record_key": "replace_00006",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/100209_913cb54d54.jpg",
+      "bytes": 68672,
+      "sha256": "7dc10b501a3518ec0e4741849a3617ae657e52b267d9a61242bc4ee4b172e130"
+    },
+    {
+      "family": "replace",
+      "record_key": "replace_00006",
+      "field": "image",
+      "path": "outputs/edit_pairs/replace_selfdistill/targets/00006.png",
+      "bytes": 1216849,
+      "sha256": "44b01446951e154ec4e6228506a69f0046a1c260ec65f226c02548e3b8f3a3d2"
+    },
+    {
+      "family": "replace",
+      "record_key": "replace_00007",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/147646_422380793b.jpg",
+      "bytes": 70591,
+      "sha256": "068122e0915e132cbd370f8a9b0484c59d67e91d6709b5607d21381a2126057c"
+    },
+    {
+      "family": "replace",
+      "record_key": "replace_00007",
+      "field": "image",
+      "path": "outputs/edit_pairs/replace_selfdistill/targets/00007.png",
+      "bytes": 1129809,
+      "sha256": "a90b14b5a1d981a183ea4ba4ffa5a0086252b1b3355e8034a575bbad651d4236"
+    },
+    {
+      "family": "replace",
+      "record_key": "replace_00008",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/44616_5c171b4e59.jpg",
+      "bytes": 105822,
+      "sha256": "9f20cdf723ed1f65910f9a4ab7ab4aa4420173cb24a12d8ce9a9cb8eac516461"
+    },
+    {
+      "family": "replace",
+      "record_key": "replace_00008",
+      "field": "image",
+      "path": "outputs/edit_pairs/replace_selfdistill/targets/00008.png",
+      "bytes": 1169581,
+      "sha256": "ca0a8009654cbf74b321599c1b00e79d2555981a3691e7f56eedaeff389b705f"
+    },
+    {
+      "family": "replace",
+      "record_key": "replace_00009",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/134344_8a764fee44.jpg",
+      "bytes": 122466,
+      "sha256": "06059c5157269079915c95fd99635dfc4da860751f48ac3e7b7fe64e02e0f862"
+    },
+    {
+      "family": "replace",
+      "record_key": "replace_00009",
+      "field": "image",
+      "path": "outputs/edit_pairs/replace_selfdistill/targets/00009.png",
+      "bytes": 1554520,
+      "sha256": "fe7ceab2877f8cbf3ee16f27cc62dc1c57404397c88bb62b090a1b1ec1b48eec"
+    },
+    {
+      "family": "replace",
+      "record_key": "replace_00010",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/29472_720babe05d.jpg",
+      "bytes": 63862,
+      "sha256": "0f2ad7c55fbbb9b900cfb38af4d6ba963fe97b15cb207622ea1d770f048522fb"
+    },
+    {
+      "family": "replace",
+      "record_key": "replace_00010",
+      "field": "image",
+      "path": "outputs/edit_pairs/replace_selfdistill/targets/00010.png",
+      "bytes": 1262636,
+      "sha256": "3b36e58b789d7e52bbe0afef36e103147521d6fde4b8a9269ff9e3aeb7912120"
+    },
+    {
+      "family": "replace",
+      "record_key": "replace_00011",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/412910_371daac874.jpg",
+      "bytes": 98654,
+      "sha256": "f4e4a4c49527eb8d778cd6b46df18fdfcf4c8a28dd8154d83df80773a18a447d"
+    },
+    {
+      "family": "replace",
+      "record_key": "replace_00011",
+      "field": "image",
+      "path": "outputs/edit_pairs/replace_selfdistill/targets/00011.png",
+      "bytes": 1231990,
+      "sha256": "ad41d7965be7ced622acd8b1de852c4a653d66d1e1a39a813ccd1972ef99e11b"
+    },
+    {
+      "family": "replace",
+      "record_key": "replace_00012",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/193042_f11da7ea0d.jpg",
+      "bytes": 108978,
+      "sha256": "899c5ac993881f6797ea3876db62a77c2b5f887b08f55d5f7be14b54c121f495"
+    },
+    {
+      "family": "replace",
+      "record_key": "replace_00012",
+      "field": "image",
+      "path": "outputs/edit_pairs/replace_selfdistill/targets/00012.png",
+      "bytes": 1399184,
+      "sha256": "f592b7ea8c80eba36d414bbad4e0d4f60d0f286b48bb3ca3d04528c2924378df"
+    },
+    {
+      "family": "replace",
+      "record_key": "replace_00013",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/451121_5325f38537.jpg",
+      "bytes": 73980,
+      "sha256": "088a8715bff479cda4c1a9e25249771db2f376ac71a567ea663992da105f5846"
+    },
+    {
+      "family": "replace",
+      "record_key": "replace_00013",
+      "field": "image",
+      "path": "outputs/edit_pairs/replace_selfdistill/targets/00013.png",
+      "bytes": 1229831,
+      "sha256": "375b3621e6d244b1dc2326a8978036714299a3a29fe70108ad170542aa882491"
+    },
+    {
+      "family": "replace",
+      "record_key": "replace_00014",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/245145_a3d56c9afa.jpg",
+      "bytes": 146001,
+      "sha256": "d5b2ea9568e6a9e44cad3a91a8dcbbadc263e96b962833dfa2c70b8fdd372fd4"
+    },
+    {
+      "family": "replace",
+      "record_key": "replace_00014",
+      "field": "image",
+      "path": "outputs/edit_pairs/replace_selfdistill/targets/00014.png",
+      "bytes": 1693207,
+      "sha256": "be1ad105c374f7e645f15d4e4866cfc737510ce2b9f58c220b93b03ae15e685a"
+    },
+    {
+      "family": "replace",
+      "record_key": "replace_00015",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/292662_0eea7d3242.jpg",
+      "bytes": 91409,
+      "sha256": "b09812faa6393f08bc0874f6e63d8090c13153df41816c32b57375881a5aa234"
+    },
+    {
+      "family": "replace",
+      "record_key": "replace_00015",
+      "field": "image",
+      "path": "outputs/edit_pairs/replace_selfdistill/targets/00015.png",
+      "bytes": 1210938,
+      "sha256": "318ee087385f9baeae6eb038e18136fc182a094614564ff72b7690e1fd418144"
+    },
+    {
+      "family": "replace",
+      "record_key": "replace_00016",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/247866_551fece9c9.jpg",
+      "bytes": 82183,
+      "sha256": "f5216d771522e7918503c45ae57dfe6326ecc56a853abe7acf1d6c01200c251d"
+    },
+    {
+      "family": "replace",
+      "record_key": "replace_00016",
+      "field": "image",
+      "path": "outputs/edit_pairs/replace_selfdistill/targets/00016.png",
+      "bytes": 1246204,
+      "sha256": "f9e47e927a4568e526a15145205e79e65f2ccb8a36697b13f6313368f70f384e"
+    },
+    {
+      "family": "replace",
+      "record_key": "replace_00017",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/16082_3e19a7c2eb.jpg",
+      "bytes": 98369,
+      "sha256": "96f57596cf225235fd568bb271671eb7b1bc00bcf3ea651847358575554bc1ac"
+    },
+    {
+      "family": "replace",
+      "record_key": "replace_00017",
+      "field": "image",
+      "path": "outputs/edit_pairs/replace_selfdistill/targets/00017.png",
+      "bytes": 1114512,
+      "sha256": "a6528b3184fa859946c2cc68da0a4b5ea756804ff5b771775d9de820ffee272c"
+    },
+    {
+      "family": "replace",
+      "record_key": "replace_00019",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/47928_b21c759b5c.jpg",
+      "bytes": 99627,
+      "sha256": "5c1f8a5aa2bb1877bc1d0178eeec23c4407ca063bad477cea075b00e09adaa57"
+    },
+    {
+      "family": "replace",
+      "record_key": "replace_00019",
+      "field": "image",
+      "path": "outputs/edit_pairs/replace_selfdistill/targets/00019.png",
+      "bytes": 1591970,
+      "sha256": "c7add6c1687cf9cea578998ea70d7b2ac61e3a89dc8198fd7685dd8f2054d8f3"
+    },
+    {
+      "family": "replace",
+      "record_key": "replace_00020",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/480582_39f6003f4b.jpg",
+      "bytes": 128549,
+      "sha256": "55babcde9364eee534b851c3df9e5ca89d1eedb346aa2ad7b81d01d66670a9a5"
+    },
+    {
+      "family": "replace",
+      "record_key": "replace_00020",
+      "field": "image",
+      "path": "outputs/edit_pairs/replace_selfdistill/targets/00020.png",
+      "bytes": 1779470,
+      "sha256": "ff03099dbe5ffd8cfef625e6e1341cc1d81b46adb222894d2de877522a0ffe6f"
+    },
+    {
+      "family": "replace",
+      "record_key": "replace_00021",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/512346_68a18338be.jpg",
+      "bytes": 157249,
+      "sha256": "46ecd094069e09a854391e576dbb4a9fbcdedcabed0be9714d71a56fd99b8b07"
+    },
+    {
+      "family": "replace",
+      "record_key": "replace_00021",
+      "field": "image",
+      "path": "outputs/edit_pairs/replace_selfdistill/targets/00021.png",
+      "bytes": 2064653,
+      "sha256": "a0a0abae3dc794c35b6e925d2da805be5b8cf6ab056d49d22a7214b63cfe05ed"
+    },
+    {
+      "family": "replace",
+      "record_key": "replace_00022",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/310663_498f7047bb.jpg",
+      "bytes": 103336,
+      "sha256": "7df8fd792321d6cbde436e537d37d6b1701ee3656cfc70e36cd6c292e4db5bf4"
+    },
+    {
+      "family": "replace",
+      "record_key": "replace_00022",
+      "field": "image",
+      "path": "outputs/edit_pairs/replace_selfdistill/targets/00022.png",
+      "bytes": 1408192,
+      "sha256": "f2d1b9215dc941b218d74f91424cae337ce4d31543bb5d191ca4e11fa007079e"
+    },
+    {
+      "family": "replace",
+      "record_key": "replace_00023",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/289344_116becb86f.jpg",
+      "bytes": 129907,
+      "sha256": "4ee27473e90650d8675809e2df1e3e34a748f77520376a275409625e7b12842e"
+    },
+    {
+      "family": "replace",
+      "record_key": "replace_00023",
+      "field": "image",
+      "path": "outputs/edit_pairs/replace_selfdistill/targets/00023.png",
+      "bytes": 1768397,
+      "sha256": "170eaecc2c599d09f0d91ad46f426eca2c2fba12c87b07575d9d80868f3329ed"
+    },
+    {
+      "family": "replace",
+      "record_key": "replace_00024",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/185719_c16aa9a7ca.jpg",
+      "bytes": 192397,
+      "sha256": "c01a8776c6220c2bf9170756f33f89a676e98238e0f87e555b89165497477f37"
+    },
+    {
+      "family": "replace",
+      "record_key": "replace_00024",
+      "field": "image",
+      "path": "outputs/edit_pairs/replace_selfdistill/targets/00024.png",
+      "bytes": 2068679,
+      "sha256": "e88819555bfc3697be80a4165f017a134980ba03f7ee708da43b70304d1a2001"
+    },
+    {
+      "family": "replace",
+      "record_key": "replace_00025",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/480409_3f4c2a8ad7.jpg",
+      "bytes": 111622,
+      "sha256": "66a4f4f8205e230f44cf938a0ca27767cf02d21d500fc5557e80a14fe327769a"
+    },
+    {
+      "family": "replace",
+      "record_key": "replace_00025",
+      "field": "image",
+      "path": "outputs/edit_pairs/replace_selfdistill/targets/00025.png",
+      "bytes": 1640335,
+      "sha256": "553ee67220a24fc65e08906f772896cd9ca404a227f172638fb4839782682971"
+    },
+    {
+      "family": "replace",
+      "record_key": "replace_00026",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/223450_a496337695.jpg",
+      "bytes": 159135,
+      "sha256": "a2a872bcbfd030363c28b57b36308331a7b178702a0ced24287a6cabbeae2fd3"
+    },
+    {
+      "family": "replace",
+      "record_key": "replace_00026",
+      "field": "image",
+      "path": "outputs/edit_pairs/replace_selfdistill/targets/00026.png",
+      "bytes": 2113486,
+      "sha256": "8aff96ed7800e9a9228179d430bcebf925c470386b23cafad639a8603597b0e5"
+    },
+    {
+      "family": "replace",
+      "record_key": "replace_00028",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/259172_8827715307.jpg",
+      "bytes": 88249,
+      "sha256": "5a04dfdc39ce3368c875320c1dd3f64f706ff729cbd143ef0351ce7716ab0719"
+    },
+    {
+      "family": "replace",
+      "record_key": "replace_00028",
+      "field": "image",
+      "path": "outputs/edit_pairs/replace_selfdistill/targets/00028.png",
+      "bytes": 1415714,
+      "sha256": "be747159caf742fba960a9960fcac5a02a1334a045e66e49768f6e111cf31990"
+    },
+    {
+      "family": "replace",
+      "record_key": "replace_00030",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/21782_7efd9b3db5.jpg",
+      "bytes": 121673,
+      "sha256": "ccbb0cb7e5a71990459792b00f2ce3b12543023b187216d94c2dd5ca92d5967c"
+    },
+    {
+      "family": "replace",
+      "record_key": "replace_00030",
+      "field": "image",
+      "path": "outputs/edit_pairs/replace_selfdistill/targets/00030.png",
+      "bytes": 1749903,
+      "sha256": "d9ce78d94c6d1bedd5be4b3df2dafe9dc7b536047522d97c468bb50269d326d4"
+    },
+    {
+      "family": "replace",
+      "record_key": "replace_00032",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/144178_f2cb84b1c1.jpg",
+      "bytes": 167976,
+      "sha256": "d4624285cfe8c9ff1b653a395eeb6ac85cac6fa9924f605ad76c52677ebcfec2"
+    },
+    {
+      "family": "replace",
+      "record_key": "replace_00032",
+      "field": "image",
+      "path": "outputs/edit_pairs/replace_selfdistill/targets/00032.png",
+      "bytes": 2095148,
+      "sha256": "0aa79fb7ab0c38108c81e2f4a40234cb1160f03b2940c44f558ec45446368d84"
+    },
+    {
+      "family": "replace",
+      "record_key": "replace_00033",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/412355_019ed85618.jpg",
+      "bytes": 56647,
+      "sha256": "1abef56ff2c05b38eef0678b5ebc386dba56b8ab9adf18fe01866597adafa7cc"
+    },
+    {
+      "family": "replace",
+      "record_key": "replace_00033",
+      "field": "image",
+      "path": "outputs/edit_pairs/replace_selfdistill/targets/00033.png",
+      "bytes": 1146137,
+      "sha256": "42b42fe09e707a1d6c529edb06607a2141568e006f24d673c2d04886bc98a7c8"
+    },
+    {
+      "family": "replace",
+      "record_key": "replace_00034",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/516540_987dc52f3e.jpg",
+      "bytes": 78826,
+      "sha256": "b848a2822bc1c0e86aeb141c6ad30f57179e254b90d966d5c5c1e277620a02a3"
+    },
+    {
+      "family": "replace",
+      "record_key": "replace_00034",
+      "field": "image",
+      "path": "outputs/edit_pairs/replace_selfdistill/targets/00034.png",
+      "bytes": 1430456,
+      "sha256": "b7a272dc715adce4f7dd9fcc9d2da370546aac8acfa0d34b3c245890891fbd6a"
+    },
+    {
+      "family": "replace",
+      "record_key": "replace_00035",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/498971_3b0264f1ff.jpg",
+      "bytes": 58672,
+      "sha256": "4e5b31fbcc49e30ae69b494984e1f1197c18e6f79619e7fd812fd19f7d26c247"
+    },
+    {
+      "family": "replace",
+      "record_key": "replace_00035",
+      "field": "image",
+      "path": "outputs/edit_pairs/replace_selfdistill/targets/00035.png",
+      "bytes": 1121502,
+      "sha256": "3b113b7e656b38aea727b949caaa903adb050c26b011935fdacaeab0e9859e61"
+    },
+    {
+      "family": "replace",
+      "record_key": "replace_00037",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/527183_2b5a0ed855.jpg",
+      "bytes": 141785,
+      "sha256": "e8070b13e18d8db4d0aa3198711f796d2ff739f16eee75fc3d3c6917f2107341"
+    },
+    {
+      "family": "replace",
+      "record_key": "replace_00037",
+      "field": "image",
+      "path": "outputs/edit_pairs/replace_selfdistill/targets/00037.png",
+      "bytes": 1854787,
+      "sha256": "09cd34242055b2fe213de4cf4980e08428ec7c86831a87418061ecac1acc5aef"
+    },
+    {
+      "family": "replace",
+      "record_key": "replace_00038",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/191667_f2e2494eb5.jpg",
+      "bytes": 101005,
+      "sha256": "cde5cde2e75dce5be4cc673280260d0fe857d2085906687311923c29d9f3fd78"
+    },
+    {
+      "family": "replace",
+      "record_key": "replace_00038",
+      "field": "image",
+      "path": "outputs/edit_pairs/replace_selfdistill/targets/00038.png",
+      "bytes": 1225117,
+      "sha256": "3b5bd889e9df1adf622a5c06c0f7d827b977a8ebc6b6c52fbd3ac482c250fca6"
+    },
+    {
+      "family": "replace",
+      "record_key": "replace_00040",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/518932_64b1d0a447.jpg",
+      "bytes": 94951,
+      "sha256": "1bcb377b769ef513bf4f900c9faeba65cc967ad7c4308ae57716f647a90427ce"
+    },
+    {
+      "family": "replace",
+      "record_key": "replace_00040",
+      "field": "image",
+      "path": "outputs/edit_pairs/replace_selfdistill/targets/00040.png",
+      "bytes": 1471533,
+      "sha256": "56ad640dc4df61eedac6cd0846a47635f63dcf9f091181b4cfb19d28a29cc362"
+    },
+    {
+      "family": "replace",
+      "record_key": "replace_00042",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/568886_965e18a4a2.jpg",
+      "bytes": 122691,
+      "sha256": "a3bdddd568648b9b196d7562955298679c99cb91bc2b057f370242c69940dd7c"
+    },
+    {
+      "family": "replace",
+      "record_key": "replace_00042",
+      "field": "image",
+      "path": "outputs/edit_pairs/replace_selfdistill/targets/00042.png",
+      "bytes": 1483337,
+      "sha256": "74cf5d2e07c6e90d2f84fe45c299be1c6c93b388c6ca988d5034fb08cf2d0cc2"
+    },
+    {
+      "family": "replace",
+      "record_key": "replace_00043",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/447376_9be385fc5a.jpg",
+      "bytes": 126530,
+      "sha256": "d426416913e6045edb7b015f8edb835f2f070b96e87fbcba2fd53097eddb1e3d"
+    },
+    {
+      "family": "replace",
+      "record_key": "replace_00043",
+      "field": "image",
+      "path": "outputs/edit_pairs/replace_selfdistill/targets/00043.png",
+      "bytes": 1440825,
+      "sha256": "db2bc98a8d273c1b5bbf76a4a140777399cbfb016382d5a4ea7c9bd9b28ca56f"
+    },
+    {
+      "family": "replace",
+      "record_key": "replace_00045",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/580057_f130e4adbf.jpg",
+      "bytes": 103684,
+      "sha256": "ab01584554a15682ff2726c388204640860eb3764b0db1ac7b7c6080e92134bc"
+    },
+    {
+      "family": "replace",
+      "record_key": "replace_00045",
+      "field": "image",
+      "path": "outputs/edit_pairs/replace_selfdistill/targets/00045.png",
+      "bytes": 1585021,
+      "sha256": "a7d78d9f65f02a65b5e7a13e1b1e9ea40eeef55ab09c8da866b4fa4280f346ff"
+    },
+    {
+      "family": "action",
+      "record_key": "action_00003",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/526521_908c92f65d.jpg",
+      "bytes": 145073,
+      "sha256": "2e496679f4fa1f9bbc7b1423e4805a226cfba429a8df47d75df342bdbfca15ce"
+    },
+    {
+      "family": "action",
+      "record_key": "action_00003",
+      "field": "image",
+      "path": "outputs/edit_pairs/action_selfdistill/targets/00003.png",
+      "bytes": 1799374,
+      "sha256": "458582b1d62ce23ea0b81e37d36ae51cb3aa868319c911d71b5a9c853ec3bec8"
+    },
+    {
+      "family": "action",
+      "record_key": "action_00024",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/185719_c16aa9a7ca.jpg",
+      "bytes": 192397,
+      "sha256": "c01a8776c6220c2bf9170756f33f89a676e98238e0f87e555b89165497477f37"
+    },
+    {
+      "family": "action",
+      "record_key": "action_00024",
+      "field": "image",
+      "path": "outputs/edit_pairs/action_selfdistill/targets/00024.png",
+      "bytes": 2092549,
+      "sha256": "a30b4ddad0074fba5ec601f2acac71b1185bf9cc5227f4f13ffcbaed5105bc9a"
+    },
+    {
+      "family": "action",
+      "record_key": "action_00025",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/480409_3f4c2a8ad7.jpg",
+      "bytes": 111622,
+      "sha256": "66a4f4f8205e230f44cf938a0ca27767cf02d21d500fc5557e80a14fe327769a"
+    },
+    {
+      "family": "action",
+      "record_key": "action_00025",
+      "field": "image",
+      "path": "outputs/edit_pairs/action_selfdistill/targets/00025.png",
+      "bytes": 1562670,
+      "sha256": "2664d721e5c0394af22f4eb9aff5fe6804f1c632a49a685c8087e231544025c2"
+    },
+    {
+      "family": "action",
+      "record_key": "action_00026",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/223450_a496337695.jpg",
+      "bytes": 159135,
+      "sha256": "a2a872bcbfd030363c28b57b36308331a7b178702a0ced24287a6cabbeae2fd3"
+    },
+    {
+      "family": "action",
+      "record_key": "action_00026",
+      "field": "image",
+      "path": "outputs/edit_pairs/action_selfdistill/targets/00026.png",
+      "bytes": 2015150,
+      "sha256": "c445145aecbd997d9f3f01ec3f1117b8f826830534f1e1cb8e59ac89a2c080d9"
+    },
+    {
+      "family": "action",
+      "record_key": "action_00033",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/412355_019ed85618.jpg",
+      "bytes": 56647,
+      "sha256": "1abef56ff2c05b38eef0678b5ebc386dba56b8ab9adf18fe01866597adafa7cc"
+    },
+    {
+      "family": "action",
+      "record_key": "action_00033",
+      "field": "image",
+      "path": "outputs/edit_pairs/action_selfdistill/targets/00033.png",
+      "bytes": 975857,
+      "sha256": "8e4f43fa3fc759000ee29515d4c6f56c483289952ff0b2247036262185812351"
+    },
+    {
+      "family": "action",
+      "record_key": "action_00038",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/191667_f2e2494eb5.jpg",
+      "bytes": 101005,
+      "sha256": "cde5cde2e75dce5be4cc673280260d0fe857d2085906687311923c29d9f3fd78"
+    },
+    {
+      "family": "action",
+      "record_key": "action_00038",
+      "field": "image",
+      "path": "outputs/edit_pairs/action_selfdistill/targets/00038.png",
+      "bytes": 1302286,
+      "sha256": "e6e356268f5a0f42f297cc14c8fdb7ca973e4842224078f337af43ee72152f2c"
+    },
+    {
+      "family": "action",
+      "record_key": "action_00048",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/119730_249ea9c43d.jpg",
+      "bytes": 128449,
+      "sha256": "7fb248851d55cb591e8e91a64600490b5b363087a27343642444169780b68d4a"
+    },
+    {
+      "family": "action",
+      "record_key": "action_00048",
+      "field": "image",
+      "path": "outputs/edit_pairs/action_selfdistill/targets/00048.png",
+      "bytes": 1280397,
+      "sha256": "59c34ac5d139c7d399527744f0e5ed8461d4e54adbfc30cad46377a0a920b64d"
+    },
+    {
+      "family": "action",
+      "record_key": "action_00056",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/400048_36d39154e5.jpg",
+      "bytes": 120138,
+      "sha256": "dba13238cb756310048c61b360e6cd29899920c705f28d419588b20d5f023674"
+    },
+    {
+      "family": "action",
+      "record_key": "action_00056",
+      "field": "image",
+      "path": "outputs/edit_pairs/action_selfdistill/targets/00056.png",
+      "bytes": 1601985,
+      "sha256": "e0d49d5c8eefcea651e6d8f641582e5bc61d6712ace49670ce99dc26c372a5b0"
+    },
+    {
+      "family": "action",
+      "record_key": "action_00074",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/240301_878f10be3a.jpg",
+      "bytes": 113594,
+      "sha256": "10e7201302a61f4b26799076e525c12b060bcc6efdc4805c835aa7873c86e2f5"
+    },
+    {
+      "family": "action",
+      "record_key": "action_00074",
+      "field": "image",
+      "path": "outputs/edit_pairs/action_selfdistill/targets/00074.png",
+      "bytes": 1544195,
+      "sha256": "f4602de756e52f31462e14afbdb70d82c63d82db4def57359de83aa5ffdd98cd"
+    },
+    {
+      "family": "action",
+      "record_key": "action_00081",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/14686_02dacd6a93.jpg",
+      "bytes": 166995,
+      "sha256": "de31c3759e9b2d35d6d4b57e388f6c8d1630e1423520a6f7fb141f6c57bd19f5"
+    },
+    {
+      "family": "action",
+      "record_key": "action_00081",
+      "field": "image",
+      "path": "outputs/edit_pairs/action_selfdistill/targets/00081.png",
+      "bytes": 1839389,
+      "sha256": "b4e9cc7b617c35f644ea16d07fd3669959d7c60f5287b6bf9559f76659012bc5"
+    },
+    {
+      "family": "action",
+      "record_key": "action_00082",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/527193_00b453abed.jpg",
+      "bytes": 131532,
+      "sha256": "baace7ddb2fedca8709266a478bdba1b971659fb6fb788af4588a194f67f7f9a"
+    },
+    {
+      "family": "action",
+      "record_key": "action_00082",
+      "field": "image",
+      "path": "outputs/edit_pairs/action_selfdistill/targets/00082.png",
+      "bytes": 1744781,
+      "sha256": "c48380cc054a7674fae905dd9404d2ef1784366755b4d52c2ff37c6322a0fe4f"
+    },
+    {
+      "family": "action",
+      "record_key": "action_00083",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/92145_288baca3f2.jpg",
+      "bytes": 200938,
+      "sha256": "b1fe671345609f0cba4343f4f4cf951c29133b1eb180ae9d5bde9c6f45c16a08"
+    },
+    {
+      "family": "action",
+      "record_key": "action_00083",
+      "field": "image",
+      "path": "outputs/edit_pairs/action_selfdistill/targets/00083.png",
+      "bytes": 2111352,
+      "sha256": "88979b35f6d23fec06e3b0b1c077d24238671b8ebe2b3ae4418ba4c74c0db8f6"
+    },
+    {
+      "family": "action",
+      "record_key": "action_00084",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/157771_50715bc0fc.jpg",
+      "bytes": 40301,
+      "sha256": "1073da0f248eaf0c7ddec7b85d8a7a2d13a4c498276b8078ed9da50a36252ba2"
+    },
+    {
+      "family": "action",
+      "record_key": "action_00084",
+      "field": "image",
+      "path": "outputs/edit_pairs/action_selfdistill/targets/00084.png",
+      "bytes": 865445,
+      "sha256": "0d375406b685c55320bba6707368f65e6f3b0e97d77b0009f96dc09fcebf9243"
+    },
+    {
+      "family": "action",
+      "record_key": "action_00085",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/490352_0fdc3b7e74.jpg",
+      "bytes": 77814,
+      "sha256": "a64eaf66f15938859921322c7f059e8e8ab2edde27e1070d52ac924632d684b9"
+    },
+    {
+      "family": "action",
+      "record_key": "action_00085",
+      "field": "image",
+      "path": "outputs/edit_pairs/action_selfdistill/targets/00085.png",
+      "bytes": 1012813,
+      "sha256": "b79756c0d1ba2e109da0b7b701bc4c504cf416975ba88c18600c6de2801ba130"
+    },
+    {
+      "family": "action",
+      "record_key": "action_00096",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/309241_69c57f9578.jpg",
+      "bytes": 149767,
+      "sha256": "5be8b13dcf75102e64c7e3c07d538858e2684828d67c8e18286d152a8d07b7ac"
+    },
+    {
+      "family": "action",
+      "record_key": "action_00096",
+      "field": "image",
+      "path": "outputs/edit_pairs/action_selfdistill/targets/00096.png",
+      "bytes": 1751775,
+      "sha256": "aa3b378c1896494c240d73aad77416ba8550fc4d7691b51e60ace434b2286cf2"
+    },
+    {
+      "family": "action",
+      "record_key": "action_00103",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/477647_f404f9a7c8.jpg",
+      "bytes": 38207,
+      "sha256": "16830cfc26532c1bd7cf1d6cdcb7b7374aabde5fef31d9523516659b6dd544f2"
+    },
+    {
+      "family": "action",
+      "record_key": "action_00103",
+      "field": "image",
+      "path": "outputs/edit_pairs/action_selfdistill/targets/00103.png",
+      "bytes": 1117298,
+      "sha256": "c98ec9e5f2eb9c8f080fc624eb8c1b66b687fd8d4b74a37adba16154ffafdea8"
+    },
+    {
+      "family": "action",
+      "record_key": "action_00120",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/71281_35a03ad754.jpg",
+      "bytes": 145222,
+      "sha256": "feea0c36bea3721c9d85caa0b036fa4c108612d45286402498680bc7e7db3e12"
+    },
+    {
+      "family": "action",
+      "record_key": "action_00120",
+      "field": "image",
+      "path": "outputs/edit_pairs/action_selfdistill/targets/00120.png",
+      "bytes": 1953463,
+      "sha256": "2aa084060db9b7f4bd2fb2311ef59353ea4b5e6db1b05464322ae2b82ff44e14"
+    },
+    {
+      "family": "action",
+      "record_key": "action_00121",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/462984_6763dd0b36.jpg",
+      "bytes": 109490,
+      "sha256": "41ca95748015f50d3ca083c9ad34d3ab9e4a2b489fee917824cc84f6396d4843"
+    },
+    {
+      "family": "action",
+      "record_key": "action_00121",
+      "field": "image",
+      "path": "outputs/edit_pairs/action_selfdistill/targets/00121.png",
+      "bytes": 1453671,
+      "sha256": "c4e16546f61bc42927379311210a05987ee10350eff1df03e9047c787be46d30"
+    },
+    {
+      "family": "action",
+      "record_key": "action_00135",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/27478_8b1f5a7164.jpg",
+      "bytes": 132039,
+      "sha256": "a80efc98455ac570b16bdebd424e191bf6ae2f557b5a9cd3c2d353da6437b59c"
+    },
+    {
+      "family": "action",
+      "record_key": "action_00135",
+      "field": "image",
+      "path": "outputs/edit_pairs/action_selfdistill/targets/00135.png",
+      "bytes": 1712637,
+      "sha256": "c203513b760699f8ae32b8352dfacaa24d474da9c7ebd5c169bf5de8ff570e19"
+    },
+    {
+      "family": "action",
+      "record_key": "action_00149",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/34691_33378adc9a.jpg",
+      "bytes": 119847,
+      "sha256": "f650a01966227edfc1847f77ff0098d90552f11988aea415e79d38a9e854e5ae"
+    },
+    {
+      "family": "action",
+      "record_key": "action_00149",
+      "field": "image",
+      "path": "outputs/edit_pairs/action_selfdistill/targets/00149.png",
+      "bytes": 1244945,
+      "sha256": "3f4e5877a2f687796b9c7e07b14d93611601615572feb3720b7855426fd73cfc"
+    },
+    {
+      "family": "action",
+      "record_key": "action_00160",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/516410_b9efdbf3af.jpg",
+      "bytes": 141338,
+      "sha256": "8e0e7ee3bce05db02458886d3eec3fccb03f7f983ab2f5a492a09f23c6d31e1e"
+    },
+    {
+      "family": "action",
+      "record_key": "action_00160",
+      "field": "image",
+      "path": "outputs/edit_pairs/action_selfdistill/targets/00160.png",
+      "bytes": 1788871,
+      "sha256": "a460eb0cf664ec66393d05e455d6f1a3661c5eec3bc830b1527aab57e24cb920"
+    },
+    {
+      "family": "action",
+      "record_key": "action_00162",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/388203_96634fdd2e.jpg",
+      "bytes": 70509,
+      "sha256": "e34383688de2054e19e4b54603f26b6c02cb3819e0aab34a5bf2851716f0f71c"
+    },
+    {
+      "family": "action",
+      "record_key": "action_00162",
+      "field": "image",
+      "path": "outputs/edit_pairs/action_selfdistill/targets/00162.png",
+      "bytes": 1330680,
+      "sha256": "61024cce1d67c33adadce3a5a38c089b56efcf0a8d27b2c2224d414a3e2f2715"
+    },
+    {
+      "family": "action",
+      "record_key": "action_00168",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/535171_f87e69c214.jpg",
+      "bytes": 95749,
+      "sha256": "406f705f9a432e5363f793e9dbf6bf5f42ba1d0dad7e12c5a61b266abca93c45"
+    },
+    {
+      "family": "action",
+      "record_key": "action_00168",
+      "field": "image",
+      "path": "outputs/edit_pairs/action_selfdistill/targets/00168.png",
+      "bytes": 1616381,
+      "sha256": "faf8650da3b423195fc7e4edd12a5513088f8138d263a8d8ee28c9a598552542"
+    },
+    {
+      "family": "action",
+      "record_key": "action_00171",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/8549_ffef065ad7.jpg",
+      "bytes": 99094,
+      "sha256": "6eebc97248850286379778ddf2d6531b43075fed8d9fa59960f712068cc0f21c"
+    },
+    {
+      "family": "action",
+      "record_key": "action_00171",
+      "field": "image",
+      "path": "outputs/edit_pairs/action_selfdistill/targets/00171.png",
+      "bytes": 1517111,
+      "sha256": "be5163856ac529c13cdfb8efe310cbe0155d9f3d1e696997839fc01e5e41aef1"
+    },
+    {
+      "family": "action",
+      "record_key": "action_00176",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/6005_a98a484bd9.jpg",
+      "bytes": 173414,
+      "sha256": "880856f715add6421b5b06cf3f3b91038e84645667e38331425319b8aa993562"
+    },
+    {
+      "family": "action",
+      "record_key": "action_00176",
+      "field": "image",
+      "path": "outputs/edit_pairs/action_selfdistill/targets/00176.png",
+      "bytes": 1961910,
+      "sha256": "7b6a43afb8d50d400f5798f770f7d6a9ea67d1184efbb63143660bca6c760c2e"
+    },
+    {
+      "family": "action",
+      "record_key": "action_00182",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/549422_ba3b358fe2.jpg",
+      "bytes": 157228,
+      "sha256": "7f7537d69b4903c921d52fbc384e7823ebd830bd2c957d2b1c5c15cf906fbc91"
+    },
+    {
+      "family": "action",
+      "record_key": "action_00182",
+      "field": "image",
+      "path": "outputs/edit_pairs/action_selfdistill/targets/00182.png",
+      "bytes": 1908389,
+      "sha256": "86b786d62e0b57739cb5216ec923628f90ebcd4e259549de4e776df41f991a7c"
+    },
+    {
+      "family": "action",
+      "record_key": "action_00185",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/149551_5b46503d6f.jpg",
+      "bytes": 142418,
+      "sha256": "f35d96966502530bbd72c227d884a4ac80e4b6d01e46384c64fa5ec3079b1e7f"
+    },
+    {
+      "family": "action",
+      "record_key": "action_00185",
+      "field": "image",
+      "path": "outputs/edit_pairs/action_selfdistill/targets/00185.png",
+      "bytes": 1968728,
+      "sha256": "0f0a16f24c6e05c4af6d0619595201fdd7bedbc6e1b29277d081309794ecfd0c"
+    },
+    {
+      "family": "action",
+      "record_key": "action_00190",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/82475_2f5b69dab3.jpg",
+      "bytes": 42270,
+      "sha256": "cb9b2d827cc6744c8ca0dbe0839a8bdf30dd1ecabbfa9f833a5fc2f21ee62e0c"
+    },
+    {
+      "family": "action",
+      "record_key": "action_00190",
+      "field": "image",
+      "path": "outputs/edit_pairs/action_selfdistill/targets/00190.png",
+      "bytes": 891968,
+      "sha256": "b49436887d4fcfea17af7c155bf5600c9297048361b917779991020601a23c68"
+    },
+    {
+      "family": "action",
+      "record_key": "action_00197",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/26538_39020dfd94.jpg",
+      "bytes": 139548,
+      "sha256": "550512294706abc330e4bc8de15c7bf490b5a92783df8f60c18a0fe735ed8e99"
+    },
+    {
+      "family": "action",
+      "record_key": "action_00197",
+      "field": "image",
+      "path": "outputs/edit_pairs/action_selfdistill/targets/00197.png",
+      "bytes": 1663808,
+      "sha256": "161adbbb476efaaae1bfcde66e09957ca6c15937b13a52fe423188ea41b6357d"
+    },
+    {
+      "family": "action",
+      "record_key": "action_00215",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/507440_b5d418b66f.jpg",
+      "bytes": 71156,
+      "sha256": "c8526b3cbee2aaf4845f91e88b61b8b809d964b718339d54bcb6f8ef3aab19fe"
+    },
+    {
+      "family": "action",
+      "record_key": "action_00215",
+      "field": "image",
+      "path": "outputs/edit_pairs/action_selfdistill/targets/00215.png",
+      "bytes": 1106687,
+      "sha256": "dd5d45c72c39bfd057c2a555d6e2f28c50d1b018cf74a7764c5a7860ca3828ee"
+    },
+    {
+      "family": "action",
+      "record_key": "action_00217",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/167193_cf65c82e9c.jpg",
+      "bytes": 222115,
+      "sha256": "55778876be72d16e3a6e2c4d075e561f5e57f9f92a404fc3a35323a8b7b0d80b"
+    },
+    {
+      "family": "action",
+      "record_key": "action_00217",
+      "field": "image",
+      "path": "outputs/edit_pairs/action_selfdistill/targets/00217.png",
+      "bytes": 2192180,
+      "sha256": "680974807f3b24e102374d4b0f77a3b858bdfe59ece57874487eee4514bfa544"
+    },
+    {
+      "family": "action",
+      "record_key": "action_00222",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/194411_80da3f923f.jpg",
+      "bytes": 131409,
+      "sha256": "47a4f0c0467e1ec24f52b2f0e8834b640f8e9152c35a4d466b9d054e1dd98ca2"
+    },
+    {
+      "family": "action",
+      "record_key": "action_00222",
+      "field": "image",
+      "path": "outputs/edit_pairs/action_selfdistill/targets/00222.png",
+      "bytes": 1694352,
+      "sha256": "32ec501c97228d2016f1c71bda5b7992f69242703290c249dbd47322ebb184d2"
+    },
+    {
+      "family": "action",
+      "record_key": "action_00226",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/33055_7837a2f8ef.jpg",
+      "bytes": 49662,
+      "sha256": "ea21bc8b65aa0dc206809ddbda1dfaccf3ac30198336803ca6e4362a87f7e7f4"
+    },
+    {
+      "family": "action",
+      "record_key": "action_00226",
+      "field": "image",
+      "path": "outputs/edit_pairs/action_selfdistill/targets/00226.png",
+      "bytes": 929556,
+      "sha256": "6197e153bad5cb8d1f7fbd606900d60fda68bc2d91dc38cda40efcaea6d65b0b"
+    },
+    {
+      "family": "action",
+      "record_key": "action_00252",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/279386_fc219c664b.jpg",
+      "bytes": 83531,
+      "sha256": "3c0db8ebda03089f3f81896a6d6d7a180f6b1b80f0971f9a0533112540b08f7a"
+    },
+    {
+      "family": "action",
+      "record_key": "action_00252",
+      "field": "image",
+      "path": "outputs/edit_pairs/action_selfdistill/targets/00252.png",
+      "bytes": 1222175,
+      "sha256": "82df2467a36187d4147e6cdda2fad123f0897c399a94d162f56f518fb258b79e"
+    },
+    {
+      "family": "action",
+      "record_key": "action_00264",
+      "field": "edit_image",
+      "path": "data/unlabeled/raw/coco2017/67906_d67fbbd9e9.jpg",
+      "bytes": 78817,
+      "sha256": "7632247e167cb75423ba3ef0084b4999ac7835ba95f5084e22c5bc9ad6baef35"
+    },
+    {
+      "family": "action",
+      "record_key": "action_00264",
+      "field": "image",
+      "path": "outputs/edit_pairs/action_selfdistill/targets/00264.png",
+      "bytes": 1252181,
+      "sha256": "72da050a664624c8289a8d72af7a486921bab6717053b57758f6a05f9d80ba19"
+    }
+  ],
+  "references": 298,
+  "images_included": false
+}

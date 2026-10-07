@@ -1,0 +1,902 @@
+[
+  {
+    "key": "remove_00001",
+    "source": "data/unlabeled/raw/coco2017/81593_f790a282da.jpg",
+    "prompt": "Remove the car from the image.",
+    "target": "outputs/edit_pairs/remove_selfdistill/targets/00001.png",
+    "best_reward": 0.7613,
+    "meta": {
+      "out_pres": 0.943,
+      "in_chg": 0.269,
+      "gone": 1.0
+    },
+    "all_rewards": [
+      0.5411,
+      0.7613,
+      0.5461,
+      0.5457
+    ]
+  },
+  {
+    "key": "remove_00003",
+    "source": "data/unlabeled/raw/coco2017/526521_908c92f65d.jpg",
+    "prompt": "Remove the elephant from the image.",
+    "target": "outputs/edit_pairs/remove_selfdistill/targets/00003.png",
+    "best_reward": 0.4395,
+    "meta": {
+      "out_pres": 0.863,
+      "in_chg": 0.17,
+      "gone": 1.0
+    },
+    "all_rewards": [
+      0.4376,
+      0.4395,
+      0.4267,
+      0.4294
+    ]
+  },
+  {
+    "key": "remove_00005",
+    "source": "data/unlabeled/raw/coco2017/314565_3d48a5c15f.jpg",
+    "prompt": "Remove the person man from the image.",
+    "target": "outputs/edit_pairs/remove_selfdistill/targets/00005.png",
+    "best_reward": 0.2149,
+    "meta": {
+      "out_pres": 0.881,
+      "in_chg": 0.118,
+      "gone": 0.69
+    },
+    "all_rewards": [
+      0.0,
+      0.2149,
+      0.1595,
+      0.0
+    ]
+  },
+  {
+    "key": "remove_00006",
+    "source": "data/unlabeled/raw/coco2017/100209_913cb54d54.jpg",
+    "prompt": "Remove the person child from the image.",
+    "target": "outputs/edit_pairs/remove_selfdistill/targets/00006.png",
+    "best_reward": 0.4274,
+    "meta": {
+      "out_pres": 0.94,
+      "in_chg": 0.278,
+      "gone": 0.545
+    },
+    "all_rewards": [
+      0.3483,
+      0.0,
+      0.3095,
+      0.4274
+    ]
+  },
+  {
+    "key": "remove_00008",
+    "source": "data/unlabeled/raw/coco2017/44616_5c171b4e59.jpg",
+    "prompt": "Remove the pizza from the image.",
+    "target": "outputs/edit_pairs/remove_selfdistill/targets/00008.png",
+    "best_reward": 0.4504,
+    "meta": {
+      "out_pres": 0.969,
+      "in_chg": 0.226,
+      "gone": 0.684
+    },
+    "all_rewards": [
+      0.4431,
+      0.3987,
+      0.4504,
+      0.4363
+    ]
+  },
+  {
+    "key": "remove_00010",
+    "source": "data/unlabeled/raw/coco2017/29472_720babe05d.jpg",
+    "prompt": "Remove the umbrella from the image.",
+    "target": "outputs/edit_pairs/remove_selfdistill/targets/00010.png",
+    "best_reward": 0.5246,
+    "meta": {
+      "out_pres": 0.963,
+      "in_chg": 0.182,
+      "gone": 1.0
+    },
+    "all_rewards": [
+      0.3747,
+      0.4053,
+      0.5246,
+      0.3097
+    ]
+  },
+  {
+    "key": "remove_00011",
+    "source": "data/unlabeled/raw/coco2017/412910_371daac874.jpg",
+    "prompt": "Remove the surfboard from the image.",
+    "target": "outputs/edit_pairs/remove_selfdistill/targets/00011.png",
+    "best_reward": 0.6151,
+    "meta": {
+      "out_pres": 0.905,
+      "in_chg": 0.227,
+      "gone": 1.0
+    },
+    "all_rewards": [
+      0.0,
+      0.0,
+      0.6151,
+      0.5924
+    ]
+  },
+  {
+    "key": "remove_00012",
+    "source": "data/unlabeled/raw/coco2017/193042_f11da7ea0d.jpg",
+    "prompt": "Remove the couch from the image.",
+    "target": "outputs/edit_pairs/remove_selfdistill/targets/00012.png",
+    "best_reward": 0.3018,
+    "meta": {
+      "out_pres": 0.921,
+      "in_chg": 0.197,
+      "gone": 0.554
+    },
+    "all_rewards": [
+      0.2731,
+      0.3018,
+      0.2435,
+      0.2702
+    ]
+  },
+  {
+    "key": "remove_00013",
+    "source": "data/unlabeled/raw/coco2017/451121_5325f38537.jpg",
+    "prompt": "Remove the person woman from the image.",
+    "target": "outputs/edit_pairs/remove_selfdistill/targets/00013.png",
+    "best_reward": 0.8203,
+    "meta": {
+      "out_pres": 0.962,
+      "in_chg": 0.284,
+      "gone": 1.0
+    },
+    "all_rewards": [
+      0.7857,
+      0.8203,
+      0.5333,
+      0.589
+    ]
+  },
+  {
+    "key": "remove_00014",
+    "source": "data/unlabeled/raw/coco2017/245145_a3d56c9afa.jpg",
+    "prompt": "Remove the surfboard from the image.",
+    "target": "outputs/edit_pairs/remove_selfdistill/targets/00014.png",
+    "best_reward": 0.8684,
+    "meta": {
+      "out_pres": 0.868,
+      "in_chg": 0.513,
+      "gone": 1.0
+    },
+    "all_rewards": [
+      0.866,
+      0.6512,
+      0.8606,
+      0.8684
+    ]
+  },
+  {
+    "key": "remove_00015",
+    "source": "data/unlabeled/raw/coco2017/292662_0eea7d3242.jpg",
+    "prompt": "Remove the truck from the image.",
+    "target": "outputs/edit_pairs/remove_selfdistill/targets/00015.png",
+    "best_reward": 0.7016,
+    "meta": {
+      "out_pres": 0.957,
+      "in_chg": 0.244,
+      "gone": 1.0
+    },
+    "all_rewards": [
+      0.6904,
+      0.6384,
+      0.6359,
+      0.7016
+    ]
+  },
+  {
+    "key": "remove_00017",
+    "source": "data/unlabeled/raw/coco2017/16082_3e19a7c2eb.jpg",
+    "prompt": "Remove the laptop keyboard from the image.",
+    "target": "outputs/edit_pairs/remove_selfdistill/targets/00017.png",
+    "best_reward": 0.3351,
+    "meta": {
+      "out_pres": 0.95,
+      "in_chg": 0.2,
+      "gone": 0.587
+    },
+    "all_rewards": [
+      0.2847,
+      0.2849,
+      0.3351,
+      0.2726
+    ]
+  },
+  {
+    "key": "remove_00018",
+    "source": "data/unlabeled/raw/coco2017/581513_8cfc9b5236.jpg",
+    "prompt": "Remove the person woman from the image.",
+    "target": "outputs/edit_pairs/remove_selfdistill/targets/00018.png",
+    "best_reward": 0.9629,
+    "meta": {
+      "out_pres": 0.963,
+      "in_chg": 0.446,
+      "gone": 1.0
+    },
+    "all_rewards": [
+      0.9419,
+      0.9582,
+      0.9596,
+      0.9629
+    ]
+  },
+  {
+    "key": "remove_00020",
+    "source": "data/unlabeled/raw/coco2017/480582_39f6003f4b.jpg",
+    "prompt": "Remove the person man woman from the image.",
+    "target": "outputs/edit_pairs/remove_selfdistill/targets/00020.png",
+    "best_reward": 0.2971,
+    "meta": {
+      "out_pres": 0.92,
+      "in_chg": 0.197,
+      "gone": 0.545
+    },
+    "all_rewards": [
+      0.2357,
+      0.2306,
+      0.2561,
+      0.2971
+    ]
+  },
+  {
+    "key": "remove_00021",
+    "source": "data/unlabeled/raw/coco2017/512346_68a18338be.jpg",
+    "prompt": "Remove the person man from the image.",
+    "target": "outputs/edit_pairs/remove_selfdistill/targets/00021.png",
+    "best_reward": 0.2307,
+    "meta": {
+      "out_pres": 0.903,
+      "in_chg": 0.15,
+      "gone": 0.567
+    },
+    "all_rewards": [
+      0.2084,
+      0.23,
+      0.2224,
+      0.2307
+    ]
+  },
+  {
+    "key": "remove_00022",
+    "source": "data/unlabeled/raw/coco2017/310663_498f7047bb.jpg",
+    "prompt": "Remove the train from the image.",
+    "target": "outputs/edit_pairs/remove_selfdistill/targets/00022.png",
+    "best_reward": 0.2774,
+    "meta": {
+      "out_pres": 0.904,
+      "in_chg": 0.155,
+      "gone": 0.661
+    },
+    "all_rewards": [
+      0.2774,
+      0.2003,
+      0.2596,
+      0.2521
+    ]
+  },
+  {
+    "key": "remove_00023",
+    "source": "data/unlabeled/raw/coco2017/289344_116becb86f.jpg",
+    "prompt": "Remove the chair from the image.",
+    "target": "outputs/edit_pairs/remove_selfdistill/targets/00023.png",
+    "best_reward": 0.7949,
+    "meta": {
+      "out_pres": 0.947,
+      "in_chg": 0.28,
+      "gone": 1.0
+    },
+    "all_rewards": [
+      0.7949,
+      0.7784,
+      0.7902,
+      0.7878
+    ]
+  },
+  {
+    "key": "remove_00024",
+    "source": "data/unlabeled/raw/coco2017/185719_c16aa9a7ca.jpg",
+    "prompt": "Remove the giraffe from the image.",
+    "target": "outputs/edit_pairs/remove_selfdistill/targets/00024.png",
+    "best_reward": 0.4128,
+    "meta": {
+      "out_pres": 0.906,
+      "in_chg": 0.152,
+      "gone": 1.0
+    },
+    "all_rewards": [
+      0.4128,
+      0.4117,
+      0.4083,
+      0.3826
+    ]
+  },
+  {
+    "key": "remove_00025",
+    "source": "data/unlabeled/raw/coco2017/480409_3f4c2a8ad7.jpg",
+    "prompt": "Remove the elephant from the image.",
+    "target": "outputs/edit_pairs/remove_selfdistill/targets/00025.png",
+    "best_reward": 0.7885,
+    "meta": {
+      "out_pres": 0.944,
+      "in_chg": 0.279,
+      "gone": 1.0
+    },
+    "all_rewards": [
+      0.7885,
+      0.7701,
+      0.7769,
+      0.447
+    ]
+  },
+  {
+    "key": "remove_00026",
+    "source": "data/unlabeled/raw/coco2017/223450_a496337695.jpg",
+    "prompt": "Remove the giraffe from the image.",
+    "target": "outputs/edit_pairs/remove_selfdistill/targets/00026.png",
+    "best_reward": 0.4167,
+    "meta": {
+      "out_pres": 0.914,
+      "in_chg": 0.152,
+      "gone": 1.0
+    },
+    "all_rewards": [
+      0.3921,
+      0.4167,
+      0.3938,
+      0.3597
+    ]
+  },
+  {
+    "key": "remove_00028",
+    "source": "data/unlabeled/raw/coco2017/259172_8827715307.jpg",
+    "prompt": "Remove the airplane from the image.",
+    "target": "outputs/edit_pairs/remove_selfdistill/targets/00028.png",
+    "best_reward": 0.4303,
+    "meta": {
+      "out_pres": 0.882,
+      "in_chg": 0.163,
+      "gone": 1.0
+    },
+    "all_rewards": [
+      0.4303,
+      0.2187,
+      0.4261,
+      0.2559
+    ]
+  },
+  {
+    "key": "remove_00030",
+    "source": "data/unlabeled/raw/coco2017/21782_7efd9b3db5.jpg",
+    "prompt": "Remove the fire hydrant from the image.",
+    "target": "outputs/edit_pairs/remove_selfdistill/targets/00030.png",
+    "best_reward": 0.5137,
+    "meta": {
+      "out_pres": 0.925,
+      "in_chg": 0.185,
+      "gone": 1.0
+    },
+    "all_rewards": [
+      0.4486,
+      0.4929,
+      0.4732,
+      0.5137
+    ]
+  },
+  {
+    "key": "remove_00032",
+    "source": "data/unlabeled/raw/coco2017/144178_f2cb84b1c1.jpg",
+    "prompt": "Remove the person man from the image.",
+    "target": "outputs/edit_pairs/remove_selfdistill/targets/00032.png",
+    "best_reward": 0.3688,
+    "meta": {
+      "out_pres": 0.898,
+      "in_chg": 0.234,
+      "gone": 0.584
+    },
+    "all_rewards": [
+      0.3597,
+      0.3531,
+      0.3688,
+      0.3503
+    ]
+  },
+  {
+    "key": "remove_00034",
+    "source": "data/unlabeled/raw/coco2017/516540_987dc52f3e.jpg",
+    "prompt": "Remove the fire hydrant from the image.",
+    "target": "outputs/edit_pairs/remove_selfdistill/targets/00034.png",
+    "best_reward": 0.8869,
+    "meta": {
+      "out_pres": 0.925,
+      "in_chg": 0.32,
+      "gone": 1.0
+    },
+    "all_rewards": [
+      0.8869,
+      0.8228,
+      0.8788,
+      0.7361
+    ]
+  },
+  {
+    "key": "remove_00037",
+    "source": "data/unlabeled/raw/coco2017/527183_2b5a0ed855.jpg",
+    "prompt": "Remove the person man from the image.",
+    "target": "outputs/edit_pairs/remove_selfdistill/targets/00037.png",
+    "best_reward": 0.2286,
+    "meta": {
+      "out_pres": 0.865,
+      "in_chg": 0.194,
+      "gone": 0.454
+    },
+    "all_rewards": [
+      0.2202,
+      0.2286,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "key": "remove_00038",
+    "source": "data/unlabeled/raw/coco2017/191667_f2e2494eb5.jpg",
+    "prompt": "Remove the cat from the image.",
+    "target": "outputs/edit_pairs/remove_selfdistill/targets/00038.png",
+    "best_reward": 0.4147,
+    "meta": {
+      "out_pres": 0.93,
+      "in_chg": 0.149,
+      "gone": 1.0
+    },
+    "all_rewards": [
+      0.4147,
+      0.2865,
+      0.3994,
+      0.41
+    ]
+  },
+  {
+    "key": "remove_00040",
+    "source": "data/unlabeled/raw/coco2017/518932_64b1d0a447.jpg",
+    "prompt": "Remove the person man from the image.",
+    "target": "outputs/edit_pairs/remove_selfdistill/targets/00040.png",
+    "best_reward": 0.3193,
+    "meta": {
+      "out_pres": 0.965,
+      "in_chg": 0.175,
+      "gone": 0.629
+    },
+    "all_rewards": [
+      0.2725,
+      0.3102,
+      0.3193,
+      0.2018
+    ]
+  },
+  {
+    "key": "remove_00043",
+    "source": "data/unlabeled/raw/coco2017/447376_9be385fc5a.jpg",
+    "prompt": "Remove the motorcycle from the image.",
+    "target": "outputs/edit_pairs/remove_selfdistill/targets/00043.png",
+    "best_reward": 0.7382,
+    "meta": {
+      "out_pres": 0.931,
+      "in_chg": 0.264,
+      "gone": 1.0
+    },
+    "all_rewards": [
+      0.7382,
+      0.4274,
+      0.5261,
+      0.4848
+    ]
+  },
+  {
+    "key": "remove_00045",
+    "source": "data/unlabeled/raw/coco2017/580057_f130e4adbf.jpg",
+    "prompt": "Remove the couch bench from the image.",
+    "target": "outputs/edit_pairs/remove_selfdistill/targets/00045.png",
+    "best_reward": 0.3801,
+    "meta": {
+      "out_pres": 0.949,
+      "in_chg": 0.134,
+      "gone": 1.0
+    },
+    "all_rewards": [
+      0.1833,
+      0.3801,
+      0.2225,
+      0.2026
+    ]
+  },
+  {
+    "key": "remove_00047",
+    "source": "data/unlabeled/raw/coco2017/139817_9d2a7faea1.jpg",
+    "prompt": "Remove the kite from the image.",
+    "target": "outputs/edit_pairs/remove_selfdistill/targets/00047.png",
+    "best_reward": 0.2763,
+    "meta": {
+      "out_pres": 0.955,
+      "in_chg": 0.096,
+      "gone": 1.0
+    },
+    "all_rewards": [
+      0.2594,
+      0.223,
+      0.2297,
+      0.2763
+    ]
+  },
+  {
+    "key": "remove_00049",
+    "source": "data/unlabeled/raw/coco2017/556518_76944342e7.jpg",
+    "prompt": "Remove the person man from the image.",
+    "target": "outputs/edit_pairs/remove_selfdistill/targets/00049.png",
+    "best_reward": 0.2488,
+    "meta": {
+      "out_pres": 0.937,
+      "in_chg": 0.148,
+      "gone": 0.596
+    },
+    "all_rewards": [
+      0.1854,
+      0.2488,
+      0.1844,
+      0.0
+    ]
+  },
+  {
+    "key": "remove_00050",
+    "source": "data/unlabeled/raw/coco2017/463454_8976e6e2b9.jpg",
+    "prompt": "Remove the umbrella from the image.",
+    "target": "outputs/edit_pairs/remove_selfdistill/targets/00050.png",
+    "best_reward": 0.2541,
+    "meta": {
+      "out_pres": 0.952,
+      "in_chg": 0.089,
+      "gone": 1.0
+    },
+    "all_rewards": [
+      0.2445,
+      0.2459,
+      0.2541,
+      0.2415
+    ]
+  },
+  {
+    "key": "remove_00051",
+    "source": "data/unlabeled/raw/coco2017/264392_8dba15abea.jpg",
+    "prompt": "Remove the chair couch from the image.",
+    "target": "outputs/edit_pairs/remove_selfdistill/targets/00051.png",
+    "best_reward": 0.4271,
+    "meta": {
+      "out_pres": 0.955,
+      "in_chg": 0.223,
+      "gone": 0.668
+    },
+    "all_rewards": [
+      0.3647,
+      0.4271,
+      0.3167,
+      0.4223
+    ]
+  },
+  {
+    "key": "remove_00052",
+    "source": "data/unlabeled/raw/coco2017/494415_c449a3782a.jpg",
+    "prompt": "Remove the bus from the image.",
+    "target": "outputs/edit_pairs/remove_selfdistill/targets/00052.png",
+    "best_reward": 0.347,
+    "meta": {
+      "out_pres": 0.912,
+      "in_chg": 0.239,
+      "gone": 0.53
+    },
+    "all_rewards": [
+      0.0,
+      0.0,
+      0.347,
+      0.3145
+    ]
+  },
+  {
+    "key": "remove_00054",
+    "source": "data/unlabeled/raw/coco2017/93655_f037a50870.jpg",
+    "prompt": "Remove the motorcycle from the image.",
+    "target": "outputs/edit_pairs/remove_selfdistill/targets/00054.png",
+    "best_reward": 0.4523,
+    "meta": {
+      "out_pres": 0.938,
+      "in_chg": 0.161,
+      "gone": 1.0
+    },
+    "all_rewards": [
+      0.4523,
+      0.4056,
+      0.4286,
+      0.4303
+    ]
+  },
+  {
+    "key": "remove_00055",
+    "source": "data/unlabeled/raw/coco2017/423951_bc31ad441c.jpg",
+    "prompt": "Remove the boat from the image.",
+    "target": "outputs/edit_pairs/remove_selfdistill/targets/00055.png",
+    "best_reward": 0.5559,
+    "meta": {
+      "out_pres": 0.881,
+      "in_chg": 0.21,
+      "gone": 1.0
+    },
+    "all_rewards": [
+      0.0,
+      0.3714,
+      0.5559,
+      0.3404
+    ]
+  },
+  {
+    "key": "remove_00057",
+    "source": "data/unlabeled/raw/coco2017/311395_cb51269572.jpg",
+    "prompt": "Remove the chair couch from the image.",
+    "target": "outputs/edit_pairs/remove_selfdistill/targets/00057.png",
+    "best_reward": 0.4571,
+    "meta": {
+      "out_pres": 0.972,
+      "in_chg": 0.221,
+      "gone": 0.71
+    },
+    "all_rewards": [
+      0.4008,
+      0.4571,
+      0.3807,
+      0.4173
+    ]
+  },
+  {
+    "key": "remove_00059",
+    "source": "data/unlabeled/raw/coco2017/18457_c1509edeb4.jpg",
+    "prompt": "Remove the person man from the image.",
+    "target": "outputs/edit_pairs/remove_selfdistill/targets/00059.png",
+    "best_reward": 0.3273,
+    "meta": {
+      "out_pres": 0.906,
+      "in_chg": 0.174,
+      "gone": 0.691
+    },
+    "all_rewards": [
+      0.3273,
+      0.3144,
+      0.2743,
+      0.2861
+    ]
+  },
+  {
+    "key": "remove_00060",
+    "source": "data/unlabeled/raw/coco2017/3084_bafcffc53a.jpg",
+    "prompt": "Remove the clock from the image.",
+    "target": "outputs/edit_pairs/remove_selfdistill/targets/00060.png",
+    "best_reward": 0.3259,
+    "meta": {
+      "out_pres": 0.95,
+      "in_chg": 0.204,
+      "gone": 0.56
+    },
+    "all_rewards": [
+      0.0,
+      0.3259,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "key": "remove_00061",
+    "source": "data/unlabeled/raw/coco2017/419052_1fe12e749c.jpg",
+    "prompt": "Remove the pizza from the image.",
+    "target": "outputs/edit_pairs/remove_selfdistill/targets/00061.png",
+    "best_reward": 0.4495,
+    "meta": {
+      "out_pres": 0.95,
+      "in_chg": 0.158,
+      "gone": 1.0
+    },
+    "all_rewards": [
+      0.437,
+      0.4495,
+      0.4241,
+      0.4376
+    ]
+  },
+  {
+    "key": "remove_00062",
+    "source": "data/unlabeled/raw/coco2017/550944_dcc8112f5b.jpg",
+    "prompt": "Remove the person man from the image.",
+    "target": "outputs/edit_pairs/remove_selfdistill/targets/00062.png",
+    "best_reward": 0.2721,
+    "meta": {
+      "out_pres": 0.899,
+      "in_chg": 0.195,
+      "gone": 0.519
+    },
+    "all_rewards": [
+      0.159,
+      0.2721,
+      0.1336,
+      0.2292
+    ]
+  },
+  {
+    "key": "remove_00063",
+    "source": "data/unlabeled/raw/coco2017/70932_159b0bbfde.jpg",
+    "prompt": "Remove the laptop from the image.",
+    "target": "outputs/edit_pairs/remove_selfdistill/targets/00063.png",
+    "best_reward": 0.3632,
+    "meta": {
+      "out_pres": 0.978,
+      "in_chg": 0.174,
+      "gone": 0.711
+    },
+    "all_rewards": [
+      0.3632,
+      0.3475,
+      0.3305,
+      0.3393
+    ]
+  },
+  {
+    "key": "remove_00064",
+    "source": "data/unlabeled/raw/coco2017/20207_2347c23ba6.jpg",
+    "prompt": "Remove the dog cat from the image.",
+    "target": "outputs/edit_pairs/remove_selfdistill/targets/00064.png",
+    "best_reward": 0.3834,
+    "meta": {
+      "out_pres": 0.979,
+      "in_chg": 0.265,
+      "gone": 0.493
+    },
+    "all_rewards": [
+      0.3512,
+      0.3809,
+      0.358,
+      0.3834
+    ]
+  },
+  {
+    "key": "remove_00066",
+    "source": "data/unlabeled/raw/coco2017/225345_1121e6eff3.jpg",
+    "prompt": "Remove the fire hydrant from the image.",
+    "target": "outputs/edit_pairs/remove_selfdistill/targets/00066.png",
+    "best_reward": 0.5974,
+    "meta": {
+      "out_pres": 0.889,
+      "in_chg": 0.224,
+      "gone": 1.0
+    },
+    "all_rewards": [
+      0.5624,
+      0.5974,
+      0.5481,
+      0.5688
+    ]
+  },
+  {
+    "key": "remove_00067",
+    "source": "data/unlabeled/raw/coco2017/149588_a5cce9e530.jpg",
+    "prompt": "Remove the train from the image.",
+    "target": "outputs/edit_pairs/remove_selfdistill/targets/00067.png",
+    "best_reward": 0.2521,
+    "meta": {
+      "out_pres": 0.964,
+      "in_chg": 0.12,
+      "gone": 0.726
+    },
+    "all_rewards": [
+      0.2449,
+      0.2514,
+      0.2521,
+      0.2484
+    ]
+  },
+  {
+    "key": "remove_00068",
+    "source": "data/unlabeled/raw/coco2017/298347_e5d35a1681.jpg",
+    "prompt": "Remove the cup from the image.",
+    "target": "outputs/edit_pairs/remove_selfdistill/targets/00068.png",
+    "best_reward": 0.3493,
+    "meta": {
+      "out_pres": 0.965,
+      "in_chg": 0.294,
+      "gone": 0.411
+    },
+    "all_rewards": [
+      0.0,
+      0.3493,
+      0.3273,
+      0.0
+    ]
+  },
+  {
+    "key": "remove_00069",
+    "source": "data/unlabeled/raw/coco2017/563525_54646a0ee6.jpg",
+    "prompt": "Remove the person man from the image.",
+    "target": "outputs/edit_pairs/remove_selfdistill/targets/00069.png",
+    "best_reward": 0.1931,
+    "meta": {
+      "out_pres": 0.962,
+      "in_chg": 0.126,
+      "gone": 0.53
+    },
+    "all_rewards": [
+      0.1727,
+      0.1793,
+      0.1931,
+      0.1823
+    ]
+  },
+  {
+    "key": "remove_00070",
+    "source": "data/unlabeled/raw/coco2017/493293_0b783da24a.jpg",
+    "prompt": "Remove the person man from the image.",
+    "target": "outputs/edit_pairs/remove_selfdistill/targets/00070.png",
+    "best_reward": 0.3316,
+    "meta": {
+      "out_pres": 0.931,
+      "in_chg": 0.163,
+      "gone": 0.727
+    },
+    "all_rewards": [
+      0.3316,
+      0.2987,
+      0.3203,
+      0.3016
+    ]
+  },
+  {
+    "key": "remove_00071",
+    "source": "data/unlabeled/raw/coco2017/250629_8452cae604.jpg",
+    "prompt": "Remove the umbrella from the image.",
+    "target": "outputs/edit_pairs/remove_selfdistill/targets/00071.png",
+    "best_reward": 0.466,
+    "meta": {
+      "out_pres": 0.941,
+      "in_chg": 0.226,
+      "gone": 0.729
+    },
+    "all_rewards": [
+      0.4032,
+      0.3975,
+      0.3858,
+      0.466
+    ]
+  },
+  {
+    "key": "remove_00072",
+    "source": "data/unlabeled/raw/coco2017/552549_a08febfc46.jpg",
+    "prompt": "Remove the person man from the image.",
+    "target": "outputs/edit_pairs/remove_selfdistill/targets/00072.png",
+    "best_reward": 0.3055,
+    "meta": {
+      "out_pres": 0.955,
+      "in_chg": 0.167,
+      "gone": 0.639
+    },
+    "all_rewards": [
+      0.2653,
+      0.3055,
+      0.2748,
+      0.3014
+    ]
+  }
+]

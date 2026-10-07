@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "method": "detector_assisted_multifamily_self_distillation",
+  "training_rows": 149,
+  "family_counts": {
+    "extract": 29,
+    "remove": 50,
+    "replace": 35,
+    "action": 35
+  },
+  "training_manifest_sha256": "23a67b033e7e517119290987259dc38a63474e6dee222553a97103649201d073",
+  "checkpoint_sha256": "0c8a38eb5ae634d9c2624826f83e647eaea5e12432b536bc8ea6c787da2c5864",
+  "checkpoint_bytes": 94501384,
+  "checkpoint_included": false,
+  "training_images_included": false,
+  "recorded_max_train_steps": 500,
+  "seed": 123,
+  "lora_rank": 16,
+  "lora_alpha": 16,
+  "learning_rate": 0.0001,
+  "exact_step_completion_receipt_available": false,
+  "code_identity_at_original_run_verified": false,
+  "historical_model_revision_pinned": false,
+  "paper_score_reproduction_verified": false,
+  "boundary": "Recovered artifacts and recorded evaluations; not proof of the exact code version used at run time or of paper-score reproduction."
+}

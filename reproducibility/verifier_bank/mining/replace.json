@@ -1,0 +1,667 @@
+[
+  {
+    "key": "replace_00001",
+    "source": "data/unlabeled/raw/coco2017/81593_f790a282da.jpg",
+    "prompt": "Replace the car with a truck.",
+    "target": "outputs/edit_pairs/replace_selfdistill/targets/00001.png",
+    "best_reward": 0.8504,
+    "meta": {
+      "old_gone": 1.0,
+      "new_present": 0.795,
+      "bg_pres": 0.87,
+      "vlm": 0.973
+    },
+    "all_rewards": [
+      0.6219,
+      0.8504,
+      0.707,
+      0.5064
+    ]
+  },
+  {
+    "key": "replace_00003",
+    "source": "data/unlabeled/raw/coco2017/526521_908c92f65d.jpg",
+    "prompt": "Replace the elephant with a potted plant.",
+    "target": "outputs/edit_pairs/replace_selfdistill/targets/00003.png",
+    "best_reward": 0.6769,
+    "meta": {
+      "old_gone": 0.608,
+      "new_present": 0.804,
+      "bg_pres": 0.888,
+      "vlm": 0.994
+    },
+    "all_rewards": [
+      0.6769,
+      0.6694,
+      0.6599,
+      0.561
+    ]
+  },
+  {
+    "key": "replace_00005",
+    "source": "data/unlabeled/raw/coco2017/314565_3d48a5c15f.jpg",
+    "prompt": "Replace the person man with a potted plant.",
+    "target": "outputs/edit_pairs/replace_selfdistill/targets/00005.png",
+    "best_reward": 0.4473,
+    "meta": {
+      "old_gone": 0.432,
+      "new_present": 0.772,
+      "bg_pres": 0.906,
+      "vlm": 0.63
+    },
+    "all_rewards": [
+      0.4473,
+      0.4033,
+      0.4338,
+      0.3791
+    ]
+  },
+  {
+    "key": "replace_00006",
+    "source": "data/unlabeled/raw/coco2017/100209_913cb54d54.jpg",
+    "prompt": "Replace the person child with a cow.",
+    "target": "outputs/edit_pairs/replace_selfdistill/targets/00006.png",
+    "best_reward": 0.5931,
+    "meta": {
+      "old_gone": 0.438,
+      "new_present": 0.908,
+      "bg_pres": 0.881,
+      "vlm": 0.94
+    },
+    "all_rewards": [
+      0.4513,
+      0.4806,
+      0.5931,
+      0.5172
+    ]
+  },
+  {
+    "key": "replace_00007",
+    "source": "data/unlabeled/raw/coco2017/147646_422380793b.jpg",
+    "prompt": "Replace the kite with a zebra.",
+    "target": "outputs/edit_pairs/replace_selfdistill/targets/00007.png",
+    "best_reward": 0.7028,
+    "meta": {
+      "old_gone": 0.634,
+      "new_present": 0.918,
+      "bg_pres": 0.971,
+      "vlm": 0.86
+    },
+    "all_rewards": [
+      0.7028,
+      0.6604,
+      0.6959,
+      0.6602
+    ]
+  },
+  {
+    "key": "replace_00008",
+    "source": "data/unlabeled/raw/coco2017/44616_5c171b4e59.jpg",
+    "prompt": "Replace the pizza with a cake.",
+    "target": "outputs/edit_pairs/replace_selfdistill/targets/00008.png",
+    "best_reward": 0.704,
+    "meta": {
+      "old_gone": 0.61,
+      "new_present": 0.873,
+      "bg_pres": 0.875,
+      "vlm": 0.992
+    },
+    "all_rewards": [
+      0.6296,
+      0.689,
+      0.6798,
+      0.704
+    ]
+  },
+  {
+    "key": "replace_00009",
+    "source": "data/unlabeled/raw/coco2017/134344_8a764fee44.jpg",
+    "prompt": "Replace the umbrella with a woman.",
+    "target": "outputs/edit_pairs/replace_selfdistill/targets/00009.png",
+    "best_reward": 0.238,
+    "meta": {
+      "old_gone": 1.0,
+      "new_present": 0.884,
+      "bg_pres": 0.791,
+      "vlm": 0.072
+    },
+    "all_rewards": [
+      0.1781,
+      0.238,
+      0.1019,
+      0.1357
+    ]
+  },
+  {
+    "key": "replace_00010",
+    "source": "data/unlabeled/raw/coco2017/29472_720babe05d.jpg",
+    "prompt": "Replace the umbrella with a cat.",
+    "target": "outputs/edit_pairs/replace_selfdistill/targets/00010.png",
+    "best_reward": 0.9385,
+    "meta": {
+      "old_gone": 1.0,
+      "new_present": 0.922,
+      "bg_pres": 0.985,
+      "vlm": 0.963
+    },
+    "all_rewards": [
+      0.9385,
+      0.921,
+      0.8492,
+      0.6823
+    ]
+  },
+  {
+    "key": "replace_00011",
+    "source": "data/unlabeled/raw/coco2017/412910_371daac874.jpg",
+    "prompt": "Replace the surfboard with a cow.",
+    "target": "outputs/edit_pairs/replace_selfdistill/targets/00011.png",
+    "best_reward": 0.8712,
+    "meta": {
+      "old_gone": 1.0,
+      "new_present": 0.819,
+      "bg_pres": 0.897,
+      "vlm": 0.977
+    },
+    "all_rewards": [
+      0.8712,
+      0.7315,
+      0.8286,
+      0.8453
+    ]
+  },
+  {
+    "key": "replace_00012",
+    "source": "data/unlabeled/raw/coco2017/193042_f11da7ea0d.jpg",
+    "prompt": "Replace the couch with a truck.",
+    "target": "outputs/edit_pairs/replace_selfdistill/targets/00012.png",
+    "best_reward": 0.5721,
+    "meta": {
+      "old_gone": 0.584,
+      "new_present": 0.594,
+      "bg_pres": 0.916,
+      "vlm": 0.985
+    },
+    "all_rewards": [
+      0.0,
+      0.4176,
+      0.4592,
+      0.5721
+    ]
+  },
+  {
+    "key": "replace_00013",
+    "source": "data/unlabeled/raw/coco2017/451121_5325f38537.jpg",
+    "prompt": "Replace the person woman with a fire hydrant.",
+    "target": "outputs/edit_pairs/replace_selfdistill/targets/00013.png",
+    "best_reward": 0.7692,
+    "meta": {
+      "old_gone": 0.717,
+      "new_present": 0.848,
+      "bg_pres": 0.99,
+      "vlm": 0.978
+    },
+    "all_rewards": [
+      0.7565,
+      0.7692,
+      0.7425,
+      0.7366
+    ]
+  },
+  {
+    "key": "replace_00014",
+    "source": "data/unlabeled/raw/coco2017/245145_a3d56c9afa.jpg",
+    "prompt": "Replace the surfboard with a book.",
+    "target": "outputs/edit_pairs/replace_selfdistill/targets/00014.png",
+    "best_reward": 0.6063,
+    "meta": {
+      "old_gone": 0.595,
+      "new_present": 0.91,
+      "bg_pres": 0.894,
+      "vlm": 0.717
+    },
+    "all_rewards": [
+      0.4556,
+      0.553,
+      0.467,
+      0.6063
+    ]
+  },
+  {
+    "key": "replace_00015",
+    "source": "data/unlabeled/raw/coco2017/292662_0eea7d3242.jpg",
+    "prompt": "Replace the truck with a giraffe.",
+    "target": "outputs/edit_pairs/replace_selfdistill/targets/00015.png",
+    "best_reward": 0.9635,
+    "meta": {
+      "old_gone": 1.0,
+      "new_present": 0.946,
+      "bg_pres": 0.98,
+      "vlm": 0.991
+    },
+    "all_rewards": [
+      0.9635,
+      0.9481,
+      0.9448,
+      0.9489
+    ]
+  },
+  {
+    "key": "replace_00016",
+    "source": "data/unlabeled/raw/coco2017/247866_551fece9c9.jpg",
+    "prompt": "Replace the person man with a bottle.",
+    "target": "outputs/edit_pairs/replace_selfdistill/targets/00016.png",
+    "best_reward": 0.6077,
+    "meta": {
+      "old_gone": 0.515,
+      "new_present": 0.904,
+      "bg_pres": 0.933,
+      "vlm": 0.821
+    },
+    "all_rewards": [
+      0.5401,
+      0.6077,
+      0.5886,
+      0.0
+    ]
+  },
+  {
+    "key": "replace_00017",
+    "source": "data/unlabeled/raw/coco2017/16082_3e19a7c2eb.jpg",
+    "prompt": "Replace the laptop keyboard with a surfboard.",
+    "target": "outputs/edit_pairs/replace_selfdistill/targets/00017.png",
+    "best_reward": 0.6969,
+    "meta": {
+      "old_gone": 0.638,
+      "new_present": 0.805,
+      "bg_pres": 0.981,
+      "vlm": 0.955
+    },
+    "all_rewards": [
+      0.5857,
+      0.5942,
+      0.6046,
+      0.6969
+    ]
+  },
+  {
+    "key": "replace_00019",
+    "source": "data/unlabeled/raw/coco2017/47928_b21c759b5c.jpg",
+    "prompt": "Replace the cake with a laptop.",
+    "target": "outputs/edit_pairs/replace_selfdistill/targets/00019.png",
+    "best_reward": 0.581,
+    "meta": {
+      "old_gone": 0.599,
+      "new_present": 0.745,
+      "bg_pres": 0.805,
+      "vlm": 0.838
+    },
+    "all_rewards": [
+      0.5688,
+      0.488,
+      0.5343,
+      0.581
+    ]
+  },
+  {
+    "key": "replace_00020",
+    "source": "data/unlabeled/raw/coco2017/480582_39f6003f4b.jpg",
+    "prompt": "Replace the person man woman with a cell phone.",
+    "target": "outputs/edit_pairs/replace_selfdistill/targets/00020.png",
+    "best_reward": 0.5451,
+    "meta": {
+      "old_gone": 0.502,
+      "new_present": 0.734,
+      "bg_pres": 0.935,
+      "vlm": 0.833
+    },
+    "all_rewards": [
+      0.4219,
+      0.5451,
+      0.428,
+      0.0
+    ]
+  },
+  {
+    "key": "replace_00021",
+    "source": "data/unlabeled/raw/coco2017/512346_68a18338be.jpg",
+    "prompt": "Replace the person man with a laptop.",
+    "target": "outputs/edit_pairs/replace_selfdistill/targets/00021.png",
+    "best_reward": 0.552,
+    "meta": {
+      "old_gone": 0.629,
+      "new_present": 0.664,
+      "bg_pres": 0.902,
+      "vlm": 0.767
+    },
+    "all_rewards": [
+      0.5472,
+      0.5128,
+      0.4345,
+      0.552
+    ]
+  },
+  {
+    "key": "replace_00022",
+    "source": "data/unlabeled/raw/coco2017/310663_498f7047bb.jpg",
+    "prompt": "Replace the train with a bottle.",
+    "target": "outputs/edit_pairs/replace_selfdistill/targets/00022.png",
+    "best_reward": 0.6322,
+    "meta": {
+      "old_gone": 0.493,
+      "new_present": 0.845,
+      "bg_pres": 0.963,
+      "vlm": 0.976
+    },
+    "all_rewards": [
+      0.6322,
+      0.5109,
+      0.4783,
+      0.0
+    ]
+  },
+  {
+    "key": "replace_00023",
+    "source": "data/unlabeled/raw/coco2017/289344_116becb86f.jpg",
+    "prompt": "Replace the chair with a book.",
+    "target": "outputs/edit_pairs/replace_selfdistill/targets/00023.png",
+    "best_reward": 0.8448,
+    "meta": {
+      "old_gone": 1.0,
+      "new_present": 0.781,
+      "bg_pres": 0.971,
+      "vlm": 0.928
+    },
+    "all_rewards": [
+      0.8448,
+      0.8299,
+      0.838,
+      0.7637
+    ]
+  },
+  {
+    "key": "replace_00024",
+    "source": "data/unlabeled/raw/coco2017/185719_c16aa9a7ca.jpg",
+    "prompt": "Replace the giraffe with a umbrella.",
+    "target": "outputs/edit_pairs/replace_selfdistill/targets/00024.png",
+    "best_reward": 0.884,
+    "meta": {
+      "old_gone": 1.0,
+      "new_present": 0.95,
+      "bg_pres": 0.953,
+      "vlm": 0.842
+    },
+    "all_rewards": [
+      0.8329,
+      0.8384,
+      0.884,
+      0.7465
+    ]
+  },
+  {
+    "key": "replace_00025",
+    "source": "data/unlabeled/raw/coco2017/480409_3f4c2a8ad7.jpg",
+    "prompt": "Replace the elephant with a giraffe.",
+    "target": "outputs/edit_pairs/replace_selfdistill/targets/00025.png",
+    "best_reward": 0.6714,
+    "meta": {
+      "old_gone": 0.49,
+      "new_present": 0.955,
+      "bg_pres": 0.965,
+      "vlm": 0.979
+    },
+    "all_rewards": [
+      0.6293,
+      0.6714,
+      0.654,
+      0.0
+    ]
+  },
+  {
+    "key": "replace_00026",
+    "source": "data/unlabeled/raw/coco2017/223450_a496337695.jpg",
+    "prompt": "Replace the giraffe with a wine glass.",
+    "target": "outputs/edit_pairs/replace_selfdistill/targets/00026.png",
+    "best_reward": 0.9265,
+    "meta": {
+      "old_gone": 1.0,
+      "new_present": 0.887,
+      "bg_pres": 0.944,
+      "vlm": 0.996
+    },
+    "all_rewards": [
+      0.9265,
+      0.9243,
+      0.9115,
+      0.9235
+    ]
+  },
+  {
+    "key": "replace_00028",
+    "source": "data/unlabeled/raw/coco2017/259172_8827715307.jpg",
+    "prompt": "Replace the airplane with a cat.",
+    "target": "outputs/edit_pairs/replace_selfdistill/targets/00028.png",
+    "best_reward": 0.8104,
+    "meta": {
+      "old_gone": 0.72,
+      "new_present": 0.946,
+      "bg_pres": 0.936,
+      "vlm": 0.997
+    },
+    "all_rewards": [
+      0.7773,
+      0.783,
+      0.8104,
+      0.7436
+    ]
+  },
+  {
+    "key": "replace_00030",
+    "source": "data/unlabeled/raw/coco2017/21782_7efd9b3db5.jpg",
+    "prompt": "Replace the fire hydrant with a cell phone.",
+    "target": "outputs/edit_pairs/replace_selfdistill/targets/00030.png",
+    "best_reward": 0.8898,
+    "meta": {
+      "old_gone": 1.0,
+      "new_present": 0.876,
+      "bg_pres": 0.951,
+      "vlm": 0.926
+    },
+    "all_rewards": [
+      0.8898,
+      0.8621,
+      0.8695,
+      0.8877
+    ]
+  },
+  {
+    "key": "replace_00032",
+    "source": "data/unlabeled/raw/coco2017/144178_f2cb84b1c1.jpg",
+    "prompt": "Replace the person man with a kite.",
+    "target": "outputs/edit_pairs/replace_selfdistill/targets/00032.png",
+    "best_reward": 0.6641,
+    "meta": {
+      "old_gone": 0.529,
+      "new_present": 0.896,
+      "bg_pres": 0.884,
+      "vlm": 0.987
+    },
+    "all_rewards": [
+      0.6503,
+      0.6262,
+      0.6641,
+      0.6451
+    ]
+  },
+  {
+    "key": "replace_00033",
+    "source": "data/unlabeled/raw/coco2017/412355_019ed85618.jpg",
+    "prompt": "Replace the bird with a man.",
+    "target": "outputs/edit_pairs/replace_selfdistill/targets/00033.png",
+    "best_reward": 0.7215,
+    "meta": {
+      "old_gone": 0.697,
+      "new_present": 0.772,
+      "bg_pres": 0.944,
+      "vlm": 0.996
+    },
+    "all_rewards": [
+      0.6803,
+      0.6792,
+      0.6093,
+      0.7215
+    ]
+  },
+  {
+    "key": "replace_00034",
+    "source": "data/unlabeled/raw/coco2017/516540_987dc52f3e.jpg",
+    "prompt": "Replace the fire hydrant with a flower.",
+    "target": "outputs/edit_pairs/replace_selfdistill/targets/00034.png",
+    "best_reward": 0.8209,
+    "meta": {
+      "old_gone": 1.0,
+      "new_present": 0.735,
+      "bg_pres": 0.959,
+      "vlm": 0.936
+    },
+    "all_rewards": [
+      0.6209,
+      0.6201,
+      0.6904,
+      0.8209
+    ]
+  },
+  {
+    "key": "replace_00035",
+    "source": "data/unlabeled/raw/coco2017/498971_3b0264f1ff.jpg",
+    "prompt": "Replace the boat with a motorcycle.",
+    "target": "outputs/edit_pairs/replace_selfdistill/targets/00035.png",
+    "best_reward": 0.5815,
+    "meta": {
+      "old_gone": 0.505,
+      "new_present": 0.944,
+      "bg_pres": 0.971,
+      "vlm": 0.721
+    },
+    "all_rewards": [
+      0.5549,
+      0.5815,
+      0.5427,
+      0.5588
+    ]
+  },
+  {
+    "key": "replace_00037",
+    "source": "data/unlabeled/raw/coco2017/527183_2b5a0ed855.jpg",
+    "prompt": "Replace the person man with a clock.",
+    "target": "outputs/edit_pairs/replace_selfdistill/targets/00037.png",
+    "best_reward": 0.6573,
+    "meta": {
+      "old_gone": 0.671,
+      "new_present": 0.714,
+      "bg_pres": 0.9,
+      "vlm": 0.949
+    },
+    "all_rewards": [
+      0.6367,
+      0.5922,
+      0.5006,
+      0.6573
+    ]
+  },
+  {
+    "key": "replace_00038",
+    "source": "data/unlabeled/raw/coco2017/191667_f2e2494eb5.jpg",
+    "prompt": "Replace the cat with a cup.",
+    "target": "outputs/edit_pairs/replace_selfdistill/targets/00038.png",
+    "best_reward": 0.959,
+    "meta": {
+      "old_gone": 1.0,
+      "new_present": 0.929,
+      "bg_pres": 0.988,
+      "vlm": 0.996
+    },
+    "all_rewards": [
+      0.959,
+      0.9495,
+      0.9441,
+      0.7979
+    ]
+  },
+  {
+    "key": "replace_00040",
+    "source": "data/unlabeled/raw/coco2017/518932_64b1d0a447.jpg",
+    "prompt": "Replace the person man with a potted plant.",
+    "target": "outputs/edit_pairs/replace_selfdistill/targets/00040.png",
+    "best_reward": 0.6649,
+    "meta": {
+      "old_gone": 0.594,
+      "new_present": 0.82,
+      "bg_pres": 0.986,
+      "vlm": 0.913
+    },
+    "all_rewards": [
+      0.6358,
+      0.6649,
+      0.4965,
+      0.4826
+    ]
+  },
+  {
+    "key": "replace_00042",
+    "source": "data/unlabeled/raw/coco2017/568886_965e18a4a2.jpg",
+    "prompt": "Replace the suitcase with a horse.",
+    "target": "outputs/edit_pairs/replace_selfdistill/targets/00042.png",
+    "best_reward": 0.7973,
+    "meta": {
+      "old_gone": 1.0,
+      "new_present": 0.953,
+      "bg_pres": 0.928,
+      "vlm": 0.692
+    },
+    "all_rewards": [
+      0.7973,
+      0.7841,
+      0.6578,
+      0.783
+    ]
+  },
+  {
+    "key": "replace_00043",
+    "source": "data/unlabeled/raw/coco2017/447376_9be385fc5a.jpg",
+    "prompt": "Replace the motorcycle with a toy.",
+    "target": "outputs/edit_pairs/replace_selfdistill/targets/00043.png",
+    "best_reward": 0.4136,
+    "meta": {
+      "old_gone": 0.38,
+      "new_present": 0.534,
+      "bg_pres": 0.969,
+      "vlm": 0.856
+    },
+    "all_rewards": [
+      0.0,
+      0.3528,
+      0.0,
+      0.4136
+    ]
+  },
+  {
+    "key": "replace_00045",
+    "source": "data/unlabeled/raw/coco2017/580057_f130e4adbf.jpg",
+    "prompt": "Replace the couch bench with a bus.",
+    "target": "outputs/edit_pairs/replace_selfdistill/targets/00045.png",
+    "best_reward": 0.7848,
+    "meta": {
+      "old_gone": 1.0,
+      "new_present": 0.782,
+      "bg_pres": 0.943,
+      "vlm": 0.811
+    },
+    "all_rewards": [
+      0.6165,
+      0.7606,
+      0.6442,
+      0.7848
+    ]
+  }
+]

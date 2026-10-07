@@ -1,0 +1,81 @@
+{
+  "tasks": 11,
+  "records": 330,
+  "language_counts": {
+    "cn": 330,
+    "en": 0
+  },
+  "aggregation": "macro average across eleven equally sized task slices",
+  "base": 8.192449453316776,
+  "candidate": 8.312768024358801,
+  "delta": 0.12031857104202537,
+  "per_task": {
+    "background_change": {
+      "baseline_overall": 8.418872884739327,
+      "candidate_overall": 8.407119805608092,
+      "delta_overall": -0.011753079131236266,
+      "count": 30
+    },
+    "color_alter": {
+      "baseline_overall": 8.378464642587671,
+      "candidate_overall": 8.126373038738949,
+      "delta_overall": -0.2520916038487222,
+      "count": 30
+    },
+    "material_alter": {
+      "baseline_overall": 7.3344691974781,
+      "candidate_overall": 7.441827750807695,
+      "delta_overall": 0.10735855332959537,
+      "count": 30
+    },
+    "motion_change": {
+      "baseline_overall": 8.899974574507844,
+      "candidate_overall": 8.780864372390361,
+      "delta_overall": -0.11911020211748238,
+      "count": 30
+    },
+    "ps_human": {
+      "baseline_overall": 7.61614144450564,
+      "candidate_overall": 8.01311839377516,
+      "delta_overall": 0.39697694926952,
+      "count": 30
+    },
+    "style_change": {
+      "baseline_overall": 6.703279124183313,
+      "candidate_overall": 7.31772967850132,
+      "delta_overall": 0.6144505543180073,
+      "count": 30
+    },
+    "subject-add": {
+      "baseline_overall": 8.711953825009465,
+      "candidate_overall": 8.831071268731952,
+      "delta_overall": 0.11911744372248624,
+      "count": 30
+    },
+    "subject-remove": {
+      "baseline_overall": 8.584591630996384,
+      "candidate_overall": 8.77955818800154,
+      "delta_overall": 0.1949665570051555,
+      "count": 30
+    },
+    "subject-replace": {
+      "baseline_overall": 8.672068054956082,
+      "candidate_overall": 8.547563596529011,
+      "delta_overall": -0.12450445842707086,
+      "count": 30
+    },
+    "text_change": {
+      "baseline_overall": 8.757806264069103,
+      "candidate_overall": 8.824214002239081,
+      "delta_overall": 0.06640773816997857,
+      "count": 30
+    },
+    "tone_transfer": {
+      "baseline_overall": 8.039322343451602,
+      "candidate_overall": 8.371008172623663,
+      "delta_overall": 0.33168582917206085,
+      "count": 30
+    }
+  },
+  "checkpoint_generation_contract_verified": false
+}

@@ -1,0 +1,41 @@
+{
+  "timestamp_utc": "20260705T055505Z",
+  "hostname": "h3c-nvlh200-H3C-UniServer-R5300-G6",
+  "user": "ritesh_thawkar",
+  "cwd": "<workspace>",
+  "repo_root": "<workspace>",
+  "git": {
+    "available": true,
+    "commit": "e34f5cdbf18746e7464e78b82cb2bbbf329ffc89",
+    "dirty": true
+  },
+  "benchmark": "imgedit",
+  "config_path": "<workspace>/configs/eval/imgedit.yaml",
+  "model_name": "multifamily_v1_full737",
+  "result_dir": "<workspace>/outputs/quick_eval/imgedit_full737_multifamily_v1/images/multifamily_v1_full737",
+  "average_score_json": "<workspace>/outputs/quick_eval/imgedit_full737_multifamily_v1/scores/multifamily_v1_full737_average_score.json",
+  "typescore_json": "<workspace>/outputs/quick_eval/imgedit_full737_multifamily_v1/scores/multifamily_v1_full737_typescore.json",
+  "logs": [
+    "<workspace>/outputs/logs/imgedit_score_20260705T054912Z_initial.log",
+    "<workspace>/outputs/logs/imgedit_score_20260705T054912Z_retry_01.log",
+    "<workspace>/outputs/logs/imgedit_score_20260705T054912Z_retry_02.log",
+    "<workspace>/outputs/logs/imgedit_avg_20260705T054912Z.log",
+    "<workspace>/outputs/logs/imgedit_types_20260705T054912Z.log"
+  ],
+  "unscored_keys": [],
+  "metrics": {
+    "count": 737,
+    "overall_average": 4.536987788331068,
+    "type_scores": {
+      "extract": 4.28,
+      "remove": 4.37,
+      "background": 4.49,
+      "adjust": 4.52,
+      "style": 4.75,
+      "replace": 4.71,
+      "add": 4.65,
+      "compose": 4.16,
+      "action": 4.83
+    }
+  }
+}

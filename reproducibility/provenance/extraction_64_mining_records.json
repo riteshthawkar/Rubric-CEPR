@@ -1,0 +1,1418 @@
+{
+  "source_sha256": {
+    "outputs/edit_pairs/extract_selfdistill/sft_manifest.json": "99461f7fc8ae18092bbff23c5ceb1df782f221e0ba0018c80968ab63f517d240",
+    "outputs/edit_pairs/extract_selfdistill_shard2/sft_manifest.json": "2a4ddc8b1422bca6b6b225091ee814cf026395bd38e531bac41436ea868a2b26"
+  },
+  "training_manifest_sha256": "8f1b5d17c3c7ca197ed28e92917a979c427b9e4aef20b3d0cfa3b63bbd7ba664",
+  "rows": [
+    {
+      "key": "00001",
+      "source": "data/unlabeled/raw/coco2017/81593_f790a282da.jpg",
+      "prompt": "Extract the car.",
+      "object": "car",
+      "det_score": 0.675,
+      "target": "outputs/edit_pairs/extract_selfdistill/targets/00001.png",
+      "best_reward": 0.8939,
+      "reward_meta": {
+        "border_white": 0.992,
+        "obj_frac": 0.225,
+        "sharp": 0.803,
+        "reward": 0.8939
+      },
+      "all_rewards": [
+        0.0,
+        0.0,
+        0.8939,
+        0.0
+      ],
+      "n_samples": 4
+    },
+    {
+      "key": "00003",
+      "source": "data/unlabeled/raw/coco2017/526521_908c92f65d.jpg",
+      "prompt": "Extract the elephant.",
+      "object": "elephant",
+      "det_score": 0.778,
+      "target": "outputs/edit_pairs/extract_selfdistill/targets/00003.png",
+      "best_reward": 0.976,
+      "reward_meta": {
+        "border_white": 1.0,
+        "obj_frac": 0.289,
+        "sharp": 0.952,
+        "reward": 0.976
+      },
+      "all_rewards": [
+        0.0,
+        0.976,
+        0.0,
+        0.0
+      ],
+      "n_samples": 4
+    },
+    {
+      "key": "00006",
+      "source": "data/unlabeled/raw/coco2017/100209_913cb54d54.jpg",
+      "prompt": "Extract the person child.",
+      "object": "person child",
+      "det_score": 0.508,
+      "target": "outputs/edit_pairs/extract_selfdistill/targets/00006.png",
+      "best_reward": 0.6166,
+      "reward_meta": {
+        "border_white": 0.895,
+        "obj_frac": 0.261,
+        "sharp": 0.378,
+        "reward": 0.6166
+      },
+      "all_rewards": [
+        0.6076,
+        0.6166,
+        0.5704,
+        0.0
+      ],
+      "n_samples": 4
+    },
+    {
+      "key": "00009",
+      "source": "data/unlabeled/raw/coco2017/134344_8a764fee44.jpg",
+      "prompt": "Extract the umbrella.",
+      "object": "umbrella",
+      "det_score": 0.579,
+      "target": "outputs/edit_pairs/extract_selfdistill/targets/00009.png",
+      "best_reward": 0.7972,
+      "reward_meta": {
+        "border_white": 0.995,
+        "obj_frac": 0.25,
+        "sharp": 0.603,
+        "reward": 0.7972
+      },
+      "all_rewards": [
+        0.0,
+        0.0,
+        0.7972,
+        0.7972
+      ],
+      "n_samples": 4
+    },
+    {
+      "key": "00011",
+      "source": "data/unlabeled/raw/coco2017/412910_371daac874.jpg",
+      "prompt": "Extract the surfboard.",
+      "object": "surfboard",
+      "det_score": 0.769,
+      "target": "outputs/edit_pairs/extract_selfdistill/targets/00011.png",
+      "best_reward": 0.7741,
+      "reward_meta": {
+        "border_white": 0.945,
+        "obj_frac": 0.397,
+        "sharp": 0.638,
+        "reward": 0.7741
+      },
+      "all_rewards": [
+        0.7741,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "n_samples": 4
+    },
+    {
+      "key": "00012",
+      "source": "data/unlabeled/raw/coco2017/193042_f11da7ea0d.jpg",
+      "prompt": "Extract the couch.",
+      "object": "couch",
+      "det_score": 0.685,
+      "target": "outputs/edit_pairs/extract_selfdistill/targets/00012.png",
+      "best_reward": 0.7665,
+      "reward_meta": {
+        "border_white": 1.0,
+        "obj_frac": 0.292,
+        "sharp": 0.533,
+        "reward": 0.7665
+      },
+      "all_rewards": [
+        0.703,
+        0.0,
+        0.7665,
+        0.6981
+      ],
+      "n_samples": 4
+    },
+    {
+      "key": "00013",
+      "source": "data/unlabeled/raw/coco2017/451121_5325f38537.jpg",
+      "prompt": "Extract the person woman.",
+      "object": "person woman",
+      "det_score": 0.589,
+      "target": "outputs/edit_pairs/extract_selfdistill/targets/00013.png",
+      "best_reward": 0.5663,
+      "reward_meta": {
+        "border_white": 0.75,
+        "obj_frac": 0.468,
+        "sharp": 0.51,
+        "reward": 0.5663
+      },
+      "all_rewards": [
+        0.5227,
+        0.5663,
+        0.0,
+        0.0
+      ],
+      "n_samples": 4
+    },
+    {
+      "key": "00014",
+      "source": "data/unlabeled/raw/coco2017/245145_a3d56c9afa.jpg",
+      "prompt": "Extract the surfboard.",
+      "object": "surfboard",
+      "det_score": 0.57,
+      "target": "outputs/edit_pairs/extract_selfdistill/targets/00014.png",
+      "best_reward": 0.831,
+      "reward_meta": {
+        "border_white": 0.87,
+        "obj_frac": 0.215,
+        "sharp": 0.911,
+        "reward": 0.831
+      },
+      "all_rewards": [
+        0.0,
+        0.831,
+        0.7048,
+        0.793
+      ],
+      "n_samples": 4
+    },
+    {
+      "key": "00015",
+      "source": "data/unlabeled/raw/coco2017/292662_0eea7d3242.jpg",
+      "prompt": "Extract the truck.",
+      "object": "truck",
+      "det_score": 0.417,
+      "target": "outputs/edit_pairs/extract_selfdistill/targets/00015.png",
+      "best_reward": 0.9449,
+      "reward_meta": {
+        "border_white": 1.0,
+        "obj_frac": 0.254,
+        "sharp": 0.89,
+        "reward": 0.9449
+      },
+      "all_rewards": [
+        0.9289,
+        0.8673,
+        0.9449,
+        0.931
+      ],
+      "n_samples": 4
+    },
+    {
+      "key": "00016",
+      "source": "data/unlabeled/raw/coco2017/247866_551fece9c9.jpg",
+      "prompt": "Extract the person man.",
+      "object": "person man",
+      "det_score": 0.409,
+      "target": "outputs/edit_pairs/extract_selfdistill/targets/00016.png",
+      "best_reward": 0.9764,
+      "reward_meta": {
+        "border_white": 0.976,
+        "obj_frac": 0.166,
+        "sharp": 1.0,
+        "reward": 0.9764
+      },
+      "all_rewards": [
+        0.9074,
+        0.8896,
+        0.9764,
+        0.0
+      ],
+      "n_samples": 4
+    },
+    {
+      "key": "00017",
+      "source": "data/unlabeled/raw/coco2017/16082_3e19a7c2eb.jpg",
+      "prompt": "Extract the laptop keyboard.",
+      "object": "laptop keyboard",
+      "det_score": 0.41,
+      "target": "outputs/edit_pairs/extract_selfdistill/targets/00017.png",
+      "best_reward": 0.9966,
+      "reward_meta": {
+        "border_white": 1.0,
+        "obj_frac": 0.284,
+        "sharp": 0.993,
+        "reward": 0.9966
+      },
+      "all_rewards": [
+        0.8844,
+        0.9966,
+        0.8313,
+        0.7605
+      ],
+      "n_samples": 4
+    },
+    {
+      "key": "00018",
+      "source": "data/unlabeled/raw/coco2017/581513_8cfc9b5236.jpg",
+      "prompt": "Extract the person woman.",
+      "object": "person woman",
+      "det_score": 0.579,
+      "target": "outputs/edit_pairs/extract_selfdistill/targets/00018.png",
+      "best_reward": 0.8481,
+      "reward_meta": {
+        "border_white": 1.0,
+        "obj_frac": 0.065,
+        "sharp": 0.696,
+        "reward": 0.8481
+      },
+      "all_rewards": [
+        0.8452,
+        0.0,
+        0.8481,
+        0.7249
+      ],
+      "n_samples": 4
+    },
+    {
+      "key": "00019",
+      "source": "data/unlabeled/raw/coco2017/47928_b21c759b5c.jpg",
+      "prompt": "Extract the cake.",
+      "object": "cake",
+      "det_score": 0.356,
+      "target": "outputs/edit_pairs/extract_selfdistill/targets/00019.png",
+      "best_reward": 0.8582,
+      "reward_meta": {
+        "border_white": 1.0,
+        "obj_frac": 0.105,
+        "sharp": 0.716,
+        "reward": 0.8582
+      },
+      "all_rewards": [
+        0.8267,
+        0.8582,
+        0.7333,
+        0.757
+      ],
+      "n_samples": 4
+    },
+    {
+      "key": "00020",
+      "source": "data/unlabeled/raw/coco2017/480582_39f6003f4b.jpg",
+      "prompt": "Extract the person man woman.",
+      "object": "person man woman",
+      "det_score": 0.671,
+      "target": "outputs/edit_pairs/extract_selfdistill/targets/00020.png",
+      "best_reward": 0.9471,
+      "reward_meta": {
+        "border_white": 1.0,
+        "obj_frac": 0.151,
+        "sharp": 0.894,
+        "reward": 0.9471
+      },
+      "all_rewards": [
+        0.0,
+        0.9471,
+        0.0,
+        0.8545
+      ],
+      "n_samples": 4
+    },
+    {
+      "key": "00021",
+      "source": "data/unlabeled/raw/coco2017/512346_68a18338be.jpg",
+      "prompt": "Extract the person man.",
+      "object": "person man",
+      "det_score": 0.703,
+      "target": "outputs/edit_pairs/extract_selfdistill/targets/00021.png",
+      "best_reward": 0.9998,
+      "reward_meta": {
+        "border_white": 1.0,
+        "obj_frac": 0.082,
+        "sharp": 1.0,
+        "reward": 0.9998
+      },
+      "all_rewards": [
+        0.0,
+        0.9998,
+        0.0,
+        0.0
+      ],
+      "n_samples": 4
+    },
+    {
+      "key": "00022",
+      "source": "data/unlabeled/raw/coco2017/310663_498f7047bb.jpg",
+      "prompt": "Extract the train.",
+      "object": "train",
+      "det_score": 0.531,
+      "target": "outputs/edit_pairs/extract_selfdistill/targets/00022.png",
+      "best_reward": 1.0,
+      "reward_meta": {
+        "border_white": 1.0,
+        "obj_frac": 0.111,
+        "sharp": 1.0,
+        "reward": 1.0
+      },
+      "all_rewards": [
+        1.0,
+        0.9636,
+        0.0,
+        0.0
+      ],
+      "n_samples": 4
+    },
+    {
+      "key": "00025",
+      "source": "data/unlabeled/raw/coco2017/480409_3f4c2a8ad7.jpg",
+      "prompt": "Extract the elephant.",
+      "object": "elephant",
+      "det_score": 0.82,
+      "target": "outputs/edit_pairs/extract_selfdistill/targets/00025.png",
+      "best_reward": 1.0,
+      "reward_meta": {
+        "border_white": 1.0,
+        "obj_frac": 0.317,
+        "sharp": 1.0,
+        "reward": 1.0
+      },
+      "all_rewards": [
+        0.9613,
+        0.9541,
+        0.9527,
+        1.0
+      ],
+      "n_samples": 4
+    },
+    {
+      "key": "00026",
+      "source": "data/unlabeled/raw/coco2017/223450_a496337695.jpg",
+      "prompt": "Extract the giraffe.",
+      "object": "giraffe",
+      "det_score": 0.88,
+      "target": "outputs/edit_pairs/extract_selfdistill/targets/00026.png",
+      "best_reward": 1.0,
+      "reward_meta": {
+        "border_white": 1.0,
+        "obj_frac": 0.114,
+        "sharp": 1.0,
+        "reward": 1.0
+      },
+      "all_rewards": [
+        1.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      "n_samples": 4
+    },
+    {
+      "key": "00028",
+      "source": "data/unlabeled/raw/coco2017/259172_8827715307.jpg",
+      "prompt": "Extract the airplane.",
+      "object": "airplane",
+      "det_score": 0.564,
+      "target": "outputs/edit_pairs/extract_selfdistill/targets/00028.png",
+      "best_reward": 0.9991,
+      "reward_meta": {
+        "border_white": 0.999,
+        "obj_frac": 0.05,
+        "sharp": 1.0,
+        "reward": 0.9991
+      },
+      "all_rewards": [
+        0.9964,
+        0.9991,
+        0.9378,
+        0.9985
+      ],
+      "n_samples": 4
+    },
+    {
+      "key": "00035",
+      "source": "data/unlabeled/raw/coco2017/498971_3b0264f1ff.jpg",
+      "prompt": "Extract the boat.",
+      "object": "boat",
+      "det_score": 0.356,
+      "target": "outputs/edit_pairs/extract_selfdistill/targets/00035.png",
+      "best_reward": 1.0,
+      "reward_meta": {
+        "border_white": 1.0,
+        "obj_frac": 0.071,
+        "sharp": 1.0,
+        "reward": 1.0
+      },
+      "all_rewards": [
+        0.0,
+        1.0,
+        0.0,
+        1.0
+      ],
+      "n_samples": 4
+    },
+    {
+      "key": "00037",
+      "source": "data/unlabeled/raw/coco2017/527183_2b5a0ed855.jpg",
+      "prompt": "Extract the person man.",
+      "object": "person man",
+      "det_score": 0.551,
+      "target": "outputs/edit_pairs/extract_selfdistill/targets/00037.png",
+      "best_reward": 0.601,
+      "reward_meta": {
+        "border_white": 0.862,
+        "obj_frac": 0.398,
+        "sharp": 0.395,
+        "reward": 0.601
+      },
+      "all_rewards": [
+        0.5723,
+        0.0,
+        0.601,
+        0.0
+      ],
+      "n_samples": 4
+    },
+    {
+      "key": "00038",
+      "source": "data/unlabeled/raw/coco2017/191667_f2e2494eb5.jpg",
+      "prompt": "Extract the cat.",
+      "object": "cat",
+      "det_score": 0.801,
+      "target": "outputs/edit_pairs/extract_selfdistill/targets/00038.png",
+      "best_reward": 0.7742,
+      "reward_meta": {
+        "border_white": 0.994,
+        "obj_frac": 0.205,
+        "sharp": 0.557,
+        "reward": 0.7742
+      },
+      "all_rewards": [
+        0.0,
+        0.7742,
+        0.0,
+        0.0
+      ],
+      "n_samples": 4
+    },
+    {
+      "key": "00039",
+      "source": "data/unlabeled/raw/coco2017/366948_8d1a6cfa1f.jpg",
+      "prompt": "Extract the person woman.",
+      "object": "person woman",
+      "det_score": 0.664,
+      "target": "outputs/edit_pairs/extract_selfdistill/targets/00039.png",
+      "best_reward": 0.7601,
+      "reward_meta": {
+        "border_white": 0.928,
+        "obj_frac": 0.204,
+        "sharp": 0.638,
+        "reward": 0.7601
+      },
+      "all_rewards": [
+        0.0,
+        0.0,
+        0.0,
+        0.7601
+      ],
+      "n_samples": 4
+    },
+    {
+      "key": "00040",
+      "source": "data/unlabeled/raw/coco2017/518932_64b1d0a447.jpg",
+      "prompt": "Extract the person man.",
+      "object": "person man",
+      "det_score": 0.659,
+      "target": "outputs/edit_pairs/extract_selfdistill/targets/00040.png",
+      "best_reward": 0.818,
+      "reward_meta": {
+        "border_white": 1.0,
+        "obj_frac": 0.264,
+        "sharp": 0.636,
+        "reward": 0.818
+      },
+      "all_rewards": [
+        0.0,
+        0.818,
+        0.732,
+        0.7825
+      ],
+      "n_samples": 4
+    },
+    {
+      "key": "00043",
+      "source": "data/unlabeled/raw/coco2017/447376_9be385fc5a.jpg",
+      "prompt": "Extract the motorcycle.",
+      "object": "motorcycle",
+      "det_score": 0.814,
+      "target": "outputs/edit_pairs/extract_selfdistill/targets/00043.png",
+      "best_reward": 1.0,
+      "reward_meta": {
+        "border_white": 1.0,
+        "obj_frac": 0.203,
+        "sharp": 1.0,
+        "reward": 1.0
+      },
+      "all_rewards": [
+        1.0,
+        0.0,
+        1.0,
+        0.0
+      ],
+      "n_samples": 4
+    },
+    {
+      "key": "00047",
+      "source": "data/unlabeled/raw/coco2017/139817_9d2a7faea1.jpg",
+      "prompt": "Extract the person woman.",
+      "object": "person woman",
+      "det_score": 0.476,
+      "target": "outputs/edit_pairs/extract_selfdistill/targets/00047.png",
+      "best_reward": 0.7867,
+      "reward_meta": {
+        "border_white": 1.0,
+        "obj_frac": 0.132,
+        "sharp": 0.573,
+        "reward": 0.7867
+      },
+      "all_rewards": [
+        0.7867,
+        0.0,
+        0.7854,
+        0.7738
+      ],
+      "n_samples": 4
+    },
+    {
+      "key": "00048",
+      "source": "data/unlabeled/raw/coco2017/119730_249ea9c43d.jpg",
+      "prompt": "Extract the person.",
+      "object": "person",
+      "det_score": 0.365,
+      "target": "outputs/edit_pairs/extract_selfdistill/targets/00048.png",
+      "best_reward": 0.6745,
+      "reward_meta": {
+        "border_white": 0.886,
+        "obj_frac": 0.277,
+        "sharp": 0.522,
+        "reward": 0.6745
+      },
+      "all_rewards": [
+        0.0,
+        0.0,
+        0.6745,
+        0.0
+      ],
+      "n_samples": 4
+    },
+    {
+      "key": "00049",
+      "source": "data/unlabeled/raw/coco2017/556518_76944342e7.jpg",
+      "prompt": "Extract the person man.",
+      "object": "person man",
+      "det_score": 0.744,
+      "target": "outputs/edit_pairs/extract_selfdistill/targets/00049.png",
+      "best_reward": 0.9295,
+      "reward_meta": {
+        "border_white": 0.989,
+        "obj_frac": 0.24,
+        "sharp": 0.879,
+        "reward": 0.9295
+      },
+      "all_rewards": [
+        0.9295,
+        0.2077,
+        0.0,
+        0.0
+      ],
+      "n_samples": 4
+    },
+    {
+      "key": "00051",
+      "source": "data/unlabeled/raw/coco2017/264392_8dba15abea.jpg",
+      "prompt": "Extract the dog.",
+      "object": "dog",
+      "det_score": 0.675,
+      "target": "outputs/edit_pairs/extract_selfdistill/targets/00051.png",
+      "best_reward": 1.0,
+      "reward_meta": {
+        "border_white": 1.0,
+        "obj_frac": 0.106,
+        "sharp": 1.0,
+        "reward": 1.0
+      },
+      "all_rewards": [
+        0.8873,
+        0.7786,
+        1.0,
+        0.7291
+      ],
+      "n_samples": 4
+    },
+    {
+      "key": "00220",
+      "source": "data/unlabeled/raw/coco2017/204833_bc9cac7ca5.jpg",
+      "prompt": "Extract the person man woman.",
+      "object": "person man woman",
+      "det_score": 0.506,
+      "target": "outputs/edit_pairs/extract_selfdistill_shard2/targets/00220.png",
+      "best_reward": 0.8233,
+      "reward_meta": {
+        "border_white": 0.977,
+        "obj_frac": 0.283,
+        "sharp": 0.686,
+        "reward": 0.8233
+      },
+      "all_rewards": [
+        0.0,
+        0.8233,
+        0.7778,
+        0.7371
+      ],
+      "n_samples": 4
+    },
+    {
+      "key": "00222",
+      "source": "data/unlabeled/raw/coco2017/194411_80da3f923f.jpg",
+      "prompt": "Extract the elephant.",
+      "object": "elephant",
+      "det_score": 0.797,
+      "target": "outputs/edit_pairs/extract_selfdistill_shard2/targets/00222.png",
+      "best_reward": 1.0,
+      "reward_meta": {
+        "border_white": 1.0,
+        "obj_frac": 0.158,
+        "sharp": 1.0,
+        "reward": 1.0
+      },
+      "all_rewards": [
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      "n_samples": 4
+    },
+    {
+      "key": "00224",
+      "source": "data/unlabeled/raw/coco2017/332432_640e0212c9.jpg",
+      "prompt": "Extract the suitcase.",
+      "object": "suitcase",
+      "det_score": 0.704,
+      "target": "outputs/edit_pairs/extract_selfdistill_shard2/targets/00224.png",
+      "best_reward": 0.7694,
+      "reward_meta": {
+        "border_white": 1.0,
+        "obj_frac": 0.082,
+        "sharp": 0.539,
+        "reward": 0.7694
+      },
+      "all_rewards": [
+        0.6895,
+        0.7342,
+        0.739,
+        0.7694
+      ],
+      "n_samples": 4
+    },
+    {
+      "key": "00225",
+      "source": "data/unlabeled/raw/coco2017/96530_7485eed929.jpg",
+      "prompt": "Extract the person man.",
+      "object": "person man",
+      "det_score": 0.737,
+      "target": "outputs/edit_pairs/extract_selfdistill_shard2/targets/00225.png",
+      "best_reward": 0.9973,
+      "reward_meta": {
+        "border_white": 0.997,
+        "obj_frac": 0.122,
+        "sharp": 1.0,
+        "reward": 0.9973
+      },
+      "all_rewards": [
+        0.0,
+        0.9973,
+        0.5294,
+        0.9853
+      ],
+      "n_samples": 4
+    },
+    {
+      "key": "00226",
+      "source": "data/unlabeled/raw/coco2017/33055_7837a2f8ef.jpg",
+      "prompt": "Extract the person.",
+      "object": "person",
+      "det_score": 0.715,
+      "target": "outputs/edit_pairs/extract_selfdistill_shard2/targets/00226.png",
+      "best_reward": 0.933,
+      "reward_meta": {
+        "border_white": 1.0,
+        "obj_frac": 0.053,
+        "sharp": 0.866,
+        "reward": 0.933
+      },
+      "all_rewards": [
+        0.863,
+        0.8751,
+        0.8456,
+        0.933
+      ],
+      "n_samples": 4
+    },
+    {
+      "key": "00227",
+      "source": "data/unlabeled/raw/coco2017/399747_ef3e607b39.jpg",
+      "prompt": "Extract the person man.",
+      "object": "person man",
+      "det_score": 0.647,
+      "target": "outputs/edit_pairs/extract_selfdistill_shard2/targets/00227.png",
+      "best_reward": 0.7016,
+      "reward_meta": {
+        "border_white": 0.96,
+        "obj_frac": 0.329,
+        "sharp": 0.462,
+        "reward": 0.7016
+      },
+      "all_rewards": [
+        0.7016,
+        0.0,
+        0.6274,
+        0.5627
+      ],
+      "n_samples": 4
+    },
+    {
+      "key": "00228",
+      "source": "data/unlabeled/raw/coco2017/442206_ab909037de.jpg",
+      "prompt": "Extract the person man.",
+      "object": "person man",
+      "det_score": 0.569,
+      "target": "outputs/edit_pairs/extract_selfdistill_shard2/targets/00228.png",
+      "best_reward": 0.6346,
+      "reward_meta": {
+        "border_white": 0.847,
+        "obj_frac": 0.572,
+        "sharp": 0.498,
+        "reward": 0.6346
+      },
+      "all_rewards": [
+        0.0,
+        0.0,
+        0.6346,
+        0.0
+      ],
+      "n_samples": 4
+    },
+    {
+      "key": "00229",
+      "source": "data/unlabeled/raw/coco2017/392445_4b49e86d51.jpg",
+      "prompt": "Extract the couch.",
+      "object": "couch",
+      "det_score": 0.439,
+      "target": "outputs/edit_pairs/extract_selfdistill_shard2/targets/00229.png",
+      "best_reward": 0.7732,
+      "reward_meta": {
+        "border_white": 1.0,
+        "obj_frac": 0.091,
+        "sharp": 0.546,
+        "reward": 0.7732
+      },
+      "all_rewards": [
+        0.6676,
+        0.7732,
+        0.7303,
+        0.6307
+      ],
+      "n_samples": 4
+    },
+    {
+      "key": "00232",
+      "source": "data/unlabeled/raw/coco2017/130522_3273b958f1.jpg",
+      "prompt": "Extract the dog cat.",
+      "object": "dog cat",
+      "det_score": 0.631,
+      "target": "outputs/edit_pairs/extract_selfdistill_shard2/targets/00232.png",
+      "best_reward": 0.9033,
+      "reward_meta": {
+        "border_white": 1.0,
+        "obj_frac": 0.332,
+        "sharp": 0.807,
+        "reward": 0.9033
+      },
+      "all_rewards": [
+        0.8542,
+        0.9033,
+        0.8025,
+        0.7765
+      ],
+      "n_samples": 4
+    },
+    {
+      "key": "00233",
+      "source": "data/unlabeled/raw/coco2017/315297_5fed6c8b59.jpg",
+      "prompt": "Extract the couch.",
+      "object": "couch",
+      "det_score": 0.722,
+      "target": "outputs/edit_pairs/extract_selfdistill_shard2/targets/00233.png",
+      "best_reward": 0.6948,
+      "reward_meta": {
+        "border_white": 1.0,
+        "obj_frac": 0.417,
+        "sharp": 0.39,
+        "reward": 0.6948
+      },
+      "all_rewards": [
+        0.6839,
+        0.6948,
+        0.6148,
+        0.0
+      ],
+      "n_samples": 4
+    },
+    {
+      "key": "00234",
+      "source": "data/unlabeled/raw/coco2017/453775_4ad3c9e1ae.jpg",
+      "prompt": "Extract the flower.",
+      "object": "flower",
+      "det_score": 0.735,
+      "target": "outputs/edit_pairs/extract_selfdistill_shard2/targets/00234.png",
+      "best_reward": 1.0,
+      "reward_meta": {
+        "border_white": 1.0,
+        "obj_frac": 0.266,
+        "sharp": 1.0,
+        "reward": 1.0
+      },
+      "all_rewards": [
+        0.9968,
+        0.0,
+        1.0,
+        0.0
+      ],
+      "n_samples": 4
+    },
+    {
+      "key": "00235",
+      "source": "data/unlabeled/raw/coco2017/7726_a6719ead6a.jpg",
+      "prompt": "Extract the bus.",
+      "object": "bus",
+      "det_score": 0.774,
+      "target": "outputs/edit_pairs/extract_selfdistill_shard2/targets/00235.png",
+      "best_reward": 0.9964,
+      "reward_meta": {
+        "border_white": 1.0,
+        "obj_frac": 0.161,
+        "sharp": 0.993,
+        "reward": 0.9964
+      },
+      "all_rewards": [
+        0.9964,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "n_samples": 4
+    },
+    {
+      "key": "00236",
+      "source": "data/unlabeled/raw/coco2017/534555_574412a8da.jpg",
+      "prompt": "Extract the person man.",
+      "object": "person man",
+      "det_score": 0.772,
+      "target": "outputs/edit_pairs/extract_selfdistill_shard2/targets/00236.png",
+      "best_reward": 0.98,
+      "reward_meta": {
+        "border_white": 1.0,
+        "obj_frac": 0.084,
+        "sharp": 0.96,
+        "reward": 0.98
+      },
+      "all_rewards": [
+        0.98,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "n_samples": 4
+    },
+    {
+      "key": "00239",
+      "source": "data/unlabeled/raw/coco2017/239894_0ba22b9f08.jpg",
+      "prompt": "Extract the person woman.",
+      "object": "person woman",
+      "det_score": 0.537,
+      "target": "outputs/edit_pairs/extract_selfdistill_shard2/targets/00239.png",
+      "best_reward": 0.9932,
+      "reward_meta": {
+        "border_white": 0.993,
+        "obj_frac": 0.201,
+        "sharp": 1.0,
+        "reward": 0.9932
+      },
+      "all_rewards": [
+        0.0,
+        0.9932,
+        0.9034,
+        0.9307
+      ],
+      "n_samples": 4
+    },
+    {
+      "key": "00243",
+      "source": "data/unlabeled/raw/coco2017/189547_e092657dc3.jpg",
+      "prompt": "Extract the pizza.",
+      "object": "pizza",
+      "det_score": 0.521,
+      "target": "outputs/edit_pairs/extract_selfdistill_shard2/targets/00243.png",
+      "best_reward": 0.8708,
+      "reward_meta": {
+        "border_white": 0.999,
+        "obj_frac": 0.493,
+        "sharp": 0.744,
+        "reward": 0.8708
+      },
+      "all_rewards": [
+        0.8436,
+        0.8072,
+        0.8708,
+        0.0
+      ],
+      "n_samples": 4
+    },
+    {
+      "key": "00244",
+      "source": "data/unlabeled/raw/coco2017/65213_2597a9d7ee.jpg",
+      "prompt": "Extract the airplane.",
+      "object": "airplane",
+      "det_score": 0.815,
+      "target": "outputs/edit_pairs/extract_selfdistill_shard2/targets/00244.png",
+      "best_reward": 1.0,
+      "reward_meta": {
+        "border_white": 1.0,
+        "obj_frac": 0.054,
+        "sharp": 1.0,
+        "reward": 1.0
+      },
+      "all_rewards": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "n_samples": 4
+    },
+    {
+      "key": "00247",
+      "source": "data/unlabeled/raw/coco2017/36361_3cee371d73.jpg",
+      "prompt": "Extract the umbrella.",
+      "object": "umbrella",
+      "det_score": 0.749,
+      "target": "outputs/edit_pairs/extract_selfdistill_shard2/targets/00247.png",
+      "best_reward": 0.7075,
+      "reward_meta": {
+        "border_white": 0.811,
+        "obj_frac": 0.312,
+        "sharp": 0.744,
+        "reward": 0.7075
+      },
+      "all_rewards": [
+        0.0,
+        0.0,
+        0.7075,
+        0.0
+      ],
+      "n_samples": 4
+    },
+    {
+      "key": "00249",
+      "source": "data/unlabeled/raw/coco2017/127393_b6c3d65840.jpg",
+      "prompt": "Extract the person man.",
+      "object": "person man",
+      "det_score": 0.739,
+      "target": "outputs/edit_pairs/extract_selfdistill_shard2/targets/00249.png",
+      "best_reward": 1.0,
+      "reward_meta": {
+        "border_white": 1.0,
+        "obj_frac": 0.111,
+        "sharp": 1.0,
+        "reward": 1.0
+      },
+      "all_rewards": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "n_samples": 4
+    },
+    {
+      "key": "00250",
+      "source": "data/unlabeled/raw/coco2017/418623_4a184198c1.jpg",
+      "prompt": "Extract the suitcase.",
+      "object": "suitcase",
+      "det_score": 0.684,
+      "target": "outputs/edit_pairs/extract_selfdistill_shard2/targets/00250.png",
+      "best_reward": 0.7513,
+      "reward_meta": {
+        "border_white": 1.0,
+        "obj_frac": 0.326,
+        "sharp": 0.503,
+        "reward": 0.7513
+      },
+      "all_rewards": [
+        0.6603,
+        0.7513,
+        0.0,
+        0.0
+      ],
+      "n_samples": 4
+    },
+    {
+      "key": "00252",
+      "source": "data/unlabeled/raw/coco2017/279386_fc219c664b.jpg",
+      "prompt": "Extract the cat.",
+      "object": "cat",
+      "det_score": 0.506,
+      "target": "outputs/edit_pairs/extract_selfdistill_shard2/targets/00252.png",
+      "best_reward": 0.762,
+      "reward_meta": {
+        "border_white": 1.0,
+        "obj_frac": 0.217,
+        "sharp": 0.524,
+        "reward": 0.762
+      },
+      "all_rewards": [
+        0.0,
+        0.762,
+        0.0,
+        0.6835
+      ],
+      "n_samples": 4
+    },
+    {
+      "key": "00253",
+      "source": "data/unlabeled/raw/coco2017/460863_c0e72ea2a4.jpg",
+      "prompt": "Extract the airplane.",
+      "object": "airplane",
+      "det_score": 0.628,
+      "target": "outputs/edit_pairs/extract_selfdistill_shard2/targets/00253.png",
+      "best_reward": 0.9948,
+      "reward_meta": {
+        "border_white": 0.995,
+        "obj_frac": 0.093,
+        "sharp": 1.0,
+        "reward": 0.9948
+      },
+      "all_rewards": [
+        0.0,
+        0.9948,
+        0.9223,
+        0.0
+      ],
+      "n_samples": 4
+    },
+    {
+      "key": "00255",
+      "source": "data/unlabeled/raw/coco2017/429526_5a421d25c4.jpg",
+      "prompt": "Extract the cake pizza.",
+      "object": "cake pizza",
+      "det_score": 0.358,
+      "target": "outputs/edit_pairs/extract_selfdistill_shard2/targets/00255.png",
+      "best_reward": 0.8646,
+      "reward_meta": {
+        "border_white": 0.967,
+        "obj_frac": 0.469,
+        "sharp": 0.788,
+        "reward": 0.8646
+      },
+      "all_rewards": [
+        0.0,
+        0.8646,
+        0.0,
+        0.0
+      ],
+      "n_samples": 4
+    },
+    {
+      "key": "00258",
+      "source": "data/unlabeled/raw/coco2017/160089_a2de1d419b.jpg",
+      "prompt": "Extract the person man.",
+      "object": "person man",
+      "det_score": 0.536,
+      "target": "outputs/edit_pairs/extract_selfdistill_shard2/targets/00258.png",
+      "best_reward": 1.0,
+      "reward_meta": {
+        "border_white": 1.0,
+        "obj_frac": 0.076,
+        "sharp": 1.0,
+        "reward": 1.0
+      },
+      "all_rewards": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "n_samples": 4
+    },
+    {
+      "key": "00259",
+      "source": "data/unlabeled/raw/coco2017/547154_911b9fbb60.jpg",
+      "prompt": "Extract the cake.",
+      "object": "cake",
+      "det_score": 0.643,
+      "target": "outputs/edit_pairs/extract_selfdistill_shard2/targets/00259.png",
+      "best_reward": 0.9221,
+      "reward_meta": {
+        "border_white": 1.0,
+        "obj_frac": 0.198,
+        "sharp": 0.844,
+        "reward": 0.9221
+      },
+      "all_rewards": [
+        0.0,
+        0.0,
+        0.9221,
+        0.828
+      ],
+      "n_samples": 4
+    },
+    {
+      "key": "00262",
+      "source": "data/unlabeled/raw/coco2017/334073_9c031ab013.jpg",
+      "prompt": "Extract the clock.",
+      "object": "clock",
+      "det_score": 0.369,
+      "target": "outputs/edit_pairs/extract_selfdistill_shard2/targets/00262.png",
+      "best_reward": 1.0,
+      "reward_meta": {
+        "border_white": 1.0,
+        "obj_frac": 0.113,
+        "sharp": 1.0,
+        "reward": 1.0
+      },
+      "all_rewards": [
+        1.0,
+        1.0,
+        1.0,
+        0.998
+      ],
+      "n_samples": 4
+    },
+    {
+      "key": "00263",
+      "source": "data/unlabeled/raw/coco2017/534679_524eeada8e.jpg",
+      "prompt": "Extract the boat.",
+      "object": "boat",
+      "det_score": 0.677,
+      "target": "outputs/edit_pairs/extract_selfdistill_shard2/targets/00263.png",
+      "best_reward": 1.0,
+      "reward_meta": {
+        "border_white": 1.0,
+        "obj_frac": 0.119,
+        "sharp": 1.0,
+        "reward": 1.0
+      },
+      "all_rewards": [
+        1.0,
+        1.0,
+        0.0,
+        0.8904
+      ],
+      "n_samples": 4
+    },
+    {
+      "key": "00264",
+      "source": "data/unlabeled/raw/coco2017/67906_d67fbbd9e9.jpg",
+      "prompt": "Extract the cat.",
+      "object": "cat",
+      "det_score": 0.723,
+      "target": "outputs/edit_pairs/extract_selfdistill_shard2/targets/00264.png",
+      "best_reward": 0.7784,
+      "reward_meta": {
+        "border_white": 1.0,
+        "obj_frac": 0.21,
+        "sharp": 0.557,
+        "reward": 0.7784
+      },
+      "all_rewards": [
+        0.7784,
+        0.7277,
+        0.0,
+        0.0
+      ],
+      "n_samples": 4
+    },
+    {
+      "key": "00265",
+      "source": "data/unlabeled/raw/coco2017/451960_ed81d7df44.jpg",
+      "prompt": "Extract the clock.",
+      "object": "clock",
+      "det_score": 0.743,
+      "target": "outputs/edit_pairs/extract_selfdistill_shard2/targets/00265.png",
+      "best_reward": 1.0,
+      "reward_meta": {
+        "border_white": 1.0,
+        "obj_frac": 0.149,
+        "sharp": 1.0,
+        "reward": 1.0
+      },
+      "all_rewards": [
+        1.0,
+        0.7771,
+        0.0,
+        0.861
+      ],
+      "n_samples": 4
+    },
+    {
+      "key": "00266",
+      "source": "data/unlabeled/raw/coco2017/321718_f3550d9bb0.jpg",
+      "prompt": "Extract the person.",
+      "object": "person",
+      "det_score": 0.554,
+      "target": "outputs/edit_pairs/extract_selfdistill_shard2/targets/00266.png",
+      "best_reward": 0.7615,
+      "reward_meta": {
+        "border_white": 0.966,
+        "obj_frac": 0.183,
+        "sharp": 0.577,
+        "reward": 0.7615
+      },
+      "all_rewards": [
+        0.0,
+        0.7615,
+        0.0,
+        0.6989
+      ],
+      "n_samples": 4
+    },
+    {
+      "key": "00267",
+      "source": "data/unlabeled/raw/coco2017/504259_c512befa9a.jpg",
+      "prompt": "Extract the sheep.",
+      "object": "sheep",
+      "det_score": 0.74,
+      "target": "outputs/edit_pairs/extract_selfdistill_shard2/targets/00267.png",
+      "best_reward": 0.9673,
+      "reward_meta": {
+        "border_white": 1.0,
+        "obj_frac": 0.14,
+        "sharp": 0.935,
+        "reward": 0.9673
+      },
+      "all_rewards": [
+        0.9673,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "n_samples": 4
+    },
+    {
+      "key": "00268",
+      "source": "data/unlabeled/raw/coco2017/28517_5021068fa4.jpg",
+      "prompt": "Extract the person man.",
+      "object": "person man",
+      "det_score": 0.397,
+      "target": "outputs/edit_pairs/extract_selfdistill_shard2/targets/00268.png",
+      "best_reward": 0.5907,
+      "reward_meta": {
+        "border_white": 0.883,
+        "obj_frac": 0.306,
+        "sharp": 0.339,
+        "reward": 0.5907
+      },
+      "all_rewards": [
+        0.0,
+        0.5907,
+        0.0,
+        0.0
+      ],
+      "n_samples": 4
+    },
+    {
+      "key": "00269",
+      "source": "data/unlabeled/raw/coco2017/59752_e4c230654b.jpg",
+      "prompt": "Extract the boat.",
+      "object": "boat",
+      "det_score": 0.35,
+      "target": "outputs/edit_pairs/extract_selfdistill_shard2/targets/00269.png",
+      "best_reward": 0.959,
+      "reward_meta": {
+        "border_white": 0.999,
+        "obj_frac": 0.19,
+        "sharp": 0.92,
+        "reward": 0.959
+      },
+      "all_rewards": [
+        0.0,
+        0.0,
+        0.0,
+        0.959
+      ],
+      "n_samples": 4
+    },
+    {
+      "key": "00270",
+      "source": "data/unlabeled/raw/coco2017/425866_a46c327e0e.jpg",
+      "prompt": "Extract the person man.",
+      "object": "person man",
+      "det_score": 0.563,
+      "target": "outputs/edit_pairs/extract_selfdistill_shard2/targets/00270.png",
+      "best_reward": 0.7979,
+      "reward_meta": {
+        "border_white": 1.0,
+        "obj_frac": 0.194,
+        "sharp": 0.596,
+        "reward": 0.7979
+      },
+      "all_rewards": [
+        0.7447,
+        0.7408,
+        0.7179,
+        0.7979
+      ],
+      "n_samples": 4
+    },
+    {
+      "key": "00271",
+      "source": "data/unlabeled/raw/coco2017/176312_03eedb7ebb.jpg",
+      "prompt": "Extract the person woman.",
+      "object": "person woman",
+      "det_score": 0.667,
+      "target": "outputs/edit_pairs/extract_selfdistill_shard2/targets/00271.png",
+      "best_reward": 0.9702,
+      "reward_meta": {
+        "border_white": 0.97,
+        "obj_frac": 0.241,
+        "sharp": 1.0,
+        "reward": 0.9702
+      },
+      "all_rewards": [
+        0.0,
+        0.0,
+        0.9702,
+        0.9304
+      ],
+      "n_samples": 4
+    },
+    {
+      "key": "00272",
+      "source": "data/unlabeled/raw/coco2017/148727_dc2bf46fdd.jpg",
+      "prompt": "Extract the motorcycle.",
+      "object": "motorcycle",
+      "det_score": 0.846,
+      "target": "outputs/edit_pairs/extract_selfdistill_shard2/targets/00272.png",
+      "best_reward": 1.0,
+      "reward_meta": {
+        "border_white": 1.0,
+        "obj_frac": 0.165,
+        "sharp": 1.0,
+        "reward": 1.0
+      },
+      "all_rewards": [
+        1.0,
+        1.0,
+        0.9966,
+        0.0
+      ],
+      "n_samples": 4
+    }
+  ],
+  "boundary": "Exact rows matched to surviving metadata; runtime source version not authenticated."
+}

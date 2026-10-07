@@ -1,0 +1,244 @@
+{
+  "schema_version": 1,
+  "snapshot_date": "2026-09-09",
+  "snapshot_manifest_sha256": "26d9b203b7326adee3fef4752ed4ad7910a3e0dce814e5e40b59d8392db5ae84",
+  "archive_files_hash_verified": true,
+  "files": [
+    {
+      "path": "scripts/build_family_selfdistill.py",
+      "sha256": "08e0a9b504b5748187ee4e81f13eb1880ada70639ea4e154e7485cce0309a699",
+      "bytes": 21284
+    },
+    {
+      "path": "scripts/validate_judge_ranker.py",
+      "sha256": "474c50728905728d9dfd10aa731e5318b647e68332ab7a585d05240586368411",
+      "bytes": 32906
+    },
+    {
+      "path": "configs/self_evolve/qwen_edit_2509_v45_ranked_preference_caption_extract_keeponly.yaml",
+      "sha256": "a86dccc5408206e47f940cea37150fce8d7a764b028c9e6c12d5431837e3ae4e",
+      "bytes": 37364
+    }
+  ],
+  "record_copies": [
+    {
+      "source": "outputs/edit_pairs/multifamily_multifamily_v1/sft_train_manifest.json",
+      "source_sha256": "23a67b033e7e517119290987259dc38a63474e6dee222553a97103649201d073",
+      "public_path": "reproducibility/verifier_bank/training_manifest.json",
+      "public_sha256": "23a67b033e7e517119290987259dc38a63474e6dee222553a97103649201d073",
+      "private_path_replacements": 0,
+      "embedded_hashes_refer_to_original_receipts": true
+    },
+    {
+      "source": "outputs/edit_pairs/extract_selfdistill/sft_manifest.json",
+      "source_sha256": "99461f7fc8ae18092bbff23c5ceb1df782f221e0ba0018c80968ab63f517d240",
+      "public_path": "reproducibility/verifier_bank/mining/extract.json",
+      "public_sha256": "99461f7fc8ae18092bbff23c5ceb1df782f221e0ba0018c80968ab63f517d240",
+      "private_path_replacements": 0,
+      "embedded_hashes_refer_to_original_receipts": true
+    },
+    {
+      "source": "outputs/edit_pairs/remove_selfdistill/manifest.json",
+      "source_sha256": "59ea3daf54d5ff89a1dfa9da9f4b0eeb9be1d25e28b4056d155378c37b98b510",
+      "public_path": "reproducibility/verifier_bank/mining/remove.json",
+      "public_sha256": "59ea3daf54d5ff89a1dfa9da9f4b0eeb9be1d25e28b4056d155378c37b98b510",
+      "private_path_replacements": 0,
+      "embedded_hashes_refer_to_original_receipts": true
+    },
+    {
+      "source": "outputs/edit_pairs/replace_selfdistill/manifest.json",
+      "source_sha256": "3330f31dd036d242e8c35ca2141f7352d9c54832a883e35c506109b7a6c3e159",
+      "public_path": "reproducibility/verifier_bank/mining/replace.json",
+      "public_sha256": "3330f31dd036d242e8c35ca2141f7352d9c54832a883e35c506109b7a6c3e159",
+      "private_path_replacements": 0,
+      "embedded_hashes_refer_to_original_receipts": true
+    },
+    {
+      "source": "outputs/edit_pairs/action_selfdistill/manifest.json",
+      "source_sha256": "b529d44b41bb0a4fe2404b9fa88329eeb6411d5d2996dab4b3af45d0c2865796",
+      "public_path": "reproducibility/verifier_bank/mining/action.json",
+      "public_sha256": "b529d44b41bb0a4fe2404b9fa88329eeb6411d5d2996dab4b3af45d0c2865796",
+      "private_path_replacements": 0,
+      "embedded_hashes_refer_to_original_receipts": true
+    },
+    {
+      "source": "outputs/self_evolve/fix_experiments/multifamily_v1/training_output/training_args.json",
+      "source_sha256": "c05c40523280c4a474c5c2ab2fb315c844e5cbba7db3ac0a45241b296af3f88c",
+      "public_path": "reproducibility/verifier_bank/training_args.json",
+      "public_sha256": "9a204298f3c78346ca2df01daf649c1e8f25497cb3039d696570122bd6ab4d04",
+      "private_path_replacements": 3,
+      "embedded_hashes_refer_to_original_receipts": true
+    },
+    {
+      "source": "outputs/quick_eval/imgedit_full737_multifamily_v1/scores/multifamily_v1_full737_summary.json",
+      "source_sha256": "9bf2ec692bd5f6d465278b76fef94538a1941f925fa2209142bee13b399cd07e",
+      "public_path": "reproducibility/verifier_bank/results/summary.json",
+      "public_sha256": "2589014348dd2acf3aa244fec0e67b8a480a51ca9693c12b3d010068d52cedc9",
+      "private_path_replacements": 11,
+      "embedded_hashes_refer_to_original_receipts": true
+    },
+    {
+      "source": "outputs/quick_eval/imgedit_full737_multifamily_v1/report.json",
+      "source_sha256": "acfed42ddea4953aa47b6aaee6044a7bae4302a7d0f93f86b036b5a45016acc3",
+      "public_path": "reproducibility/verifier_bank/results/report.json",
+      "public_sha256": "acfed42ddea4953aa47b6aaee6044a7bae4302a7d0f93f86b036b5a45016acc3",
+      "private_path_replacements": 0,
+      "embedded_hashes_refer_to_original_receipts": true
+    },
+    {
+      "source": "outputs/quick_eval/imgedit_full737_multifamily_v1/scores/multifamily_v1_full737_average_score.json",
+      "source_sha256": "42d9ab5559df1f58ee6e709def7471a8bb2ee6d66ecbc6b7ff588d1f0d3022d8",
+      "public_path": "reproducibility/verifier_bank/results/per_item_scores.json",
+      "public_sha256": "42d9ab5559df1f58ee6e709def7471a8bb2ee6d66ecbc6b7ff588d1f0d3022d8",
+      "private_path_replacements": 0,
+      "embedded_hashes_refer_to_original_receipts": true
+    },
+    {
+      "source": "outputs/quick_eval/imgedit_full737_extract_only/report.json",
+      "source_sha256": "1374eabe22aa4da1a54df7c8cad2a833d8e3454f582d8eb421af00503afe0518",
+      "public_path": "reproducibility/provenance/extraction_per_family.json",
+      "public_sha256": "1374eabe22aa4da1a54df7c8cad2a833d8e3454f582d8eb421af00503afe0518",
+      "private_path_replacements": 0,
+      "embedded_hashes_refer_to_original_receipts": true
+    },
+    {
+      "source": "outputs/quick_eval/imgedit_full737_extract_only/scores/qwen_edit_2509_baseline_imgedit_average_score.json",
+      "source_sha256": "b27e0c9062495b6c7afc667a0cd0af01f6b71a595c1c20548a7630e83a0b5368",
+      "public_path": "reproducibility/provenance/imgedit_base_per_item.json",
+      "public_sha256": "b27e0c9062495b6c7afc667a0cd0af01f6b71a595c1c20548a7630e83a0b5368",
+      "private_path_replacements": 0,
+      "embedded_hashes_refer_to_original_receipts": true
+    },
+    {
+      "source": "outputs/quick_eval/imgedit_full737_extract_only/scores/extract_only_full737_average_score.json",
+      "source_sha256": "7ca7bb4de4a131cba68105317d5cb69e01856bfe6adbb858195cd693a3f35f83",
+      "public_path": "reproducibility/provenance/imgedit_extraction_per_item.json",
+      "public_sha256": "7ca7bb4de4a131cba68105317d5cb69e01856bfe6adbb858195cd693a3f35f83",
+      "private_path_replacements": 0,
+      "embedded_hashes_refer_to_original_receipts": true
+    },
+    {
+      "source": "outputs/reproduction/accv_rebuttal_seed_full737_20260829/comparison.json",
+      "source_sha256": "90c8a6d8ce937211dfeb46500f3c1f97d2b25faa75f0714675d2205f22970d7d",
+      "public_path": "reproducibility/provenance/strict_three_seed_comparison.json",
+      "public_sha256": "90c8a6d8ce937211dfeb46500f3c1f97d2b25faa75f0714675d2205f22970d7d",
+      "private_path_replacements": 0,
+      "embedded_hashes_refer_to_original_receipts": true
+    },
+    {
+      "source": "outputs/reproduction/accv_rebuttal_step1x_broad_quality_seed_replication_gedit_v1_20260902/comparison.json",
+      "source_sha256": "556a5d970f8afef06b7a300ef664d128c4e8ad7fab5428125d97baeb665e83fb",
+      "public_path": "reproducibility/provenance/step1x_removal_three_seed_comparison.json",
+      "public_sha256": "556a5d970f8afef06b7a300ef664d128c4e8ad7fab5428125d97baeb665e83fb",
+      "private_path_replacements": 0,
+      "embedded_hashes_refer_to_original_receipts": true
+    },
+    {
+      "source": "outputs/quick_eval/gedit_extract_only_full11_summary.json",
+      "source_sha256": "23ba6435cfde637fa6f162ce601932fb6e193d7afe11f71471b9fe8e927959e0",
+      "public_path": "reproducibility/provenance/gedit_cn11_summary.json",
+      "public_sha256": "23ba6435cfde637fa6f162ce601932fb6e193d7afe11f71471b9fe8e927959e0",
+      "private_path_replacements": 0,
+      "embedded_hashes_refer_to_original_receipts": true
+    },
+    {
+      "source": "outputs/quick_eval/gedit_background_change_all_n30/extract_v1_gedit_bg_vs_baseline_background_change_all_n30_comparison.json",
+      "source_sha256": "b76d6042b387e73c2c3bd66ab2dfb6785a4f397c3f9f129492781931ca601a6b",
+      "public_path": "reproducibility/provenance/gedit_cn11/background_change.json",
+      "public_sha256": "b76d6042b387e73c2c3bd66ab2dfb6785a4f397c3f9f129492781931ca601a6b",
+      "private_path_replacements": 0,
+      "embedded_hashes_refer_to_original_receipts": true
+    },
+    {
+      "source": "outputs/quick_eval/gedit_color_alter_all_n30/extract_only_gedit_color_alter_vs_baseline_color_alter_all_n30_comparison.json",
+      "source_sha256": "a7b2fdb78b7bd633dc35c50d10133b8ed8909020995527874901d9fb100d0c91",
+      "public_path": "reproducibility/provenance/gedit_cn11/color_alter.json",
+      "public_sha256": "a7b2fdb78b7bd633dc35c50d10133b8ed8909020995527874901d9fb100d0c91",
+      "private_path_replacements": 0,
+      "embedded_hashes_refer_to_original_receipts": true
+    },
+    {
+      "source": "outputs/quick_eval/gedit_material_alter_all_n30/extract_only_gedit_material_alter_vs_baseline_material_alter_all_n30_comparison.json",
+      "source_sha256": "f951fa73d48efd374a7d6c8fd6b130c49a456a3ea2f79ba077dce5735ef7f51a",
+      "public_path": "reproducibility/provenance/gedit_cn11/material_alter.json",
+      "public_sha256": "f951fa73d48efd374a7d6c8fd6b130c49a456a3ea2f79ba077dce5735ef7f51a",
+      "private_path_replacements": 0,
+      "embedded_hashes_refer_to_original_receipts": true
+    },
+    {
+      "source": "outputs/quick_eval/gedit_motion_change_all_n30/extract_only_gedit_motion_change_vs_baseline_motion_change_all_n30_comparison.json",
+      "source_sha256": "eb5e1b2b4be6eb1fd3ccb548eb65f88c4d25537cdef4b81f5de1ceee79ad053a",
+      "public_path": "reproducibility/provenance/gedit_cn11/motion_change.json",
+      "public_sha256": "eb5e1b2b4be6eb1fd3ccb548eb65f88c4d25537cdef4b81f5de1ceee79ad053a",
+      "private_path_replacements": 0,
+      "embedded_hashes_refer_to_original_receipts": true
+    },
+    {
+      "source": "outputs/quick_eval/gedit_ps_human_all_n30/extract_only_gedit_ps_human_vs_baseline_ps_human_all_n30_comparison.json",
+      "source_sha256": "84a81fa6432bd5376969e6e3ac8e266c66f12e91f51534090ecf191d1d11abc3",
+      "public_path": "reproducibility/provenance/gedit_cn11/ps_human.json",
+      "public_sha256": "84a81fa6432bd5376969e6e3ac8e266c66f12e91f51534090ecf191d1d11abc3",
+      "private_path_replacements": 0,
+      "embedded_hashes_refer_to_original_receipts": true
+    },
+    {
+      "source": "outputs/quick_eval/gedit_style_change_all_n30/extract_v1_gedit_style_vs_baseline_style_change_all_n30_comparison.json",
+      "source_sha256": "eaa05dcf4c80b0f3a68fad5ce7afc8f5d64a05b95a69b8a29e89dc0b144b5dab",
+      "public_path": "reproducibility/provenance/gedit_cn11/style_change.json",
+      "public_sha256": "eaa05dcf4c80b0f3a68fad5ce7afc8f5d64a05b95a69b8a29e89dc0b144b5dab",
+      "private_path_replacements": 0,
+      "embedded_hashes_refer_to_original_receipts": true
+    },
+    {
+      "source": "outputs/quick_eval/gedit_subject-add_all_n30/extract_only_gedit_subject-add_vs_baseline_subject-add_all_n30_comparison.json",
+      "source_sha256": "9b98a6a0efc5e95c8103cd5bd2e654a4e6f894bc45af1cd56e92852bbf5aaff5",
+      "public_path": "reproducibility/provenance/gedit_cn11/subject-add.json",
+      "public_sha256": "9b98a6a0efc5e95c8103cd5bd2e654a4e6f894bc45af1cd56e92852bbf5aaff5",
+      "private_path_replacements": 0,
+      "embedded_hashes_refer_to_original_receipts": true
+    },
+    {
+      "source": "outputs/quick_eval/gedit_subject-remove_all_n30/extract_v1_gedit_rm_vs_baseline_subject-remove_all_n30_comparison.json",
+      "source_sha256": "d60ce6a6042b9e902ad1aeeffa8a97169c1372f4132507613faee44a403c47a4",
+      "public_path": "reproducibility/provenance/gedit_cn11/subject-remove.json",
+      "public_sha256": "d60ce6a6042b9e902ad1aeeffa8a97169c1372f4132507613faee44a403c47a4",
+      "private_path_replacements": 0,
+      "embedded_hashes_refer_to_original_receipts": true
+    },
+    {
+      "source": "outputs/quick_eval/gedit_subject-replace_all_n30/extract_only_gedit_subject-replace_vs_baseline_subject-replace_all_n30_comparison.json",
+      "source_sha256": "af13df327e73e6338e3b4f25b4192e6d6a1ff1811ab40d1ed4ee55c83e7d503a",
+      "public_path": "reproducibility/provenance/gedit_cn11/subject-replace.json",
+      "public_sha256": "af13df327e73e6338e3b4f25b4192e6d6a1ff1811ab40d1ed4ee55c83e7d503a",
+      "private_path_replacements": 0,
+      "embedded_hashes_refer_to_original_receipts": true
+    },
+    {
+      "source": "outputs/quick_eval/gedit_text_change_all_n30/extract_only_gedit_text_change_vs_baseline_text_change_all_n30_comparison.json",
+      "source_sha256": "9f0dba0253b24ae90c44fa1f2d1938ee80475549dc28c2048687f5104ff19724",
+      "public_path": "reproducibility/provenance/gedit_cn11/text_change.json",
+      "public_sha256": "9f0dba0253b24ae90c44fa1f2d1938ee80475549dc28c2048687f5104ff19724",
+      "private_path_replacements": 0,
+      "embedded_hashes_refer_to_original_receipts": true
+    },
+    {
+      "source": "outputs/quick_eval/gedit_tone_transfer_all_n30/extract_only_gedit_tone_transfer_vs_baseline_tone_transfer_all_n30_comparison.json",
+      "source_sha256": "68d9ce90a582b34cf36692fa1f6dcce3c01cfcead915cab2bf4ce49abff7539a",
+      "public_path": "reproducibility/provenance/gedit_cn11/tone_transfer.json",
+      "public_sha256": "68d9ce90a582b34cf36692fa1f6dcce3c01cfcead915cab2bf4ce49abff7539a",
+      "private_path_replacements": 0,
+      "embedded_hashes_refer_to_original_receipts": true
+    }
+  ],
+  "historical_runtime_code_version_verified": false,
+  "boundary": "Byte-identical recovery from a hash-verified legacy snapshot, not certification of the exact submitted source tree or exact code at original execution.",
+  "derived_file_sha256": {
+    "reproducibility/verifier_bank/training_artifacts.json": "0ad119e5be98903f5ee62d49cca404235e4704b79ee1f89dbc16aa4678c39279",
+    "reproducibility/verifier_bank/identity.json": "22d6892cbf478c12946c20f26c96feee4614f8d1ce3b365fba5dd995c1d97f61",
+    "reproducibility/provenance/gedit_cn11_scope.json": "ceec6cc0d9ecf8416498832ba72c1933a036c7bfdce92a07588f5fd52c961be4",
+    "reproducibility/provenance/extraction_64_mining_records.json": "300c4f121bca8dccb9611b4328e7acab61ac20bc2cb4e15a2e41ac6846ee179f",
+    "reproducibility/paper_provenance.json": "1e26a779cad2f21fbd42a03babe823fffb8f616e77dd4924d93b528a001a5d4c",
+    "scripts/recovered_verifiers.py": "51c1bd07e31ccd3a4104897c3a1b0fcae21bf07567f6193b82edd3dcc43bea6b"
+  },
+  "snapshot_manifest_identity_verified": true
+}

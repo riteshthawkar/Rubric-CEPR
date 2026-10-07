@@ -1,0 +1,1128 @@
+name: self_evolve_qwen_edit_2509_ranked_preference_caption_extract_keeponly_v45
+runtime:
+  seed: 123
+  dry_run: false
+  memory_log_enabled: true
+  release_proposer_before_generation: false
+dataset:
+  source: jsonl
+  manifest_jsonl: data/unlabeled/reward_aware_pool_editing_datasets_qwen3vl_5k_v3_caption_grounded_extract/manifest.jsonl
+  metadata_jsonl: null
+  limit: null
+proposer:
+  backend: trainable_qwen_image_edit
+  model_name_or_path: Qwen/Qwen-Image-Edit-2509
+  model_subfolder: text_encoder
+  processor_subfolder: processor
+  model_class: qwen2_5_vl
+  checkpoint_path: null
+  device: auto
+  torch_dtype: bfloat16
+  local_files_only: false
+  proposal_mode: vlm_only
+  fallback_on_error: false
+  scripted_probability: 0.0
+  family_policy: metadata_preferred
+  focus_edit_types:
+    - object_removal
+    - object_replacement
+    - object_addition
+    - subject_extraction
+    - attribute_change
+    - color_change
+    - material_change
+    - spatial_move
+    - background_change
+    - style_transfer
+    - local_enhancement
+  coverage_edit_types:
+    - object_removal
+    - object_replacement
+    - object_addition
+    - subject_extraction
+    - attribute_change
+    - color_change
+    - material_change
+    - spatial_move
+    - background_change
+    - style_transfer
+    - local_enhancement
+  coverage_guidance: "Prefer visually checkable, medium-difficulty edits across the scheduled edit types. Preserve source identity and non-target regions, and avoid collapsing to any single easy edit family."
+  avoid_edit_types:
+    - global_adjustment
+  enforce_record_target_edit_type: true
+  strict_edit_type_filter: true
+  strict_structured_proposal_filter: true
+  local_target_disallowed_heads:
+    - background
+    - foreground
+    - sky
+    - wall
+    - floor
+    - ceiling
+    - ground
+    - road
+    - street
+    - sidewalk
+    - pavement
+    - grass
+    - lawn
+    - water
+    - ocean
+    - sea
+    - room
+    - scene
+    - image
+    - photo
+    - picture
+    - landscape
+    - porch
+    - deck
+    - patio
+    - driveway
+    - path
+    - hallway
+    - corridor
+    - facade
+    - exterior
+    - interior
+  template_fallback_on_target_miss: false
+  template_bootstrap_rounds: 0
+  max_generation_attempts: 4
+  generation:
+    max_new_tokens: 512
+    temperature: 0.8
+    top_p: 0.9
+    do_sample: true
+  training:
+    trigger: launch
+    train_script: src/qwen_edit_project/train/train_proposer_lora.py
+    accelerate_executable: accelerate
+    output_dir: null
+    command_file: null
+    log_dir: null
+    mixed_precision: bf16
+    learning_rate: 1.0e-5
+    num_train_epochs: 3
+    max_train_steps: 8
+    train_batch_size: 1
+    gradient_accumulation_steps: 4
+    reward_weighting: true
+    min_reward_weight: 0.35
+    max_reward_weight: 1.75
+    max_grad_norm: 1.0
+    weight_decay: 0.01
+    seed: 123
+    lora_rank: 16
+    lora_alpha: 32
+    lora_dropout: 0.05
+    lora_target_modules: q_proj,k_proj,v_proj,o_proj,gate_proj,up_proj,down_proj
+    gradient_checkpointing: true
+    checkpointing_steps: 100
+    checkpoints_total_limit: 5
+    resume_from_latest: true
+    logging_steps: 10
+    data:
+      reward_center: 0.50
+      reward_sigma: 0.25
+      min_reward: 0.28
+      min_quality: 0.45
+      reference_roles:
+        - reference:base
+      policy_roles:
+        - policy
+      base_improvement_weight: 0.20
+      base_harm_penalty: 0.25
+      base_margin_center: 0.03
+      require_judge_for_success: true
+      min_judge_score: 0.60
+      min_judge_semantic: 0.55
+      min_judge_preservation: 0.65
+      min_judge_artifact_free: 0.65
+      all_fail_penalty: 0.25
+      all_pass_penalty: 0.60
+      all_pass_threshold: 0.95
+      require_productive_band_for_sft: true
+      min_success_rate_for_sft: 0.20
+      max_success_rate_for_sft: 0.80
+      require_accepted_or_improved_for_sft: true
+      min_policy_over_reference_margin_for_sft: 0.05
+      use_cumulative_manifest: true
+      cumulative_selected_only: true
+      max_cumulative_records: 256
+      min_selected_records_for_training: 4
+      min_selected_edit_types_for_training: 3
+editor:
+  backend: qwen_edit
+  device: auto
+  drop_generation_modules_for_scoring: false
+  generation:
+    seed: 42
+    num_inference_steps: 40
+    true_cfg_scale: 4.0
+    guidance_scale: 1.0
+    negative_prompt: " "
+    num_images_per_prompt: 1
+    preserve_input_resolution: false
+    object_removal_prompt_variants:
+      enabled: true
+  model:
+    backend: official_diffusers
+    base_model: Qwen/Qwen-Image-Edit-2509
+    model_type: base
+    checkpoint_path: null
+    processor_model_id: Qwen/Qwen-Image-Edit
+    torch_dtype: bfloat16
+    local_files_only: false
+    model_id_with_origin_paths: Qwen/Qwen-Image-Edit-2509:transformer/diffusion_pytorch_model*.safetensors,Qwen/Qwen-Image:text_encoder/model*.safetensors,Qwen/Qwen-Image:vae/diffusion_pytorch_model.safetensors
+candidate_generation:
+  samples_per_proposal: 4
+  samples_per_proposal_by_edit_type:
+    object_removal: 6
+    object_replacement: 10
+    subject_extraction: 6
+  seed_stride: 7919
+  reference_candidates:
+    enabled: true
+    start_round: 1
+    source: initial
+    samples_per_proposal: 1
+    candidate_index_offset: 2000
+    seed_offset: 1200000000
+    candidate_role: reference:base
+  self_play:
+    enabled: true
+    start_round: 2
+    opponent: previous_round
+    samples_per_proposal: 2
+    candidate_index_offset: 1000
+    seed_offset: 900000000
+    candidate_role: opponent:previous_round
+evaluator:
+  backend: internal_cepr_rubric
+  top_m: 2
+  # The rubric CEPR backend already uses Qwen internal edit-understanding,
+  # taxonomy, preservation, and latent-locality features. Keep the calibration
+  # generic and do not add benchmark-specific task/language weights here.
+  counterfactual_distractors: 4
+  edit_threshold: 0.40
+  preservation_threshold: 0.20
+  validity_threshold: 0.50
+  reward_threshold: 0.30
+  edit_temperature: 0.04
+  true_gain_temperature: 0.04
+  min_true_gain: 0.0
+  semantic_preservation_temperature: 0.08
+  latent_resolution: 512
+  latent_mask_std_scale: 0.75
+  latent_mask_min_delta: 0.03
+  latent_preservation_temperature: 0.30
+  max_total_latent_delta: 0.45
+  latent_drift_temperature: 0.15
+  taxonomy_enabled: true
+  taxonomy_required: true
+  taxonomy_threshold: 0.35
+  taxonomy_temperature: 0.06
+  taxonomy_source_drop_temperature: 0.06
+  taxonomy_distractor_temperature: 0.05
+  max_dynamic_distractors: 4
+  empty_cache_per_candidate: true
+  retry_cpu_on_oom: true
+  require_internal_components: true
+  rubric_source_threshold: 0.42
+  rubric_required_threshold: 0.45
+  rubric_forbidden_threshold: 0.42
+  rubric_preservation_threshold: 0.30
+  rubric_reward_threshold: 0.28
+  rubric_gain_temperature: 0.06
+  rubric_abs_temperature: 0.08
+  rubric_preservation_temperature: 0.20
+  rubric_support_center: 0.50
+  rubric_forbidden_absence_center: 0.52
+  max_rubric_items: 3
+  combine_cepr_semantics: true
+  rubric_soft_forbidden_edit_types:
+    - object_removal
+    - object_replacement
+    - color_change
+    - attribute_change
+    - material_change
+    - spatial_move
+    - background_change
+    - style_transfer
+    - local_enhancement
+  rubric_soft_forbidden_required_threshold: 0.65
+  rubric_soft_forbidden_reward_threshold: 0.25
+  rubric_soft_forbidden_preservation_threshold: 0.85
+  object_detector_enabled: true
+  object_detector_edit_types:
+    - object_removal
+    - object_replacement
+  object_detector_model_id: IDEA-Research/grounding-dino-tiny
+  object_detector_device: auto
+  object_detector_torch_dtype: auto
+  object_detector_box_threshold: 0.22
+  object_detector_text_threshold: 0.18
+  object_detector_original_min_score: 0.18
+  object_detector_edited_absent_max_score: 0.12
+  object_detector_absent_ratio: 0.55
+  object_detector_target_min_score: 0.18
+  object_detector_score_threshold: 0.45
+  object_detector_score_temperature: 0.05
+  object_detector_require_original_detection: true
+  conservative_region_reward_enabled: true
+  conservative_region_edit_types:
+    - object_removal
+    - object_replacement
+    - color_change
+    - attribute_change
+    - material_change
+    - local_enhancement
+  conservative_region_require_mask_edit_types:
+    - object_removal
+    - object_replacement
+  conservative_region_use_object_detector: true
+  conservative_region_fallback_to_diff_mask: true
+  conservative_region_diff_fallback_allows_gate: true
+  conservative_region_mask_size: 128
+  conservative_region_mask_padding_fraction: 0.05
+  conservative_region_diff_threshold: 18
+  conservative_region_diff_dilation_radius: 1
+  conservative_region_min_target_area: 0.0025
+  conservative_region_max_target_area: 0.65
+  conservative_region_max_target_area_by_edit_type:
+    object_removal: 0.70
+  conservative_region_max_detector_boxes: 1
+  conservative_region_min_target_change: 0.020
+  conservative_region_min_target_change_score: 0.35
+  conservative_region_target_change_temperature: 0.025
+  conservative_region_max_outside_change: 0.070
+  conservative_region_outside_change_temperature: 0.035
+  conservative_region_max_outside_changed_fraction: 0.45
+  conservative_region_min_localization_precision: 0.30
+  conservative_region_min_localization_precision_by_edit_type:
+    object_removal: 0.55
+    object_replacement: 0.50
+  conservative_region_min_outside_preservation: 0.50
+  conservative_region_min_reward: 0.30
+  conservative_region_target_structure_edit_types:
+    - color_change
+    - attribute_change
+    - material_change
+    - local_enhancement
+  conservative_region_min_target_structure: 0.45
+  conservative_region_min_target_structure_edge: 0.70
+  conservative_region_min_target_structure_by_edit_type:
+    color_change: 0.30
+    attribute_change: 0.35
+    material_change: 0.35
+    local_enhancement: 0.20
+  conservative_region_min_target_structure_edge_by_edit_type:
+    color_change: 0.50
+    attribute_change: 0.45
+    material_change: 0.45
+    local_enhancement: 0.25
+  internal_vlm_judge:
+    enabled: true
+    mode: per_candidate
+    max_candidates: 20
+    image_resolution: 512
+    max_new_tokens: 768
+    temperature: 0.0
+    top_p: 0.9
+    cepr_weight: 0.45
+    judge_weight: 0.55
+    min_score_for_feasible: 0.35
+    min_semantic_for_feasible: 0.35
+    min_preservation_for_feasible: 0.35
+    min_artifact_free_for_feasible: 0.35
+    min_score_for_feasible_by_edit_type:
+      material_change: 0.78
+    min_semantic_for_feasible_by_edit_type:
+      material_change: 0.72
+    min_target_correctness_for_feasible_by_edit_type:
+      material_change: 0.75
+    min_preservation_for_feasible_by_edit_type:
+      material_change: 0.82
+    min_artifact_free_for_feasible_by_edit_type:
+      material_change: 0.85
+    min_confidence: 0.25
+    require_for_feasible: true
+    require_confidence_for_feasible: false
+    use_unreliable_scores: true
+    fail_closed_on_low_score: true
+    missing_score_is_failure: true
+    fail_open: false
+    replacement_detector_fallback: true
+    replacement_fallback_allow_vlm_contract_override: true
+    replacement_fallback_allowed_reject_reasons:
+      - object_detector_contract
+      - rubric_forbidden_gate
+    replacement_fallback_require_best: false
+    replacement_fallback_min_semantic: 0.80
+    replacement_fallback_min_object_absence: 0.80
+    replacement_fallback_min_target_correctness: 0.80
+    replacement_fallback_min_target_object_visible_after: 0.80
+    replacement_fallback_min_preservation: 0.85
+    replacement_fallback_min_artifact_free: 0.85
+    replacement_fallback_max_edited_source_score_ratio: 0.90
+    replacement_fallback_min_source_score_drop: 0.04
+    replacement_fallback_min_localization_precision: 0.30
+    replacement_fallback_min_outside_preservation: 0.80
+    removal_detector_fallback: true
+    removal_fallback_require_best: false
+    removal_structured_absence_fallback: true
+    removal_structured_fallback_require_best: false
+    removal_structured_fallback_min_raw_reward: 0.55
+    removal_structured_fallback_min_localization: 0.55
+    removal_structured_fallback_min_outside_preservation: 0.80
+    removal_structured_fallback_min_outside_changed_fraction: 0.90
+    removal_structured_fallback_min_fill_naturalness: 0.50
+    removal_judge_fallback: true
+    removal_judge_fallback_require_best: false
+    removal_judge_fallback_min_outside_preservation: 0.80
+    removal_judge_fallback_min_localization: 0.30
+    removal_judge_fallback_min_outside_changed_fraction: 0.90
+    removal_fallback_min_semantic: 0.80
+    removal_fallback_min_object_absence: 0.85
+    removal_fallback_min_fill_naturalness: 0.80
+    removal_fallback_min_preservation: 0.85
+    removal_fallback_min_artifact_free: 0.85
+    removal_fallback_max_edited_source_score_ratio: 1.15
+    removal_fallback_max_edited_source_score_margin: 0.05
+curriculum:
+  num_rounds: 2
+  # Use explicit edit-type quotas instead of depending on manifest row order.
+  # This keeps every round exposed to the conservative-edit failure modes that
+  # matter for external benchmarks: object removal/replacement, local changes,
+  # and non-target preservation.
+  record_schedule: stratified_metadata
+  stratify_metadata_key: scheduled_edit_type
+  stratify_interleave: true
+  stratify_targets:
+    object_removal: 0.11
+    object_replacement: 0.11
+    subject_extraction: 0.10
+    object_addition: 0.09
+    attribute_change: 0.09
+    color_change: 0.09
+    material_change: 0.09
+    spatial_move: 0.09
+    background_change: 0.09
+    style_transfer: 0.07
+    local_enhancement: 0.07
+  stratify_shuffle_seed: 123
+  proposals_per_image: 1
+  inject_scheduled_edit_type: true
+  coverage_schedule_mode: global_cycle
+  respect_record_edit_families: true
+  min_removable_object_score_for_object_schedule: 0.55
+  min_small_object_separability_for_object_schedule: 0.45
+  coverage_edit_type_schedule:
+    - object_removal
+    - object_replacement
+    - subject_extraction
+    - object_addition
+    - attribute_change
+    - color_change
+    - material_change
+    - spatial_move
+    - background_change
+    - style_transfer
+    - local_enhancement
+    - subject_extraction
+    - object_replacement
+    - object_removal
+  initial_level: 2
+  min_level: 1
+  max_level: 3
+  promote_at: 0.65
+  demote_at: 0.25
+  max_records_per_round: 96
+training:
+  trigger: launch
+  base_train_config: configs/train/lora_2509_diffusers.yaml
+  current_checkpoint_path: null
+  continue_with_trained_checkpoint: true
+  trained_checkpoint_backend: official_diffusers
+  resume_from_latest: true
+  # Fast-pilot defaults. Increase rank/modules after reward traces look correct.
+  learning_rate: 7.5e-7
+  num_epochs: 1
+  max_train_steps: 96
+  gradient_accumulation_steps: 1
+  checkpointing_steps: 0
+  offload: false
+  train_config_overrides:
+    lora:
+      lora_rank: 16
+      lora_alpha: 16
+      lora_target_modules: to_q,to_k,to_v,to_out.0,add_q_proj,add_k_proj,add_v_proj,to_add_out
+      lora_reference_l2_weight: 0.08
+      lora_reference_max_relative_delta: 0.03
+  preference:
+    enabled: true
+    use_cumulative_manifest: true
+    training_objective: pairwise_sdpo
+    preference_beta: 4.0
+    preference_margin: 0.01
+    preference_sft_weight: 0.0
+    preference_reference_mode: initial_lora
+    preference_sdpo_epsilon: 1.0e-12
+    max_pairs_per_group: 5
+    score_mode: conservative
+    exclude_rank_only_feasible_rejects: true
+    accept_strict_vlm_success_as_positive: true
+    require_success_filter_for_accepted: true
+    strict_vlm_positive_statuses:
+      - accepted
+      - rejected
+    # Strict VLM positives intentionally bypass old hard-gate failures such as
+    # cepr_edit_specificity when the decomposed judge and raw conservative
+    # reward agree. Keep a raw reward floor, but do not require effective_reward,
+    # because effective_reward is zeroed by exactly the gates this path repairs.
+    strict_vlm_positive_min_effective_reward: null
+    strict_vlm_positive_min_raw_reward: 0.55
+    min_pairs: 4
+    fallback_to_weighted_sft: false
+    min_score_margin: 0.04
+    min_score_margin_by_edit_type:
+      object_removal: 0.03
+      object_replacement: 0.03
+    min_chosen_reward: 0.35
+    base_relative:
+      enabled: true
+      start_round: 1
+      score_mode: conservative
+      reference_roles:
+        - reference:base
+      policy_roles:
+        - policy
+      positive_roles:
+        - policy
+      min_policy_over_reference_margin: 0.04
+      min_policy_over_reference_margin_by_edit_type:
+        object_replacement: 0.07
+        object_removal: 0.04
+      min_reference_over_policy_margin: 0.005
+      min_reference_over_policy_margin_by_edit_type:
+        # Replacement candidates are stochastic and close-scoring base samples
+        # should not become anti-edit "reference wins"; require a clear quality
+        # advantage before training no-harm against a policy replacement.
+        object_replacement: 0.05
+        object_removal: 0.005
+      min_reference_score: 0.50
+      train_reference_wins: true
+      skip_ambiguous: true
+      # Be conservative against the initial/base editor. Replacement mistakes
+      # are costly, so if the base reference is better we train the no-harm
+      # reference win instead of falling back to a policy self-pair.
+      fallback_to_self_pairs: false
+      fallback_to_self_pairs_by_edit_type:
+        # Removal can still use strict self-pairs because the structured absence
+        # fallback gives a strong object-gone signal. Replacement uses the base
+        # reference/opponent signal instead to avoid semantic drift.
+        object_removal: true
+        object_replacement: false
+      reference_win_weight_scale: 1.20
+      reference_win_weight_scale_by_edit_type:
+        object_replacement: 0.75
+        object_removal: 1.10
+      reference_win_preference_sft_weight: 0.0
+      min_reference_component_scores:
+        cepr_preservation: 0.66
+        cepr_validity: 0.74
+        cepr_taxonomy: 0.20
+    vlm_pair_guard:
+      enabled: true
+      reject_explicit_vlm_fail: true
+      explicit_fail_floor: 0.05
+      require_reliable_chosen: true
+      require_reliable_pair: false
+      min_chosen_judge: 0.60
+      min_chosen_semantic: 0.55
+      min_chosen_preservation: 0.65
+      min_chosen_artifact_free: 0.65
+      min_judge_margin: 0.0
+      min_weight_multiplier: 0.70
+    pareto_pair_guard:
+      enabled: true
+      # Scalar reward wins are not enough for conservative image editing. A
+      # preference pair must improve edit success while preserving the
+      # non-target image and avoiding quality/artifact regressions.
+      min_edit_delta: 0.02
+      min_edit_delta_by_edit_type:
+        object_addition: 0.03
+        object_removal: 0.04
+        object_replacement: 0.04
+      source_noop_min_edit_delta: 0.12
+      source_noop_min_edit_delta_by_edit_type:
+        object_removal: 0.18
+        object_replacement: 0.18
+      edit_success_axis:
+        reducer: max
+        metrics:
+          - semantic_edit
+          - internal_vlm_judge_edit_success
+          - internal_vlm_judge_target_correctness
+          - internal_vlm_judge_target_object_visible_after
+          - internal_vlm_judge_object_absence
+      min_chosen_scores:
+        semantic_edit: 0.35
+        preservation: 0.68
+        artifact_free: 0.70
+        validity: 0.75
+        judge: 0.60
+      min_chosen_scores_by_edit_type:
+        object_removal:
+          semantic_edit: 0.45
+          preservation: 0.76
+          artifact_free: 0.75
+          validity: 0.82
+          judge: 0.65
+          internal_vlm_judge_object_absence: 0.85
+        object_replacement:
+          semantic_edit: 0.48
+          preservation: 0.76
+          artifact_free: 0.75
+          validity: 0.82
+          judge: 0.65
+          internal_vlm_judge_target_correctness: 0.80
+          internal_vlm_judge_target_object_visible_after: 0.80
+      no_degradation_axes:
+        preservation:
+          reducer: min
+          metrics:
+            - cepr_preservation
+            - conservative_outside_preservation
+            - rubric_preservation
+            - internal_vlm_judge_preservation
+          allowed_drop: 0.02
+        artifact_free:
+          reducer: min
+          metrics:
+            - internal_vlm_judge_artifact_free
+            - cepr_validity
+            - rubric_validity
+          allowed_drop: 0.02
+        judge:
+          reducer: max
+          metrics:
+            - internal_vlm_judge_score
+          allowed_drop: 0.05
+      min_weight_multiplier: 0.75
+      edit_margin_weight_scale: 0.20
+      edit_margin_clip: 0.50
+    productive_group_filter:
+      enabled: true
+      hard_filter: true
+      hard_filter_self_pairs_only: true
+      success_scope: policy
+      policy_roles:
+        - policy
+      min_candidates: 2
+      min_success_rate: 0.20
+      min_success_rate_by_edit_type:
+        object_removal: 0.10
+        object_replacement: 0.10
+      min_success_count_by_edit_type:
+        object_removal: 1
+        object_replacement: 1
+      max_success_rate: 0.80
+      require_internal_vlm_judge: true
+      require_reliable_judge: true
+      min_judge_score: 0.60
+      min_judge_semantic: 0.55
+      min_judge_preservation: 0.65
+      min_judge_artifact_free: 0.65
+      min_component_scores:
+        semantic_edit: 0.30
+        preservation: 0.66
+        validity: 0.74
+    positive_success_filter:
+      enabled: true
+      require_internal_vlm_judge: true
+      require_reliable_judge: true
+      min_judge_score: 0.60
+      min_judge_semantic: 0.55
+      min_judge_preservation: 0.65
+      min_judge_artifact_free: 0.65
+      min_component_scores:
+        semantic_edit: 0.35
+        preservation: 0.68
+        validity: 0.78
+      by_edit_type:
+        subject_extraction:
+          min_judge_score: 0.65
+          min_judge_semantic: 0.65
+          min_judge_preservation: 0.70
+          min_judge_artifact_free: 0.75
+          min_component_scores:
+            semantic_edit: 0.40
+            preservation: 0.45
+            validity: 0.78
+            artifact_free: 0.72
+            reward: 0.45
+            internal_vlm_judge_preservation: 0.70
+        object_removal:
+          min_judge_score: 0.65
+          min_judge_semantic: 0.65
+          min_judge_preservation: 0.75
+          min_judge_artifact_free: 0.75
+          min_component_scores:
+            semantic_edit: 0.45
+            # Object removal is evaluated by a decomposed contract: object
+            # absence, VLM preservation, outside preservation, and natural fill.
+            # The older scalar CEPR preservation proxy can under-score valid
+            # inpainting because the target area itself must change.
+            preservation: 0.76
+            validity: 0.84
+            artifact_free: 0.72
+            reward: 0.55
+            conservative_region_reward: 0.45
+            conservative_outside_preservation: 0.65
+            conservative_localization_precision: 0.30
+            internal_vlm_judge_object_absence: 0.85
+            internal_vlm_judge_fill_naturalness: 0.55
+        object_replacement:
+          min_judge_score: 0.65
+          min_judge_semantic: 0.65
+          min_judge_preservation: 0.75
+          min_judge_artifact_free: 0.75
+          min_component_scores:
+            semantic_edit: 0.48
+            preservation: 0.82
+            validity: 0.84
+            artifact_free: 0.72
+            reward: 0.55
+            internal_vlm_judge_target_correctness: 0.80
+            internal_vlm_judge_target_object_visible_after: 0.80
+            conservative_region_reward: 0.45
+            conservative_outside_preservation: 0.65
+            conservative_localization_precision: 0.30
+    generalization_calibration:
+      enabled: true
+      reject_below_component_floor: true
+      reject_below_min_confidence: true
+      min_confidence: 0.60
+      min_weight_multiplier: 0.60
+      confidence_power: 1.25
+      min_component_scores:
+        semantic_edit: 0.35
+        preservation: 0.68
+        validity: 0.75
+        taxonomy: 0.20
+        judge: 0.60
+      min_component_scores_by_edit_type:
+        subject_extraction:
+          semantic_edit: 0.35
+          cepr_semantic_edit: 0.40
+          internal_vlm_judge_semantic: 0.70
+          preservation: 0.45
+          internal_vlm_judge_preservation: 0.70
+          validity: 0.78
+          artifact_free: 0.72
+          reward: 0.45
+        object_removal:
+          semantic_edit: 0.40
+          cepr_semantic_edit: 0.43
+          internal_vlm_judge_semantic: 0.75
+          preservation: 0.70
+          internal_vlm_judge_preservation: 0.80
+          validity: 0.84
+          artifact_free: 0.72
+          reward: 0.55
+          conservative_region_reward: 0.45
+          conservative_outside_preservation: 0.65
+          conservative_localization_precision: 0.30
+          internal_vlm_judge_object_absence: 0.85
+          internal_vlm_judge_fill_naturalness: 0.55
+        object_replacement:
+          semantic_edit: 0.40
+          cepr_semantic_edit: 0.45
+          internal_vlm_judge_semantic: 0.75
+          internal_vlm_judge_target_correctness: 0.80
+          preservation: 0.70
+          internal_vlm_judge_preservation: 0.80
+          validity: 0.84
+          artifact_free: 0.72
+          reward: 0.55
+          conservative_region_reward: 0.45
+          conservative_outside_preservation: 0.65
+          conservative_localization_precision: 0.30
+          internal_vlm_judge_target_object_visible_after: 0.80
+      component_weights:
+        semantic_edit: 0.20
+        preservation: 0.36
+        validity: 0.20
+        taxonomy: 0.10
+        source: 0.05
+        judge: 0.15
+    hard_negative_mining:
+      enabled: true
+      max_per_tag_first_pass: 1
+      allow_unproductive_strict_positive_pairs: true
+      require_explicit_failure_tag: true
+      unproductive_group_reasons:
+        - productive_group_all_or_most_pass
+      explicit_failure_tags:
+        - judge_low_score
+        - preservation_drift
+        - under_edit
+        - invalid_or_artifact
+        - taxonomy_mismatch
+        - weak_reward
+      priority:
+        - source_noop
+        - hard_near_miss
+        - judge_low_score
+        - preservation_drift
+        - under_edit
+        - invalid_or_artifact
+        - taxonomy_mismatch
+        - weak_reward
+      thresholds:
+        semantic_edit: 0.35
+        preservation: 0.62
+        validity: 0.72
+        taxonomy: 0.25
+        reward: 0.35
+        judge: 0.55
+    source_noop_negative:
+      enabled: true
+      allow_unproductive_groups: true
+      unproductive_group_reasons:
+        - productive_group_all_or_most_pass
+      # Self-supervised contrast: under the edit instruction, the unedited source
+      # is a safe low-weight negative for a strict accepted edit. This prevents
+      # preference training from stalling when every generated candidate is either
+      # accepted or filtered as a rank-only feasible alternative.
+      only_when_no_candidate_negatives: false
+      # Replacement positives can be starved by the base-relative ambiguity gate:
+      # if the policy candidate is strict-judge positive but the base reference is
+      # not a reliable win/loss anchor, keep only a low-weight source-noop contrast.
+      # This preserves the no-harm gate while still teaching "make the requested
+      # replacement instead of doing nothing."
+      allow_ambiguous_base_relative_positive: false
+      allow_ambiguous_base_relative_positive_by_edit_type:
+        object_replacement: true
+      chosen_statuses:
+        - accepted
+        - rejected
+      edit_types:
+        - object_removal
+        - object_replacement
+        - subject_extraction
+        - object_addition
+        - attribute_change
+        - color_change
+        - material_change
+        - spatial_move
+        - background_change
+        - style_transfer
+        - local_enhancement
+      candidate_role: reference:source_noop
+      source_suffix: source_noop
+      candidate_index_offset: -100000
+      pair_score: 0.0
+      preservation_score: 1.0
+      validity_score: 1.0
+      taxonomy_score: 1.0
+      weight_scale: 0.15
+      weight_scale_by_edit_type:
+        object_replacement: 0.12
+        object_removal: 0.15
+      failure_tags:
+        - source_noop
+        - under_edit
+        - weak_reward
+        - judge_low_score
+    success_consistency_filter:
+      enabled: true
+      scope: positive
+      min_success_count: 1
+      min_success_count_by_edit_type:
+        object_removal: 1
+        object_replacement: 1
+        object_addition: 1
+      reject_below_min_count: true
+      reject_below_min_rate: false
+      min_weight_multiplier: 0.55
+      weight_power: 1.0
+    anchor_replay:
+      enabled: true
+      ratio: 0.50
+      max_records: 64
+      sample_weight: 0.30
+      max_weight_fraction: 0.25
+      preference_sft_weight: 0.0
+      prompt: Reconstruct the input image exactly. Preserve all content, layout, colors, and text.
+      rejected_image_keys:
+        - chosen_image
+        - rejected_image
+    include_near_miss_pairs: true
+    ranked_accepted_pairs:
+      enabled: true
+      source_suffix: ranked_accepted
+    near_miss_allowed_statuses:
+      - accepted
+    verified_rejected_near_miss:
+      enabled: true
+      allow_as_positive_anchor: true
+      # Detector gates are useful for obvious failures, but for replacement/removal
+      # they can reject visually correct edits. Let VLM-verified rejected candidates
+      # compete with accepted positives only when they clearly score higher.
+      compete_with_accepted: true
+      prefer_over_accepted_margin: 0.02
+      statuses:
+        - rejected
+      edit_types:
+        - object_removal
+        - object_replacement
+        - subject_extraction
+        - attribute_change
+        - color_change
+        - material_change
+        - spatial_move
+        - background_change
+        - style_transfer
+        - local_enhancement
+      allowed_reject_reasons:
+        - accepted
+        - accepted_vlm_replacement_detector_fallback
+        - accepted_vlm_removal_detector_fallback
+        - accepted_vlm_removal_judge_fallback
+        - accepted_vlm_removal_structured_absence_fallback
+        - object_detector_contract
+        - rubric_forbidden_gate
+        - conservative_region
+        - cepr_edit_specificity
+        - cepr_taxonomy
+        - rubric_cepr_reward
+      unproductive_group_reasons:
+        - productive_group_all_or_most_fail
+      require_internal_vlm_judge: true
+      require_reliable_judge: true
+      min_judge_confidence: 0.75
+      min_component_scores:
+        judge: 0.75
+        cepr_semantic_edit: 0.40
+        internal_vlm_judge_semantic: 0.70
+        preservation: 0.70
+        internal_vlm_judge_preservation: 0.78
+        validity: 0.80
+        artifact_free: 0.75
+        reward: 0.52
+        required: 0.50
+        taxonomy: 0.30
+      min_component_scores_by_edit_type:
+        subject_extraction:
+          judge: 0.72
+          cepr_semantic_edit: 0.40
+          internal_vlm_judge_semantic: 0.70
+          preservation: 0.45
+          internal_vlm_judge_preservation: 0.70
+          artifact_free: 0.75
+          reward: 0.45
+          required: 0.50
+        color_change:
+          judge: 0.78
+          internal_vlm_judge_semantic: 0.75
+          preservation: 0.70
+          internal_vlm_judge_preservation: 0.85
+          artifact_free: 0.80
+          reward: 0.48
+          required: 0.55
+        material_change:
+          judge: 0.78
+          internal_vlm_judge_semantic: 0.75
+          preservation: 0.70
+          internal_vlm_judge_preservation: 0.85
+          artifact_free: 0.80
+          reward: 0.55
+          required: 0.55
+        object_removal:
+          judge: 0.78
+          cepr_semantic_edit: 0.43
+          internal_vlm_judge_semantic: 0.75
+          preservation: 0.76
+          internal_vlm_judge_preservation: 0.80
+          internal_vlm_judge_object_absence: 0.85
+          internal_vlm_judge_fill_naturalness: 0.80
+          artifact_free: 0.78
+          reward: 0.55
+          required: 0.55
+        object_replacement:
+          judge: 0.78
+          cepr_semantic_edit: 0.45
+          internal_vlm_judge_semantic: 0.75
+          internal_vlm_judge_target_correctness: 0.80
+          internal_vlm_judge_target_object_visible_after: 0.80
+          preservation: 0.72
+          internal_vlm_judge_preservation: 0.80
+          artifact_free: 0.78
+          reward: 0.55
+          required: 0.55
+    near_miss_positive_anchor_filter:
+      enabled: true
+      edit_types:
+        - object_removal
+        - object_replacement
+      min_positive_count: 1
+    near_miss_min_raw_reward: 0.48
+    near_miss_min_semantic_edit: 0.30
+    near_miss_min_preservation: 0.65
+    near_miss_min_validity: 0.85
+    near_miss_min_score_margin: 0.03
+    near_miss_contract_filter:
+      enabled: true
+      require_valid_structured_edit: true
+      max_object_slot_words: 7
+      require_target_region: true
+      edit_types:
+        - object_removal
+        - object_replacement
+        - object_addition
+        - attribute_change
+        - color_change
+        - material_change
+        - spatial_move
+        - local_enhancement
+      require_strict_forbidden_gate: true
+      require_strict_forbidden_gate_by_edit_type:
+        object_removal: false
+        object_replacement: false
+      disabled_component_scores_by_edit_type:
+        object_removal:
+          - rubric_forbidden_after_absent
+          - rubric_edit_success
+        object_replacement:
+          - rubric_forbidden_after_absent
+          - rubric_edit_success
+      min_component_scores:
+        rubric_required_after: 0.50
+        rubric_forbidden_after_absent: 0.45
+        rubric_edit_success: 0.40
+        rubric_preservation: 0.50
+        rubric_validity: 0.70
+        cepr_raw_reward: 0.45
+      min_component_scores_by_edit_type:
+        object_removal:
+          rubric_required_after: 0.55
+          rubric_preservation: 0.85
+          rubric_validity: 0.80
+          cepr_taxonomy: 0.35
+          cepr_raw_reward: 0.55
+          conservative_region_reward: 0.45
+          conservative_outside_preservation: 0.65
+          conservative_localization_precision: 0.55
+          internal_vlm_judge_object_absence: 0.85
+          internal_vlm_judge_fill_naturalness: 0.80
+        object_replacement:
+          rubric_required_after: 0.55
+          rubric_preservation: 0.85
+          rubric_validity: 0.80
+          cepr_taxonomy: 0.35
+          cepr_raw_reward: 0.55
+          conservative_region_reward: 0.45
+          conservative_outside_preservation: 0.65
+          conservative_localization_precision: 0.50
+    near_miss_weight_scale: 0.35
+    near_miss_preference_sft_weight: 0.0
+    accepted_preference_sft_weight: 0.0
+    base_weight: 1.0
+    margin_weight_scale: 0.75
+    margin_clip: 0.50
+    max_sample_weight: 1.25
+    family_balance:
+      enabled: true
+      key: edit_type
+      target_families:
+        - object_removal
+        - object_replacement
+        - subject_extraction
+        - object_addition
+        - attribute_change
+        - color_change
+        - material_change
+        - spatial_move
+        - background_change
+        - style_transfer
+        - local_enhancement
+      max_fraction_per_family: 0.25
+      max_pairs_per_family: 8
+      min_pairs_per_family: 1
+  weighted_sft:
+    enabled: true
+    allowed_candidate_roles:
+      - policy
+      - opponent:previous_round
+    include_rejected: false
+    include_feasible_ranked_positives: false
+    max_feasible_rank: 4
+    feasible_positive_weight: 0.60
+    accepted_weight: 1.0
+    min_rejected_weight: 0.05
+    max_rejected_weight: 0.35
+    min_raw_reward: 0.15
+    target_reward: 0.30
+    min_semantic_edit: 0.225
+    min_preservation: 0.20
+    min_validity: 0.50
+    min_taxonomy: 0.30
+    score_power: 1.0
+    contract_filter:
+      enabled: true
+      require_valid_structured_edit: true
+      max_object_slot_words: 7
+      require_target_region: true
+      edit_types:
+        - object_removal
+        - object_replacement
+      require_strict_forbidden_gate: false
+      disabled_component_scores_by_edit_type:
+        object_removal:
+          - rubric_forbidden_after_absent
+          - rubric_edit_success
+        object_replacement:
+          - rubric_forbidden_after_absent
+          - rubric_edit_success
+      min_component_scores:
+        rubric_required_after: 0.68
+        rubric_preservation: 0.85
+        rubric_validity: 0.80
+        cepr_taxonomy: 0.35
+        cepr_raw_reward: 0.55
+        conservative_region_reward: 0.45
+        conservative_outside_preservation: 0.65
+        conservative_localization_precision: 0.50
+    family_balance:
+      enabled: true
+      key: edit_type
+      target_families:
+        - object_removal
+        - object_replacement
+        - subject_extraction
+        - object_addition
+        - attribute_change
+        - color_change
+        - material_change
+        - spatial_move
+        - background_change
+        - style_transfer
+        - local_enhancement
+      max_fraction_per_family: 0.30
+      max_samples_per_family: 4
+      min_samples_per_family: 1
+  reconstruction_replay_ratio: 0.45
+  reconstruction_replay_weight: 0.75
+  reconstruction_replay_prompt: Reconstruct the input image exactly. Preserve all content, layout, colors, and text.
+output:
+  root_dir: outputs/self_evolve/qwen_edit_2509_v45_ranked_preference_caption_extract_keeponly
+  save_all_candidates: true
+  use_cumulative_manifest: false
+  use_cumulative_preference_manifest: true
+  write_evaluator_training: true
+  resume:
+    enabled: false
+    progress_log_every: 10

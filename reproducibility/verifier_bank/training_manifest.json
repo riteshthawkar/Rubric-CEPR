@@ -1,0 +1,1194 @@
+[
+  {
+    "prompt": "Extract the car.",
+    "image": "outputs/edit_pairs/extract_selfdistill/targets/00001.png",
+    "edit_image": "data/unlabeled/raw/coco2017/81593_f790a282da.jpg",
+    "sample_weight": 1.0,
+    "family": "extract",
+    "record_key": "00001"
+  },
+  {
+    "prompt": "Extract the elephant.",
+    "image": "outputs/edit_pairs/extract_selfdistill/targets/00003.png",
+    "edit_image": "data/unlabeled/raw/coco2017/526521_908c92f65d.jpg",
+    "sample_weight": 1.0,
+    "family": "extract",
+    "record_key": "00003"
+  },
+  {
+    "prompt": "Extract the person child.",
+    "image": "outputs/edit_pairs/extract_selfdistill/targets/00006.png",
+    "edit_image": "data/unlabeled/raw/coco2017/100209_913cb54d54.jpg",
+    "sample_weight": 1.0,
+    "family": "extract",
+    "record_key": "00006"
+  },
+  {
+    "prompt": "Extract the umbrella.",
+    "image": "outputs/edit_pairs/extract_selfdistill/targets/00009.png",
+    "edit_image": "data/unlabeled/raw/coco2017/134344_8a764fee44.jpg",
+    "sample_weight": 1.0,
+    "family": "extract",
+    "record_key": "00009"
+  },
+  {
+    "prompt": "Extract the surfboard.",
+    "image": "outputs/edit_pairs/extract_selfdistill/targets/00011.png",
+    "edit_image": "data/unlabeled/raw/coco2017/412910_371daac874.jpg",
+    "sample_weight": 1.0,
+    "family": "extract",
+    "record_key": "00011"
+  },
+  {
+    "prompt": "Extract the couch.",
+    "image": "outputs/edit_pairs/extract_selfdistill/targets/00012.png",
+    "edit_image": "data/unlabeled/raw/coco2017/193042_f11da7ea0d.jpg",
+    "sample_weight": 1.0,
+    "family": "extract",
+    "record_key": "00012"
+  },
+  {
+    "prompt": "Extract the person woman.",
+    "image": "outputs/edit_pairs/extract_selfdistill/targets/00013.png",
+    "edit_image": "data/unlabeled/raw/coco2017/451121_5325f38537.jpg",
+    "sample_weight": 1.0,
+    "family": "extract",
+    "record_key": "00013"
+  },
+  {
+    "prompt": "Extract the surfboard.",
+    "image": "outputs/edit_pairs/extract_selfdistill/targets/00014.png",
+    "edit_image": "data/unlabeled/raw/coco2017/245145_a3d56c9afa.jpg",
+    "sample_weight": 1.0,
+    "family": "extract",
+    "record_key": "00014"
+  },
+  {
+    "prompt": "Extract the truck.",
+    "image": "outputs/edit_pairs/extract_selfdistill/targets/00015.png",
+    "edit_image": "data/unlabeled/raw/coco2017/292662_0eea7d3242.jpg",
+    "sample_weight": 1.0,
+    "family": "extract",
+    "record_key": "00015"
+  },
+  {
+    "prompt": "Extract the person man.",
+    "image": "outputs/edit_pairs/extract_selfdistill/targets/00016.png",
+    "edit_image": "data/unlabeled/raw/coco2017/247866_551fece9c9.jpg",
+    "sample_weight": 1.0,
+    "family": "extract",
+    "record_key": "00016"
+  },
+  {
+    "prompt": "Extract the laptop keyboard.",
+    "image": "outputs/edit_pairs/extract_selfdistill/targets/00017.png",
+    "edit_image": "data/unlabeled/raw/coco2017/16082_3e19a7c2eb.jpg",
+    "sample_weight": 1.0,
+    "family": "extract",
+    "record_key": "00017"
+  },
+  {
+    "prompt": "Extract the person woman.",
+    "image": "outputs/edit_pairs/extract_selfdistill/targets/00018.png",
+    "edit_image": "data/unlabeled/raw/coco2017/581513_8cfc9b5236.jpg",
+    "sample_weight": 1.0,
+    "family": "extract",
+    "record_key": "00018"
+  },
+  {
+    "prompt": "Extract the cake.",
+    "image": "outputs/edit_pairs/extract_selfdistill/targets/00019.png",
+    "edit_image": "data/unlabeled/raw/coco2017/47928_b21c759b5c.jpg",
+    "sample_weight": 1.0,
+    "family": "extract",
+    "record_key": "00019"
+  },
+  {
+    "prompt": "Extract the person man woman.",
+    "image": "outputs/edit_pairs/extract_selfdistill/targets/00020.png",
+    "edit_image": "data/unlabeled/raw/coco2017/480582_39f6003f4b.jpg",
+    "sample_weight": 1.0,
+    "family": "extract",
+    "record_key": "00020"
+  },
+  {
+    "prompt": "Extract the person man.",
+    "image": "outputs/edit_pairs/extract_selfdistill/targets/00021.png",
+    "edit_image": "data/unlabeled/raw/coco2017/512346_68a18338be.jpg",
+    "sample_weight": 1.0,
+    "family": "extract",
+    "record_key": "00021"
+  },
+  {
+    "prompt": "Extract the train.",
+    "image": "outputs/edit_pairs/extract_selfdistill/targets/00022.png",
+    "edit_image": "data/unlabeled/raw/coco2017/310663_498f7047bb.jpg",
+    "sample_weight": 1.0,
+    "family": "extract",
+    "record_key": "00022"
+  },
+  {
+    "prompt": "Extract the elephant.",
+    "image": "outputs/edit_pairs/extract_selfdistill/targets/00025.png",
+    "edit_image": "data/unlabeled/raw/coco2017/480409_3f4c2a8ad7.jpg",
+    "sample_weight": 1.0,
+    "family": "extract",
+    "record_key": "00025"
+  },
+  {
+    "prompt": "Extract the giraffe.",
+    "image": "outputs/edit_pairs/extract_selfdistill/targets/00026.png",
+    "edit_image": "data/unlabeled/raw/coco2017/223450_a496337695.jpg",
+    "sample_weight": 1.0,
+    "family": "extract",
+    "record_key": "00026"
+  },
+  {
+    "prompt": "Extract the airplane.",
+    "image": "outputs/edit_pairs/extract_selfdistill/targets/00028.png",
+    "edit_image": "data/unlabeled/raw/coco2017/259172_8827715307.jpg",
+    "sample_weight": 1.0,
+    "family": "extract",
+    "record_key": "00028"
+  },
+  {
+    "prompt": "Extract the boat.",
+    "image": "outputs/edit_pairs/extract_selfdistill/targets/00035.png",
+    "edit_image": "data/unlabeled/raw/coco2017/498971_3b0264f1ff.jpg",
+    "sample_weight": 1.0,
+    "family": "extract",
+    "record_key": "00035"
+  },
+  {
+    "prompt": "Extract the person man.",
+    "image": "outputs/edit_pairs/extract_selfdistill/targets/00037.png",
+    "edit_image": "data/unlabeled/raw/coco2017/527183_2b5a0ed855.jpg",
+    "sample_weight": 1.0,
+    "family": "extract",
+    "record_key": "00037"
+  },
+  {
+    "prompt": "Extract the cat.",
+    "image": "outputs/edit_pairs/extract_selfdistill/targets/00038.png",
+    "edit_image": "data/unlabeled/raw/coco2017/191667_f2e2494eb5.jpg",
+    "sample_weight": 1.0,
+    "family": "extract",
+    "record_key": "00038"
+  },
+  {
+    "prompt": "Extract the person woman.",
+    "image": "outputs/edit_pairs/extract_selfdistill/targets/00039.png",
+    "edit_image": "data/unlabeled/raw/coco2017/366948_8d1a6cfa1f.jpg",
+    "sample_weight": 1.0,
+    "family": "extract",
+    "record_key": "00039"
+  },
+  {
+    "prompt": "Extract the person man.",
+    "image": "outputs/edit_pairs/extract_selfdistill/targets/00040.png",
+    "edit_image": "data/unlabeled/raw/coco2017/518932_64b1d0a447.jpg",
+    "sample_weight": 1.0,
+    "family": "extract",
+    "record_key": "00040"
+  },
+  {
+    "prompt": "Extract the motorcycle.",
+    "image": "outputs/edit_pairs/extract_selfdistill/targets/00043.png",
+    "edit_image": "data/unlabeled/raw/coco2017/447376_9be385fc5a.jpg",
+    "sample_weight": 1.0,
+    "family": "extract",
+    "record_key": "00043"
+  },
+  {
+    "prompt": "Extract the person woman.",
+    "image": "outputs/edit_pairs/extract_selfdistill/targets/00047.png",
+    "edit_image": "data/unlabeled/raw/coco2017/139817_9d2a7faea1.jpg",
+    "sample_weight": 1.0,
+    "family": "extract",
+    "record_key": "00047"
+  },
+  {
+    "prompt": "Extract the person.",
+    "image": "outputs/edit_pairs/extract_selfdistill/targets/00048.png",
+    "edit_image": "data/unlabeled/raw/coco2017/119730_249ea9c43d.jpg",
+    "sample_weight": 1.0,
+    "family": "extract",
+    "record_key": "00048"
+  },
+  {
+    "prompt": "Extract the person man.",
+    "image": "outputs/edit_pairs/extract_selfdistill/targets/00049.png",
+    "edit_image": "data/unlabeled/raw/coco2017/556518_76944342e7.jpg",
+    "sample_weight": 1.0,
+    "family": "extract",
+    "record_key": "00049"
+  },
+  {
+    "prompt": "Extract the dog.",
+    "image": "outputs/edit_pairs/extract_selfdistill/targets/00051.png",
+    "edit_image": "data/unlabeled/raw/coco2017/264392_8dba15abea.jpg",
+    "sample_weight": 1.0,
+    "family": "extract",
+    "record_key": "00051"
+  },
+  {
+    "prompt": "Remove the car from the image.",
+    "image": "outputs/edit_pairs/remove_selfdistill/targets/00001.png",
+    "edit_image": "data/unlabeled/raw/coco2017/81593_f790a282da.jpg",
+    "sample_weight": 1.0,
+    "family": "remove",
+    "record_key": "remove_00001"
+  },
+  {
+    "prompt": "Remove the elephant from the image.",
+    "image": "outputs/edit_pairs/remove_selfdistill/targets/00003.png",
+    "edit_image": "data/unlabeled/raw/coco2017/526521_908c92f65d.jpg",
+    "sample_weight": 1.0,
+    "family": "remove",
+    "record_key": "remove_00003"
+  },
+  {
+    "prompt": "Remove the person man from the image.",
+    "image": "outputs/edit_pairs/remove_selfdistill/targets/00005.png",
+    "edit_image": "data/unlabeled/raw/coco2017/314565_3d48a5c15f.jpg",
+    "sample_weight": 1.0,
+    "family": "remove",
+    "record_key": "remove_00005"
+  },
+  {
+    "prompt": "Remove the person child from the image.",
+    "image": "outputs/edit_pairs/remove_selfdistill/targets/00006.png",
+    "edit_image": "data/unlabeled/raw/coco2017/100209_913cb54d54.jpg",
+    "sample_weight": 1.0,
+    "family": "remove",
+    "record_key": "remove_00006"
+  },
+  {
+    "prompt": "Remove the pizza from the image.",
+    "image": "outputs/edit_pairs/remove_selfdistill/targets/00008.png",
+    "edit_image": "data/unlabeled/raw/coco2017/44616_5c171b4e59.jpg",
+    "sample_weight": 1.0,
+    "family": "remove",
+    "record_key": "remove_00008"
+  },
+  {
+    "prompt": "Remove the umbrella from the image.",
+    "image": "outputs/edit_pairs/remove_selfdistill/targets/00010.png",
+    "edit_image": "data/unlabeled/raw/coco2017/29472_720babe05d.jpg",
+    "sample_weight": 1.0,
+    "family": "remove",
+    "record_key": "remove_00010"
+  },
+  {
+    "prompt": "Remove the surfboard from the image.",
+    "image": "outputs/edit_pairs/remove_selfdistill/targets/00011.png",
+    "edit_image": "data/unlabeled/raw/coco2017/412910_371daac874.jpg",
+    "sample_weight": 1.0,
+    "family": "remove",
+    "record_key": "remove_00011"
+  },
+  {
+    "prompt": "Remove the couch from the image.",
+    "image": "outputs/edit_pairs/remove_selfdistill/targets/00012.png",
+    "edit_image": "data/unlabeled/raw/coco2017/193042_f11da7ea0d.jpg",
+    "sample_weight": 1.0,
+    "family": "remove",
+    "record_key": "remove_00012"
+  },
+  {
+    "prompt": "Remove the person woman from the image.",
+    "image": "outputs/edit_pairs/remove_selfdistill/targets/00013.png",
+    "edit_image": "data/unlabeled/raw/coco2017/451121_5325f38537.jpg",
+    "sample_weight": 1.0,
+    "family": "remove",
+    "record_key": "remove_00013"
+  },
+  {
+    "prompt": "Remove the surfboard from the image.",
+    "image": "outputs/edit_pairs/remove_selfdistill/targets/00014.png",
+    "edit_image": "data/unlabeled/raw/coco2017/245145_a3d56c9afa.jpg",
+    "sample_weight": 1.0,
+    "family": "remove",
+    "record_key": "remove_00014"
+  },
+  {
+    "prompt": "Remove the truck from the image.",
+    "image": "outputs/edit_pairs/remove_selfdistill/targets/00015.png",
+    "edit_image": "data/unlabeled/raw/coco2017/292662_0eea7d3242.jpg",
+    "sample_weight": 1.0,
+    "family": "remove",
+    "record_key": "remove_00015"
+  },
+  {
+    "prompt": "Remove the laptop keyboard from the image.",
+    "image": "outputs/edit_pairs/remove_selfdistill/targets/00017.png",
+    "edit_image": "data/unlabeled/raw/coco2017/16082_3e19a7c2eb.jpg",
+    "sample_weight": 1.0,
+    "family": "remove",
+    "record_key": "remove_00017"
+  },
+  {
+    "prompt": "Remove the person woman from the image.",
+    "image": "outputs/edit_pairs/remove_selfdistill/targets/00018.png",
+    "edit_image": "data/unlabeled/raw/coco2017/581513_8cfc9b5236.jpg",
+    "sample_weight": 1.0,
+    "family": "remove",
+    "record_key": "remove_00018"
+  },
+  {
+    "prompt": "Remove the person man woman from the image.",
+    "image": "outputs/edit_pairs/remove_selfdistill/targets/00020.png",
+    "edit_image": "data/unlabeled/raw/coco2017/480582_39f6003f4b.jpg",
+    "sample_weight": 1.0,
+    "family": "remove",
+    "record_key": "remove_00020"
+  },
+  {
+    "prompt": "Remove the person man from the image.",
+    "image": "outputs/edit_pairs/remove_selfdistill/targets/00021.png",
+    "edit_image": "data/unlabeled/raw/coco2017/512346_68a18338be.jpg",
+    "sample_weight": 1.0,
+    "family": "remove",
+    "record_key": "remove_00021"
+  },
+  {
+    "prompt": "Remove the train from the image.",
+    "image": "outputs/edit_pairs/remove_selfdistill/targets/00022.png",
+    "edit_image": "data/unlabeled/raw/coco2017/310663_498f7047bb.jpg",
+    "sample_weight": 1.0,
+    "family": "remove",
+    "record_key": "remove_00022"
+  },
+  {
+    "prompt": "Remove the chair from the image.",
+    "image": "outputs/edit_pairs/remove_selfdistill/targets/00023.png",
+    "edit_image": "data/unlabeled/raw/coco2017/289344_116becb86f.jpg",
+    "sample_weight": 1.0,
+    "family": "remove",
+    "record_key": "remove_00023"
+  },
+  {
+    "prompt": "Remove the giraffe from the image.",
+    "image": "outputs/edit_pairs/remove_selfdistill/targets/00024.png",
+    "edit_image": "data/unlabeled/raw/coco2017/185719_c16aa9a7ca.jpg",
+    "sample_weight": 1.0,
+    "family": "remove",
+    "record_key": "remove_00024"
+  },
+  {
+    "prompt": "Remove the elephant from the image.",
+    "image": "outputs/edit_pairs/remove_selfdistill/targets/00025.png",
+    "edit_image": "data/unlabeled/raw/coco2017/480409_3f4c2a8ad7.jpg",
+    "sample_weight": 1.0,
+    "family": "remove",
+    "record_key": "remove_00025"
+  },
+  {
+    "prompt": "Remove the giraffe from the image.",
+    "image": "outputs/edit_pairs/remove_selfdistill/targets/00026.png",
+    "edit_image": "data/unlabeled/raw/coco2017/223450_a496337695.jpg",
+    "sample_weight": 1.0,
+    "family": "remove",
+    "record_key": "remove_00026"
+  },
+  {
+    "prompt": "Remove the airplane from the image.",
+    "image": "outputs/edit_pairs/remove_selfdistill/targets/00028.png",
+    "edit_image": "data/unlabeled/raw/coco2017/259172_8827715307.jpg",
+    "sample_weight": 1.0,
+    "family": "remove",
+    "record_key": "remove_00028"
+  },
+  {
+    "prompt": "Remove the fire hydrant from the image.",
+    "image": "outputs/edit_pairs/remove_selfdistill/targets/00030.png",
+    "edit_image": "data/unlabeled/raw/coco2017/21782_7efd9b3db5.jpg",
+    "sample_weight": 1.0,
+    "family": "remove",
+    "record_key": "remove_00030"
+  },
+  {
+    "prompt": "Remove the person man from the image.",
+    "image": "outputs/edit_pairs/remove_selfdistill/targets/00032.png",
+    "edit_image": "data/unlabeled/raw/coco2017/144178_f2cb84b1c1.jpg",
+    "sample_weight": 1.0,
+    "family": "remove",
+    "record_key": "remove_00032"
+  },
+  {
+    "prompt": "Remove the fire hydrant from the image.",
+    "image": "outputs/edit_pairs/remove_selfdistill/targets/00034.png",
+    "edit_image": "data/unlabeled/raw/coco2017/516540_987dc52f3e.jpg",
+    "sample_weight": 1.0,
+    "family": "remove",
+    "record_key": "remove_00034"
+  },
+  {
+    "prompt": "Remove the person man from the image.",
+    "image": "outputs/edit_pairs/remove_selfdistill/targets/00037.png",
+    "edit_image": "data/unlabeled/raw/coco2017/527183_2b5a0ed855.jpg",
+    "sample_weight": 1.0,
+    "family": "remove",
+    "record_key": "remove_00037"
+  },
+  {
+    "prompt": "Remove the cat from the image.",
+    "image": "outputs/edit_pairs/remove_selfdistill/targets/00038.png",
+    "edit_image": "data/unlabeled/raw/coco2017/191667_f2e2494eb5.jpg",
+    "sample_weight": 1.0,
+    "family": "remove",
+    "record_key": "remove_00038"
+  },
+  {
+    "prompt": "Remove the person man from the image.",
+    "image": "outputs/edit_pairs/remove_selfdistill/targets/00040.png",
+    "edit_image": "data/unlabeled/raw/coco2017/518932_64b1d0a447.jpg",
+    "sample_weight": 1.0,
+    "family": "remove",
+    "record_key": "remove_00040"
+  },
+  {
+    "prompt": "Remove the motorcycle from the image.",
+    "image": "outputs/edit_pairs/remove_selfdistill/targets/00043.png",
+    "edit_image": "data/unlabeled/raw/coco2017/447376_9be385fc5a.jpg",
+    "sample_weight": 1.0,
+    "family": "remove",
+    "record_key": "remove_00043"
+  },
+  {
+    "prompt": "Remove the couch bench from the image.",
+    "image": "outputs/edit_pairs/remove_selfdistill/targets/00045.png",
+    "edit_image": "data/unlabeled/raw/coco2017/580057_f130e4adbf.jpg",
+    "sample_weight": 1.0,
+    "family": "remove",
+    "record_key": "remove_00045"
+  },
+  {
+    "prompt": "Remove the kite from the image.",
+    "image": "outputs/edit_pairs/remove_selfdistill/targets/00047.png",
+    "edit_image": "data/unlabeled/raw/coco2017/139817_9d2a7faea1.jpg",
+    "sample_weight": 1.0,
+    "family": "remove",
+    "record_key": "remove_00047"
+  },
+  {
+    "prompt": "Remove the person man from the image.",
+    "image": "outputs/edit_pairs/remove_selfdistill/targets/00049.png",
+    "edit_image": "data/unlabeled/raw/coco2017/556518_76944342e7.jpg",
+    "sample_weight": 1.0,
+    "family": "remove",
+    "record_key": "remove_00049"
+  },
+  {
+    "prompt": "Remove the umbrella from the image.",
+    "image": "outputs/edit_pairs/remove_selfdistill/targets/00050.png",
+    "edit_image": "data/unlabeled/raw/coco2017/463454_8976e6e2b9.jpg",
+    "sample_weight": 1.0,
+    "family": "remove",
+    "record_key": "remove_00050"
+  },
+  {
+    "prompt": "Remove the chair couch from the image.",
+    "image": "outputs/edit_pairs/remove_selfdistill/targets/00051.png",
+    "edit_image": "data/unlabeled/raw/coco2017/264392_8dba15abea.jpg",
+    "sample_weight": 1.0,
+    "family": "remove",
+    "record_key": "remove_00051"
+  },
+  {
+    "prompt": "Remove the bus from the image.",
+    "image": "outputs/edit_pairs/remove_selfdistill/targets/00052.png",
+    "edit_image": "data/unlabeled/raw/coco2017/494415_c449a3782a.jpg",
+    "sample_weight": 1.0,
+    "family": "remove",
+    "record_key": "remove_00052"
+  },
+  {
+    "prompt": "Remove the motorcycle from the image.",
+    "image": "outputs/edit_pairs/remove_selfdistill/targets/00054.png",
+    "edit_image": "data/unlabeled/raw/coco2017/93655_f037a50870.jpg",
+    "sample_weight": 1.0,
+    "family": "remove",
+    "record_key": "remove_00054"
+  },
+  {
+    "prompt": "Remove the boat from the image.",
+    "image": "outputs/edit_pairs/remove_selfdistill/targets/00055.png",
+    "edit_image": "data/unlabeled/raw/coco2017/423951_bc31ad441c.jpg",
+    "sample_weight": 1.0,
+    "family": "remove",
+    "record_key": "remove_00055"
+  },
+  {
+    "prompt": "Remove the chair couch from the image.",
+    "image": "outputs/edit_pairs/remove_selfdistill/targets/00057.png",
+    "edit_image": "data/unlabeled/raw/coco2017/311395_cb51269572.jpg",
+    "sample_weight": 1.0,
+    "family": "remove",
+    "record_key": "remove_00057"
+  },
+  {
+    "prompt": "Remove the person man from the image.",
+    "image": "outputs/edit_pairs/remove_selfdistill/targets/00059.png",
+    "edit_image": "data/unlabeled/raw/coco2017/18457_c1509edeb4.jpg",
+    "sample_weight": 1.0,
+    "family": "remove",
+    "record_key": "remove_00059"
+  },
+  {
+    "prompt": "Remove the clock from the image.",
+    "image": "outputs/edit_pairs/remove_selfdistill/targets/00060.png",
+    "edit_image": "data/unlabeled/raw/coco2017/3084_bafcffc53a.jpg",
+    "sample_weight": 1.0,
+    "family": "remove",
+    "record_key": "remove_00060"
+  },
+  {
+    "prompt": "Remove the pizza from the image.",
+    "image": "outputs/edit_pairs/remove_selfdistill/targets/00061.png",
+    "edit_image": "data/unlabeled/raw/coco2017/419052_1fe12e749c.jpg",
+    "sample_weight": 1.0,
+    "family": "remove",
+    "record_key": "remove_00061"
+  },
+  {
+    "prompt": "Remove the person man from the image.",
+    "image": "outputs/edit_pairs/remove_selfdistill/targets/00062.png",
+    "edit_image": "data/unlabeled/raw/coco2017/550944_dcc8112f5b.jpg",
+    "sample_weight": 1.0,
+    "family": "remove",
+    "record_key": "remove_00062"
+  },
+  {
+    "prompt": "Remove the laptop from the image.",
+    "image": "outputs/edit_pairs/remove_selfdistill/targets/00063.png",
+    "edit_image": "data/unlabeled/raw/coco2017/70932_159b0bbfde.jpg",
+    "sample_weight": 1.0,
+    "family": "remove",
+    "record_key": "remove_00063"
+  },
+  {
+    "prompt": "Remove the dog cat from the image.",
+    "image": "outputs/edit_pairs/remove_selfdistill/targets/00064.png",
+    "edit_image": "data/unlabeled/raw/coco2017/20207_2347c23ba6.jpg",
+    "sample_weight": 1.0,
+    "family": "remove",
+    "record_key": "remove_00064"
+  },
+  {
+    "prompt": "Remove the fire hydrant from the image.",
+    "image": "outputs/edit_pairs/remove_selfdistill/targets/00066.png",
+    "edit_image": "data/unlabeled/raw/coco2017/225345_1121e6eff3.jpg",
+    "sample_weight": 1.0,
+    "family": "remove",
+    "record_key": "remove_00066"
+  },
+  {
+    "prompt": "Remove the train from the image.",
+    "image": "outputs/edit_pairs/remove_selfdistill/targets/00067.png",
+    "edit_image": "data/unlabeled/raw/coco2017/149588_a5cce9e530.jpg",
+    "sample_weight": 1.0,
+    "family": "remove",
+    "record_key": "remove_00067"
+  },
+  {
+    "prompt": "Remove the cup from the image.",
+    "image": "outputs/edit_pairs/remove_selfdistill/targets/00068.png",
+    "edit_image": "data/unlabeled/raw/coco2017/298347_e5d35a1681.jpg",
+    "sample_weight": 1.0,
+    "family": "remove",
+    "record_key": "remove_00068"
+  },
+  {
+    "prompt": "Remove the person man from the image.",
+    "image": "outputs/edit_pairs/remove_selfdistill/targets/00069.png",
+    "edit_image": "data/unlabeled/raw/coco2017/563525_54646a0ee6.jpg",
+    "sample_weight": 1.0,
+    "family": "remove",
+    "record_key": "remove_00069"
+  },
+  {
+    "prompt": "Remove the person man from the image.",
+    "image": "outputs/edit_pairs/remove_selfdistill/targets/00070.png",
+    "edit_image": "data/unlabeled/raw/coco2017/493293_0b783da24a.jpg",
+    "sample_weight": 1.0,
+    "family": "remove",
+    "record_key": "remove_00070"
+  },
+  {
+    "prompt": "Remove the umbrella from the image.",
+    "image": "outputs/edit_pairs/remove_selfdistill/targets/00071.png",
+    "edit_image": "data/unlabeled/raw/coco2017/250629_8452cae604.jpg",
+    "sample_weight": 1.0,
+    "family": "remove",
+    "record_key": "remove_00071"
+  },
+  {
+    "prompt": "Remove the person man from the image.",
+    "image": "outputs/edit_pairs/remove_selfdistill/targets/00072.png",
+    "edit_image": "data/unlabeled/raw/coco2017/552549_a08febfc46.jpg",
+    "sample_weight": 1.0,
+    "family": "remove",
+    "record_key": "remove_00072"
+  },
+  {
+    "prompt": "Replace the car with a truck.",
+    "image": "outputs/edit_pairs/replace_selfdistill/targets/00001.png",
+    "edit_image": "data/unlabeled/raw/coco2017/81593_f790a282da.jpg",
+    "sample_weight": 1.0,
+    "family": "replace",
+    "record_key": "replace_00001"
+  },
+  {
+    "prompt": "Replace the elephant with a potted plant.",
+    "image": "outputs/edit_pairs/replace_selfdistill/targets/00003.png",
+    "edit_image": "data/unlabeled/raw/coco2017/526521_908c92f65d.jpg",
+    "sample_weight": 1.0,
+    "family": "replace",
+    "record_key": "replace_00003"
+  },
+  {
+    "prompt": "Replace the person man with a potted plant.",
+    "image": "outputs/edit_pairs/replace_selfdistill/targets/00005.png",
+    "edit_image": "data/unlabeled/raw/coco2017/314565_3d48a5c15f.jpg",
+    "sample_weight": 1.0,
+    "family": "replace",
+    "record_key": "replace_00005"
+  },
+  {
+    "prompt": "Replace the person child with a cow.",
+    "image": "outputs/edit_pairs/replace_selfdistill/targets/00006.png",
+    "edit_image": "data/unlabeled/raw/coco2017/100209_913cb54d54.jpg",
+    "sample_weight": 1.0,
+    "family": "replace",
+    "record_key": "replace_00006"
+  },
+  {
+    "prompt": "Replace the kite with a zebra.",
+    "image": "outputs/edit_pairs/replace_selfdistill/targets/00007.png",
+    "edit_image": "data/unlabeled/raw/coco2017/147646_422380793b.jpg",
+    "sample_weight": 1.0,
+    "family": "replace",
+    "record_key": "replace_00007"
+  },
+  {
+    "prompt": "Replace the pizza with a cake.",
+    "image": "outputs/edit_pairs/replace_selfdistill/targets/00008.png",
+    "edit_image": "data/unlabeled/raw/coco2017/44616_5c171b4e59.jpg",
+    "sample_weight": 1.0,
+    "family": "replace",
+    "record_key": "replace_00008"
+  },
+  {
+    "prompt": "Replace the umbrella with a woman.",
+    "image": "outputs/edit_pairs/replace_selfdistill/targets/00009.png",
+    "edit_image": "data/unlabeled/raw/coco2017/134344_8a764fee44.jpg",
+    "sample_weight": 1.0,
+    "family": "replace",
+    "record_key": "replace_00009"
+  },
+  {
+    "prompt": "Replace the umbrella with a cat.",
+    "image": "outputs/edit_pairs/replace_selfdistill/targets/00010.png",
+    "edit_image": "data/unlabeled/raw/coco2017/29472_720babe05d.jpg",
+    "sample_weight": 1.0,
+    "family": "replace",
+    "record_key": "replace_00010"
+  },
+  {
+    "prompt": "Replace the surfboard with a cow.",
+    "image": "outputs/edit_pairs/replace_selfdistill/targets/00011.png",
+    "edit_image": "data/unlabeled/raw/coco2017/412910_371daac874.jpg",
+    "sample_weight": 1.0,
+    "family": "replace",
+    "record_key": "replace_00011"
+  },
+  {
+    "prompt": "Replace the couch with a truck.",
+    "image": "outputs/edit_pairs/replace_selfdistill/targets/00012.png",
+    "edit_image": "data/unlabeled/raw/coco2017/193042_f11da7ea0d.jpg",
+    "sample_weight": 1.0,
+    "family": "replace",
+    "record_key": "replace_00012"
+  },
+  {
+    "prompt": "Replace the person woman with a fire hydrant.",
+    "image": "outputs/edit_pairs/replace_selfdistill/targets/00013.png",
+    "edit_image": "data/unlabeled/raw/coco2017/451121_5325f38537.jpg",
+    "sample_weight": 1.0,
+    "family": "replace",
+    "record_key": "replace_00013"
+  },
+  {
+    "prompt": "Replace the surfboard with a book.",
+    "image": "outputs/edit_pairs/replace_selfdistill/targets/00014.png",
+    "edit_image": "data/unlabeled/raw/coco2017/245145_a3d56c9afa.jpg",
+    "sample_weight": 1.0,
+    "family": "replace",
+    "record_key": "replace_00014"
+  },
+  {
+    "prompt": "Replace the truck with a giraffe.",
+    "image": "outputs/edit_pairs/replace_selfdistill/targets/00015.png",
+    "edit_image": "data/unlabeled/raw/coco2017/292662_0eea7d3242.jpg",
+    "sample_weight": 1.0,
+    "family": "replace",
+    "record_key": "replace_00015"
+  },
+  {
+    "prompt": "Replace the person man with a bottle.",
+    "image": "outputs/edit_pairs/replace_selfdistill/targets/00016.png",
+    "edit_image": "data/unlabeled/raw/coco2017/247866_551fece9c9.jpg",
+    "sample_weight": 1.0,
+    "family": "replace",
+    "record_key": "replace_00016"
+  },
+  {
+    "prompt": "Replace the laptop keyboard with a surfboard.",
+    "image": "outputs/edit_pairs/replace_selfdistill/targets/00017.png",
+    "edit_image": "data/unlabeled/raw/coco2017/16082_3e19a7c2eb.jpg",
+    "sample_weight": 1.0,
+    "family": "replace",
+    "record_key": "replace_00017"
+  },
+  {
+    "prompt": "Replace the cake with a laptop.",
+    "image": "outputs/edit_pairs/replace_selfdistill/targets/00019.png",
+    "edit_image": "data/unlabeled/raw/coco2017/47928_b21c759b5c.jpg",
+    "sample_weight": 1.0,
+    "family": "replace",
+    "record_key": "replace_00019"
+  },
+  {
+    "prompt": "Replace the person man woman with a cell phone.",
+    "image": "outputs/edit_pairs/replace_selfdistill/targets/00020.png",
+    "edit_image": "data/unlabeled/raw/coco2017/480582_39f6003f4b.jpg",
+    "sample_weight": 1.0,
+    "family": "replace",
+    "record_key": "replace_00020"
+  },
+  {
+    "prompt": "Replace the person man with a laptop.",
+    "image": "outputs/edit_pairs/replace_selfdistill/targets/00021.png",
+    "edit_image": "data/unlabeled/raw/coco2017/512346_68a18338be.jpg",
+    "sample_weight": 1.0,
+    "family": "replace",
+    "record_key": "replace_00021"
+  },
+  {
+    "prompt": "Replace the train with a bottle.",
+    "image": "outputs/edit_pairs/replace_selfdistill/targets/00022.png",
+    "edit_image": "data/unlabeled/raw/coco2017/310663_498f7047bb.jpg",
+    "sample_weight": 1.0,
+    "family": "replace",
+    "record_key": "replace_00022"
+  },
+  {
+    "prompt": "Replace the chair with a book.",
+    "image": "outputs/edit_pairs/replace_selfdistill/targets/00023.png",
+    "edit_image": "data/unlabeled/raw/coco2017/289344_116becb86f.jpg",
+    "sample_weight": 1.0,
+    "family": "replace",
+    "record_key": "replace_00023"
+  },
+  {
+    "prompt": "Replace the giraffe with a umbrella.",
+    "image": "outputs/edit_pairs/replace_selfdistill/targets/00024.png",
+    "edit_image": "data/unlabeled/raw/coco2017/185719_c16aa9a7ca.jpg",
+    "sample_weight": 1.0,
+    "family": "replace",
+    "record_key": "replace_00024"
+  },
+  {
+    "prompt": "Replace the elephant with a giraffe.",
+    "image": "outputs/edit_pairs/replace_selfdistill/targets/00025.png",
+    "edit_image": "data/unlabeled/raw/coco2017/480409_3f4c2a8ad7.jpg",
+    "sample_weight": 1.0,
+    "family": "replace",
+    "record_key": "replace_00025"
+  },
+  {
+    "prompt": "Replace the giraffe with a wine glass.",
+    "image": "outputs/edit_pairs/replace_selfdistill/targets/00026.png",
+    "edit_image": "data/unlabeled/raw/coco2017/223450_a496337695.jpg",
+    "sample_weight": 1.0,
+    "family": "replace",
+    "record_key": "replace_00026"
+  },
+  {
+    "prompt": "Replace the airplane with a cat.",
+    "image": "outputs/edit_pairs/replace_selfdistill/targets/00028.png",
+    "edit_image": "data/unlabeled/raw/coco2017/259172_8827715307.jpg",
+    "sample_weight": 1.0,
+    "family": "replace",
+    "record_key": "replace_00028"
+  },
+  {
+    "prompt": "Replace the fire hydrant with a cell phone.",
+    "image": "outputs/edit_pairs/replace_selfdistill/targets/00030.png",
+    "edit_image": "data/unlabeled/raw/coco2017/21782_7efd9b3db5.jpg",
+    "sample_weight": 1.0,
+    "family": "replace",
+    "record_key": "replace_00030"
+  },
+  {
+    "prompt": "Replace the person man with a kite.",
+    "image": "outputs/edit_pairs/replace_selfdistill/targets/00032.png",
+    "edit_image": "data/unlabeled/raw/coco2017/144178_f2cb84b1c1.jpg",
+    "sample_weight": 1.0,
+    "family": "replace",
+    "record_key": "replace_00032"
+  },
+  {
+    "prompt": "Replace the bird with a man.",
+    "image": "outputs/edit_pairs/replace_selfdistill/targets/00033.png",
+    "edit_image": "data/unlabeled/raw/coco2017/412355_019ed85618.jpg",
+    "sample_weight": 1.0,
+    "family": "replace",
+    "record_key": "replace_00033"
+  },
+  {
+    "prompt": "Replace the fire hydrant with a flower.",
+    "image": "outputs/edit_pairs/replace_selfdistill/targets/00034.png",
+    "edit_image": "data/unlabeled/raw/coco2017/516540_987dc52f3e.jpg",
+    "sample_weight": 1.0,
+    "family": "replace",
+    "record_key": "replace_00034"
+  },
+  {
+    "prompt": "Replace the boat with a motorcycle.",
+    "image": "outputs/edit_pairs/replace_selfdistill/targets/00035.png",
+    "edit_image": "data/unlabeled/raw/coco2017/498971_3b0264f1ff.jpg",
+    "sample_weight": 1.0,
+    "family": "replace",
+    "record_key": "replace_00035"
+  },
+  {
+    "prompt": "Replace the person man with a clock.",
+    "image": "outputs/edit_pairs/replace_selfdistill/targets/00037.png",
+    "edit_image": "data/unlabeled/raw/coco2017/527183_2b5a0ed855.jpg",
+    "sample_weight": 1.0,
+    "family": "replace",
+    "record_key": "replace_00037"
+  },
+  {
+    "prompt": "Replace the cat with a cup.",
+    "image": "outputs/edit_pairs/replace_selfdistill/targets/00038.png",
+    "edit_image": "data/unlabeled/raw/coco2017/191667_f2e2494eb5.jpg",
+    "sample_weight": 1.0,
+    "family": "replace",
+    "record_key": "replace_00038"
+  },
+  {
+    "prompt": "Replace the person man with a potted plant.",
+    "image": "outputs/edit_pairs/replace_selfdistill/targets/00040.png",
+    "edit_image": "data/unlabeled/raw/coco2017/518932_64b1d0a447.jpg",
+    "sample_weight": 1.0,
+    "family": "replace",
+    "record_key": "replace_00040"
+  },
+  {
+    "prompt": "Replace the suitcase with a horse.",
+    "image": "outputs/edit_pairs/replace_selfdistill/targets/00042.png",
+    "edit_image": "data/unlabeled/raw/coco2017/568886_965e18a4a2.jpg",
+    "sample_weight": 1.0,
+    "family": "replace",
+    "record_key": "replace_00042"
+  },
+  {
+    "prompt": "Replace the motorcycle with a toy.",
+    "image": "outputs/edit_pairs/replace_selfdistill/targets/00043.png",
+    "edit_image": "data/unlabeled/raw/coco2017/447376_9be385fc5a.jpg",
+    "sample_weight": 1.0,
+    "family": "replace",
+    "record_key": "replace_00043"
+  },
+  {
+    "prompt": "Replace the couch bench with a bus.",
+    "image": "outputs/edit_pairs/replace_selfdistill/targets/00045.png",
+    "edit_image": "data/unlabeled/raw/coco2017/580057_f130e4adbf.jpg",
+    "sample_weight": 1.0,
+    "family": "replace",
+    "record_key": "replace_00045"
+  },
+  {
+    "prompt": "Make the elephant appear to be sitting down.",
+    "image": "outputs/edit_pairs/action_selfdistill/targets/00003.png",
+    "edit_image": "data/unlabeled/raw/coco2017/526521_908c92f65d.jpg",
+    "sample_weight": 1.0,
+    "family": "action",
+    "record_key": "action_00003"
+  },
+  {
+    "prompt": "Make the giraffe appear to be opening its mouth wide.",
+    "image": "outputs/edit_pairs/action_selfdistill/targets/00024.png",
+    "edit_image": "data/unlabeled/raw/coco2017/185719_c16aa9a7ca.jpg",
+    "sample_weight": 1.0,
+    "family": "action",
+    "record_key": "action_00024"
+  },
+  {
+    "prompt": "Make the elephant appear to be lying down.",
+    "image": "outputs/edit_pairs/action_selfdistill/targets/00025.png",
+    "edit_image": "data/unlabeled/raw/coco2017/480409_3f4c2a8ad7.jpg",
+    "sample_weight": 1.0,
+    "family": "action",
+    "record_key": "action_00025"
+  },
+  {
+    "prompt": "Make the giraffe appear to be turning to look to the side.",
+    "image": "outputs/edit_pairs/action_selfdistill/targets/00026.png",
+    "edit_image": "data/unlabeled/raw/coco2017/223450_a496337695.jpg",
+    "sample_weight": 1.0,
+    "family": "action",
+    "record_key": "action_00026"
+  },
+  {
+    "prompt": "Make the bird appear to be sitting down.",
+    "image": "outputs/edit_pairs/action_selfdistill/targets/00033.png",
+    "edit_image": "data/unlabeled/raw/coco2017/412355_019ed85618.jpg",
+    "sample_weight": 1.0,
+    "family": "action",
+    "record_key": "action_00033"
+  },
+  {
+    "prompt": "Make the cat appear to be raising one arm.",
+    "image": "outputs/edit_pairs/action_selfdistill/targets/00038.png",
+    "edit_image": "data/unlabeled/raw/coco2017/191667_f2e2494eb5.jpg",
+    "sample_weight": 1.0,
+    "family": "action",
+    "record_key": "action_00038"
+  },
+  {
+    "prompt": "Make the person appear to be jumping in the air.",
+    "image": "outputs/edit_pairs/action_selfdistill/targets/00048.png",
+    "edit_image": "data/unlabeled/raw/coco2017/119730_249ea9c43d.jpg",
+    "sample_weight": 1.0,
+    "family": "action",
+    "record_key": "action_00048"
+  },
+  {
+    "prompt": "Make the person appear to be turning to look to the side.",
+    "image": "outputs/edit_pairs/action_selfdistill/targets/00056.png",
+    "edit_image": "data/unlabeled/raw/coco2017/400048_36d39154e5.jpg",
+    "sample_weight": 1.0,
+    "family": "action",
+    "record_key": "action_00056"
+  },
+  {
+    "prompt": "Make the cow appear to be sitting down.",
+    "image": "outputs/edit_pairs/action_selfdistill/targets/00074.png",
+    "edit_image": "data/unlabeled/raw/coco2017/240301_878f10be3a.jpg",
+    "sample_weight": 1.0,
+    "family": "action",
+    "record_key": "action_00074"
+  },
+  {
+    "prompt": "Make the giraffe appear to be sitting down.",
+    "image": "outputs/edit_pairs/action_selfdistill/targets/00081.png",
+    "edit_image": "data/unlabeled/raw/coco2017/14686_02dacd6a93.jpg",
+    "sample_weight": 1.0,
+    "family": "action",
+    "record_key": "action_00081"
+  },
+  {
+    "prompt": "Make the elephant appear to be lying down.",
+    "image": "outputs/edit_pairs/action_selfdistill/targets/00082.png",
+    "edit_image": "data/unlabeled/raw/coco2017/527193_00b453abed.jpg",
+    "sample_weight": 1.0,
+    "family": "action",
+    "record_key": "action_00082"
+  },
+  {
+    "prompt": "Make the cow appear to be raising one arm.",
+    "image": "outputs/edit_pairs/action_selfdistill/targets/00083.png",
+    "edit_image": "data/unlabeled/raw/coco2017/92145_288baca3f2.jpg",
+    "sample_weight": 1.0,
+    "family": "action",
+    "record_key": "action_00083"
+  },
+  {
+    "prompt": "Make the person appear to be stretching.",
+    "image": "outputs/edit_pairs/action_selfdistill/targets/00084.png",
+    "edit_image": "data/unlabeled/raw/coco2017/157771_50715bc0fc.jpg",
+    "sample_weight": 1.0,
+    "family": "action",
+    "record_key": "action_00084"
+  },
+  {
+    "prompt": "Make the person appear to be stretching.",
+    "image": "outputs/edit_pairs/action_selfdistill/targets/00085.png",
+    "edit_image": "data/unlabeled/raw/coco2017/490352_0fdc3b7e74.jpg",
+    "sample_weight": 1.0,
+    "family": "action",
+    "record_key": "action_00085"
+  },
+  {
+    "prompt": "Make the giraffe appear to be stretching.",
+    "image": "outputs/edit_pairs/action_selfdistill/targets/00096.png",
+    "edit_image": "data/unlabeled/raw/coco2017/309241_69c57f9578.jpg",
+    "sample_weight": 1.0,
+    "family": "action",
+    "record_key": "action_00096"
+  },
+  {
+    "prompt": "Make the cat appear to be lying down.",
+    "image": "outputs/edit_pairs/action_selfdistill/targets/00103.png",
+    "edit_image": "data/unlabeled/raw/coco2017/477647_f404f9a7c8.jpg",
+    "sample_weight": 1.0,
+    "family": "action",
+    "record_key": "action_00103"
+  },
+  {
+    "prompt": "Make the sheep appear to be sitting down.",
+    "image": "outputs/edit_pairs/action_selfdistill/targets/00120.png",
+    "edit_image": "data/unlabeled/raw/coco2017/71281_35a03ad754.jpg",
+    "sample_weight": 1.0,
+    "family": "action",
+    "record_key": "action_00120"
+  },
+  {
+    "prompt": "Make the bear appear to be lying down.",
+    "image": "outputs/edit_pairs/action_selfdistill/targets/00121.png",
+    "edit_image": "data/unlabeled/raw/coco2017/462984_6763dd0b36.jpg",
+    "sample_weight": 1.0,
+    "family": "action",
+    "record_key": "action_00121"
+  },
+  {
+    "prompt": "Make the elephant appear to be jumping in the air.",
+    "image": "outputs/edit_pairs/action_selfdistill/targets/00135.png",
+    "edit_image": "data/unlabeled/raw/coco2017/27478_8b1f5a7164.jpg",
+    "sample_weight": 1.0,
+    "family": "action",
+    "record_key": "action_00135"
+  },
+  {
+    "prompt": "Make the dog appear to be stretching.",
+    "image": "outputs/edit_pairs/action_selfdistill/targets/00149.png",
+    "edit_image": "data/unlabeled/raw/coco2017/34691_33378adc9a.jpg",
+    "sample_weight": 1.0,
+    "family": "action",
+    "record_key": "action_00149"
+  },
+  {
+    "prompt": "Make the sheep appear to be sitting down.",
+    "image": "outputs/edit_pairs/action_selfdistill/targets/00160.png",
+    "edit_image": "data/unlabeled/raw/coco2017/516410_b9efdbf3af.jpg",
+    "sample_weight": 1.0,
+    "family": "action",
+    "record_key": "action_00160"
+  },
+  {
+    "prompt": "Make the dog appear to be raising one arm.",
+    "image": "outputs/edit_pairs/action_selfdistill/targets/00162.png",
+    "edit_image": "data/unlabeled/raw/coco2017/388203_96634fdd2e.jpg",
+    "sample_weight": 1.0,
+    "family": "action",
+    "record_key": "action_00162"
+  },
+  {
+    "prompt": "Make the bird appear to be running forward.",
+    "image": "outputs/edit_pairs/action_selfdistill/targets/00168.png",
+    "edit_image": "data/unlabeled/raw/coco2017/535171_f87e69c214.jpg",
+    "sample_weight": 1.0,
+    "family": "action",
+    "record_key": "action_00168"
+  },
+  {
+    "prompt": "Make the elephant appear to be lying down.",
+    "image": "outputs/edit_pairs/action_selfdistill/targets/00171.png",
+    "edit_image": "data/unlabeled/raw/coco2017/8549_ffef065ad7.jpg",
+    "sample_weight": 1.0,
+    "family": "action",
+    "record_key": "action_00171"
+  },
+  {
+    "prompt": "Make the giraffe appear to be stretching.",
+    "image": "outputs/edit_pairs/action_selfdistill/targets/00176.png",
+    "edit_image": "data/unlabeled/raw/coco2017/6005_a98a484bd9.jpg",
+    "sample_weight": 1.0,
+    "family": "action",
+    "record_key": "action_00176"
+  },
+  {
+    "prompt": "Make the elephant appear to be lying down.",
+    "image": "outputs/edit_pairs/action_selfdistill/targets/00182.png",
+    "edit_image": "data/unlabeled/raw/coco2017/549422_ba3b358fe2.jpg",
+    "sample_weight": 1.0,
+    "family": "action",
+    "record_key": "action_00182"
+  },
+  {
+    "prompt": "Make the elephant appear to be jumping in the air.",
+    "image": "outputs/edit_pairs/action_selfdistill/targets/00185.png",
+    "edit_image": "data/unlabeled/raw/coco2017/149551_5b46503d6f.jpg",
+    "sample_weight": 1.0,
+    "family": "action",
+    "record_key": "action_00185"
+  },
+  {
+    "prompt": "Make the dog appear to be running forward.",
+    "image": "outputs/edit_pairs/action_selfdistill/targets/00190.png",
+    "edit_image": "data/unlabeled/raw/coco2017/82475_2f5b69dab3.jpg",
+    "sample_weight": 1.0,
+    "family": "action",
+    "record_key": "action_00190"
+  },
+  {
+    "prompt": "Make the giraffe appear to be jumping in the air.",
+    "image": "outputs/edit_pairs/action_selfdistill/targets/00197.png",
+    "edit_image": "data/unlabeled/raw/coco2017/26538_39020dfd94.jpg",
+    "sample_weight": 1.0,
+    "family": "action",
+    "record_key": "action_00197"
+  },
+  {
+    "prompt": "Make the giraffe appear to be jumping in the air.",
+    "image": "outputs/edit_pairs/action_selfdistill/targets/00215.png",
+    "edit_image": "data/unlabeled/raw/coco2017/507440_b5d418b66f.jpg",
+    "sample_weight": 1.0,
+    "family": "action",
+    "record_key": "action_00215"
+  },
+  {
+    "prompt": "Make the cow appear to be lying down.",
+    "image": "outputs/edit_pairs/action_selfdistill/targets/00217.png",
+    "edit_image": "data/unlabeled/raw/coco2017/167193_cf65c82e9c.jpg",
+    "sample_weight": 1.0,
+    "family": "action",
+    "record_key": "action_00217"
+  },
+  {
+    "prompt": "Make the elephant appear to be lying down.",
+    "image": "outputs/edit_pairs/action_selfdistill/targets/00222.png",
+    "edit_image": "data/unlabeled/raw/coco2017/194411_80da3f923f.jpg",
+    "sample_weight": 1.0,
+    "family": "action",
+    "record_key": "action_00222"
+  },
+  {
+    "prompt": "Make the person appear to be jumping in the air.",
+    "image": "outputs/edit_pairs/action_selfdistill/targets/00226.png",
+    "edit_image": "data/unlabeled/raw/coco2017/33055_7837a2f8ef.jpg",
+    "sample_weight": 1.0,
+    "family": "action",
+    "record_key": "action_00226"
+  },
+  {
+    "prompt": "Make the cat appear to be raising one arm.",
+    "image": "outputs/edit_pairs/action_selfdistill/targets/00252.png",
+    "edit_image": "data/unlabeled/raw/coco2017/279386_fc219c664b.jpg",
+    "sample_weight": 1.0,
+    "family": "action",
+    "record_key": "action_00252"
+  },
+  {
+    "prompt": "Make the cat appear to be opening its mouth wide.",
+    "image": "outputs/edit_pairs/action_selfdistill/targets/00264.png",
+    "edit_image": "data/unlabeled/raw/coco2017/67906_d67fbbd9e9.jpg",
+    "sample_weight": 1.0,
+    "family": "action",
+    "record_key": "action_00264"
+  }
+]

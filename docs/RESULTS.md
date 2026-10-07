@@ -1,5 +1,10 @@
 # Results
 
+The recovered four-family verifier bank and its separate 149-pair manifest are
+documented in [VERIFIER_BANK.md](VERIFIER_BANK.md).
+[PAPER_PROVENANCE.md](PAPER_PROVENANCE.md) maps headline claims to surviving
+records and unresolved checkpoint/evaluation links.
+
 The machine-readable measurements are in
 [`results.json`](../reproducibility/results/results.json) and
 [`scores.csv`](../reproducibility/results/scores.csv). Seven score summaries are

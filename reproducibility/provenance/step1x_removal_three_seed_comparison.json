@@ -1,0 +1,2325 @@
+{
+  "adapter_metadata": {
+    "43": {
+      "adapter_config": {
+        "base_model": "stepfun-ai/Step1X-Edit-v1p1-diffusers",
+        "base_revision": "378a128282f4b1b95c9d3bf9bc6c8aab8e71508d",
+        "lora_alpha": 16,
+        "lora_dropout": 0.0,
+        "rank": 16,
+        "target_modules": [
+          "single_transformer_blocks.0.attn.to_k",
+          "single_transformer_blocks.0.attn.to_q",
+          "single_transformer_blocks.0.attn.to_v",
+          "single_transformer_blocks.1.attn.to_k",
+          "single_transformer_blocks.1.attn.to_q",
+          "single_transformer_blocks.1.attn.to_v",
+          "single_transformer_blocks.10.attn.to_k",
+          "single_transformer_blocks.10.attn.to_q",
+          "single_transformer_blocks.10.attn.to_v",
+          "single_transformer_blocks.11.attn.to_k",
+          "single_transformer_blocks.11.attn.to_q",
+          "single_transformer_blocks.11.attn.to_v",
+          "single_transformer_blocks.12.attn.to_k",
+          "single_transformer_blocks.12.attn.to_q",
+          "single_transformer_blocks.12.attn.to_v",
+          "single_transformer_blocks.13.attn.to_k",
+          "single_transformer_blocks.13.attn.to_q",
+          "single_transformer_blocks.13.attn.to_v",
+          "single_transformer_blocks.14.attn.to_k",
+          "single_transformer_blocks.14.attn.to_q",
+          "single_transformer_blocks.14.attn.to_v",
+          "single_transformer_blocks.15.attn.to_k",
+          "single_transformer_blocks.15.attn.to_q",
+          "single_transformer_blocks.15.attn.to_v",
+          "single_transformer_blocks.16.attn.to_k",
+          "single_transformer_blocks.16.attn.to_q",
+          "single_transformer_blocks.16.attn.to_v",
+          "single_transformer_blocks.17.attn.to_k",
+          "single_transformer_blocks.17.attn.to_q",
+          "single_transformer_blocks.17.attn.to_v",
+          "single_transformer_blocks.18.attn.to_k",
+          "single_transformer_blocks.18.attn.to_q",
+          "single_transformer_blocks.18.attn.to_v",
+          "single_transformer_blocks.19.attn.to_k",
+          "single_transformer_blocks.19.attn.to_q",
+          "single_transformer_blocks.19.attn.to_v",
+          "single_transformer_blocks.2.attn.to_k",
+          "single_transformer_blocks.2.attn.to_q",
+          "single_transformer_blocks.2.attn.to_v",
+          "single_transformer_blocks.20.attn.to_k",
+          "single_transformer_blocks.20.attn.to_q",
+          "single_transformer_blocks.20.attn.to_v",
+          "single_transformer_blocks.21.attn.to_k",
+          "single_transformer_blocks.21.attn.to_q",
+          "single_transformer_blocks.21.attn.to_v",
+          "single_transformer_blocks.22.attn.to_k",
+          "single_transformer_blocks.22.attn.to_q",
+          "single_transformer_blocks.22.attn.to_v",
+          "single_transformer_blocks.23.attn.to_k",
+          "single_transformer_blocks.23.attn.to_q",
+          "single_transformer_blocks.23.attn.to_v",
+          "single_transformer_blocks.24.attn.to_k",
+          "single_transformer_blocks.24.attn.to_q",
+          "single_transformer_blocks.24.attn.to_v",
+          "single_transformer_blocks.25.attn.to_k",
+          "single_transformer_blocks.25.attn.to_q",
+          "single_transformer_blocks.25.attn.to_v",
+          "single_transformer_blocks.26.attn.to_k",
+          "single_transformer_blocks.26.attn.to_q",
+          "single_transformer_blocks.26.attn.to_v",
+          "single_transformer_blocks.27.attn.to_k",
+          "single_transformer_blocks.27.attn.to_q",
+          "single_transformer_blocks.27.attn.to_v",
+          "single_transformer_blocks.28.attn.to_k",
+          "single_transformer_blocks.28.attn.to_q",
+          "single_transformer_blocks.28.attn.to_v",
+          "single_transformer_blocks.29.attn.to_k",
+          "single_transformer_blocks.29.attn.to_q",
+          "single_transformer_blocks.29.attn.to_v",
+          "single_transformer_blocks.3.attn.to_k",
+          "single_transformer_blocks.3.attn.to_q",
+          "single_transformer_blocks.3.attn.to_v",
+          "single_transformer_blocks.30.attn.to_k",
+          "single_transformer_blocks.30.attn.to_q",
+          "single_transformer_blocks.30.attn.to_v",
+          "single_transformer_blocks.31.attn.to_k",
+          "single_transformer_blocks.31.attn.to_q",
+          "single_transformer_blocks.31.attn.to_v",
+          "single_transformer_blocks.32.attn.to_k",
+          "single_transformer_blocks.32.attn.to_q",
+          "single_transformer_blocks.32.attn.to_v",
+          "single_transformer_blocks.33.attn.to_k",
+          "single_transformer_blocks.33.attn.to_q",
+          "single_transformer_blocks.33.attn.to_v",
+          "single_transformer_blocks.34.attn.to_k",
+          "single_transformer_blocks.34.attn.to_q",
+          "single_transformer_blocks.34.attn.to_v",
+          "single_transformer_blocks.35.attn.to_k",
+          "single_transformer_blocks.35.attn.to_q",
+          "single_transformer_blocks.35.attn.to_v",
+          "single_transformer_blocks.36.attn.to_k",
+          "single_transformer_blocks.36.attn.to_q",
+          "single_transformer_blocks.36.attn.to_v",
+          "single_transformer_blocks.37.attn.to_k",
+          "single_transformer_blocks.37.attn.to_q",
+          "single_transformer_blocks.37.attn.to_v",
+          "single_transformer_blocks.4.attn.to_k",
+          "single_transformer_blocks.4.attn.to_q",
+          "single_transformer_blocks.4.attn.to_v",
+          "single_transformer_blocks.5.attn.to_k",
+          "single_transformer_blocks.5.attn.to_q",
+          "single_transformer_blocks.5.attn.to_v",
+          "single_transformer_blocks.6.attn.to_k",
+          "single_transformer_blocks.6.attn.to_q",
+          "single_transformer_blocks.6.attn.to_v",
+          "single_transformer_blocks.7.attn.to_k",
+          "single_transformer_blocks.7.attn.to_q",
+          "single_transformer_blocks.7.attn.to_v",
+          "single_transformer_blocks.8.attn.to_k",
+          "single_transformer_blocks.8.attn.to_q",
+          "single_transformer_blocks.8.attn.to_v",
+          "single_transformer_blocks.9.attn.to_k",
+          "single_transformer_blocks.9.attn.to_q",
+          "single_transformer_blocks.9.attn.to_v",
+          "transformer_blocks.0.attn.add_k_proj",
+          "transformer_blocks.0.attn.add_q_proj",
+          "transformer_blocks.0.attn.add_v_proj",
+          "transformer_blocks.0.attn.to_add_out",
+          "transformer_blocks.0.attn.to_k",
+          "transformer_blocks.0.attn.to_out.0",
+          "transformer_blocks.0.attn.to_q",
+          "transformer_blocks.0.attn.to_v",
+          "transformer_blocks.1.attn.add_k_proj",
+          "transformer_blocks.1.attn.add_q_proj",
+          "transformer_blocks.1.attn.add_v_proj",
+          "transformer_blocks.1.attn.to_add_out",
+          "transformer_blocks.1.attn.to_k",
+          "transformer_blocks.1.attn.to_out.0",
+          "transformer_blocks.1.attn.to_q",
+          "transformer_blocks.1.attn.to_v",
+          "transformer_blocks.10.attn.add_k_proj",
+          "transformer_blocks.10.attn.add_q_proj",
+          "transformer_blocks.10.attn.add_v_proj",
+          "transformer_blocks.10.attn.to_add_out",
+          "transformer_blocks.10.attn.to_k",
+          "transformer_blocks.10.attn.to_out.0",
+          "transformer_blocks.10.attn.to_q",
+          "transformer_blocks.10.attn.to_v",
+          "transformer_blocks.11.attn.add_k_proj",
+          "transformer_blocks.11.attn.add_q_proj",
+          "transformer_blocks.11.attn.add_v_proj",
+          "transformer_blocks.11.attn.to_add_out",
+          "transformer_blocks.11.attn.to_k",
+          "transformer_blocks.11.attn.to_out.0",
+          "transformer_blocks.11.attn.to_q",
+          "transformer_blocks.11.attn.to_v",
+          "transformer_blocks.12.attn.add_k_proj",
+          "transformer_blocks.12.attn.add_q_proj",
+          "transformer_blocks.12.attn.add_v_proj",
+          "transformer_blocks.12.attn.to_add_out",
+          "transformer_blocks.12.attn.to_k",
+          "transformer_blocks.12.attn.to_out.0",
+          "transformer_blocks.12.attn.to_q",
+          "transformer_blocks.12.attn.to_v",
+          "transformer_blocks.13.attn.add_k_proj",
+          "transformer_blocks.13.attn.add_q_proj",
+          "transformer_blocks.13.attn.add_v_proj",
+          "transformer_blocks.13.attn.to_add_out",
+          "transformer_blocks.13.attn.to_k",
+          "transformer_blocks.13.attn.to_out.0",
+          "transformer_blocks.13.attn.to_q",
+          "transformer_blocks.13.attn.to_v",
+          "transformer_blocks.14.attn.add_k_proj",
+          "transformer_blocks.14.attn.add_q_proj",
+          "transformer_blocks.14.attn.add_v_proj",
+          "transformer_blocks.14.attn.to_add_out",
+          "transformer_blocks.14.attn.to_k",
+          "transformer_blocks.14.attn.to_out.0",
+          "transformer_blocks.14.attn.to_q",
+          "transformer_blocks.14.attn.to_v",
+          "transformer_blocks.15.attn.add_k_proj",
+          "transformer_blocks.15.attn.add_q_proj",
+          "transformer_blocks.15.attn.add_v_proj",
+          "transformer_blocks.15.attn.to_add_out",
+          "transformer_blocks.15.attn.to_k",
+          "transformer_blocks.15.attn.to_out.0",
+          "transformer_blocks.15.attn.to_q",
+          "transformer_blocks.15.attn.to_v",
+          "transformer_blocks.16.attn.add_k_proj",
+          "transformer_blocks.16.attn.add_q_proj",
+          "transformer_blocks.16.attn.add_v_proj",
+          "transformer_blocks.16.attn.to_add_out",
+          "transformer_blocks.16.attn.to_k",
+          "transformer_blocks.16.attn.to_out.0",
+          "transformer_blocks.16.attn.to_q",
+          "transformer_blocks.16.attn.to_v",
+          "transformer_blocks.17.attn.add_k_proj",
+          "transformer_blocks.17.attn.add_q_proj",
+          "transformer_blocks.17.attn.add_v_proj",
+          "transformer_blocks.17.attn.to_add_out",
+          "transformer_blocks.17.attn.to_k",
+          "transformer_blocks.17.attn.to_out.0",
+          "transformer_blocks.17.attn.to_q",
+          "transformer_blocks.17.attn.to_v",
+          "transformer_blocks.18.attn.add_k_proj",
+          "transformer_blocks.18.attn.add_q_proj",
+          "transformer_blocks.18.attn.add_v_proj",
+          "transformer_blocks.18.attn.to_add_out",
+          "transformer_blocks.18.attn.to_k",
+          "transformer_blocks.18.attn.to_out.0",
+          "transformer_blocks.18.attn.to_q",
+          "transformer_blocks.18.attn.to_v",
+          "transformer_blocks.2.attn.add_k_proj",
+          "transformer_blocks.2.attn.add_q_proj",
+          "transformer_blocks.2.attn.add_v_proj",
+          "transformer_blocks.2.attn.to_add_out",
+          "transformer_blocks.2.attn.to_k",
+          "transformer_blocks.2.attn.to_out.0",
+          "transformer_blocks.2.attn.to_q",
+          "transformer_blocks.2.attn.to_v",
+          "transformer_blocks.3.attn.add_k_proj",
+          "transformer_blocks.3.attn.add_q_proj",
+          "transformer_blocks.3.attn.add_v_proj",
+          "transformer_blocks.3.attn.to_add_out",
+          "transformer_blocks.3.attn.to_k",
+          "transformer_blocks.3.attn.to_out.0",
+          "transformer_blocks.3.attn.to_q",
+          "transformer_blocks.3.attn.to_v",
+          "transformer_blocks.4.attn.add_k_proj",
+          "transformer_blocks.4.attn.add_q_proj",
+          "transformer_blocks.4.attn.add_v_proj",
+          "transformer_blocks.4.attn.to_add_out",
+          "transformer_blocks.4.attn.to_k",
+          "transformer_blocks.4.attn.to_out.0",
+          "transformer_blocks.4.attn.to_q",
+          "transformer_blocks.4.attn.to_v",
+          "transformer_blocks.5.attn.add_k_proj",
+          "transformer_blocks.5.attn.add_q_proj",
+          "transformer_blocks.5.attn.add_v_proj",
+          "transformer_blocks.5.attn.to_add_out",
+          "transformer_blocks.5.attn.to_k",
+          "transformer_blocks.5.attn.to_out.0",
+          "transformer_blocks.5.attn.to_q",
+          "transformer_blocks.5.attn.to_v",
+          "transformer_blocks.6.attn.add_k_proj",
+          "transformer_blocks.6.attn.add_q_proj",
+          "transformer_blocks.6.attn.add_v_proj",
+          "transformer_blocks.6.attn.to_add_out",
+          "transformer_blocks.6.attn.to_k",
+          "transformer_blocks.6.attn.to_out.0",
+          "transformer_blocks.6.attn.to_q",
+          "transformer_blocks.6.attn.to_v",
+          "transformer_blocks.7.attn.add_k_proj",
+          "transformer_blocks.7.attn.add_q_proj",
+          "transformer_blocks.7.attn.add_v_proj",
+          "transformer_blocks.7.attn.to_add_out",
+          "transformer_blocks.7.attn.to_k",
+          "transformer_blocks.7.attn.to_out.0",
+          "transformer_blocks.7.attn.to_q",
+          "transformer_blocks.7.attn.to_v",
+          "transformer_blocks.8.attn.add_k_proj",
+          "transformer_blocks.8.attn.add_q_proj",
+          "transformer_blocks.8.attn.add_v_proj",
+          "transformer_blocks.8.attn.to_add_out",
+          "transformer_blocks.8.attn.to_k",
+          "transformer_blocks.8.attn.to_out.0",
+          "transformer_blocks.8.attn.to_q",
+          "transformer_blocks.8.attn.to_v",
+          "transformer_blocks.9.attn.add_k_proj",
+          "transformer_blocks.9.attn.add_q_proj",
+          "transformer_blocks.9.attn.add_v_proj",
+          "transformer_blocks.9.attn.to_add_out",
+          "transformer_blocks.9.attn.to_k",
+          "transformer_blocks.9.attn.to_out.0",
+          "transformer_blocks.9.attn.to_q",
+          "transformer_blocks.9.attn.to_v"
+        ]
+      },
+      "adapter_sha256": "9c1a9280c2fb1aa6985739f6caa8244183bff1025b8de48bfd1c74c3a243d9f1",
+      "adapter_target_count": 266,
+      "adapter_tensor_count": 532,
+      "maximum_load_error": 0.0009750127792358398
+    },
+    "44": {
+      "adapter_config": {
+        "base_model": "stepfun-ai/Step1X-Edit-v1p1-diffusers",
+        "base_revision": "378a128282f4b1b95c9d3bf9bc6c8aab8e71508d",
+        "lora_alpha": 16,
+        "lora_dropout": 0.0,
+        "rank": 16,
+        "target_modules": [
+          "single_transformer_blocks.0.attn.to_k",
+          "single_transformer_blocks.0.attn.to_q",
+          "single_transformer_blocks.0.attn.to_v",
+          "single_transformer_blocks.1.attn.to_k",
+          "single_transformer_blocks.1.attn.to_q",
+          "single_transformer_blocks.1.attn.to_v",
+          "single_transformer_blocks.10.attn.to_k",
+          "single_transformer_blocks.10.attn.to_q",
+          "single_transformer_blocks.10.attn.to_v",
+          "single_transformer_blocks.11.attn.to_k",
+          "single_transformer_blocks.11.attn.to_q",
+          "single_transformer_blocks.11.attn.to_v",
+          "single_transformer_blocks.12.attn.to_k",
+          "single_transformer_blocks.12.attn.to_q",
+          "single_transformer_blocks.12.attn.to_v",
+          "single_transformer_blocks.13.attn.to_k",
+          "single_transformer_blocks.13.attn.to_q",
+          "single_transformer_blocks.13.attn.to_v",
+          "single_transformer_blocks.14.attn.to_k",
+          "single_transformer_blocks.14.attn.to_q",
+          "single_transformer_blocks.14.attn.to_v",
+          "single_transformer_blocks.15.attn.to_k",
+          "single_transformer_blocks.15.attn.to_q",
+          "single_transformer_blocks.15.attn.to_v",
+          "single_transformer_blocks.16.attn.to_k",
+          "single_transformer_blocks.16.attn.to_q",
+          "single_transformer_blocks.16.attn.to_v",
+          "single_transformer_blocks.17.attn.to_k",
+          "single_transformer_blocks.17.attn.to_q",
+          "single_transformer_blocks.17.attn.to_v",
+          "single_transformer_blocks.18.attn.to_k",
+          "single_transformer_blocks.18.attn.to_q",
+          "single_transformer_blocks.18.attn.to_v",
+          "single_transformer_blocks.19.attn.to_k",
+          "single_transformer_blocks.19.attn.to_q",
+          "single_transformer_blocks.19.attn.to_v",
+          "single_transformer_blocks.2.attn.to_k",
+          "single_transformer_blocks.2.attn.to_q",
+          "single_transformer_blocks.2.attn.to_v",
+          "single_transformer_blocks.20.attn.to_k",
+          "single_transformer_blocks.20.attn.to_q",
+          "single_transformer_blocks.20.attn.to_v",
+          "single_transformer_blocks.21.attn.to_k",
+          "single_transformer_blocks.21.attn.to_q",
+          "single_transformer_blocks.21.attn.to_v",
+          "single_transformer_blocks.22.attn.to_k",
+          "single_transformer_blocks.22.attn.to_q",
+          "single_transformer_blocks.22.attn.to_v",
+          "single_transformer_blocks.23.attn.to_k",
+          "single_transformer_blocks.23.attn.to_q",
+          "single_transformer_blocks.23.attn.to_v",
+          "single_transformer_blocks.24.attn.to_k",
+          "single_transformer_blocks.24.attn.to_q",
+          "single_transformer_blocks.24.attn.to_v",
+          "single_transformer_blocks.25.attn.to_k",
+          "single_transformer_blocks.25.attn.to_q",
+          "single_transformer_blocks.25.attn.to_v",
+          "single_transformer_blocks.26.attn.to_k",
+          "single_transformer_blocks.26.attn.to_q",
+          "single_transformer_blocks.26.attn.to_v",
+          "single_transformer_blocks.27.attn.to_k",
+          "single_transformer_blocks.27.attn.to_q",
+          "single_transformer_blocks.27.attn.to_v",
+          "single_transformer_blocks.28.attn.to_k",
+          "single_transformer_blocks.28.attn.to_q",
+          "single_transformer_blocks.28.attn.to_v",
+          "single_transformer_blocks.29.attn.to_k",
+          "single_transformer_blocks.29.attn.to_q",
+          "single_transformer_blocks.29.attn.to_v",
+          "single_transformer_blocks.3.attn.to_k",
+          "single_transformer_blocks.3.attn.to_q",
+          "single_transformer_blocks.3.attn.to_v",
+          "single_transformer_blocks.30.attn.to_k",
+          "single_transformer_blocks.30.attn.to_q",
+          "single_transformer_blocks.30.attn.to_v",
+          "single_transformer_blocks.31.attn.to_k",
+          "single_transformer_blocks.31.attn.to_q",
+          "single_transformer_blocks.31.attn.to_v",
+          "single_transformer_blocks.32.attn.to_k",
+          "single_transformer_blocks.32.attn.to_q",
+          "single_transformer_blocks.32.attn.to_v",
+          "single_transformer_blocks.33.attn.to_k",
+          "single_transformer_blocks.33.attn.to_q",
+          "single_transformer_blocks.33.attn.to_v",
+          "single_transformer_blocks.34.attn.to_k",
+          "single_transformer_blocks.34.attn.to_q",
+          "single_transformer_blocks.34.attn.to_v",
+          "single_transformer_blocks.35.attn.to_k",
+          "single_transformer_blocks.35.attn.to_q",
+          "single_transformer_blocks.35.attn.to_v",
+          "single_transformer_blocks.36.attn.to_k",
+          "single_transformer_blocks.36.attn.to_q",
+          "single_transformer_blocks.36.attn.to_v",
+          "single_transformer_blocks.37.attn.to_k",
+          "single_transformer_blocks.37.attn.to_q",
+          "single_transformer_blocks.37.attn.to_v",
+          "single_transformer_blocks.4.attn.to_k",
+          "single_transformer_blocks.4.attn.to_q",
+          "single_transformer_blocks.4.attn.to_v",
+          "single_transformer_blocks.5.attn.to_k",
+          "single_transformer_blocks.5.attn.to_q",
+          "single_transformer_blocks.5.attn.to_v",
+          "single_transformer_blocks.6.attn.to_k",
+          "single_transformer_blocks.6.attn.to_q",
+          "single_transformer_blocks.6.attn.to_v",
+          "single_transformer_blocks.7.attn.to_k",
+          "single_transformer_blocks.7.attn.to_q",
+          "single_transformer_blocks.7.attn.to_v",
+          "single_transformer_blocks.8.attn.to_k",
+          "single_transformer_blocks.8.attn.to_q",
+          "single_transformer_blocks.8.attn.to_v",
+          "single_transformer_blocks.9.attn.to_k",
+          "single_transformer_blocks.9.attn.to_q",
+          "single_transformer_blocks.9.attn.to_v",
+          "transformer_blocks.0.attn.add_k_proj",
+          "transformer_blocks.0.attn.add_q_proj",
+          "transformer_blocks.0.attn.add_v_proj",
+          "transformer_blocks.0.attn.to_add_out",
+          "transformer_blocks.0.attn.to_k",
+          "transformer_blocks.0.attn.to_out.0",
+          "transformer_blocks.0.attn.to_q",
+          "transformer_blocks.0.attn.to_v",
+          "transformer_blocks.1.attn.add_k_proj",
+          "transformer_blocks.1.attn.add_q_proj",
+          "transformer_blocks.1.attn.add_v_proj",
+          "transformer_blocks.1.attn.to_add_out",
+          "transformer_blocks.1.attn.to_k",
+          "transformer_blocks.1.attn.to_out.0",
+          "transformer_blocks.1.attn.to_q",
+          "transformer_blocks.1.attn.to_v",
+          "transformer_blocks.10.attn.add_k_proj",
+          "transformer_blocks.10.attn.add_q_proj",
+          "transformer_blocks.10.attn.add_v_proj",
+          "transformer_blocks.10.attn.to_add_out",
+          "transformer_blocks.10.attn.to_k",
+          "transformer_blocks.10.attn.to_out.0",
+          "transformer_blocks.10.attn.to_q",
+          "transformer_blocks.10.attn.to_v",
+          "transformer_blocks.11.attn.add_k_proj",
+          "transformer_blocks.11.attn.add_q_proj",
+          "transformer_blocks.11.attn.add_v_proj",
+          "transformer_blocks.11.attn.to_add_out",
+          "transformer_blocks.11.attn.to_k",
+          "transformer_blocks.11.attn.to_out.0",
+          "transformer_blocks.11.attn.to_q",
+          "transformer_blocks.11.attn.to_v",
+          "transformer_blocks.12.attn.add_k_proj",
+          "transformer_blocks.12.attn.add_q_proj",
+          "transformer_blocks.12.attn.add_v_proj",
+          "transformer_blocks.12.attn.to_add_out",
+          "transformer_blocks.12.attn.to_k",
+          "transformer_blocks.12.attn.to_out.0",
+          "transformer_blocks.12.attn.to_q",
+          "transformer_blocks.12.attn.to_v",
+          "transformer_blocks.13.attn.add_k_proj",
+          "transformer_blocks.13.attn.add_q_proj",
+          "transformer_blocks.13.attn.add_v_proj",
+          "transformer_blocks.13.attn.to_add_out",
+          "transformer_blocks.13.attn.to_k",
+          "transformer_blocks.13.attn.to_out.0",
+          "transformer_blocks.13.attn.to_q",
+          "transformer_blocks.13.attn.to_v",
+          "transformer_blocks.14.attn.add_k_proj",
+          "transformer_blocks.14.attn.add_q_proj",
+          "transformer_blocks.14.attn.add_v_proj",
+          "transformer_blocks.14.attn.to_add_out",
+          "transformer_blocks.14.attn.to_k",
+          "transformer_blocks.14.attn.to_out.0",
+          "transformer_blocks.14.attn.to_q",
+          "transformer_blocks.14.attn.to_v",
+          "transformer_blocks.15.attn.add_k_proj",
+          "transformer_blocks.15.attn.add_q_proj",
+          "transformer_blocks.15.attn.add_v_proj",
+          "transformer_blocks.15.attn.to_add_out",
+          "transformer_blocks.15.attn.to_k",
+          "transformer_blocks.15.attn.to_out.0",
+          "transformer_blocks.15.attn.to_q",
+          "transformer_blocks.15.attn.to_v",
+          "transformer_blocks.16.attn.add_k_proj",
+          "transformer_blocks.16.attn.add_q_proj",
+          "transformer_blocks.16.attn.add_v_proj",
+          "transformer_blocks.16.attn.to_add_out",
+          "transformer_blocks.16.attn.to_k",
+          "transformer_blocks.16.attn.to_out.0",
+          "transformer_blocks.16.attn.to_q",
+          "transformer_blocks.16.attn.to_v",
+          "transformer_blocks.17.attn.add_k_proj",
+          "transformer_blocks.17.attn.add_q_proj",
+          "transformer_blocks.17.attn.add_v_proj",
+          "transformer_blocks.17.attn.to_add_out",
+          "transformer_blocks.17.attn.to_k",
+          "transformer_blocks.17.attn.to_out.0",
+          "transformer_blocks.17.attn.to_q",
+          "transformer_blocks.17.attn.to_v",
+          "transformer_blocks.18.attn.add_k_proj",
+          "transformer_blocks.18.attn.add_q_proj",
+          "transformer_blocks.18.attn.add_v_proj",
+          "transformer_blocks.18.attn.to_add_out",
+          "transformer_blocks.18.attn.to_k",
+          "transformer_blocks.18.attn.to_out.0",
+          "transformer_blocks.18.attn.to_q",
+          "transformer_blocks.18.attn.to_v",
+          "transformer_blocks.2.attn.add_k_proj",
+          "transformer_blocks.2.attn.add_q_proj",
+          "transformer_blocks.2.attn.add_v_proj",
+          "transformer_blocks.2.attn.to_add_out",
+          "transformer_blocks.2.attn.to_k",
+          "transformer_blocks.2.attn.to_out.0",
+          "transformer_blocks.2.attn.to_q",
+          "transformer_blocks.2.attn.to_v",
+          "transformer_blocks.3.attn.add_k_proj",
+          "transformer_blocks.3.attn.add_q_proj",
+          "transformer_blocks.3.attn.add_v_proj",
+          "transformer_blocks.3.attn.to_add_out",
+          "transformer_blocks.3.attn.to_k",
+          "transformer_blocks.3.attn.to_out.0",
+          "transformer_blocks.3.attn.to_q",
+          "transformer_blocks.3.attn.to_v",
+          "transformer_blocks.4.attn.add_k_proj",
+          "transformer_blocks.4.attn.add_q_proj",
+          "transformer_blocks.4.attn.add_v_proj",
+          "transformer_blocks.4.attn.to_add_out",
+          "transformer_blocks.4.attn.to_k",
+          "transformer_blocks.4.attn.to_out.0",
+          "transformer_blocks.4.attn.to_q",
+          "transformer_blocks.4.attn.to_v",
+          "transformer_blocks.5.attn.add_k_proj",
+          "transformer_blocks.5.attn.add_q_proj",
+          "transformer_blocks.5.attn.add_v_proj",
+          "transformer_blocks.5.attn.to_add_out",
+          "transformer_blocks.5.attn.to_k",
+          "transformer_blocks.5.attn.to_out.0",
+          "transformer_blocks.5.attn.to_q",
+          "transformer_blocks.5.attn.to_v",
+          "transformer_blocks.6.attn.add_k_proj",
+          "transformer_blocks.6.attn.add_q_proj",
+          "transformer_blocks.6.attn.add_v_proj",
+          "transformer_blocks.6.attn.to_add_out",
+          "transformer_blocks.6.attn.to_k",
+          "transformer_blocks.6.attn.to_out.0",
+          "transformer_blocks.6.attn.to_q",
+          "transformer_blocks.6.attn.to_v",
+          "transformer_blocks.7.attn.add_k_proj",
+          "transformer_blocks.7.attn.add_q_proj",
+          "transformer_blocks.7.attn.add_v_proj",
+          "transformer_blocks.7.attn.to_add_out",
+          "transformer_blocks.7.attn.to_k",
+          "transformer_blocks.7.attn.to_out.0",
+          "transformer_blocks.7.attn.to_q",
+          "transformer_blocks.7.attn.to_v",
+          "transformer_blocks.8.attn.add_k_proj",
+          "transformer_blocks.8.attn.add_q_proj",
+          "transformer_blocks.8.attn.add_v_proj",
+          "transformer_blocks.8.attn.to_add_out",
+          "transformer_blocks.8.attn.to_k",
+          "transformer_blocks.8.attn.to_out.0",
+          "transformer_blocks.8.attn.to_q",
+          "transformer_blocks.8.attn.to_v",
+          "transformer_blocks.9.attn.add_k_proj",
+          "transformer_blocks.9.attn.add_q_proj",
+          "transformer_blocks.9.attn.add_v_proj",
+          "transformer_blocks.9.attn.to_add_out",
+          "transformer_blocks.9.attn.to_k",
+          "transformer_blocks.9.attn.to_out.0",
+          "transformer_blocks.9.attn.to_q",
+          "transformer_blocks.9.attn.to_v"
+        ]
+      },
+      "adapter_sha256": "bcbe6adb7de4fcf2aab9ccc92a87a018060ed8b3399159ceb1aadc8582067754",
+      "adapter_target_count": 266,
+      "adapter_tensor_count": 532,
+      "maximum_load_error": 0.0009749531745910645
+    }
+  },
+  "new_external_judge_calls": 228,
+  "per_seed": {
+    "42": {
+      "overall": {
+        "adapted_mean": 6.911481868116619,
+        "base_mean": 6.688649149793672,
+        "count": 57,
+        "mean_delta": 0.22283271832294566,
+        "paired_bootstrap_95ci": {
+          "confidence_level": 0.95,
+          "coverage_note": "nominal paired-bootstrap percentile interval; not exact finite-sample coverage",
+          "lower": -0.2615026217006277,
+          "lower_percentile_rank_one_based": 250,
+          "method": "paired-nonparametric-percentile-splitmix64/v1",
+          "resamples": 10000,
+          "sample_count": 57,
+          "scope": "step1x/gedit-subject-remove-en57/training-seed-42/overall",
+          "seed": 20260902,
+          "upper": 0.7883986873543389,
+          "upper_percentile_rank_one_based": 9750
+        },
+        "win_tie_loss": {
+          "losses": 19,
+          "ties": 26,
+          "wins": 12
+        }
+      },
+      "quality": {
+        "adapted_mean": 6.947368421052632,
+        "base_mean": 7.578947368421052,
+        "count": 57,
+        "mean_delta": -0.631578947368421,
+        "paired_bootstrap_95ci": {
+          "confidence_level": 0.95,
+          "coverage_note": "nominal paired-bootstrap percentile interval; not exact finite-sample coverage",
+          "lower": -1.0,
+          "lower_percentile_rank_one_based": 250,
+          "method": "paired-nonparametric-percentile-splitmix64/v1",
+          "resamples": 10000,
+          "sample_count": 57,
+          "scope": "step1x/gedit-subject-remove-en57/training-seed-42/quality",
+          "seed": 20260902,
+          "upper": -0.2982456140350877,
+          "upper_percentile_rank_one_based": 9750
+        },
+        "win_tie_loss": {
+          "losses": 21,
+          "ties": 32,
+          "wins": 4
+        }
+      },
+      "semantics": {
+        "adapted_mean": 7.684210526315789,
+        "base_mean": 7.0701754385964914,
+        "count": 57,
+        "mean_delta": 0.6140350877192983,
+        "paired_bootstrap_95ci": {
+          "confidence_level": 0.95,
+          "coverage_note": "nominal paired-bootstrap percentile interval; not exact finite-sample coverage",
+          "lower": 0.03508771929824561,
+          "lower_percentile_rank_one_based": 250,
+          "method": "paired-nonparametric-percentile-splitmix64/v1",
+          "resamples": 10000,
+          "sample_count": 57,
+          "scope": "step1x/gedit-subject-remove-en57/training-seed-42/semantics",
+          "seed": 20260902,
+          "upper": 1.280701754385965,
+          "upper_percentile_rank_one_based": 9750
+        },
+        "win_tie_loss": {
+          "losses": 8,
+          "ties": 37,
+          "wins": 12
+        }
+      }
+    },
+    "43": {
+      "overall": {
+        "adapted_mean": 6.958232058391713,
+        "base_mean": 6.688649149793672,
+        "count": 57,
+        "mean_delta": 0.2695829085980406,
+        "paired_bootstrap_95ci": {
+          "confidence_level": 0.95,
+          "coverage_note": "nominal paired-bootstrap percentile interval; not exact finite-sample coverage",
+          "lower": -0.3053470007157914,
+          "lower_percentile_rank_one_based": 250,
+          "method": "paired-nonparametric-percentile-splitmix64/v1",
+          "resamples": 10000,
+          "sample_count": 57,
+          "scope": "step1x/gedit-subject-remove-en57/training-seed-43/overall",
+          "seed": 20260902,
+          "upper": 0.933627901002064,
+          "upper_percentile_rank_one_based": 9750
+        },
+        "win_tie_loss": {
+          "losses": 21,
+          "ties": 24,
+          "wins": 12
+        }
+      },
+      "quality": {
+        "adapted_mean": 7.017543859649122,
+        "base_mean": 7.578947368421052,
+        "count": 57,
+        "mean_delta": -0.5614035087719298,
+        "paired_bootstrap_95ci": {
+          "confidence_level": 0.95,
+          "coverage_note": "nominal paired-bootstrap percentile interval; not exact finite-sample coverage",
+          "lower": -0.8596491228070176,
+          "lower_percentile_rank_one_based": 250,
+          "method": "paired-nonparametric-percentile-splitmix64/v1",
+          "resamples": 10000,
+          "sample_count": 57,
+          "scope": "step1x/gedit-subject-remove-en57/training-seed-43/quality",
+          "seed": 20260902,
+          "upper": -0.2631578947368421,
+          "upper_percentile_rank_one_based": 9750
+        },
+        "win_tie_loss": {
+          "losses": 23,
+          "ties": 28,
+          "wins": 6
+        }
+      },
+      "semantics": {
+        "adapted_mean": 7.719298245614035,
+        "base_mean": 7.0701754385964914,
+        "count": 57,
+        "mean_delta": 0.6491228070175439,
+        "paired_bootstrap_95ci": {
+          "confidence_level": 0.95,
+          "coverage_note": "nominal paired-bootstrap percentile interval; not exact finite-sample coverage",
+          "lower": 0.05263157894736842,
+          "lower_percentile_rank_one_based": 250,
+          "method": "paired-nonparametric-percentile-splitmix64/v1",
+          "resamples": 10000,
+          "sample_count": 57,
+          "scope": "step1x/gedit-subject-remove-en57/training-seed-43/semantics",
+          "seed": 20260902,
+          "upper": 1.3508771929824561,
+          "upper_percentile_rank_one_based": 9750
+        },
+        "win_tie_loss": {
+          "losses": 8,
+          "ties": 37,
+          "wins": 12
+        }
+      }
+    },
+    "44": {
+      "overall": {
+        "adapted_mean": 6.767964785819192,
+        "base_mean": 6.688649149793672,
+        "count": 57,
+        "mean_delta": 0.07931563602551961,
+        "paired_bootstrap_95ci": {
+          "confidence_level": 0.95,
+          "coverage_note": "nominal paired-bootstrap percentile interval; not exact finite-sample coverage",
+          "lower": -0.5631528484348838,
+          "lower_percentile_rank_one_based": 250,
+          "method": "paired-nonparametric-percentile-splitmix64/v1",
+          "resamples": 10000,
+          "sample_count": 57,
+          "scope": "step1x/gedit-subject-remove-en57/training-seed-44/overall",
+          "seed": 20260902,
+          "upper": 0.7617742221782925,
+          "upper_percentile_rank_one_based": 9750
+        },
+        "win_tie_loss": {
+          "losses": 23,
+          "ties": 23,
+          "wins": 11
+        }
+      },
+      "quality": {
+        "adapted_mean": 7.017543859649122,
+        "base_mean": 7.578947368421052,
+        "count": 57,
+        "mean_delta": -0.5614035087719298,
+        "paired_bootstrap_95ci": {
+          "confidence_level": 0.95,
+          "coverage_note": "nominal paired-bootstrap percentile interval; not exact finite-sample coverage",
+          "lower": -0.8596491228070176,
+          "lower_percentile_rank_one_based": 250,
+          "method": "paired-nonparametric-percentile-splitmix64/v1",
+          "resamples": 10000,
+          "sample_count": 57,
+          "scope": "step1x/gedit-subject-remove-en57/training-seed-44/quality",
+          "seed": 20260902,
+          "upper": -0.2807017543859649,
+          "upper_percentile_rank_one_based": 9750
+        },
+        "win_tie_loss": {
+          "losses": 24,
+          "ties": 29,
+          "wins": 4
+        }
+      },
+      "semantics": {
+        "adapted_mean": 7.5964912280701755,
+        "base_mean": 7.0701754385964914,
+        "count": 57,
+        "mean_delta": 0.5263157894736842,
+        "paired_bootstrap_95ci": {
+          "confidence_level": 0.95,
+          "coverage_note": "nominal paired-bootstrap percentile interval; not exact finite-sample coverage",
+          "lower": -0.19298245614035087,
+          "lower_percentile_rank_one_based": 250,
+          "method": "paired-nonparametric-percentile-splitmix64/v1",
+          "resamples": 10000,
+          "sample_count": 57,
+          "scope": "step1x/gedit-subject-remove-en57/training-seed-44/semantics",
+          "seed": 20260902,
+          "upper": 1.280701754385965,
+          "upper_percentile_rank_one_based": 9750
+        },
+        "win_tie_loss": {
+          "losses": 11,
+          "ties": 35,
+          "wins": 11
+        }
+      }
+    }
+  },
+  "preregistered_replication_seeds": [
+    43,
+    44
+  ],
+  "primary_seed_observed_before_replication": 42,
+  "protocol_sha256": "dd783ddfa844276ac474e391fc46dc370ed1c177afda4a6b02e589a959f47ca3",
+  "records": [
+    {
+      "adapted_by_training_seed": {
+        "42": {
+          "overall": 8.94427190999916,
+          "quality": 8.0,
+          "semantics": 10.0
+        },
+        "43": {
+          "overall": 9.486832980505138,
+          "quality": 9.0,
+          "semantics": 10.0
+        },
+        "44": {
+          "overall": 7.937253933193772,
+          "quality": 7.0,
+          "semantics": 9.0
+        }
+      },
+      "base": {
+        "overall": 9.486832980505138,
+        "quality": 9.0,
+        "semantics": 10.0
+      },
+      "key": "071cbc925ee5f3fcc234d72bf5fbe182"
+    },
+    {
+      "adapted_by_training_seed": {
+        "42": {
+          "overall": 7.3484692283495345,
+          "quality": 6.0,
+          "semantics": 9.0
+        },
+        "43": {
+          "overall": 5.196152422706632,
+          "quality": 3.0,
+          "semantics": 9.0
+        },
+        "44": {
+          "overall": 7.3484692283495345,
+          "quality": 6.0,
+          "semantics": 9.0
+        }
+      },
+      "base": {
+        "overall": 7.3484692283495345,
+        "quality": 6.0,
+        "semantics": 9.0
+      },
+      "key": "08a671d4c5067a5659ea84cded659fd8"
+    },
+    {
+      "adapted_by_training_seed": {
+        "42": {
+          "overall": 8.94427190999916,
+          "quality": 8.0,
+          "semantics": 10.0
+        },
+        "43": {
+          "overall": 9.486832980505138,
+          "quality": 9.0,
+          "semantics": 10.0
+        },
+        "44": {
+          "overall": 8.94427190999916,
+          "quality": 8.0,
+          "semantics": 10.0
+        }
+      },
+      "base": {
+        "overall": 8.94427190999916,
+        "quality": 8.0,
+        "semantics": 10.0
+      },
+      "key": "1110b6bc43aa5a3037467f5833ece3c5"
+    },
+    {
+      "adapted_by_training_seed": {
+        "42": {
+          "overall": 4.58257569495584,
+          "quality": 3.0,
+          "semantics": 7.0
+        },
+        "43": {
+          "overall": 3.7416573867739413,
+          "quality": 2.0,
+          "semantics": 7.0
+        },
+        "44": {
+          "overall": 4.58257569495584,
+          "quality": 3.0,
+          "semantics": 7.0
+        }
+      },
+      "base": {
+        "overall": 3.4641016151377544,
+        "quality": 6.0,
+        "semantics": 2.0
+      },
+      "key": "16e59a89f37b5603a41fc60e2912a325"
+    },
+    {
+      "adapted_by_training_seed": {
+        "42": {
+          "overall": 9.0,
+          "quality": 9.0,
+          "semantics": 9.0
+        },
+        "43": {
+          "overall": 8.48528137423857,
+          "quality": 9.0,
+          "semantics": 8.0
+        },
+        "44": {
+          "overall": 8.48528137423857,
+          "quality": 9.0,
+          "semantics": 8.0
+        }
+      },
+      "base": {
+        "overall": 9.0,
+        "quality": 9.0,
+        "semantics": 9.0
+      },
+      "key": "17f4fec8b5c096e4ee3e8f168f93d05d"
+    },
+    {
+      "adapted_by_training_seed": {
+        "42": {
+          "overall": 7.0,
+          "quality": 7.0,
+          "semantics": 7.0
+        },
+        "43": {
+          "overall": 4.898979485566356,
+          "quality": 4.0,
+          "semantics": 6.0
+        },
+        "44": {
+          "overall": 5.916079783099616,
+          "quality": 5.0,
+          "semantics": 7.0
+        }
+      },
+      "base": {
+        "overall": 7.937253933193772,
+        "quality": 7.0,
+        "semantics": 9.0
+      },
+      "key": "1b05dbce0dc0e981e4eb38b27c2c0167"
+    },
+    {
+      "adapted_by_training_seed": {
+        "42": {
+          "overall": 9.0,
+          "quality": 9.0,
+          "semantics": 9.0
+        },
+        "43": {
+          "overall": 10.0,
+          "quality": 10.0,
+          "semantics": 10.0
+        },
+        "44": {
+          "overall": 9.486832980505138,
+          "quality": 9.0,
+          "semantics": 10.0
+        }
+      },
+      "base": {
+        "overall": 10.0,
+        "quality": 10.0,
+        "semantics": 10.0
+      },
+      "key": "1e62ce17d24426272c11bd47906afba7"
+    },
+    {
+      "adapted_by_training_seed": {
+        "42": {
+          "overall": 5.656854249492381,
+          "quality": 8.0,
+          "semantics": 4.0
+        },
+        "43": {
+          "overall": 7.937253933193772,
+          "quality": 9.0,
+          "semantics": 7.0
+        },
+        "44": {
+          "overall": 8.48528137423857,
+          "quality": 8.0,
+          "semantics": 9.0
+        }
+      },
+      "base": {
+        "overall": 6.324555320336759,
+        "quality": 8.0,
+        "semantics": 5.0
+      },
+      "key": "202eccaba244927e87a17200a87e4406"
+    },
+    {
+      "adapted_by_training_seed": {
+        "42": {
+          "overall": 8.48528137423857,
+          "quality": 8.0,
+          "semantics": 9.0
+        },
+        "43": {
+          "overall": 8.94427190999916,
+          "quality": 8.0,
+          "semantics": 10.0
+        },
+        "44": {
+          "overall": 8.94427190999916,
+          "quality": 8.0,
+          "semantics": 10.0
+        }
+      },
+      "base": {
+        "overall": 8.94427190999916,
+        "quality": 8.0,
+        "semantics": 10.0
+      },
+      "key": "23663821d9be6aba1d8100daffdb15cb"
+    },
+    {
+      "adapted_by_training_seed": {
+        "42": {
+          "overall": 0.0,
+          "quality": 9.0,
+          "semantics": 0.0
+        },
+        "43": {
+          "overall": 3.0,
+          "quality": 9.0,
+          "semantics": 1.0
+        },
+        "44": {
+          "overall": 0.0,
+          "quality": 9.0,
+          "semantics": 0.0
+        }
+      },
+      "base": {
+        "overall": 0.0,
+        "quality": 9.0,
+        "semantics": 0.0
+      },
+      "key": "2afdc3f8ccc9191b4b5854a9c4042092"
+    },
+    {
+      "adapted_by_training_seed": {
+        "42": {
+          "overall": 8.94427190999916,
+          "quality": 8.0,
+          "semantics": 10.0
+        },
+        "43": {
+          "overall": 8.94427190999916,
+          "quality": 8.0,
+          "semantics": 10.0
+        },
+        "44": {
+          "overall": 8.94427190999916,
+          "quality": 8.0,
+          "semantics": 10.0
+        }
+      },
+      "base": {
+        "overall": 9.486832980505138,
+        "quality": 9.0,
+        "semantics": 10.0
+      },
+      "key": "2d762cc12344718236b171a19417adf5"
+    },
+    {
+      "adapted_by_training_seed": {
+        "42": {
+          "overall": 9.486832980505138,
+          "quality": 9.0,
+          "semantics": 10.0
+        },
+        "43": {
+          "overall": 9.486832980505138,
+          "quality": 9.0,
+          "semantics": 10.0
+        },
+        "44": {
+          "overall": 9.486832980505138,
+          "quality": 9.0,
+          "semantics": 10.0
+        }
+      },
+      "base": {
+        "overall": 9.486832980505138,
+        "quality": 9.0,
+        "semantics": 10.0
+      },
+      "key": "2ebb31e51f0de8bba7005352df7150b8"
+    },
+    {
+      "adapted_by_training_seed": {
+        "42": {
+          "overall": 9.486832980505138,
+          "quality": 9.0,
+          "semantics": 10.0
+        },
+        "43": {
+          "overall": 10.0,
+          "quality": 10.0,
+          "semantics": 10.0
+        },
+        "44": {
+          "overall": 10.0,
+          "quality": 10.0,
+          "semantics": 10.0
+        }
+      },
+      "base": {
+        "overall": 9.0,
+        "quality": 9.0,
+        "semantics": 9.0
+      },
+      "key": "39b5aeaeecceb845d41bc7beaf9319a3"
+    },
+    {
+      "adapted_by_training_seed": {
+        "42": {
+          "overall": 4.58257569495584,
+          "quality": 3.0,
+          "semantics": 7.0
+        },
+        "43": {
+          "overall": 0.0,
+          "quality": 4.0,
+          "semantics": 0.0
+        },
+        "44": {
+          "overall": 4.898979485566356,
+          "quality": 3.0,
+          "semantics": 8.0
+        }
+      },
+      "base": {
+        "overall": 0.0,
+        "quality": 3.0,
+        "semantics": 0.0
+      },
+      "key": "3d1bf910852585afdb6fe2a9c9b24d6b"
+    },
+    {
+      "adapted_by_training_seed": {
+        "42": {
+          "overall": 9.486832980505138,
+          "quality": 9.0,
+          "semantics": 10.0
+        },
+        "43": {
+          "overall": 9.486832980505138,
+          "quality": 9.0,
+          "semantics": 10.0
+        },
+        "44": {
+          "overall": 9.486832980505138,
+          "quality": 9.0,
+          "semantics": 10.0
+        }
+      },
+      "base": {
+        "overall": 9.486832980505138,
+        "quality": 9.0,
+        "semantics": 10.0
+      },
+      "key": "453c8005733dd2b902343f7577818c7b"
+    },
+    {
+      "adapted_by_training_seed": {
+        "42": {
+          "overall": 6.708203932499369,
+          "quality": 5.0,
+          "semantics": 9.0
+        },
+        "43": {
+          "overall": 7.937253933193772,
+          "quality": 7.0,
+          "semantics": 9.0
+        },
+        "44": {
+          "overall": 7.937253933193772,
+          "quality": 7.0,
+          "semantics": 9.0
+        }
+      },
+      "base": {
+        "overall": 7.937253933193772,
+        "quality": 7.0,
+        "semantics": 9.0
+      },
+      "key": "56b9020b542342972a3a796ee802ca95"
+    },
+    {
+      "adapted_by_training_seed": {
+        "42": {
+          "overall": 6.324555320336759,
+          "quality": 5.0,
+          "semantics": 8.0
+        },
+        "43": {
+          "overall": 6.324555320336759,
+          "quality": 5.0,
+          "semantics": 8.0
+        },
+        "44": {
+          "overall": 5.916079783099616,
+          "quality": 5.0,
+          "semantics": 7.0
+        }
+      },
+      "base": {
+        "overall": 6.928203230275509,
+        "quality": 6.0,
+        "semantics": 8.0
+      },
+      "key": "5d9a5910b296328accc6701096c16a5b"
+    },
+    {
+      "adapted_by_training_seed": {
+        "42": {
+          "overall": 2.449489742783178,
+          "quality": 3.0,
+          "semantics": 2.0
+        },
+        "43": {
+          "overall": 4.0,
+          "quality": 8.0,
+          "semantics": 2.0
+        },
+        "44": {
+          "overall": 4.58257569495584,
+          "quality": 7.0,
+          "semantics": 3.0
+        }
+      },
+      "base": {
+        "overall": 0.0,
+        "quality": 9.0,
+        "semantics": 0.0
+      },
+      "key": "600884cc7c2be67d2ecf5517fea512c2"
+    },
+    {
+      "adapted_by_training_seed": {
+        "42": {
+          "overall": 8.94427190999916,
+          "quality": 8.0,
+          "semantics": 10.0
+        },
+        "43": {
+          "overall": 8.94427190999916,
+          "quality": 8.0,
+          "semantics": 10.0
+        },
+        "44": {
+          "overall": 8.366600265340756,
+          "quality": 7.0,
+          "semantics": 10.0
+        }
+      },
+      "base": {
+        "overall": 8.94427190999916,
+        "quality": 8.0,
+        "semantics": 10.0
+      },
+      "key": "64c8ea3004fb830615591121c1cebe6a"
+    },
+    {
+      "adapted_by_training_seed": {
+        "42": {
+          "overall": 10.0,
+          "quality": 10.0,
+          "semantics": 10.0
+        },
+        "43": {
+          "overall": 9.486832980505138,
+          "quality": 9.0,
+          "semantics": 10.0
+        },
+        "44": {
+          "overall": 9.486832980505138,
+          "quality": 9.0,
+          "semantics": 10.0
+        }
+      },
+      "base": {
+        "overall": 10.0,
+        "quality": 10.0,
+        "semantics": 10.0
+      },
+      "key": "6d3f5e90a64806a7b3170d71a6dd0fbe"
+    },
+    {
+      "adapted_by_training_seed": {
+        "42": {
+          "overall": 3.4641016151377544,
+          "quality": 6.0,
+          "semantics": 2.0
+        },
+        "43": {
+          "overall": 7.937253933193772,
+          "quality": 7.0,
+          "semantics": 9.0
+        },
+        "44": {
+          "overall": 6.928203230275509,
+          "quality": 6.0,
+          "semantics": 8.0
+        }
+      },
+      "base": {
+        "overall": 3.7416573867739413,
+        "quality": 7.0,
+        "semantics": 2.0
+      },
+      "key": "6e59f1430e90396b7e08cb869274c426"
+    },
+    {
+      "adapted_by_training_seed": {
+        "42": {
+          "overall": 9.0,
+          "quality": 9.0,
+          "semantics": 9.0
+        },
+        "43": {
+          "overall": 9.486832980505138,
+          "quality": 9.0,
+          "semantics": 10.0
+        },
+        "44": {
+          "overall": 9.486832980505138,
+          "quality": 9.0,
+          "semantics": 10.0
+        }
+      },
+      "base": {
+        "overall": 9.486832980505138,
+        "quality": 9.0,
+        "semantics": 10.0
+      },
+      "key": "774befadbd2459f532eb3e9bc2dca051"
+    },
+    {
+      "adapted_by_training_seed": {
+        "42": {
+          "overall": 1.4142135623730951,
+          "quality": 2.0,
+          "semantics": 1.0
+        },
+        "43": {
+          "overall": 2.449489742783178,
+          "quality": 3.0,
+          "semantics": 2.0
+        },
+        "44": {
+          "overall": 1.4142135623730951,
+          "quality": 2.0,
+          "semantics": 1.0
+        }
+      },
+      "base": {
+        "overall": 2.0,
+        "quality": 4.0,
+        "semantics": 1.0
+      },
+      "key": "79e800c9187225a020bef26413014de3"
+    },
+    {
+      "adapted_by_training_seed": {
+        "42": {
+          "overall": 3.4641016151377544,
+          "quality": 2.0,
+          "semantics": 6.0
+        },
+        "43": {
+          "overall": 3.4641016151377544,
+          "quality": 2.0,
+          "semantics": 6.0
+        },
+        "44": {
+          "overall": 3.7416573867739413,
+          "quality": 2.0,
+          "semantics": 7.0
+        }
+      },
+      "base": {
+        "overall": 2.0,
+        "quality": 2.0,
+        "semantics": 2.0
+      },
+      "key": "7bacd70f8819d2444bcf5e0676b14a67"
+    },
+    {
+      "adapted_by_training_seed": {
+        "42": {
+          "overall": 7.937253933193772,
+          "quality": 7.0,
+          "semantics": 9.0
+        },
+        "43": {
+          "overall": 7.937253933193772,
+          "quality": 7.0,
+          "semantics": 9.0
+        },
+        "44": {
+          "overall": 7.3484692283495345,
+          "quality": 6.0,
+          "semantics": 9.0
+        }
+      },
+      "base": {
+        "overall": 7.937253933193772,
+        "quality": 7.0,
+        "semantics": 9.0
+      },
+      "key": "834b9cd34b6c6c201ad42bb00eba10eb"
+    },
+    {
+      "adapted_by_training_seed": {
+        "42": {
+          "overall": 8.94427190999916,
+          "quality": 8.0,
+          "semantics": 10.0
+        },
+        "43": {
+          "overall": 8.48528137423857,
+          "quality": 8.0,
+          "semantics": 9.0
+        },
+        "44": {
+          "overall": 9.0,
+          "quality": 9.0,
+          "semantics": 9.0
+        }
+      },
+      "base": {
+        "overall": 9.0,
+        "quality": 9.0,
+        "semantics": 9.0
+      },
+      "key": "856b6b373fe9f39644456d5810cb9042"
+    },
+    {
+      "adapted_by_training_seed": {
+        "42": {
+          "overall": 9.486832980505138,
+          "quality": 9.0,
+          "semantics": 10.0
+        },
+        "43": {
+          "overall": 8.94427190999916,
+          "quality": 8.0,
+          "semantics": 10.0
+        },
+        "44": {
+          "overall": 9.486832980505138,
+          "quality": 9.0,
+          "semantics": 10.0
+        }
+      },
+      "base": {
+        "overall": 9.486832980505138,
+        "quality": 9.0,
+        "semantics": 10.0
+      },
+      "key": "8752867086a665d8889f8134703d92b0"
+    },
+    {
+      "adapted_by_training_seed": {
+        "42": {
+          "overall": 2.8284271247461903,
+          "quality": 2.0,
+          "semantics": 4.0
+        },
+        "43": {
+          "overall": 2.449489742783178,
+          "quality": 2.0,
+          "semantics": 3.0
+        },
+        "44": {
+          "overall": 2.0,
+          "quality": 1.0,
+          "semantics": 4.0
+        }
+      },
+      "base": {
+        "overall": 2.8284271247461903,
+        "quality": 2.0,
+        "semantics": 4.0
+      },
+      "key": "8853ec3095105930363c6c8c988f55e6"
+    },
+    {
+      "adapted_by_training_seed": {
+        "42": {
+          "overall": 9.0,
+          "quality": 9.0,
+          "semantics": 9.0
+        },
+        "43": {
+          "overall": 9.0,
+          "quality": 9.0,
+          "semantics": 9.0
+        },
+        "44": {
+          "overall": 9.0,
+          "quality": 9.0,
+          "semantics": 9.0
+        }
+      },
+      "base": {
+        "overall": 9.0,
+        "quality": 9.0,
+        "semantics": 9.0
+      },
+      "key": "8d0bc807846ac304d0b02ac5588c646d"
+    },
+    {
+      "adapted_by_training_seed": {
+        "42": {
+          "overall": 0.0,
+          "quality": 9.0,
+          "semantics": 0.0
+        },
+        "43": {
+          "overall": 0.0,
+          "quality": 8.0,
+          "semantics": 0.0
+        },
+        "44": {
+          "overall": 0.0,
+          "quality": 9.0,
+          "semantics": 0.0
+        }
+      },
+      "base": {
+        "overall": 0.0,
+        "quality": 7.0,
+        "semantics": 0.0
+      },
+      "key": "8e02b0e258dcb5c6af860af239ea35be"
+    },
+    {
+      "adapted_by_training_seed": {
+        "42": {
+          "overall": 9.486832980505138,
+          "quality": 9.0,
+          "semantics": 10.0
+        },
+        "43": {
+          "overall": 9.486832980505138,
+          "quality": 9.0,
+          "semantics": 10.0
+        },
+        "44": {
+          "overall": 9.486832980505138,
+          "quality": 9.0,
+          "semantics": 10.0
+        }
+      },
+      "base": {
+        "overall": 9.486832980505138,
+        "quality": 9.0,
+        "semantics": 10.0
+      },
+      "key": "90f506d94854bce0e7cfe3d7f015c4b2"
+    },
+    {
+      "adapted_by_training_seed": {
+        "42": {
+          "overall": 0.0,
+          "quality": 6.0,
+          "semantics": 0.0
+        },
+        "43": {
+          "overall": 0.0,
+          "quality": 6.0,
+          "semantics": 0.0
+        },
+        "44": {
+          "overall": 0.0,
+          "quality": 7.0,
+          "semantics": 0.0
+        }
+      },
+      "base": {
+        "overall": 0.0,
+        "quality": 8.0,
+        "semantics": 0.0
+      },
+      "key": "99cc761cfc9689c2ffff606e41832371"
+    },
+    {
+      "adapted_by_training_seed": {
+        "42": {
+          "overall": 9.486832980505138,
+          "quality": 9.0,
+          "semantics": 10.0
+        },
+        "43": {
+          "overall": 9.0,
+          "quality": 9.0,
+          "semantics": 9.0
+        },
+        "44": {
+          "overall": 8.94427190999916,
+          "quality": 8.0,
+          "semantics": 10.0
+        }
+      },
+      "base": {
+        "overall": 9.486832980505138,
+        "quality": 9.0,
+        "semantics": 10.0
+      },
+      "key": "9e563953afc8bcce1d0ad908e47f8006"
+    },
+    {
+      "adapted_by_training_seed": {
+        "42": {
+          "overall": 9.0,
+          "quality": 9.0,
+          "semantics": 9.0
+        },
+        "43": {
+          "overall": 9.0,
+          "quality": 9.0,
+          "semantics": 9.0
+        },
+        "44": {
+          "overall": 9.0,
+          "quality": 9.0,
+          "semantics": 9.0
+        }
+      },
+      "base": {
+        "overall": 9.0,
+        "quality": 9.0,
+        "semantics": 9.0
+      },
+      "key": "a9036279f412391d29bfd86fccd1606c"
+    },
+    {
+      "adapted_by_training_seed": {
+        "42": {
+          "overall": 10.0,
+          "quality": 10.0,
+          "semantics": 10.0
+        },
+        "43": {
+          "overall": 10.0,
+          "quality": 10.0,
+          "semantics": 10.0
+        },
+        "44": {
+          "overall": 9.486832980505138,
+          "quality": 9.0,
+          "semantics": 10.0
+        }
+      },
+      "base": {
+        "overall": 10.0,
+        "quality": 10.0,
+        "semantics": 10.0
+      },
+      "key": "ae3bf75e9abe53ab8e24052ef129d1ef"
+    },
+    {
+      "adapted_by_training_seed": {
+        "42": {
+          "overall": 8.94427190999916,
+          "quality": 8.0,
+          "semantics": 10.0
+        },
+        "43": {
+          "overall": 7.937253933193772,
+          "quality": 7.0,
+          "semantics": 9.0
+        },
+        "44": {
+          "overall": 8.48528137423857,
+          "quality": 8.0,
+          "semantics": 9.0
+        }
+      },
+      "base": {
+        "overall": 9.486832980505138,
+        "quality": 9.0,
+        "semantics": 10.0
+      },
+      "key": "b5729b790593f7065bf7ae2f7674c1e2"
+    },
+    {
+      "adapted_by_training_seed": {
+        "42": {
+          "overall": 8.94427190999916,
+          "quality": 8.0,
+          "semantics": 10.0
+        },
+        "43": {
+          "overall": 8.366600265340756,
+          "quality": 7.0,
+          "semantics": 10.0
+        },
+        "44": {
+          "overall": 8.94427190999916,
+          "quality": 8.0,
+          "semantics": 10.0
+        }
+      },
+      "base": {
+        "overall": 8.94427190999916,
+        "quality": 8.0,
+        "semantics": 10.0
+      },
+      "key": "bc8d567ee91ca1521adaa8d4a486851f"
+    },
+    {
+      "adapted_by_training_seed": {
+        "42": {
+          "overall": 8.0,
+          "quality": 8.0,
+          "semantics": 8.0
+        },
+        "43": {
+          "overall": 7.0,
+          "quality": 7.0,
+          "semantics": 7.0
+        },
+        "44": {
+          "overall": 7.483314773547883,
+          "quality": 8.0,
+          "semantics": 7.0
+        }
+      },
+      "base": {
+        "overall": 7.937253933193772,
+        "quality": 9.0,
+        "semantics": 7.0
+      },
+      "key": "be1f3d0f398433eaf3f9cf9a931402a3"
+    },
+    {
+      "adapted_by_training_seed": {
+        "42": {
+          "overall": 8.94427190999916,
+          "quality": 8.0,
+          "semantics": 10.0
+        },
+        "43": {
+          "overall": 8.366600265340756,
+          "quality": 7.0,
+          "semantics": 10.0
+        },
+        "44": {
+          "overall": 8.94427190999916,
+          "quality": 8.0,
+          "semantics": 10.0
+        }
+      },
+      "base": {
+        "overall": 8.366600265340756,
+        "quality": 7.0,
+        "semantics": 10.0
+      },
+      "key": "c2330eaa58378dd8d76989053fe27cdc"
+    },
+    {
+      "adapted_by_training_seed": {
+        "42": {
+          "overall": 6.324555320336759,
+          "quality": 4.0,
+          "semantics": 10.0
+        },
+        "43": {
+          "overall": 5.477225575051661,
+          "quality": 3.0,
+          "semantics": 10.0
+        },
+        "44": {
+          "overall": 5.196152422706632,
+          "quality": 3.0,
+          "semantics": 9.0
+        }
+      },
+      "base": {
+        "overall": 5.477225575051661,
+        "quality": 3.0,
+        "semantics": 10.0
+      },
+      "key": "c59adebb1dc6ecf43d658c1a4b7674ee"
+    },
+    {
+      "adapted_by_training_seed": {
+        "42": {
+          "overall": 5.291502622129181,
+          "quality": 4.0,
+          "semantics": 7.0
+        },
+        "43": {
+          "overall": 7.937253933193772,
+          "quality": 7.0,
+          "semantics": 9.0
+        },
+        "44": {
+          "overall": 7.3484692283495345,
+          "quality": 6.0,
+          "semantics": 9.0
+        }
+      },
+      "base": {
+        "overall": 0.0,
+        "quality": 9.0,
+        "semantics": 0.0
+      },
+      "key": "ca3ce49b08db0d75388197210fed5157"
+    },
+    {
+      "adapted_by_training_seed": {
+        "42": {
+          "overall": 6.48074069840786,
+          "quality": 7.0,
+          "semantics": 6.0
+        },
+        "43": {
+          "overall": 7.0,
+          "quality": 7.0,
+          "semantics": 7.0
+        },
+        "44": {
+          "overall": 7.0,
+          "quality": 7.0,
+          "semantics": 7.0
+        }
+      },
+      "base": {
+        "overall": 10.0,
+        "quality": 10.0,
+        "semantics": 10.0
+      },
+      "key": "cd5e2a6dd0f762849943fede284c4516"
+    },
+    {
+      "adapted_by_training_seed": {
+        "42": {
+          "overall": 6.0,
+          "quality": 4.0,
+          "semantics": 9.0
+        },
+        "43": {
+          "overall": 6.0,
+          "quality": 4.0,
+          "semantics": 9.0
+        },
+        "44": {
+          "overall": 6.708203932499369,
+          "quality": 5.0,
+          "semantics": 9.0
+        }
+      },
+      "base": {
+        "overall": 6.708203932499369,
+        "quality": 5.0,
+        "semantics": 9.0
+      },
+      "key": "cdafebec5ad18102bb9f2f9eccac053f"
+    },
+    {
+      "adapted_by_training_seed": {
+        "42": {
+          "overall": 0.0,
+          "quality": 9.0,
+          "semantics": 0.0
+        },
+        "43": {
+          "overall": 0.0,
+          "quality": 9.0,
+          "semantics": 0.0
+        },
+        "44": {
+          "overall": 0.0,
+          "quality": 9.0,
+          "semantics": 0.0
+        }
+      },
+      "base": {
+        "overall": 5.196152422706632,
+        "quality": 9.0,
+        "semantics": 3.0
+      },
+      "key": "ce693a75c84f7c0f2975c6cc50f2af9e"
+    },
+    {
+      "adapted_by_training_seed": {
+        "42": {
+          "overall": 6.928203230275509,
+          "quality": 6.0,
+          "semantics": 8.0
+        },
+        "43": {
+          "overall": 7.937253933193772,
+          "quality": 7.0,
+          "semantics": 9.0
+        },
+        "44": {
+          "overall": 4.242640687119285,
+          "quality": 9.0,
+          "semantics": 2.0
+        }
+      },
+      "base": {
+        "overall": 0.0,
+        "quality": 9.0,
+        "semantics": 0.0
+      },
+      "key": "cf3daa2e86bcd3cc867204e5edb938bf"
+    },
+    {
+      "adapted_by_training_seed": {
+        "42": {
+          "overall": 8.366600265340756,
+          "quality": 7.0,
+          "semantics": 10.0
+        },
+        "43": {
+          "overall": 8.366600265340756,
+          "quality": 7.0,
+          "semantics": 10.0
+        },
+        "44": {
+          "overall": 8.366600265340756,
+          "quality": 7.0,
+          "semantics": 10.0
+        }
+      },
+      "base": {
+        "overall": 8.366600265340756,
+        "quality": 7.0,
+        "semantics": 10.0
+      },
+      "key": "dc1fb90b41f4c01c16cc351575bc9461"
+    },
+    {
+      "adapted_by_training_seed": {
+        "42": {
+          "overall": 4.47213595499958,
+          "quality": 5.0,
+          "semantics": 4.0
+        },
+        "43": {
+          "overall": 3.4641016151377544,
+          "quality": 6.0,
+          "semantics": 2.0
+        },
+        "44": {
+          "overall": 2.0,
+          "quality": 4.0,
+          "semantics": 1.0
+        }
+      },
+      "base": {
+        "overall": 3.4641016151377544,
+        "quality": 6.0,
+        "semantics": 2.0
+      },
+      "key": "dd328e27b6f2b6871f6be99c414717a9"
+    },
+    {
+      "adapted_by_training_seed": {
+        "42": {
+          "overall": 9.0,
+          "quality": 9.0,
+          "semantics": 9.0
+        },
+        "43": {
+          "overall": 8.94427190999916,
+          "quality": 8.0,
+          "semantics": 10.0
+        },
+        "44": {
+          "overall": 0.0,
+          "quality": 9.0,
+          "semantics": 0.0
+        }
+      },
+      "base": {
+        "overall": 9.0,
+        "quality": 9.0,
+        "semantics": 9.0
+      },
+      "key": "ddb40f4b94e2f60fc92815cfd89546c7"
+    },
+    {
+      "adapted_by_training_seed": {
+        "42": {
+          "overall": 2.449489742783178,
+          "quality": 2.0,
+          "semantics": 3.0
+        },
+        "43": {
+          "overall": 1.7320508075688772,
+          "quality": 1.0,
+          "semantics": 3.0
+        },
+        "44": {
+          "overall": 2.0,
+          "quality": 1.0,
+          "semantics": 4.0
+        }
+      },
+      "base": {
+        "overall": 2.449489742783178,
+        "quality": 2.0,
+        "semantics": 3.0
+      },
+      "key": "e0e6c00cd4573be9dd571854cf362d24"
+    },
+    {
+      "adapted_by_training_seed": {
+        "42": {
+          "overall": 9.486832980505138,
+          "quality": 9.0,
+          "semantics": 10.0
+        },
+        "43": {
+          "overall": 8.94427190999916,
+          "quality": 8.0,
+          "semantics": 10.0
+        },
+        "44": {
+          "overall": 9.486832980505138,
+          "quality": 9.0,
+          "semantics": 10.0
+        }
+      },
+      "base": {
+        "overall": 9.486832980505138,
+        "quality": 9.0,
+        "semantics": 10.0
+      },
+      "key": "e0f2fafb11805800995f38cb327d905b"
+    },
+    {
+      "adapted_by_training_seed": {
+        "42": {
+          "overall": 9.486832980505138,
+          "quality": 9.0,
+          "semantics": 10.0
+        },
+        "43": {
+          "overall": 9.486832980505138,
+          "quality": 9.0,
+          "semantics": 10.0
+        },
+        "44": {
+          "overall": 9.486832980505138,
+          "quality": 9.0,
+          "semantics": 10.0
+        }
+      },
+      "base": {
+        "overall": 9.486832980505138,
+        "quality": 9.0,
+        "semantics": 10.0
+      },
+      "key": "e5407a415cc85180f2decb76a9529b6e"
+    },
+    {
+      "adapted_by_training_seed": {
+        "42": {
+          "overall": 8.366600265340756,
+          "quality": 7.0,
+          "semantics": 10.0
+        },
+        "43": {
+          "overall": 9.486832980505138,
+          "quality": 9.0,
+          "semantics": 10.0
+        },
+        "44": {
+          "overall": 9.486832980505138,
+          "quality": 9.0,
+          "semantics": 10.0
+        }
+      },
+      "base": {
+        "overall": 9.486832980505138,
+        "quality": 9.0,
+        "semantics": 10.0
+      },
+      "key": "ea887a20c2483ba77f0f0fdfabf83f34"
+    },
+    {
+      "adapted_by_training_seed": {
+        "42": {
+          "overall": 9.486832980505138,
+          "quality": 9.0,
+          "semantics": 10.0
+        },
+        "43": {
+          "overall": 9.486832980505138,
+          "quality": 9.0,
+          "semantics": 10.0
+        },
+        "44": {
+          "overall": 9.486832980505138,
+          "quality": 9.0,
+          "semantics": 10.0
+        }
+      },
+      "base": {
+        "overall": 9.486832980505138,
+        "quality": 9.0,
+        "semantics": 10.0
+      },
+      "key": "f5d8129b33eaf3adcaad19ba2d471529"
+    },
+    {
+      "adapted_by_training_seed": {
+        "42": {
+          "overall": 4.58257569495584,
+          "quality": 3.0,
+          "semantics": 7.0
+        },
+        "43": {
+          "overall": 4.242640687119285,
+          "quality": 3.0,
+          "semantics": 6.0
+        },
+        "44": {
+          "overall": 3.872983346207417,
+          "quality": 3.0,
+          "semantics": 5.0
+        }
+      },
+      "base": {
+        "overall": 4.898979485566356,
+        "quality": 4.0,
+        "semantics": 6.0
+      },
+      "key": "f9418062962373f7646b359d32c2526a"
+    },
+    {
+      "adapted_by_training_seed": {
+        "42": {
+          "overall": 8.366600265340756,
+          "quality": 7.0,
+          "semantics": 10.0
+        },
+        "43": {
+          "overall": 8.94427190999916,
+          "quality": 8.0,
+          "semantics": 10.0
+        },
+        "44": {
+          "overall": 8.94427190999916,
+          "quality": 8.0,
+          "semantics": 10.0
+        }
+      },
+      "base": {
+        "overall": 0.0,
+        "quality": 6.0,
+        "semantics": 0.0
+      },
+      "key": "fb492dc225f9ba92079731774b91ac8e"
+    },
+    {
+      "adapted_by_training_seed": {
+        "42": {
+          "overall": 5.656854249492381,
+          "quality": 4.0,
+          "semantics": 8.0
+        },
+        "43": {
+          "overall": 4.58257569495584,
+          "quality": 3.0,
+          "semantics": 7.0
+        },
+        "44": {
+          "overall": 4.242640687119285,
+          "quality": 2.0,
+          "semantics": 9.0
+        }
+      },
+      "base": {
+        "overall": 7.3484692283495345,
+        "quality": 6.0,
+        "semantics": 9.0
+      },
+      "key": "fc610a23a5c9ac5c4a3c2cc0386bc8d2"
+    },
+    {
+      "adapted_by_training_seed": {
+        "42": {
+          "overall": 9.486832980505138,
+          "quality": 9.0,
+          "semantics": 10.0
+        },
+        "43": {
+          "overall": 9.486832980505138,
+          "quality": 9.0,
+          "semantics": 10.0
+        },
+        "44": {
+          "overall": 9.486832980505138,
+          "quality": 9.0,
+          "semantics": 10.0
+        }
+      },
+      "base": {
+        "overall": 9.486832980505138,
+        "quality": 9.0,
+        "semantics": 10.0
+      },
+      "key": "fe511143bd74c0262075af599364dbcc"
+    }
+  ],
+  "reporting_rule": "Report every metric for seeds 42, 43, and 44 and their mean-prediction aggregate regardless of sign; do not select a seed, checkpoint, scale, or subset.",
+  "schema": "accv-rebuttal-step1x-broad-quality-seed-replication-gedit-result/v1",
+  "status": "complete",
+  "three_seed_mean_prediction": {
+    "overall": {
+      "adapted_mean": 6.8792262374425075,
+      "base_mean": 6.688649149793672,
+      "count": 57,
+      "mean_delta": 0.19057708764883527,
+      "paired_bootstrap_95ci": {
+        "confidence_level": 0.95,
+        "coverage_note": "nominal paired-bootstrap percentile interval; not exact finite-sample coverage",
+        "lower": -0.3392157696915757,
+        "lower_percentile_rank_one_based": 250,
+        "method": "paired-nonparametric-percentile-splitmix64/v1",
+        "resamples": 10000,
+        "sample_count": 57,
+        "scope": "step1x/gedit-subject-remove-en57/mean-training-seeds-42-43-44/overall",
+        "seed": 20260902,
+        "upper": 0.7785604012820625,
+        "upper_percentile_rank_one_based": 9750
+      },
+      "positive_training_seeds": 3,
+      "training_seed_deltas": [
+        0.22283271832294566,
+        0.2695829085980406,
+        0.07931563602551961
+      ],
+      "training_seed_mean_delta": 0.1905770876488353,
+      "training_seed_sample_std": 0.09915002791570439,
+      "win_tie_loss": {
+        "losses": 32,
+        "ties": 11,
+        "wins": 14
+      }
+    },
+    "quality": {
+      "adapted_mean": 6.9941520467836265,
+      "base_mean": 7.578947368421052,
+      "count": 57,
+      "mean_delta": -0.584795321637427,
+      "paired_bootstrap_95ci": {
+        "confidence_level": 0.95,
+        "coverage_note": "nominal paired-bootstrap percentile interval; not exact finite-sample coverage",
+        "lower": -0.8654970760233918,
+        "lower_percentile_rank_one_based": 250,
+        "method": "paired-nonparametric-percentile-splitmix64/v1",
+        "resamples": 10000,
+        "sample_count": 57,
+        "scope": "step1x/gedit-subject-remove-en57/mean-training-seeds-42-43-44/quality",
+        "seed": 20260902,
+        "upper": -0.32748538011695905,
+        "upper_percentile_rank_one_based": 9750
+      },
+      "positive_training_seeds": 0,
+      "training_seed_deltas": [
+        -0.631578947368421,
+        -0.5614035087719298,
+        -0.5614035087719298
+      ],
+      "training_seed_mean_delta": -0.5847953216374269,
+      "training_seed_sample_std": 0.04051580836418426,
+      "win_tie_loss": {
+        "losses": 34,
+        "ties": 15,
+        "wins": 8
+      }
+    },
+    "semantics": {
+      "adapted_mean": 7.666666666666667,
+      "base_mean": 7.0701754385964914,
+      "count": 57,
+      "mean_delta": 0.5964912280701754,
+      "paired_bootstrap_95ci": {
+        "confidence_level": 0.95,
+        "coverage_note": "nominal paired-bootstrap percentile interval; not exact finite-sample coverage",
+        "lower": 0.023391812865497075,
+        "lower_percentile_rank_one_based": 250,
+        "method": "paired-nonparametric-percentile-splitmix64/v1",
+        "resamples": 10000,
+        "sample_count": 57,
+        "scope": "step1x/gedit-subject-remove-en57/mean-training-seeds-42-43-44/semantics",
+        "seed": 20260902,
+        "upper": 1.2573099415204678,
+        "upper_percentile_rank_one_based": 9750
+      },
+      "positive_training_seeds": 3,
+      "training_seed_deltas": [
+        0.6140350877192983,
+        0.6491228070175439,
+        0.5263157894736842
+      ],
+      "training_seed_mean_delta": 0.5964912280701754,
+      "training_seed_sample_std": 0.06325528553445597,
+      "win_tie_loss": {
+        "losses": 15,
+        "ties": 26,
+        "wins": 16
+      }
+    }
+  }
+}
