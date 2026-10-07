@@ -47,7 +47,6 @@ contains the detector-assisted extraction miner, fixed 64-pair training manifest
 reference adapter identity and recorded evaluations. Those artifacts do not
 establish a reproduction of the internal CEPR workflow on main.
 
-The top-level README is retained unchanged. Its legacy extraction-bundle commands
-apply to that separate branch. [TRAINING.md](TRAINING.md) gives the current main
-workflow; [RESULTS.md](RESULTS.md) distinguishes reported values from available
+The top-level README summarizes the main workflow. [TRAINING.md](TRAINING.md) gives
+its commands; [RESULTS.md](RESULTS.md) distinguishes reported values from available
 reproduction artifacts.

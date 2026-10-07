@@ -3,7 +3,7 @@
 This page describes `main`. The fixed detector-assisted 64-pair recipe,
 `install-artifacts` command and reference extraction checkpoint belong to
 [groundingdino-extraction](https://github.com/riteshthawkar/Rubric-CEPR/tree/groundingdino-extraction).
-The top-level README is preserved unchanged; use the commands below for main.
+The top-level README summarizes the commands below.
 
 ## Prepare sources
 

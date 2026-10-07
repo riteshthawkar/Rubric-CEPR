@@ -13,8 +13,8 @@ Base is Qwen-Image-Edit-2509 evaluated under the same protocol as the adapted
 model. ImgEdit is scored by GPT-4o on a 0–5 scale; GEdit-Bench uses all 11 tasks
 with GPT-4.1 VIEScore (0–10); Complex-Edit uses its 0–10 metrics. The adapted
 ImgEdit overall score is the mean over three training seeds (4.58, 4.60, 4.62;
-4.60 ± 0.02 SD; gain +0.24 ± 0.02 SD). Rel. gain is
-`100 * (adapted - base) / base`.
+4.60 ± 0.02 SD; gain +0.24 ± 0.02 SD). Δ Improvement is the relative
+improvement over the base, `100 * (adapted - base) / base`.
 
 ### ImgEdit, per edit family
 
@@ -22,7 +22,7 @@ ImgEdit overall score is the mean over three training seeds (4.58, 4.60, 4.62;
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
 | Qwen-Image-Edit-2509 | 4.51 | 4.36 | 4.72 | 4.40 | 4.69 | 4.70 | 4.40 | 3.41 | 4.05 | 4.36 |
 | Rubric-CEPR | 4.65 | 4.50 | 4.86 | 4.54 | 4.82 | 4.83 | 4.59 | 4.26 | 4.39 | 4.60 |
-| Rel. gain | +3.1% | +3.2% | +3.0% | +3.2% | +2.8% | +2.8% | +4.3% | +24.9% | +8.4% | +5.5% |
+| Δ Improvement | +3.1% | +3.2% | +3.0% | +3.2% | +2.8% | +2.8% | +4.3% | +24.9% | +8.4% | +5.5% |
 
 ### GEdit-Bench and Complex-Edit
 
@@ -30,7 +30,7 @@ ImgEdit overall score is the mean over three training seeds (4.58, 4.60, 4.62;
 |---|---:|---:|---:|---:|---:|---:|---:|
 | Qwen-Image-Edit-2509 | 8.11 | 7.10 | 7.39 | 9.69 | 9.02 | 7.60 | 8.77 |
 | Rubric-CEPR | 9.05 | 7.92 | 8.31 | 9.75 | 9.18 | 7.97 | 8.97 |
-| Rel. gain | +11.6% | +11.5% | +12.4% | +0.7% | +1.8% | +4.9% | +2.3% |
+| Δ Improvement | +11.6% | +11.5% | +12.4% | +0.7% | +1.8% | +4.9% | +2.3% |
 
 SC: Semantic Consistency; PQ: Perceptual Quality; O: Overall; CE: Complex-Edit;
 IF: Instruction Following; ID: Identity Preservation. Complex-Edit's overall score
@@ -42,7 +42,7 @@ is the mean of its three metrics.
 |---|---:|---:|---:|---:|
 | Step1X-Edit | 7.07 | 7.58 | 6.69 | 3.86 |
 | Rubric-CEPR | 7.84 | 8.05 | 7.24 | 4.16 |
-| Rel. gain | +10.9% | +6.2% | +8.2% | +7.8% |
+| Δ Improvement | +10.9% | +6.2% | +8.2% | +7.8% |
 
 The overall gains are +0.55 ± 0.05 SD over three training seeds (GEdit-Bench) and
 +0.30 ± 0.06 s.e. (ImgEdit).
