@@ -1319,3 +1319,21 @@ table.paper.t2 tr.tgroup td, table.paper.t3 tr.tgroup td { border-left: 0; }
 /* Keep the outer rules continuous across the group gap (separate border model, no spacing). */
 table.paper { border-collapse: separate; border-spacing: 0; }
 table.paper tr.mid td { border-top: 1px solid var(--rule-dark); }
+
+/* Quieter group headings (distinct from model names) and the original green highlights for ours / improvements. */
+table.paper tr.tgroup td {
+  background: var(--bg-alt);
+  color: var(--faint);
+  font-style: normal;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+table.paper tr.tgroup:hover td { background: var(--bg-alt); }
+table.paper tr.ours td { background: var(--positive-soft); font-weight: 600; }
+table.paper tr.ours td:first-child { color: var(--positive); font-weight: 700; }
+table.paper tr.delta td { background: var(--positive-soft); color: var(--positive); font-size: 0.82rem; font-weight: 700; }
+table.paper tr.delta td:first-child { color: var(--positive); font-style: normal; font-weight: 700; }
