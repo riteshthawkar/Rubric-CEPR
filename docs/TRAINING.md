@@ -46,6 +46,11 @@ proposal, eight sources per round and 16 Editor updates per round. These are
 configuration examples, not a validated recipe for reproducing the paper scores.
 Increasing them constitutes a new run that needs its own recorded evaluation.
 
+The final manuscript specifies 400 Editor steps at 1e-4 and 16 Planner steps at
+1e-5. [RELEASE_ALIGNMENT.md](RELEASE_ALIGNMENT.md) records the remaining
+differences, including extraction-specific checks, replay and record weights.
+Setting those two budgets alone does not restore the final run's recipe.
+
 ## Slurm execution
 
 Use your cluster's allocation policy and submit a batch job from an inspected

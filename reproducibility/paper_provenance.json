@@ -1,10 +1,146 @@
 {
-  "schema_version": 1,
-  "audited_at_utc": "2026-10-07T15:50:34.941211+00:00",
-  "scope": "Headline benchmark claims and multi-family analysis; not a certification of every manuscript plot or ablation.",
+  "schema_version": 2,
+  "updated_at_utc": "2026-10-08T02:04:32.195121+00:00",
+  "scope": "Final author-reported results and manuscript alignment, with separate historical experiments",
   "main_readme_sha256": "603a9f39a30e5704c71f9d43d74336b2745d4089b68c5dc33bd1445c9d88f7ae",
+  "final_results_source": "Author confirmation on 8 October 2026 and the supplied final Overleaf manuscript",
+  "final_manuscript": {
+    "provider": "overleaf",
+    "project_id": "6abfc1f8689fb1db72bb7209",
+    "commit": "b64d77ad0d38f29b1aded73247dcd6f7fc172ee8",
+    "root": "main.tex",
+    "file_sha256": {
+      "main.tex": "6ee03dcf31d391125d2a4742926837031993c28b7ef691ed7e0a2ed8d02232dc",
+      "sections/3_method.tex": "327ce156302d015e691cfaa5f30b1a8c1819aa4126a54a08affc7ea9eca1c426",
+      "sections/4_experiments.tex": "1fc2f3d2ce4f85c40648a57af0d056774c78bf5800a2f2d808419b971cb132a9",
+      "sections/5_results_and_analysis.tex": "8bf3714cc354a84a57b7e13cc2fe5c70de3d7dbb286dfa3918d8e7f1a6b9f986",
+      "appendix/supplementary.tex": "a16e895a036ec7844ef03719637404eab3003195045046b688fa24b417b88711",
+      "tables/main_results.tex": "c66cd40d582d366cab794c1b4c1de0e44b6256be5f801f7d84bfcd8547fa2660",
+      "tables/transfer_benchmark_results.tex": "8ed44eeb221c4373f8c5c68bcff33c4b1a4b38291ec6b2b6ce2a16a0479727fd",
+      "tables/step1x_transfer.tex": "0838abaa716312e47b1cfbd9e1a2c1227f567606e2f6ddad610582e1712c1665"
+    }
+  },
+  "final_reported_results": [
+    {
+      "id": "qwen_imgedit",
+      "editor": "Qwen-Image-Edit-2509",
+      "benchmark": "ImgEdit",
+      "scale": [
+        0,
+        5
+      ],
+      "base": 4.36,
+      "candidate": 4.6,
+      "candidate_seed_scores_in_reported_order": [
+        4.58,
+        4.6,
+        4.62
+      ],
+      "candidate_sample_sd": 0.02,
+      "table": "tables/main_results.tex"
+    },
+    {
+      "id": "qwen_imgedit_extract",
+      "editor": "Qwen-Image-Edit-2509",
+      "benchmark": "ImgEdit",
+      "family": "Extract",
+      "scale": [
+        0,
+        5
+      ],
+      "base": 3.41,
+      "candidate": 4.26,
+      "table": "tables/main_results.tex"
+    },
+    {
+      "id": "qwen_gedit",
+      "editor": "Qwen-Image-Edit-2509",
+      "benchmark": "GEdit-Bench",
+      "scale": [
+        0,
+        10
+      ],
+      "base": 7.39,
+      "candidate": 8.31,
+      "scope": "All 11 tasks, mixed-language prompts, as specified in the final manuscript",
+      "metrics": {
+        "semantic_consistency": {
+          "base": 8.11,
+          "candidate": 9.05
+        },
+        "perceptual_quality": {
+          "base": 7.1,
+          "candidate": 7.92
+        }
+      },
+      "table": "tables/transfer_benchmark_results.tex"
+    },
+    {
+      "id": "qwen_complex_edit",
+      "editor": "Qwen-Image-Edit-2509",
+      "benchmark": "Complex-Edit",
+      "scale": [
+        0,
+        10
+      ],
+      "base": 8.77,
+      "candidate": 8.97,
+      "metrics": {
+        "instruction_following": {
+          "base": 9.69,
+          "candidate": 9.75
+        },
+        "identity_preservation": {
+          "base": 9.02,
+          "candidate": 9.18
+        },
+        "perceptual_quality": {
+          "base": 7.6,
+          "candidate": 7.97
+        }
+      },
+      "table": "tables/transfer_benchmark_results.tex"
+    },
+    {
+      "id": "step1x_gedit",
+      "editor": "Step1X-Edit",
+      "benchmark": "GEdit-Bench",
+      "scale": [
+        0,
+        10
+      ],
+      "base": 6.69,
+      "candidate": 7.24,
+      "delta_sample_sd": 0.05,
+      "metrics": {
+        "semantic_consistency": {
+          "base": 7.07,
+          "candidate": 7.84
+        },
+        "perceptual_quality": {
+          "base": 7.58,
+          "candidate": 8.05
+        }
+      },
+      "table": "tables/step1x_transfer.tex"
+    },
+    {
+      "id": "step1x_imgedit",
+      "editor": "Step1X-Edit",
+      "benchmark": "ImgEdit",
+      "scale": [
+        0,
+        5
+      ],
+      "base": 3.86,
+      "candidate": 4.16,
+      "delta_standard_error": 0.06,
+      "table": "tables/step1x_transfer.tex"
+    }
+  ],
   "historical_evidence_branch": "groundingdino-extraction",
-  "measurements": [
+  "historical_inventory_audited_at_utc": "2026-10-07T15:50:34.941211+00:00",
+  "historical_measurements": [
     {
       "id": "imgedit_historical_extraction",
       "status": "historical_recorded_evaluation",
@@ -14,18 +150,9 @@
       "count": 737,
       "checkpoint_sha256": "118ffe5d4a86d33a836eb07c4ce063fad7096988072067c48f86636380047942",
       "record": "reproducibility/results/summaries/extract_only_full737_summary.json",
-      "claims": {
-        "frozen_manuscript": {
-          "base": 4.44,
-          "candidate": 4.6
-        },
-        "current_readme": {
-          "base": 4.36,
-          "candidate": 4.6
-        }
-      },
       "delta": 0.11445047489823423,
-      "mining_records": "reproducibility/provenance/extraction_64_mining_records.json"
+      "mining_records": "reproducibility/provenance/extraction_64_mining_records.json",
+      "evidence_scope": "Separate historical experiment, not the final paper run"
     },
     {
       "id": "imgedit_strict_three_seed",
@@ -45,7 +172,8 @@
         "125": "124651b35e2bf28e7af66758c255ba67b56e1933a6293c931fad9eff4355b448"
       },
       "record": "reproducibility/provenance/strict_three_seed_comparison.json",
-      "delta": 0.04824363033318235
+      "delta": 0.04824363033318235,
+      "evidence_scope": "Separate historical experiment, not the final paper run"
     },
     {
       "id": "imgedit_four_family_bank",
@@ -56,10 +184,8 @@
       "count": 737,
       "checkpoint_sha256": "0c8a38eb5ae634d9c2624826f83e647eaea5e12432b536bc8ea6c787da2c5864",
       "record": "reproducibility/verifier_bank/results/summary.json",
-      "claims": {
-        "frozen_manuscript_delta": 0.15
-      },
-      "delta": 0.09635006784260458
+      "delta": 0.09635006784260458,
+      "evidence_scope": "Separate historical experiment, not the final paper run"
     },
     {
       "id": "complex_edit_c4",
@@ -70,11 +196,8 @@
       "count": 531,
       "checkpoint_sha256": "118ffe5d4a86d33a836eb07c4ce063fad7096988072067c48f86636380047942",
       "record": "reproducibility/results/summaries/extract_v1_complex_c4_complex_edit_summary.json",
-      "claims": {
-        "frozen_manuscript_candidate": 8.91,
-        "current_readme_candidate": 8.97
-      },
-      "delta": 0.0389999999999997
+      "delta": 0.0389999999999997,
+      "evidence_scope": "Separate historical experiment, not the final paper run"
     },
     {
       "id": "gedit_eleven_task_cn",
@@ -89,44 +212,18 @@
       },
       "checkpoint_sha256": null,
       "record": "reproducibility/provenance/gedit_cn11_scope.json",
-      "claims": {
-        "frozen_manuscript": {
-          "base": 8.19,
-          "candidate": 8.31
-        },
-        "current_readme": {
-          "base": 7.39,
-          "candidate": 8.31
-        }
-      },
-      "rounded_historical_subset_values_match": true,
-      "delta": 0.12031857104202537
+      "delta": 0.12031857104202537,
+      "evidence_scope": "Separate historical experiment, not the final paper run"
     },
     {
-      "id": "step1x_broad_transfer",
+      "id": "step1x_removal_control",
       "status": "step1x_removal_control",
       "pipeline": "separate_step1x_removal_control",
       "record": "reproducibility/provenance/step1x_removal_three_seed_comparison.json",
-      "claims": {
-        "current_readme_gedit": {
-          "base": 6.69,
-          "candidate": 7.24
-        },
-        "current_readme_imgedit": {
-          "base": 3.86,
-          "candidate": 4.16
-        }
-      }
-    },
-    {
-      "id": "internal_cepr_primary",
-      "status": "internal_framework_implementation",
-      "pipeline": "internal_planner_editor_critic",
-      "implementation_branch": "main",
-      "checkpoint_sha256": null
+      "evidence_scope": "Separate historical experiment, not the final paper run"
     }
   ],
-  "audited_main_readme_sha256": "064776c744b707bbebca9e7ef261bc151e8ba91a5f3b29509b9f3321f3f96f92",
-  "availability_documentation_updated_at_utc": "2026-10-08T00:15:00.689096+00:00",
-  "documentation": "docs/PAPER_PROVENANCE.md"
+  "documentation": "docs/PAPER_PROVENANCE.md",
+  "release_alignment_documentation": "docs/RELEASE_ALIGNMENT.md",
+  "final_paper_settings": "reproducibility/final_paper_settings.json"
 }

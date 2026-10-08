@@ -1,19 +1,13 @@
 # Results and artifact availability
 
-**Provenance status:** the audit has not authenticated the headline values or
-seed list below as measurements produced by this internal workflow. See
-[PAPER_PROVENANCE.md](PAPER_PROVENANCE.md) for the recovered checkpoints,
-different recorded scores and unresolved claims. These tables are unverified
-reported claims, not reproduced results.
+The tables below are the final results reported by the author in the final
+paper and README, confirmed on 8 October 2026. Earlier recovered extraction
+runs and controls are separate experiments. See
+[PAPER_PROVENANCE.md](PAPER_PROVENANCE.md) for their scope and
+[RELEASE_ALIGNMENT.md](RELEASE_ALIGNMENT.md) for the remaining work to associate
+the public configuration with the final run's recipe and artifacts.
 
-This branch contains the internal Rubric-CEPR implementation. The following
-values are reported in the paper and retained as reference values. This branch
-does not include matching checkpoint bundles, training receipts or raw benchmark
-records establishing their reproduction. Code availability and CPU checks do
-not validate those scores. New runs must record the actual checkpoint hash and
-matched evaluation receipts before being attributed to these values.
-
-## Paper claims awaiting provenance verification
+## Final paper results
 
 Base is Qwen-Image-Edit-2509 evaluated under the same protocol as the adapted
 model. ImgEdit is scored by GPT-4o on a 0–5 scale; GEdit-Bench uses all 11 tasks

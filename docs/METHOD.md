@@ -1,15 +1,27 @@
 # Rubric-CEPR method
 
-CEPR means **Contrastive Edit-Preservation Reward**. This branch implements the
-internal Planner–Editor–Critic workflow on unlabeled source images:
+CEPR means **Contrastive Edit-Preservation Reward**. This branch provides the
+general internal Planner–Editor–Critic workflow on unlabeled source images:
 
 1. The editor-side Qwen Planner proposes an instruction and structured rubric.
 2. The Qwen Editor generates several candidates for the same proposal.
 3. A fixed Critic uses Qwen understanding features, text anchors and VAE latents
    to check the requested change, preservation and validity.
-4. The highest-reward feasible candidate becomes a weighted editor SFT target.
+4. The highest-reward feasible candidate becomes an Editor SFT target.
    Planner traces support its separate adapter update. Updated adapters can be
    promoted into subsequent rounds.
+
+The trainer supports per-sample weights. In the demonstration configuration,
+accepted targets have unit weight and rejected candidates are excluded; this
+is selected-target SFT rather than reward-proportional weighting. Match the
+final run's configuration before attributing a different weighting policy to it.
+
+The final paper's primary instantiation is object isolation. Its programmatic
+background-purity and object-completeness checks are not present in this general
+reward path. The final paper also specifies replay and a strict Planner
+band-pass admission rule that the demonstration configuration does not enable.
+[RELEASE_ALIGNMENT.md](RELEASE_ALIGNMENT.md) lists these differences and the
+settings available from the final manuscript.
 
 The edit term contrasts the true instruction with incorrect alternatives. The
 rubric checks source grounding, required after-states, forbidden old states and
@@ -44,8 +56,8 @@ with the complete ImgEdit source set before execution.
 
 The [groundingdino-extraction branch](https://github.com/riteshthawkar/Rubric-CEPR/tree/groundingdino-extraction)
 contains the detector-assisted extraction miner, fixed 64-pair training manifest,
-reference adapter identity and recorded evaluations. Those artifacts do not
-establish a reproduction of the internal CEPR workflow on main.
+reference adapter identity and recorded evaluations. These are historical
+experiments with a separate recipe and must not replace the final paper results.
 
 The top-level README summarizes the main workflow. [TRAINING.md](TRAINING.md) gives
 its commands; [RESULTS.md](RESULTS.md) distinguishes reported values from available
