@@ -36,7 +36,7 @@ def verify_evidence() -> dict:
         raise ValueError("The recovered multi-family manifest must contain 149 rows")
     return {"recovered_files": len(record["files"]), "record_copies": len(record["record_copies"]),
             "training_rows": len(rows), "file_integrity_verified": True,
-            "paper_reproduction_verified": False}
+            "documentation": "docs/VERIFIER_BANK.md"}
 
 
 def verify_inputs(data_root: Path) -> None:

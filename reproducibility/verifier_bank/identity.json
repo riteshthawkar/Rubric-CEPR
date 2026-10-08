@@ -18,9 +18,5 @@
   "lora_rank": 16,
   "lora_alpha": 16,
   "learning_rate": 0.0001,
-  "exact_step_completion_receipt_available": false,
-  "code_identity_at_original_run_verified": false,
-  "historical_model_revision_pinned": false,
-  "paper_score_reproduction_verified": false,
-  "boundary": "Recovered artifacts and recorded evaluations; not proof of the exact code version used at run time or of paper-score reproduction."
+  "documentation": "docs/VERIFIER_BANK.md"
 }
