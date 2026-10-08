@@ -1,76 +1,83 @@
-# Paper claims and surviving evidence
+# Final results and historical runs
 
-The internal Planner–Editor–Critic implementation on `main` has not been
-authenticated as the pipeline that produced the paper's headline scores.
-The historical extraction adapter uses a different recipe: GroundingDINO names
-and filters source objects; Qwen generates candidates; border whiteness,
-nonwhite occupancy and sharpness select self-distillation targets.
-Moving its code to a separate branch does not change its training provenance.
+The author confirmed on 8 October 2026 that the results in the final paper and
+README are the final results obtained. They are reported in
+[main's RESULTS.md](https://github.com/riteshthawkar/Rubric-CEPR/blob/main/docs/RESULTS.md).
+The recovered historical extraction runs and later
+controls are different experiments; their values must not replace the final
+results or be used as evidence that the final results are incorrect.
 
-The machine-readable inventory is
-[`paper_provenance.json`](../reproducibility/paper_provenance.json).
-Its recorded measurements and supporting files live on
-[`groundingdino-extraction`](https://github.com/riteshthawkar/Rubric-CEPR/tree/groundingdino-extraction/docs/PAPER_PROVENANCE.md).
-This documentation distinguishes recovered measurements from claims whose
-checkpoint and evaluation provenance remains unresolved. The audit covers
-headline benchmark claims and the multi-family analysis; it does not certify
-every manuscript figure or ablation.
+## Final reported results
 
-| Evidence | Base | Candidate | Interpretation |
+| Benchmark | Base | Rubric-CEPR |
+|---|---:|---:|
+| Qwen-Image-Edit, ImgEdit overall | 4.36 | 4.60 ± 0.02 SD |
+| Qwen-Image-Edit, ImgEdit Extract family | 3.41 | 4.26 |
+| Qwen-Image-Edit, GEdit-Bench overall | 7.39 | 8.31 |
+| Qwen-Image-Edit, Complex-Edit overall | 8.77 | 8.97 |
+| Step1X-Edit, GEdit-Bench overall | 6.69 | 7.24 |
+| Step1X-Edit, ImgEdit overall | 3.86 | 4.16 |
+
+The final ImgEdit seed scores reported in the README are 4.58, 4.60 and 4.62.
+These are the author's final reported measurements. The repository's earlier
+audit examined available historical files rather than the final run bundle;
+that audit did not establish the provenance of the final runs.
+
+The supplied final Overleaf manuscript was cloned and inspected at commit
+`b64d77ad0d38f29b1aded73247dcd6f7fc172ee8`. Its active `main.tex` includes
+`tables/main_results.tex`, `tables/transfer_benchmark_results.tex` and
+`tables/step1x_transfer.tex`; those tables agree with the README values above.
+`sections/5_results_and_analysis.tex` gives the same final ImgEdit seed list.
+
+## Release implementation and configuration
+
+`main` contains the internal Planner–Editor–Critic implementation. Its supplied
+configuration is a demonstration configuration with 16 Editor updates at
+learning rate 1e-6; it is not the final-paper training recipe. The final run's
+effective configuration, source manifest, checkpoint and evaluation records
+are needed to associate the release with that exact experiment.
+
+The final manuscript specifies an internal-only primary loop and separates
+the broader yes/no-token verifier bank and detector-assisted addition analysis.
+The recovered historical miners have their own detector usage, including
+source naming and localization. Their supervision boundary must not be
+attributed to the final primary experiment merely because their code survives.
+
+[RELEASE_ALIGNMENT.md](RELEASE_ALIGNMENT.md) records the concrete implementation
+and configuration differences identified so far. Changing a demonstration
+budget alone does not identify the final experiment or resolve missing reward
+components. CPU tests establish software checks, not benchmark performance.
+
+## Historical detector-assisted experiments
+
+The following records are retained on
+[`groundingdino-extraction`](https://github.com/riteshthawkar/Rubric-CEPR/tree/groundingdino-extraction):
+
+| Historical experiment | Base | Candidate | Scope |
 |---|---:|---:|---|
-| Historical extraction, ImgEdit-737 | 4.440638 | 4.555088 | 64 training pairs; recorded before content-hashed evaluation contracts |
-| Recovered extraction recipe, strict three-seed ImgEdit-737 control | 4.545002 | 4.593246 | Separate adapters and judge protocol; not the original paper result |
-| Historical four-family bank, ImgEdit-737 | 4.440638 | 4.536988 | Separate 149-pair manifest and adapter |
-| Historical extraction, Complex-Edit real C4, 531 records | 8.7674 | 8.8064 | Recorded evaluation; not 8.91 or 8.97 |
-| Historical extraction-labeled GEdit subset | 8.192449 | 8.312768 | 330 records: eleven tasks, 30 Chinese and zero English records per task |
+| 64-pair extraction, ImgEdit-737 | 4.440638 | 4.555088 | Earlier extraction-only adapter |
+| Recovered extraction recipe, strict three-seed ImgEdit-737 control | 4.545002 | 4.593246 | Separate adapters and evaluation protocol |
+| Four-family bank, ImgEdit-737 | 4.440638 | 4.536988 | Separate 149-pair manifest and adapter |
+| Extraction, Complex-Edit real C4 | 8.7674 | 8.8064 | Earlier 531-record evaluation |
+| Extraction-labeled GEdit subset | 8.192449 | 8.312768 | Eleven tasks, 30 Chinese and zero English records per task |
 
-The historical ImgEdit aggregate was recomputed from the 737 per-item scores.
-The strict control's training-seed results are 4.584351, 4.608774 and 4.586612;
-they do not authenticate the README's seed list of 4.58, 4.60 and 4.62 or its
-4.36 base. The strict mean gain is +0.048244, with a paired item-bootstrap
-95% interval of [0.012362, 0.085029]. This interval measures held-out item
-uncertainty, not all sources of training or judging uncertainty.
+The narrow Step1X removal control is also retained with its original scope and
+records. It is not the author's final broad-transfer experiment. Comparisons
+between these historical controls and final results require matching the actual
+run identities, dataset selections, generation settings and judging protocols.
 
-The old GEdit subset numerically explains the rounded 8.19 to 8.31 values,
-but its generation records lack an authenticated checkpoint contract. It does
-not establish the current README's 7.39 baseline, full-benchmark performance,
-English-only performance or balanced-language performance.
+The historical miners used GroundingDINO for source naming and localization,
+and some multi-family rewards also used candidate detection. The extraction
+heuristic measured border whiteness, nonwhite occupancy and sharpness; occupancy
+is a presence proxy rather than a semantic completeness check. These details
+describe those historical experiments and must not be attributed to the final
+primary method without its actual run configuration.
 
-The available three-seed Step1X control is narrower than the broad transfer
-claim: 57 English removal records. Its mean overall delta is +0.190577 with
-95% interval [-0.339216, 0.778560], while perceptual quality decreases by
-0.584795. It does not verify the reported broad 6.69 to 7.24 GEdit or 3.86 to
-4.16 ImgEdit improvements.
+## Result and artifact records
 
-## Code and supervision boundaries
-
-The detector branch now includes the recovered multi-family miner, its
-yes/no-token verifier, the ranker-validation script and its reference config.
-The miner and validation files are byte-identical to a hash-verified legacy
-snapshot. That snapshot contains later recovery work and is not certified as
-the exact submitted source tree or exact code at the original execution.
-
-For extraction, GroundingDINO supplies object labels for task construction;
-candidate reward is programmatic. An accurate description is “no human-edited
-targets or external reward judge; GroundingDINO supplies source-object labels.”
-The stronger assertion of no external model or semantic supervision anywhere
-in training-data construction is unsupported for this recipe.
-
-For the recovered bank, removal and replacement can also use detector output
-inside candidate rewards. Replacement and action records include editor-side
-yes/no probabilities. “Detector-free” reward mode in the archived code still
-uses GroundingDINO for source naming and localization, so it does not describe
-a wholly internal training pipeline.
-
-Nonwhite occupancy checks rough object presence, not semantic completeness,
-instance identity or correspondence to the source. Those stronger checks must
-not be credited to the historical extraction heuristic.
-
-## What remains unresolved
-
-Each primary-method claim still needs an actual checkpoint, mining manifest,
-reward implementation, generation configuration, dataset identities and raw
-score receipts that agree with the claimed value. The missing links are
-explicitly represented in `paper_provenance.json`; code recovery alone does
-not fill them. The recovered historical records and prospective protocols
-must retain separate identities.
+[`paper_provenance.json`](../reproducibility/paper_provenance.json) separates the
+author's final reported values from recovered historical measurements. Recorded
+scores, hashes and original source identities for the historical experiments
+remain available. The documentation will identify the final run's artifact
+paths when they are provided; author-reported results and independently inspected
+artifact bundles are distinct sources of evidence.

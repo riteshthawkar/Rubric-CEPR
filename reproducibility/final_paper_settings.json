@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "scope": "Settings explicitly stated in the final manuscript; this inventory is not an executable run configuration",
+  "manuscript_commit": "b64d77ad0d38f29b1aded73247dcd6f7fc172ee8",
+  "source_files": [
+    "sections/3_method.tex",
+    "sections/4_experiments.tex",
+    "appendix/supplementary.tex"
+  ],
+  "primary_task": "object_isolation",
+  "candidate_selection": {
+    "samples_per_proposal": 4,
+    "selected_targets_per_proposal": 1,
+    "rule": "Highest reward among gate-passing candidates; omit proposals with no feasible candidate"
+  },
+  "generation": {
+    "target_resolution": 1024,
+    "conditioning_resolution": 384,
+    "aspect_ratio": "preserved",
+    "max_sequence_length": 512,
+    "scheduler_shift": 3.0,
+    "mode_scale": 1.29
+  },
+  "editor_sft": {
+    "max_train_steps": 400,
+    "learning_rate": 0.0001,
+    "lora_rank": 16,
+    "lora_alpha": 16,
+    "lora_dropout": 0,
+    "placement": "Attention QKV and output projections",
+    "optimizer": "AdamW",
+    "precision": "bf16",
+    "train_batch_size": 1,
+    "gradient_accumulation_steps": 1,
+    "seed": 123,
+    "initialization": "Anchored warm-start adapter with relative-change cap",
+    "targets": "Accepted self-generated targets plus identity/reconstruction replay",
+    "record_weights": "Reward-weighted; mapping from reward to weight not specified"
+  },
+  "planner_sft": {
+    "max_train_steps": 16,
+    "learning_rate": 1e-05,
+    "lora_rank": 16,
+    "lora_alpha": 32,
+    "targets": "Reward-weighted normalized instruction/specification JSON",
+    "admission": "Exclude all-fail and all-pass candidate groups; apply proposal reward and quality thresholds"
+  },
+  "verifier_thresholds": {
+    "edit": 0.4,
+    "preservation": 0.2,
+    "validity": 0.5,
+    "reward": 0.3,
+    "taxonomy": 0.35,
+    "source_grounding": 0.42,
+    "required_after_state": 0.45,
+    "forbidden_after_state": 0.42,
+    "rubric_preservation": 0.3,
+    "rubric_reward": 0.28,
+    "conservative_region_difference": 18
+  },
+  "training_signal_roles": {
+    "primary": "Editor-exposed Qwen image/text features, VAE latents and programmatic image checks",
+    "verifier_bank_analysis": "Editor-side VLM yes/no token log-probabilities; external detector described for the addition variant",
+    "benchmark_evaluation": "External benchmark judges; not target-selection signals"
+  },
+  "details_needed_from_final_run": [
+    "Background-purity and object-completeness formulas, thresholds and gate integration",
+    "Reward-to-record-weight mapping and normalization",
+    "Replay manifest, ratio and weights",
+    "Warm-start adapter identity, anchor coefficient and relative-change cap value",
+    "Effective Planner admission settings",
+    "Source manifest, edit-family schedule and round boundaries",
+    "Final adapter identities and benchmark generation/scoring receipts",
+    "Step1X training, internal feature and inference backend"
+  ],
+  "documentation": "docs/RELEASE_ALIGNMENT.md"
+}

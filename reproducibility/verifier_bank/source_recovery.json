@@ -235,8 +235,9 @@
     "reproducibility/verifier_bank/identity.json": "369b39aa948b10165c40f8d269179eb80416b610686d2cb7b1f5b5e2fc4cdcb7",
     "reproducibility/provenance/gedit_cn11_scope.json": "30f074eb6f6938c5af1d8a9508d183f2b7aa9735544a65968ba8524360cd0857",
     "reproducibility/provenance/extraction_64_mining_records.json": "300c4f121bca8dccb9611b4328e7acab61ac20bc2cb4e15a2e41ac6846ee179f",
-    "reproducibility/paper_provenance.json": "3af78beb684a92e8c1272bea757684cceda2996fcffbb35c8dba1bc5bf273dbf",
-    "scripts/recovered_verifiers.py": "8f2aad4a86ffaa3763c6c24a6e9323145b9bcbabcd1221223b543d51af219c70"
+    "reproducibility/paper_provenance.json": "68eb7a49ae42619a41f2fa0e146473849bc7490b13e201b4fe456a1b1a62871c",
+    "scripts/recovered_verifiers.py": "8f2aad4a86ffaa3763c6c24a6e9323145b9bcbabcd1221223b543d51af219c70",
+    "reproducibility/final_paper_settings.json": "d3b177e7fd1356fef4ce0d6bfc30826a634778daa4c0afa7238e920818521a4b"
   },
   "snapshot_manifest_identity_verified": true,
   "documentation": "docs/VERIFIER_BANK.md"

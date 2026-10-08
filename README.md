@@ -18,8 +18,8 @@ Qwen and its adapter; they do not call the detector.
 
 The separately recovered [multi-family verifier bank](docs/VERIFIER_BANK.md)
 includes its miner, yes/no-token validation code, 149-pair manifest and recorded
-scores. [Paper provenance](docs/PAPER_PROVENANCE.md) identifies which reported
-claims remain unverified.
+scores. [Paper provenance](docs/PAPER_PROVENANCE.md) separates these historical
+records from the author's final paper results and documents the available artifacts.
 
 ## Recorded results
 

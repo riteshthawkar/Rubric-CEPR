@@ -2,8 +2,9 @@
 
 The recovered four-family verifier bank and its separate 149-pair manifest are
 documented in [VERIFIER_BANK.md](VERIFIER_BANK.md).
-[PAPER_PROVENANCE.md](PAPER_PROVENANCE.md) maps headline claims to surviving
-records and unresolved checkpoint/evaluation links.
+[PAPER_PROVENANCE.md](PAPER_PROVENANCE.md) distinguishes the author's final paper
+results from the separate historical records on this branch. These earlier
+measurements do not replace the final paper or README scores.
 
 The machine-readable measurements are in
 [`results.json`](../reproducibility/results/results.json) and

@@ -43,9 +43,10 @@ receipt does not. Its SHA-256 is in `identity.json`; requested steps must not
 be confused with independently authenticated completed steps.
 
 The surviving full-737 ImgEdit evaluation records **4.536988**, compared with
-the historical base **4.440638**, a gain of **0.096350**. It does not authenticate
-the manuscript's four-type +0.15 claim. Per-item scores and category regressions
-are retained in `results/`; no favorable categories or seeds were selected.
+the historical base **4.440638**, a gain of **0.096350**. This is a historical
+bank experiment, separate from the author's final paper analysis. Per-item
+scores and category regressions are retained in `results/`; no favorable
+categories or seeds were selected.
 
 ## Inspect or run
 
