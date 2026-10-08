@@ -1202,3 +1202,69 @@ table.compact td .up {
 tr.sep-row td {
   border-top: 2px solid var(--line-strong);
 }
+
+/* ---------- Paper-style result tables (mirror the manuscript's booktabs layout) ---------- */
+table.paper {
+  min-width: 0;
+  font-size: 0.88rem;
+  border-top: 2px solid var(--ink);
+  border-bottom: 2px solid var(--ink);
+}
+table.paper th,
+table.paper td {
+  padding: 0.3rem 0.45rem;
+  border: 0;
+  text-align: center;
+  white-space: nowrap;
+}
+table.paper th.mname,
+table.paper td:first-child {
+  min-width: 11.5rem;
+  padding-left: 0.6rem;
+  text-align: left;
+  white-space: normal;
+  font-weight: 400;
+  color: var(--ink);
+}
+table.paper thead th {
+  color: var(--ink);
+  font-size: 0.86rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: 1.25;
+  text-transform: none;
+  vertical-align: bottom;
+  padding-top: 0.5rem;
+}
+table.paper thead tr:last-child th {
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--ink);
+}
+table.paper thead th.mname { font-weight: 700; border-bottom: 1px solid var(--ink); }
+table.paper .cmid {
+  display: block;
+  padding-bottom: 0.2rem;
+  border-bottom: 1px solid var(--ink);
+}
+table.paper tbody tr:hover { background: none; }
+table.paper tr.tgroup td {
+  padding: 0.4rem 0.45rem 0.25rem;
+  text-align: center;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--ink-soft);
+  border-bottom: 1.5px dashed var(--faint);
+  background: none;
+  font-size: 0.86rem;
+  letter-spacing: 0;
+  text-transform: none;
+}
+table.paper tr.tgroup + tr td { padding-top: 0.35rem; }
+table.paper tr.mid td { border-top: 1px solid var(--ink); }
+table.paper tr.ours td { background: #e9f0fb; }
+table.paper tr.ours td:first-child { color: var(--ink); }
+table.paper tr.delta td { background: #e9f0fb; color: var(--positive); font-weight: 400; }
+table.paper tr.delta td:first-child { padding-left: 1.6rem; color: var(--ink); font-style: italic; }
+table.paper td.best { font-weight: 700; }
+table.paper tbody tr:last-child td { border-bottom: 0; }
+.table-panel figcaption { text-align: left; }
