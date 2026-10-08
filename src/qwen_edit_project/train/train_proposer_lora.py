@@ -170,6 +170,7 @@ def main() -> None:
     parser.add_argument("--model_name_or_path", required=True)
     parser.add_argument("--model_subfolder", default=None)
     parser.add_argument("--processor_subfolder", default=None)
+    parser.add_argument("--revision", default=None)
     parser.add_argument("--model_class", default="auto", choices=["auto", "qwen2_5_vl"])
     parser.add_argument("--train_jsonl", required=True)
     parser.add_argument("--dataset_base_path", default=".")
@@ -228,13 +229,26 @@ def main() -> None:
     )
     base_dir = Path(args.dataset_base_path).resolve()
     records = _load_records(Path(args.train_jsonl).resolve(), args.min_reward)
+    from qwen_edit_project.self_evolve.training_weights import clipped_reward_weight_mean
+    reward_weight_normalizer = (
+        clipped_reward_weight_mean(
+            [float(record.get("reward", 1.0)) for record in records],
+            minimum=args.min_reward_weight, maximum=args.max_reward_weight,
+        ) if args.reward_weighting else 1.0
+    )
     processor_kwargs = {
         "trust_remote_code": True,
         "local_files_only": args.local_files_only,
     }
     if args.processor_subfolder:
         processor_kwargs["subfolder"] = args.processor_subfolder
-    processor = AutoProcessor.from_pretrained(args.model_name_or_path, **processor_kwargs)
+    if args.revision is not None:
+        processor_kwargs["revision"] = args.revision
+    if args.processor_subfolder == "processor":
+        from qwen_edit_project.utils.qwen_processor import load_qwen_edit_processor
+        processor = load_qwen_edit_processor(args.model_name_or_path, **processor_kwargs)
+    else:
+        processor = AutoProcessor.from_pretrained(args.model_name_or_path, **processor_kwargs)
     dtype = resolve_torch_dtype(torch, args.torch_dtype, accelerator.device)
     model_kwargs = {
         "torch_dtype": dtype,
@@ -243,6 +257,8 @@ def main() -> None:
     }
     if args.model_subfolder:
         model_kwargs["subfolder"] = args.model_subfolder
+    if args.revision is not None:
+        model_kwargs["revision"] = args.revision
     model = _model_class(args.model_class).from_pretrained(args.model_name_or_path, **model_kwargs)
     if args.gradient_checkpointing and hasattr(model, "gradient_checkpointing_enable"):
         model.gradient_checkpointing_enable()
@@ -361,7 +377,9 @@ def main() -> None:
                     example_losses = (token_losses * token_mask).sum(dim=1) / token_mask.sum(dim=1).clamp_min(1)
                     weights = reward_weights.to(example_losses.device, dtype=example_losses.dtype)
                     weights = weights.clamp(min=args.min_reward_weight, max=args.max_reward_weight)
-                    weights = weights / weights.mean().clamp_min(1e-6)
+                    # A batch-local denominator cancels every reward at batch
+                    # size one. Use the selected dataset's fixed mean instead.
+                    weights = weights / reward_weight_normalizer
                     loss = (example_losses * weights).mean()
                 else:
                     loss = outputs.loss
@@ -430,6 +448,7 @@ def main() -> None:
             "resume_from_checkpoint": str(resume_path) if resume_path is not None else None,
             "min_reward": args.min_reward,
             "reward_weighting": bool(args.reward_weighting),
+            "reward_weight_normalizer": reward_weight_normalizer,
             "min_reward_weight": args.min_reward_weight,
             "max_reward_weight": args.max_reward_weight,
             "lora_rank": args.lora_rank,

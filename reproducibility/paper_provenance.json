@@ -2,7 +2,7 @@
   "schema_version": 2,
   "updated_at_utc": "2026-10-08T02:04:32.195121+00:00",
   "scope": "Final author-reported results and manuscript alignment, with separate historical experiments",
-  "main_readme_sha256": "603a9f39a30e5704c71f9d43d74336b2745d4089b68c5dc33bd1445c9d88f7ae",
+  "main_readme_sha256": "ac3b032d3be8ad433dcab801237b6573337254107adc8b3af735a0a587d367ca",
   "final_results_source": "Author confirmation on 8 October 2026 and the supplied final Overleaf manuscript",
   "final_manuscript": {
     "provider": "overleaf",
@@ -223,7 +223,7 @@
       "evidence_scope": "Separate historical experiment, not the final paper run"
     }
   ],
-  "documentation": "docs/PAPER_PROVENANCE.md",
-  "release_alignment_documentation": "docs/RELEASE_ALIGNMENT.md",
-  "final_paper_settings": "reproducibility/final_paper_settings.json"
+  "documentation": "docs/RESULTS.md",
+  "final_paper_settings": "reproducibility/final_paper_settings.json",
+  "implementation_scope_documentation": "docs/RESULTS.md#release-artifacts"
 }

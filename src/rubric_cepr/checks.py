@@ -40,6 +40,21 @@ def validate_internal_config(config: dict) -> dict:
     planner_id = proposer.get('model_name_or_path', model_id)
     if model_id != 'Qwen/Qwen-Image-Edit-2509' or planner_id != model_id:
         raise ValueError('Planner and Editor must use the same Qwen-Image-Edit backbone')
+    if proposer.get('revision') != editor.get('model', {}).get('revision'):
+        raise ValueError('Planner and Editor must use the same base-model revision')
+    if evaluator.get('top_m', 1) != 1:
+        raise ValueError('Main retains one selected target per proposal')
+    training = config.get('training', {})
+    weights = training.get('weighted_sft', {})
+    if weights.get('enabled', False) and weights.get('include_rejected', True):
+        raise ValueError('Main trains on selected gate-passing targets; rejected-target SFT is excluded')
+    if weights.get('include_feasible_ranked_positives', False):
+        raise ValueError('Main retains one selected target per proposal')
+    if training.get('preference', {}).get('enabled', False):
+        raise ValueError('Main uses accepted-target SFT; preference experiments use a separate recipe')
+    from qwen_edit_project.self_evolve.training_weights import accepted_target_weight
+    accepted_target_weight(1.0, scale=weights.get('accepted_weight', 1.0),
+                           mode=str(weights.get('accepted_weight_mode', 'uniform')))
     return {'method': 'internal_cepr', 'external_training_models': False}
 
 

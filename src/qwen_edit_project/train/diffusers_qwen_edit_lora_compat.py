@@ -12,14 +12,8 @@ from __future__ import annotations
 
 from typing import Any
 
-from transformers import (
-    Qwen2Tokenizer,
-    Qwen2VLImageProcessor,
-    Qwen2VLProcessor,
-    Qwen2VLVideoProcessor,
-)
-
 from qwen_edit_project.train import diffusers_qwen_edit_lora as trainer
+from qwen_edit_project.utils.qwen_processor import load_qwen_edit_processor
 
 
 class ProcessorFolderCompatibilityLoader:
@@ -34,34 +28,10 @@ class ProcessorFolderCompatibilityLoader:
         revision: str | None = None,
         local_files_only: bool = False,
         **kwargs: Any,
-    ) -> Qwen2VLProcessor:
-        if subfolder != "processor":
-            raise ValueError(
-                "The processor compatibility loader is restricted to subfolder='processor'"
-            )
-        component_kwargs = {
-            "subfolder": subfolder,
-            "revision": revision,
-            "local_files_only": local_files_only,
-            **kwargs,
-        }
-        tokenizer = Qwen2Tokenizer.from_pretrained(
-            pretrained_model_name_or_path,
-            **component_kwargs,
-        )
-        image_processor = Qwen2VLImageProcessor.from_pretrained(
-            pretrained_model_name_or_path,
-            **component_kwargs,
-        )
-        video_processor = Qwen2VLVideoProcessor.from_pretrained(
-            pretrained_model_name_or_path,
-            **component_kwargs,
-        )
-        return Qwen2VLProcessor(
-            image_processor=image_processor,
-            tokenizer=tokenizer,
-            video_processor=video_processor,
-            chat_template=tokenizer.chat_template,
+    ) -> Any:
+        return load_qwen_edit_processor(
+            pretrained_model_name_or_path, subfolder=subfolder,
+            revision=revision, local_files_only=local_files_only, **kwargs,
         )
 
 

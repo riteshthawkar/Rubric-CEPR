@@ -1,11 +1,8 @@
 # Results and artifact availability
 
-The tables below are the final results reported by the author in the final
-paper and README, confirmed on 8 October 2026. Earlier recovered extraction
-runs and controls are separate experiments. See
-[PAPER_PROVENANCE.md](PAPER_PROVENANCE.md) for their scope and
-[RELEASE_ALIGNMENT.md](RELEASE_ALIGNMENT.md) for the remaining work to associate
-the public configuration with the final run's recipe and artifacts.
+The tables below contain the final results reported by the author in the paper
+and README. Historical detector-assisted runs are recorded on their separate
+branch and retain their own experiment identities.
 
 ## Final paper results
 
@@ -61,3 +58,17 @@ Use the matched protocols in [EVALUATION.md](EVALUATION.md), recording the sourc
 selection, model and adapter hashes, generation settings, judge configuration and
 completed example counts. The configs are prospective protocols, not completion
 receipts for the reported values.
+
+## Release artifacts
+
+This checkout provides the Qwen internal CEPR/rubric workflow, separate Planner
+and Editor trainers, replay and adapter-anchoring support, and benchmark tools.
+The final paper's extraction-specific pixel checks and Step1X training pipeline
+are separate components whose final source is not included in this checkout.
+Checkpoints, source manifests, effective run configurations and raw score
+receipts are distributed separately from the implementation.
+
+CPU tests cover data and execution boundaries, target admission, record weights
+and replay. New model runs retain their own effective configuration, adapter hash
+and evaluation receipts. The final paper's reported values and the historical
+records are indexed in `reproducibility/paper_provenance.json`.

@@ -41,15 +41,24 @@ candidates and qualifying Planner traces lead to adapter updates. `--set` can
 adjust the round and training budget. Configuration validation also applies to
 overrides. External detector configurations are rejected on main.
 
-The reference YAML contains small demonstration budgets: four candidates per
-proposal, eight sources per round and 16 Editor updates per round. These are
-configuration examples, not a validated recipe for reproducing the paper scores.
-Increasing them constitutes a new run that needs its own recorded evaluation.
+The default preset uses one round over the supplied manifest, four candidates
+per proposal, 400 Editor updates at 1e-4, and 16 Planner updates at 1e-5. It
+focuses proposals on subject extraction and enables the Planner feasibility
+band. Accepted Editor targets use reward weights normalized over the training
+manifest. The warm-start adapter and replay ratio are explicit run settings.
+Set `training.current_checkpoint_path` to your warm-start adapter; set
+`training.reconstruction_replay_ratio` to add identity records.
 
-The final manuscript specifies 400 Editor steps at 1e-4 and 16 Planner steps at
-1e-5. [RELEASE_ALIGNMENT.md](RELEASE_ALIGNMENT.md) records the remaining
-differences, including extraction-specific checks, replay and record weights.
-Setting those two budgets alone does not restore the final run's recipe.
+For a smaller run, use the separate example configuration:
+
+```bash
+rubric-cepr train --config configs/examples/internal_cepr_small.yaml \
+  --manifest /path/to/sources.jsonl --output /path/to/small-run --dry-run
+```
+
+The complete effective configuration and adapter identity are recorded with each
+run. [RESULTS.md](RESULTS.md#release-artifacts) describes the released components
+and separately supplied run assets.
 
 ## Slurm execution
 

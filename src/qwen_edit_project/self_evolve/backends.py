@@ -323,6 +323,7 @@ class TrainableQwenVLProposer:
         self.model_name_or_path = str(config.get("model_name_or_path", "Qwen/Qwen-Image-Edit-2509"))
         self.model_subfolder = config.get("model_subfolder", "text_encoder")
         self.processor_subfolder = config.get("processor_subfolder", "processor")
+        self.revision = config.get("revision")
         self.model_class = str(config.get("model_class", "qwen2_5_vl"))
         self.checkpoint_path = config.get("checkpoint_path")
         self.device = config.get("device", "auto")
@@ -1887,6 +1888,8 @@ class TrainableQwenVLProposer:
         }
         if self.processor_subfolder:
             processor_kwargs["subfolder"] = self.processor_subfolder
+        if self.revision is not None:
+            processor_kwargs["revision"] = self.revision
         model_kwargs = {
             "torch_dtype": dtype,
             "trust_remote_code": True,
@@ -1895,12 +1898,18 @@ class TrainableQwenVLProposer:
         }
         if self.model_subfolder:
             model_kwargs["subfolder"] = self.model_subfolder
+        if self.revision is not None:
+            model_kwargs["revision"] = self.revision
         if bool(self.config.get("load_direct_to_device", True)):
             if resolved_device.type == "cuda":
                 model_kwargs["device_map"] = {"": "cuda:0"}
             else:
                 model_kwargs["device_map"] = {"": "cpu"}
-        self.processor = AutoProcessor.from_pretrained(self.model_name_or_path, **processor_kwargs)
+        if self.processor_subfolder == "processor":
+            from qwen_edit_project.utils.qwen_processor import load_qwen_edit_processor
+            self.processor = load_qwen_edit_processor(self.model_name_or_path, **processor_kwargs)
+        else:
+            self.processor = AutoProcessor.from_pretrained(self.model_name_or_path, **processor_kwargs)
         self.model = ModelClass.from_pretrained(self.model_name_or_path, **model_kwargs)
         if self.checkpoint_path:
             from peft import PeftModel
@@ -2585,6 +2594,7 @@ class QwenEditEditor:
             torch_dtype=model_cfg.get("torch_dtype", "auto"),
             backend=model_cfg.get("backend", "diffsynth"),
             base_model=model_cfg.get("base_model"),
+            revision=model_cfg.get("revision"),
             local_files_only=bool(model_cfg.get("local_files_only", False)),
         )
         self.generation_modules_dropped = False

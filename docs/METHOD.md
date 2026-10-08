@@ -11,17 +11,17 @@ general internal Planner–Editor–Critic workflow on unlabeled source images:
    Planner traces support its separate adapter update. Updated adapters can be
    promoted into subsequent rounds.
 
-The trainer supports per-sample weights. In the demonstration configuration,
-accepted targets have unit weight and rejected candidates are excluded; this
-is selected-target SFT rather than reward-proportional weighting. Match the
-final run's configuration before attributing a different weighting policy to it.
+The reference preset weights each selected Editor target by its gated reward.
+After adding any configured replay records, it normalizes record weights to a
+mean of one. Uniform sampling then estimates the weighted-mean denoising loss
+without changing the relative contribution of accepted targets and replay.
+Rejected candidates are excluded. Uniform accepted-target weights remain
+available with `training.weighted_sft.accepted_weight_mode=uniform`.
 
-The final paper's primary instantiation is object isolation. Its programmatic
-background-purity and object-completeness checks are not present in this general
-reward path. The final paper also specifies replay and a strict Planner
-band-pass admission rule that the demonstration configuration does not enable.
-[RELEASE_ALIGNMENT.md](RELEASE_ALIGNMENT.md) lists these differences and the
-settings available from the final manuscript.
+The Planner uses explicit candidate feasibility to admit proposals with a
+success rate between 0.25 and 0.75, excluding all-fail and all-pass groups.
+Identity replay is controlled by `training.reconstruction_replay_ratio` and
+`training.reconstruction_replay_weight`; its ratio defaults to zero.
 
 The edit term contrasts the true instruction with incorrect alternatives. The
 rubric checks source grounding, required after-states, forbidden old states and
@@ -41,7 +41,7 @@ The public CLI checks the effective configuration, including overrides, before
 model imports. It requires an internal CEPR evaluator and the same Qwen backbone
 for planning and editing. External detector loading is absent from this branch.
 Optional grounding uses the editor-side Qwen component only; it is disabled in
-the reference configuration. API benchmark judges are evaluation-only.
+the reference preset. API benchmark judges are evaluation-only.
 
 ## Source inputs
 

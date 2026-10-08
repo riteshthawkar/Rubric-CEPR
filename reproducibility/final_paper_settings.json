@@ -73,5 +73,5 @@
     "Final adapter identities and benchmark generation/scoring receipts",
     "Step1X training, internal feature and inference backend"
   ],
-  "documentation": "docs/RELEASE_ALIGNMENT.md"
+  "documentation": "docs/RESULTS.md#release-artifacts"
 }

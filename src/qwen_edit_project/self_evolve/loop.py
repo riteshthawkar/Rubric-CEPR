@@ -27,6 +27,7 @@ from qwen_edit_project.self_evolve.proposer_training import (
     build_proposer_training_records,
     write_proposer_training_jsonl,
 )
+from qwen_edit_project.self_evolve.training_weights import accepted_target_weight, normalize_record_weights
 from qwen_edit_project.self_evolve.types import (
     AcceptedSample,
     EditProposal,
@@ -1739,7 +1740,14 @@ class SelfEvolveRunner:
         if status == "accepted":
             if contract_reason is not None:
                 return 0.0, contract_reason
-            return float(weighted_cfg.get("accepted_weight", 1.0)), "accepted"
+            evaluation = payload.get("evaluator") or payload.get("solver") or {}
+            reward = evaluation.get("total_score") if isinstance(evaluation, dict) else None
+            weight = accepted_target_weight(
+                reward,
+                scale=weighted_cfg.get("accepted_weight", 1.0),
+                mode=str(weighted_cfg.get("accepted_weight_mode", "uniform")),
+            )
+            return weight, "accepted"
 
         evaluation = payload.get("evaluator") or payload.get("solver") or {}
         component_scores = evaluation.get("component_scores", {}) if isinstance(evaluation, dict) else {}
@@ -4122,6 +4130,8 @@ class SelfEvolveRunner:
                         "candidate_status": "reconstruction_replay",
                     }
                 )
+        if bool(training_cfg.get("normalize_sample_weights", False)):
+            manifest_records = normalize_record_weights(manifest_records)
         save_json(manifest_records, manifest_path)
         write_jsonl(manifest_records, manifest_path.with_suffix(".jsonl"))
         weight_sum = sum(float(record.get("sample_weight", 1.0)) for record in manifest_records)
@@ -4541,6 +4551,7 @@ class SelfEvolveRunner:
         _append_flag(command, "--model_name_or_path", proposer_cfg.get("model_name_or_path"))
         _append_flag(command, "--model_subfolder", proposer_cfg.get("model_subfolder"))
         _append_flag(command, "--processor_subfolder", proposer_cfg.get("processor_subfolder"))
+        _append_flag(command, "--revision", proposer_cfg.get("revision"))
         _append_flag(command, "--model_class", proposer_cfg.get("model_class"))
         _append_flag(command, "--train_jsonl", effective_train_jsonl)
         _append_flag(command, "--dataset_base_path", ".")

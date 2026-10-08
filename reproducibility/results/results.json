@@ -2,12 +2,12 @@
   "schema_version": 1,
   "method": "internal_cepr",
   "paper_reference": "docs/RESULTS.md",
-  "availability": "Implementation, artifact availability and measurement provenance are described in docs/PAPER_PROVENANCE.md.",
+  "availability": "Released components and separate run assets are described in docs/RESULTS.md#release-artifacts.",
   "detector_assisted_baseline": {
     "branch": "groundingdino-extraction",
     "url": "https://github.com/riteshthawkar/Rubric-CEPR/tree/groundingdino-extraction",
     "scope": "64-pair extraction recipe, recovered 149-pair verifier-bank analysis and their separate historical records"
   },
   "provenance_report": "reproducibility/paper_provenance.json",
-  "provenance_document": "docs/PAPER_PROVENANCE.md"
+  "provenance_document": "docs/RESULTS.md"
 }

@@ -93,6 +93,12 @@ def test_main_pins_internal_framework_without_legacy_pairs():
     'evaluator.backend=hybrid',
     'evaluator.require_internal_components=false',
     'proposer.model_name_or_path=external-model',
+    'training.weighted_sft.include_rejected=true',
+    'training.weighted_sft.include_feasible_ranked_positives=true',
+    'training.weighted_sft.accepted_weight_mode=unknown',
+    'training.preference.enabled=true',
+    'evaluator.top_m=2',
+    'proposer.revision=different-revision',
 ])
 def test_external_scoring_overrides_fail_before_model_execution(override, monkeypatch):
     monkeypatch.setattr(cli, 'require_gpu_step', lambda: pytest.fail('Scheduler should not be called'))
@@ -196,7 +202,7 @@ def test_completion_requires_the_actual_requested_steps(tmp_path, steps):
 def test_results_do_not_assign_baseline_scores_to_main():
     report = json.loads((checks.ROOT / 'reproducibility/results/results.json').read_text())
     assert report['method'] == 'internal_cepr'
-    assert report['provenance_document'] == 'docs/PAPER_PROVENANCE.md'
+    assert report['provenance_document'] == 'docs/RESULTS.md'
     assert (checks.ROOT / report['provenance_document']).is_file()
     assert report['detector_assisted_baseline']['branch'] == 'groundingdino-extraction'
     assert 'imgedit_737' not in report

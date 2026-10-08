@@ -65,7 +65,7 @@ from 3.86 to 4.16 (+7.8%).
 
 **Availability.** This repository contains the implementation and the matched
 evaluation protocols. Checkpoints, training receipts and raw benchmark outputs
-are separate assets. [Result provenance and artifact availability](docs/PAPER_PROVENANCE.md)
+are separate assets. [Result provenance and artifact availability](docs/RESULTS.md#release-artifacts)
 describe the records associated with each reported result. New runs should record
 the actual adapter hash and evaluation receipts before being compared with the table above.
 Per-family and per-metric tables are in [docs/RESULTS.md](docs/RESULTS.md).
@@ -139,7 +139,8 @@ rubric-cepr train --dry-run --manifest /path/to/sources.jsonl --output /path/to/
 `framework` generates and verifies candidates and, by default, only emits the
 training commands. `train` launches the Editor and Planner adapter updates for
 accepted candidates and qualifying Planner traces. The reference configuration
-uses small demonstration budgets, not the settings behind the paper's scores.
+uses 400 Editor updates and 16 Planner updates. A small-budget example is in
+`configs/examples/internal_cepr_small.yaml`.
 [Training instructions](docs/TRAINING.md) cover the overlap checks, Slurm launch
 and completion checks, and [Method](docs/METHOD.md) describes each component.
 

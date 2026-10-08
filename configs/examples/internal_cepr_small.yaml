@@ -1,4 +1,4 @@
-# Internal CEPR reference preset: one round over the supplied source manifest.
+# Small-budget configuration for exercising the internal workflow.
 name: self_evolve_qwen_edit_2509_internal_cepr_rubric_trainable_proposer
 runtime:
   seed: 123
@@ -24,7 +24,9 @@ proposer:
   scripted_probability: 0.2
   family_policy: metadata_preferred
   focus_edit_types:
-  - subject_extraction
+  - object_removal
+  - object_replacement
+  - object_addition
   avoid_edit_types:
   - global_adjustment
   - color_change
@@ -49,7 +51,7 @@ proposer:
     mixed_precision: bf16
     learning_rate: 1.0e-05
     num_train_epochs: 1
-    max_train_steps: 16
+    max_train_steps: null
     train_batch_size: 1
     gradient_accumulation_steps: 4
     max_grad_norm: 1.0
@@ -69,9 +71,6 @@ proposer:
       reward_sigma: 0.25
       min_reward: 0.35
       min_quality: 0.3
-      require_productive_band_for_sft: true
-      min_success_rate_for_sft: 0.25
-      max_success_rate_for_sft: 0.75
     reward_weighting: true
   revision: d3968ef930e841f4c73640fb8afa3b306a78167e
 editor:
@@ -143,7 +142,7 @@ evaluator:
   max_rubric_items: 3
   combine_cepr_semantics: true
 curriculum:
-  num_rounds: 1
+  num_rounds: auto
   record_schedule: sequential_shards
   proposals_per_image: 1
   initial_level: 2
@@ -151,6 +150,7 @@ curriculum:
   max_level: 3
   promote_at: 0.65
   demote_at: 0.25
+  max_records_per_round: 8
 training:
   trigger: emit_only
   base_train_config: configs/train/lora_2509_diffusers.yaml
@@ -158,9 +158,9 @@ training:
   continue_with_trained_checkpoint: true
   trained_checkpoint_backend: official_diffusers
   resume_from_latest: true
-  learning_rate: 0.0001
+  learning_rate: 1.0e-06
   num_epochs: 1
-  max_train_steps: 400
+  max_train_steps: 16
   gradient_accumulation_steps: 1
   checkpointing_steps: 0
   offload: false
@@ -209,12 +209,10 @@ training:
     min_validity: 0.5
     min_taxonomy: 0.3
     score_power: 1.0
-    accepted_weight_mode: reward
   reconstruction_replay_ratio: 0.0
   reconstruction_replay_weight: 0.5
   reconstruction_replay_prompt: Reconstruct the input image exactly. Preserve all
     content, layout, colors, and text.
-  normalize_sample_weights: true
 output:
   root_dir: outputs/framework_reference
   save_all_candidates: true
