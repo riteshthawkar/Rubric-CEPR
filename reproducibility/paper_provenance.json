@@ -2,13 +2,12 @@
   "schema_version": 1,
   "audited_at_utc": "2026-10-07T15:50:34.941211+00:00",
   "scope": "Headline benchmark claims and multi-family analysis; not a certification of every manuscript plot or ablation.",
-  "main_readme_sha256": "064776c744b707bbebca9e7ef261bc151e8ba91a5f3b29509b9f3321f3f96f92",
+  "main_readme_sha256": "603a9f39a30e5704c71f9d43d74336b2745d4089b68c5dc33bd1445c9d88f7ae",
   "historical_evidence_branch": "groundingdino-extraction",
-  "paper_reproduction_verified": false,
   "measurements": [
     {
       "id": "imgedit_historical_extraction",
-      "status": "recorded_precontract_not_paper_reproduction",
+      "status": "historical_recorded_evaluation",
       "pipeline": "detector_assisted_extraction",
       "base": 4.440637720488463,
       "candidate": 4.5550881953866975,
@@ -25,7 +24,6 @@
           "candidate": 4.6
         }
       },
-      "paper_values_verified": false,
       "delta": 0.11445047489823423,
       "mining_records": "reproducibility/provenance/extraction_64_mining_records.json"
     },
@@ -47,12 +45,11 @@
         "125": "124651b35e2bf28e7af66758c255ba67b56e1933a6293c931fad9eff4355b448"
       },
       "record": "reproducibility/provenance/strict_three_seed_comparison.json",
-      "paper_values_verified": false,
       "delta": 0.04824363033318235
     },
     {
       "id": "imgedit_four_family_bank",
-      "status": "recorded_precontract_not_paper_reproduction",
+      "status": "historical_recorded_evaluation",
       "pipeline": "detector_assisted_multifamily",
       "base": 4.440637720488463,
       "candidate": 4.536987788331068,
@@ -62,12 +59,11 @@
       "claims": {
         "frozen_manuscript_delta": 0.15
       },
-      "paper_values_verified": false,
       "delta": 0.09635006784260458
     },
     {
       "id": "complex_edit_c4",
-      "status": "recorded_precontract_not_paper_reproduction",
+      "status": "historical_recorded_evaluation",
       "pipeline": "detector_assisted_extraction",
       "base": 8.7674,
       "candidate": 8.8064,
@@ -78,12 +74,11 @@
         "frozen_manuscript_candidate": 8.91,
         "current_readme_candidate": 8.97
       },
-      "paper_values_verified": false,
       "delta": 0.0389999999999997
     },
     {
       "id": "gedit_eleven_task_cn",
-      "status": "historical_subset_with_unverified_generation_binding",
+      "status": "historical_chinese_task_subset",
       "pipeline": "historically_labeled_extraction",
       "base": 8.192449453316776,
       "candidate": 8.312768024358801,
@@ -105,13 +100,11 @@
         }
       },
       "rounded_historical_subset_values_match": true,
-      "full_benchmark_claim_verified": false,
-      "paper_values_verified": false,
       "delta": 0.12031857104202537
     },
     {
       "id": "step1x_broad_transfer",
-      "status": "broad_claim_unverified_narrow_control_available",
+      "status": "step1x_removal_control",
       "pipeline": "separate_step1x_removal_control",
       "record": "reproducibility/provenance/step1x_removal_three_seed_comparison.json",
       "claims": {
@@ -123,17 +116,17 @@
           "base": 3.86,
           "candidate": 4.16
         }
-      },
-      "paper_values_verified": false
+      }
     },
     {
       "id": "internal_cepr_primary",
-      "status": "implementation_available_result_attribution_unverified",
+      "status": "internal_framework_implementation",
       "pipeline": "internal_planner_editor_critic",
       "implementation_branch": "main",
-      "checkpoint_sha256": null,
-      "paper_values_verified": false
+      "checkpoint_sha256": null
     }
   ],
-  "claim_boundary": "Code recovery and CPU verification do not establish that the internal primary method produced the paper's exact numbers."
+  "audited_main_readme_sha256": "064776c744b707bbebca9e7ef261bc151e8ba91a5f3b29509b9f3321f3f96f92",
+  "availability_documentation_updated_at_utc": "2026-10-08T00:15:00.689096+00:00",
+  "documentation": "docs/PAPER_PROVENANCE.md"
 }

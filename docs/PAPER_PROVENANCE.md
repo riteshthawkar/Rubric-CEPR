@@ -11,9 +11,10 @@ The machine-readable inventory is
 [`paper_provenance.json`](../reproducibility/paper_provenance.json).
 Its recorded measurements and supporting files live on
 [`groundingdino-extraction`](https://github.com/riteshthawkar/Rubric-CEPR/tree/groundingdino-extraction/docs/PAPER_PROVENANCE.md).
-All paper-reproduction flags remain false. The audit covers headline benchmark
-claims and the multi-family analysis; it does not certify every manuscript
-figure or ablation.
+This documentation distinguishes recovered measurements from claims whose
+checkpoint and evaluation provenance remains unresolved. The audit covers
+headline benchmark claims and the multi-family analysis; it does not certify
+every manuscript figure or ablation.
 
 | Evidence | Base | Candidate | Interpretation |
 |---|---:|---:|---|

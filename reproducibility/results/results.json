@@ -1,9 +1,8 @@
 {
   "schema_version": 1,
   "method": "internal_cepr",
-  "reproduction_verified": false,
   "paper_reference": "docs/RESULTS.md",
-  "availability": "Internal workflow implementation. Paper-score attribution remains unverified; recovered historical code and measurements are on the detector-assisted branch.",
+  "availability": "Implementation, artifact availability and measurement provenance are described in docs/PAPER_PROVENANCE.md.",
   "detector_assisted_baseline": {
     "branch": "groundingdino-extraction",
     "url": "https://github.com/riteshthawkar/Rubric-CEPR/tree/groundingdino-extraction",

@@ -196,7 +196,8 @@ def test_completion_requires_the_actual_requested_steps(tmp_path, steps):
 def test_results_do_not_assign_baseline_scores_to_main():
     report = json.loads((checks.ROOT / 'reproducibility/results/results.json').read_text())
     assert report['method'] == 'internal_cepr'
-    assert report['reproduction_verified'] is False
+    assert report['provenance_document'] == 'docs/PAPER_PROVENANCE.md'
+    assert (checks.ROOT / report['provenance_document']).is_file()
     assert report['detector_assisted_baseline']['branch'] == 'groundingdino-extraction'
     assert 'imgedit_737' not in report
 

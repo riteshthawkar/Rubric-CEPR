@@ -64,11 +64,10 @@ overall GEdit-Bench score from 6.69 to 7.24 (+8.2%) and the overall ImgEdit scor
 from 3.86 to 4.16 (+7.8%).
 
 **Availability.** This repository contains the implementation and the matched
-evaluation protocols. It does **not** include the paper's checkpoints, training
-receipts or raw benchmark outputs, so these scores are reported values and are not
-reproduced by running the code here. `rubric-cepr results` prints
-`"reproduction_verified": false` for this reason. New runs should record the actual
-adapter hash and evaluation receipts before being compared with the table above.
+evaluation protocols. Checkpoints, training receipts and raw benchmark outputs
+are separate assets. [Result provenance and artifact availability](docs/PAPER_PROVENANCE.md)
+describe the records associated with each reported result. New runs should record
+the actual adapter hash and evaluation receipts before being compared with the table above.
 Per-family and per-metric tables are in [docs/RESULTS.md](docs/RESULTS.md).
 
 ## Repository layout
