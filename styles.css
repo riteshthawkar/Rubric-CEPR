@@ -1303,3 +1303,19 @@ table.paper.t3 thead tr:last-child th:nth-child(1), table.paper.t3 thead tr:last
   border-left: 1px solid var(--rule-light);
 }
 table.paper tr.tgroup td:nth-child(n) { border-left: 0; }
+
+/* Visible gap between benchmark groups (GEdit-Bench | Complex-Edit, GEdit-Bench | ImgEdit). */
+table.paper.t2 td:nth-child(5),
+table.paper.t2 thead tr:last-child th:nth-child(4),
+table.paper.t2 thead tr:first-child th:nth-child(3),
+table.paper.t3 td:nth-child(5),
+table.paper.t3 thead tr:last-child th:nth-child(4),
+table.paper.t3 thead tr:first-child th:nth-child(3) {
+  border-left: 18px solid #fff;
+  background-clip: padding-box;
+}
+table.paper.t2 tr.tgroup td, table.paper.t3 tr.tgroup td { border-left: 0; }
+
+/* Keep the outer rules continuous across the group gap (separate border model, no spacing). */
+table.paper { border-collapse: separate; border-spacing: 0; }
+table.paper tr.mid td { border-top: 1px solid var(--rule-dark); }
