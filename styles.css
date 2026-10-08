@@ -1261,10 +1261,45 @@ table.paper tr.tgroup td {
 }
 table.paper tr.tgroup + tr td { padding-top: 0.35rem; }
 table.paper tr.mid td { border-top: 1px solid var(--ink); }
-table.paper tr.ours td { background: #e9f0fb; }
-table.paper tr.ours td:first-child { color: var(--ink); }
-table.paper tr.delta td { background: #e9f0fb; color: var(--positive); font-weight: 400; }
+table.paper tr.ours td { background: var(--positive-soft); }
+table.paper tr.ours td:first-child { color: var(--positive); font-weight: 700; }
+table.paper tr.delta td { background: var(--positive-soft); color: var(--positive); font-weight: 400; }
 table.paper tr.delta td:first-child { padding-left: 1.6rem; color: var(--ink); font-style: italic; }
 table.paper td.best { font-weight: 700; }
 table.paper tbody tr:last-child td { border-bottom: 0; }
 .table-panel figcaption { text-align: left; }
+
+/* Paper-style tables: light fills for secondary headings, light rules between rows, dark rules at structure. */
+table.paper { --rule-light: #e3e7ee; --rule-dark: var(--ink); }
+table.paper tbody td { border-bottom: 1px solid var(--rule-light); }
+table.paper tbody tr:last-child td { border-bottom: 0; }
+table.paper tr.tgroup td {
+  background: #f1f4f9;
+  color: var(--muted);
+  border-top: 1px solid #c9d0db;
+  border-bottom: 1px solid #c9d0db;
+}
+table.paper tr.tgroup:hover td { background: #f1f4f9; }
+table.paper tr.mid td { border-top: 1.5px solid var(--rule-dark); }
+table.paper .cmid {
+  padding: 0.18rem 0.4rem;
+  border: 0;
+  border-bottom: 1.5px solid var(--accent);
+  border-radius: 4px 4px 0 0;
+  background: var(--accent-soft);
+  color: var(--accent-strong);
+}
+table.paper thead tr:last-child th { border-bottom: 1.5px solid var(--rule-dark); }
+table.paper thead th.mname { border-bottom: 1.5px solid var(--rule-dark); }
+table.paper tr.ours td { border-bottom-color: #cfe9da; }
+table.paper tr.delta td { border-bottom: 0; }
+/* light vertical rules between the model column and benchmark column groups */
+table.paper.t1 td:nth-child(2), table.paper.t1 td:nth-child(11),
+table.paper.t1 thead tr:last-child th:nth-child(1), table.paper.t1 thead tr:last-child th:nth-child(10),
+table.paper.t2 td:nth-child(2), table.paper.t2 td:nth-child(5),
+table.paper.t2 thead tr:last-child th:nth-child(1), table.paper.t2 thead tr:last-child th:nth-child(4),
+table.paper.t3 td:nth-child(2), table.paper.t3 td:nth-child(5),
+table.paper.t3 thead tr:last-child th:nth-child(1), table.paper.t3 thead tr:last-child th:nth-child(4) {
+  border-left: 1px solid var(--rule-light);
+}
+table.paper tr.tgroup td:nth-child(n) { border-left: 0; }
