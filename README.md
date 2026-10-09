@@ -1,5 +1,9 @@
 # Rubric-CEPR: Self-Evolving Image Editing via Reward-Verified Self-Distillation
 
+**Ritesh Thawkar**<sup>1</sup>, **Shubham Patle**<sup>1</sup>, **Shravan Venkatraman**<sup>1</sup>, **Rao Muhammad Anwer**<sup>1,2</sup>
+
+<sup>1</sup>Mohamed bin Zayed University of Artificial Intelligence &nbsp;&nbsp; <sup>2</sup>Aalto University
+
 Rubric-CEPR improves a pretrained image editor from its own verified edits, with
 no human-edited targets and no external reward model during training. A Planner
 specifies an edit, an Editor generates candidates, and a frozen Critic checks the
