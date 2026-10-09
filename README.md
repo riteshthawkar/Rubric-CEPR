@@ -14,7 +14,7 @@ content; the rubric adds explicit checks for required states, removal of forbidd
 old states, and preservation constraints. A candidate's reward is
 `R = G * sqrt(E * P)`, and it is zero whenever a gate fails.
 
-[Project page](https://riteshthawkar.github.io/Rubric-CEPR/) ·
+[Paper (arXiv)](https://arxiv.org/abs/2610.12469) · [Project page](https://riteshthawkar.github.io/Rubric-CEPR/) ·
 [Method](docs/METHOD.md) · [Training](docs/TRAINING.md) ·
 [Evaluation](docs/EVALUATION.md) · [Results](docs/RESULTS.md)
 
@@ -180,11 +180,11 @@ give dataset versions, benchmark-specific settings and scoring commands.
 ## Citation
 
 ```bibtex
-@misc{thawkar2026rubriccepr,
+@article{thawkar2026rubriccepr,
   title={Rubric-CEPR: Self-Evolving Image Editing via Reward-Verified Self-Distillation},
   author={Thawkar, Ritesh and Patle, Shubham and Venkatraman, Shravan and Anwer, Rao Muhammad},
-  year={2026},
-  note={Preprint}
+  journal={arXiv preprint arXiv:2610.12469},
+  year={2026}
 }
 ```
 
